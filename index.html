@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIRI · Capítulo Nariño · Universidad de Nariño</title>
+    
+    <!-- Fuentes Montserrat e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para íconos profesionales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tu archivo CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <!-- ===== NAVEGACIÓN PROFESIONAL ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="nav-logo">
+                <span class="logo-text"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">INICIO</a></li>
+                <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
+                <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
+                <li><a href="convenio.html" class="nav-link">CONVENIO</a></li>
+                <li><a href="noticias.html" class="nav-link">NOTICIAS</a></li>
+                <li><a href="direccion.html" class="nav-link">CONTACTO</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== SECCIÓN 1: INICIO / HERO ===== -->
+    <section id="inicio" class="hero">
+        <!-- Fondo con slider de imágenes -->
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('imagenes/fondo-hero-1.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-2.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-3.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-4.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-5.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-6.jpg');"></div>
+            <!-- Overlay oscuro para legibilidad -->
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Contenido principal del hero -->
+        <div class="hero-content">
+            <!-- Lado izquierdo: Texto principal -->
+            <div class="hero-texto">
+                <h1 class="hero-titulo">
+                    <span class="linea1">PIRI</span>
+                    <span class="linea2">PROGRAMA DE INTERACCIÓN RURAL</span>
+                    <span class="linea3">INTERDISCIPLINARIO</span>
+                </h1>
+                
+                <h2 class="hero-subtitulo">Universidad de Nariño · Extensión Ipiales</h2>
+                
+                <!-- Calendario profesional (no emoji) -->
+                <div class="fecha-destacada">
+                    <div class="calendario-icono">
+                        <i class="far fa-calendar-alt"></i>
+                        <span class="calendario-fecha">19 MAR 2026</span>
+                    </div>
+                    <div class="ubicacion-icono">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ipiales, Colombia</span>
+                    </div>
+                </div>
+
+                <!-- Lugar específico -->
+                <p class="lugar-evento">
+                    <i class="fas fa-location-dot" style="color: var(--verde-brillante);"></i>
+                    Auditorio Gonzalo Bravo Pérez · Sede Regional Ipiales
+                </p>
+
+                <!-- ENLACE DE TEAMS EN HERO (compacto) -->
+                <div class="conexion-online hero-conexion">
+                    <a href="https://teams.microsoft.com/meet/21705744503696?p=kUDPCD82Y1yG7qKNJ1" target="_blank" class="live-link">
+                        <div class="live-icon">
+                            <i class="fas fa-video"></i>
+                            <span class="live-badge">EN VIVO</span>
+                        </div>
+                        <div class="live-texto">
+                            <strong>Conexión online</strong>
+                            <span>Únete por Microsoft Teams</span>
+                        </div>
+                        <i class="fas fa-external-link-alt external-icon"></i>
+                    </a>
+                </div>
+
+                <!-- Cuenta regresiva profesional -->
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <span class="countdown-numero" id="dias">00</span>
+                        <span class="countdown-label">DÍAS</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-numero" id="horas">00</span>
+                        <span class="countdown-label">HORAS</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-numero" id="minutos">00</span>
+                        <span class="countdown-label">MIN</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-numero" id="segundos">00</span>
+                        <span class="countdown-label">SEG</span>
+                    </div>
+                </div>
+
+                <!-- Botones de acción con enlace de Google Forms -->
+                <div class="hero-botones">
+                    <a href="https://forms.gle/SNobynyCRTwRFnmy7" target="_blank" class="btn btn-primario">CONFIRMAR ASISTENCIA</a>
+                    <a href="agenda.html" class="btn btn-secundario">AGENDA</a>
+                </div>
+
+                <!-- Texto del flyer incluido sutilmente -->
+                <div class="flyer-texto">
+                    <p>Invitamos a docentes, estudiantes y administrativos a ser parte de este proceso que impulsa la interacción social y el compromiso con nuestro territorio.</p>
+                    <span class="convenio-badge">Convenio REI-259422</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicador de scroll -->
+        <div class="scroll-indicator">
+            <span>Descubre más</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ===== BANNER DEL FLYER ===== -->
+    <section class="flyer-banner">
+        <div class="flyer-banner-container">
+            <!-- Lado izquierdo: El flyer visual -->
+            <div class="flyer-banner-imagen">
+                <img src="imagenes/flyer.jpg" alt="Flyer oficial PIRI Lanzamiento 2026" class="flyer-banner-img">
+                <!-- ✅ LANZAMIENTO OFICIAL como título normal, sin borde fluorescente -->
+            </div>
+
+            <!-- Lado derecho: Información clave del flyer -->
+            <div class="flyer-banner-info">
+                <!-- ✅ LANZAMIENTO OFICIAL como título normal aquí -->
+                <div class="lanzamiento-titulo-normal">LANZAMIENTO OFICIAL</div>
+                
+                <h3 class="flyer-banner-titulo">
+                    <span class="capitulo">CAPÍTULO NARIÑO</span>
+                    <span class="programa">PIRI 2026</span>
+                </h3>
+                
+                <div class="flyer-banner-destacado">
+                    <p class="flyer-banner-invitacion">
+                        Invitamos a docentes, estudiantes y administrativos a ser parte de este proceso que impulsa la interacción social y el compromiso con nuestro territorio.
+                    </p>
+                </div>
+
+                <!-- CUADRO DE DETALLES CON ENLACE DE TEAMS -->
+                <div class="flyer-banner-detalles">
+                    <!-- Fecha -->
+                    <div class="detalle-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <strong>Fecha</strong>
+                            <span>19 de marzo de 2026</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Hora -->
+                    <div class="detalle-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Hora</strong>
+                            <span>8:30 A.M.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Lugar + Conexión Online -->
+                    <div class="detalle-item lugar-con-online">
+                        <i class="fas fa-map-pin"></i>
+                        <div class="lugar-info">
+                            <div>
+                                <strong>Lugar</strong>
+                                <span>Auditorio Gonzalo Bravo Pérez</span>
+                                <small>Sede Regional Ipiales</small>
+                            </div>
+                            
+                            <!-- ENLACE DE TEAMS MÁS HORIZONTAL Y COMPACTO -->
+                            <div class="conexion-online-detalle">
+                                <a href="https://teams.microsoft.com/meet/21705744503696?p=kUDPCD82Y1yG7qKNJ1" target="_blank" class="live-link-detalle">
+                                    <i class="fas fa-video"></i>
+                                    <span class="live-badge-detalle">EN VIVO</span>
+                                    <span class="live-texto-detalle">Conexión online · Microsoft Teams</span>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Convenio reorganizado -->
+                <div class="flyer-banner-convenio">
+                    <span class="universidad-tag">Universidad de Nariño</span>
+                    <span class="convenio-tag">Convenio REI-259422</span>
+                    <span class="ufro-tag">Universidad de La Frontera</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- ===== MAPA DE UBICACIÓN ===== -->
+    <section class="seccion-mapa">
+        <div class="contenedor-mapa">
+            <h3 class="mapa-titulo">Ubicación del evento</h3>
+            <div class="mapa-contenedor">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.192258833275!2d-77.6278851!3d0.8223019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e296b9180f85a61%3A0xc97584b738e77208!2sUniversidad%20De%20Nari%C3%B1o!5e0!3m2!1ses!2sco!4v1741812345678!5m2!1ses!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p class="mapa-direccion">Universidad de Nariño · Extensión Ipiales · Auditorio Gonzalo Bravo Pérez</p>
+        </div>
+    </section>
+
+    <!-- ===== CONTADOR DE VISITAS ===== -->
+    <div class="contador-visitas">
+        <div class="contador-icono">
+            <i class="fas fa-eye"></i>
+        </div>
+        <div class="contador-info">
+            <span class="contador-label">Visitas a esta página</span>
+            <span class="contador-numero" id="contador">
+                <i class="fas fa-spinner fa-pulse"></i>
+            </span>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER COMPLETO (UNO SOLO) ===== -->
+    <footer class="footer-principal">
+        <div class="footer-contenedor">
+            <!-- Logos institucionales (una sola imagen horizontal) -->
+            <div class="footer-logos-horizontal">
+                <img src="imagenes/logos.svg" alt="Logos institucionales" class="footer-logos-svg">
+            </div>
+
+            <!-- Información del programa -->
+            <div class="footer-info">
+                <p class="footer-programa">PIRI · Programa de Interacción Rural Interdisciplinario · Capítulo Nariño</p>
+                <p class="footer-contacto">Contacto: <a href="mailto:meqy2022@udenar.edu.co">meqy2022@udenar.edu.co</a></p>
+            </div>
+
+            <!-- Créditos y copyright -->
+            <div class="footer-creditos">
+                <p>© 2026 PIRI Capítulo Nariño · Todos los derechos reservados</p>
+                <p class="footer-desarrollo">Desarrollo web: Jhon Alvaro Cuastuza</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Contador de visitas
+        fetch("https://api.countapi.xyz/hit/piri-narino/visitas")
+            .then(res => res.json())
+            .then(res => {
+                document.getElementById("contador").innerText = res.value;
+            })
+            .catch(error => {
+                document.getElementById("contador").innerHTML = '<i class="fas fa-eye"></i> 0';
+            });
+    </script>
+</body>
+</html>
+
+    <!-- Script para el slider y countdown -->
+    <script src="js/script.js"></script>
+</body>
+</html>

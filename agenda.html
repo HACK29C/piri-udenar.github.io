@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda · Lanzamiento PIRI · Capítulo Nariño</title>
+    
+    <!-- Fuentes Montserrat e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS compartido -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <!-- ===== FONDO DE TEJIDO ANDINO ===== -->
+    <div class="fondo-tejido"></div>
+
+    <!-- ===== NAVEGACIÓN ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="nav-logo">
+                <span class="logo-text"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">INICIO</a></li>
+                <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
+                <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
+                <li><a href="convenio.html" class="nav-link">CONVENIO</a></li>
+                <li><a href="noticias.html" class="nav-link">NOTICIAS</a></li>
+                <li><a href="contacto.html" class="nav-link">CONTACTO</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO CON SLIDER (EXACTAMENTE IGUAL AL INDEX) ===== -->
+    <section id="inicio" class="hero">
+        <!-- Fondo con slider de imágenes -->
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('imagenes/fondo-hero-1.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-2.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-3.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-4.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-5.jpg');"></div>
+            <div class="slide" style="background-image: url('imagenes/fondo-hero-6.jpg');"></div>
+            <!-- Overlay oscuro para legibilidad -->
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Contenido principal del hero -->
+        <div class="hero-content">
+            <!-- Lado izquierdo: Texto principal -->
+            <div class="hero-texto">
+                <h1 class="hero-titulo">
+                    <span class="linea1">PIRI</span>
+                    <span class="linea2">PROGRAMA DE INTERACCIÓN RURAL</span>
+                    <span class="linea3">INTERDISCIPLINARIO</span>
+                </h1>
+                
+                <h2 class="hero-subtitulo">Universidad de Nariño · Extensión Ipiales</h2>
+                
+                <!-- Calendario profesional -->
+                <div class="fecha-destacada">
+                    <div class="calendario-icono">
+                        <i class="far fa-calendar-alt"></i>
+                        <span class="calendario-fecha">19 MAR 2026</span>
+                    </div>
+                    <div class="ubicacion-icono">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ipiales, Colombia</span>
+                    </div>
+                </div>
+
+                <!-- Lugar específico -->
+                <p class="lugar-evento">
+                    <i class="fas fa-location-dot" style="color: var(--verde-brillante);"></i>
+                    Auditorio Gonzalo Bravo Pérez · Sede Regional Ipiales
+                </p>
+
+                <!-- Enlace de transmisión en vivo -->
+                <div class="conexion-online hero-conexion">
+                    <a href="https://teams.microsoft.com/meet/21705744503696?p=kUDPCD82Y1yG7qKNJ1" target="_blank" class="live-link">
+                        <div class="live-icon">
+                            <i class="fas fa-video"></i>
+                            <span class="live-badge">EN VIVO</span>
+                        </div>
+                        <div class="live-texto">
+                            <strong>Conexión online</strong>
+                            <span>Únete por Microsoft Teams</span>
+                        </div>
+                        <i class="fas fa-external-link-alt external-icon"></i>
+                    </a>
+                </div>
+
+                <!-- Cuenta regresiva profesional -->
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <span class="countdown-numero" id="dias">00</span>
+                        <span class="countdown-label">DÍAS</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-numero" id="horas">00</span>
+                        <span class="countdown-label">HORAS</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-numero" id="minutos">00</span>
+                        <span class="countdown-label">MIN</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-numero" id="segundos">00</span>
+                        <span class="countdown-label">SEG</span>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="hero-botones">
+                    <a href="https://forms.gle/SNobynyCRTwRFnmy7" target="_blank" class="btn btn-primario">CONFIRMAR ASISTENCIA</a>
+                </div>
+
+                <!-- Texto del flyer incluido sutilmente -->
+                <div class="flyer-texto">
+                    <p>Invitamos a docentes, estudiantes y administrativos a ser parte de este proceso que impulsa la interacción social y el compromiso con nuestro territorio.</p>
+                    <span class="convenio-badge">Convenio REI-259422</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicador de scroll -->
+        <div class="scroll-indicator">
+            <span>Descubre la agenda</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ===== AGENDA PRINCIPAL (REDISEÑADA) ===== -->
+    <section class="agenda-principal">
+        <div class="contenedor">
+            <div class="agenda-header">
+                <h2 class="seccion-titulo">PROGRAMA DE LANZAMIENTO</h2>
+                <div class="seccion-linea"></div>
+                <div class="agenda-info-evento">
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Jueves 19 de marzo de 2026</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>8:30 A.M.</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Auditorio Gonzalo Bravo Pérez · Sede Regional Ipiales</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline visual mejorado -->
+            <div class="agenda-timeline-moderna">
+                
+                <!-- Bloque 1: Apertura -->
+                <div class="timeline-moderna-bloque">
+                    <div class="timeline-moderna-tiempo">
+                        <span class="hora-inicio">8:30</span>
+                        <span class="hora-fin">8:50</span>
+                    </div>
+                    <div class="timeline-moderna-contenido">
+                        <div class="timeline-moderna-header" style="background: #326C54;">
+                            <i class="fas fa-flag"></i>
+                            <h3>Apertura Institucional</h3>
+                        </div>
+                        <div class="timeline-moderna-items">
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">8:30 - 8:35</span>
+                                <span class="item-actividad">Himno Nacional</span>
+                            </div>
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">8:35 - 8:40</span>
+                                <span class="item-actividad">Himno de la Universidad de Nariño</span>
+                            </div>
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">8:45 - 8:50</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Intervención Director Sede Regional Ipiales</span>
+                                    <span class="item-ponente">Dr. Gerardo Mauricio Bravo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque 2: Autoridades Académicas -->
+                <div class="timeline-moderna-bloque">
+                    <div class="timeline-moderna-tiempo">
+                        <span class="hora-inicio">8:55</span>
+                        <span class="hora-fin">9:10</span>
+                    </div>
+                    <div class="timeline-moderna-contenido">
+                        <div class="timeline-moderna-header" style="background: #9FC33C;">
+                            <i class="fas fa-university"></i>
+                            <h3>Dirección académica de la Facultad</h3>
+                        </div>
+                        <div class="timeline-moderna-items">
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">8:55 - 9:00</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Decano Facultad de Ciencias Económicas y Administrativas</span>
+                                    <span class="item-ponente">Dr. Carlos Manuel Córdoba</span>
+                                </div>
+                            </div>
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">9:05 - 9:10</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Director Departamento Comercio Internacional y Mercadeo</span>
+                                    <span class="item-ponente">Dr. Mario Fernando Arcos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque 3: PIRI Internacional -->
+                <div class="timeline-moderna-bloque">
+                    <div class="timeline-moderna-tiempo">
+                        <span class="hora-inicio">9:15</span>
+                        <span class="hora-fin">9:25</span>
+                    </div>
+                    <div class="timeline-moderna-contenido">
+                        <div class="timeline-moderna-header" style="background: #C85A2E;">
+                            <i class="fas fa-globe-americas"></i>
+                            <h3>PIRI Internacional</h3>
+                        </div>
+                        <div class="timeline-moderna-items">
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">9:15 - 9:25</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Coordinador Programa Internado Rural Interdisciplinario PIRI</span>
+                                    <span class="item-ponente">Mag. Marcelo Carrasco · UFRO, Chile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque 4: Interacción Social -->
+                <div class="timeline-moderna-bloque">
+                    <div class="timeline-moderna-tiempo">
+                        <span class="hora-inicio">9:25</span>
+                        <span class="hora-fin">9:45</span>
+                    </div>
+                    <div class="timeline-moderna-contenido">
+                        <div class="timeline-moderna-header" style="background: #010192;">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <h3>Interacción Social</h3>
+                        </div>
+                        <div class="timeline-moderna-items">
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">9:25 - 9:35</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Director División de Interacción Social</span>
+                                    <span class="item-ponente">Dr. Cristian Guevara</span>
+                                </div>
+                            </div>
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">9:35 - 9:45</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Coordinador Centro de Investigación e Interacción Social</span>
+                                    <span class="item-ponente">Dr. Juan Camilo Mejía</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque 5: Presentación PIRI Nariño (DESTACADO) -->
+                <div class="timeline-moderna-bloque destacado">
+                    <div class="timeline-moderna-tiempo">
+                        <span class="hora-inicio">9:45</span>
+                        <span class="hora-fin">10:05</span>
+                    </div>
+                    <div class="timeline-moderna-contenido">
+                        <div class="timeline-moderna-header" style="background: #95d614; color: #333;">
+                            <i class="fas fa-star"></i>
+                            <h3>PRESENTACIÓN PIRI CAPÍTULO NARIÑO</h3>
+                        </div>
+                        <div class="timeline-moderna-items">
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">9:45 - 10:05</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Presentación PIRI Capítulo Nariño</span>
+                                    <span class="item-ponente">Docente Mirian Quitiaquez Yepes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque 6: Experiencias Estudiantiles -->
+                <div class="timeline-moderna-bloque">
+                    <div class="timeline-moderna-tiempo">
+                        <span class="hora-inicio">10:05</span>
+                        <span class="hora-fin">10:45</span>
+                    </div>
+                    <div class="timeline-moderna-contenido">
+                        <div class="timeline-moderna-header" style="background: #326C54;">
+                            <i class="fas fa-user-graduate"></i>
+                            <h3>Experiencias Estudiantiles</h3>
+                        </div>
+                        <div class="timeline-moderna-items">
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">10:05 - 10:15</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Experiencia PIRI</span>
+                                    <span class="item-ponente">Omar (Programa Mercadeo)</span>
+                                </div>
+                            </div>
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">10:15 - 10:25</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Experiencia PIRI</span>
+                                    <span class="item-ponente">Zaira Estrada (Programa Mercadeo)</span>
+                                </div>
+                            </div>
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">10:25 - 10:35</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Experiencia PIRI</span>
+                                    <span class="item-ponente">Yurani Paredes (Administración de Empresas)</span>
+                                </div>
+                            </div>
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">10:35 - 10:45</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Experiencia PIRI - Putumayo</span>
+                                    <span class="item-ponente">Elkin (Administración de Empresas)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque 7: Movilidad Internacional -->
+                <div class="timeline-moderna-bloque">
+                    <div class="timeline-moderna-tiempo">
+                        <span class="hora-inicio">10:45</span>
+                        <span class="hora-fin">11:00</span>
+                    </div>
+                    <div class="timeline-moderna-contenido">
+                        <div class="timeline-moderna-header" style="background: #9FC33C;">
+                            <i class="fas fa-plane"></i>
+                            <h3>Movilidad Internacional</h3>
+                        </div>
+                        <div class="timeline-moderna-items">
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">10:45 - 11:00</span>
+                                <div class="item-con-ponente">
+                                    <span class="item-actividad">Presentación estudiantes PIRI en movilidad</span>
+                                    <span class="item-ponente">Semestre 2026 A</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque 8: Cierre -->
+                <div class="timeline-moderna-bloque">
+                    <div class="timeline-moderna-tiempo">
+                        <span class="hora-inicio">11:00</span>
+                        <span class="hora-fin">11:40</span>
+                    </div>
+                    <div class="timeline-moderna-contenido">
+                        <div class="timeline-moderna-header" style="background: #C85A2E;">
+                            <i class="fas fa-flag-checkered"></i>
+                            <h3>Cierre del Evento</h3>
+                        </div>
+                        <div class="timeline-moderna-items">
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">11:00 - 11:15</span>
+                                <span class="item-actividad">Espacio para preguntas</span>
+                            </div>
+                            <div class="timeline-moderna-item">
+                                <span class="item-hora">11:15 - 11:30</span>
+                                <span class="item-actividad">Entrega de souvenir PIRI</span>
+                            </div>
+                            <div class="timeline-moderna-item destacado-cierre">
+                                <span class="item-hora">11:30 - 11:40</span>
+                                <span class="item-actividad">Agradecimientos y cierre del evento</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón confirmar asistencia -->
+            <div class="agenda-boton-confirmar">
+                <a href="https://forms.gle/SNobynyCRTwRFnmy7" target="_blank" class="btn-confirmar-grande">
+                    <i class="fas fa-check-circle"></i>
+                    CONFIRMAR ASISTENCIA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-principal">
+        <div class="footer-contenedor">
+            <div class="footer-logos-horizontal">
+                <img src="imagenes/logos.svg" alt="Logos institucionales" class="footer-logos-svg">
+            </div>
+            <div class="footer-info">
+                <p class="footer-programa">PIRI · Programa de Interacción Rural Interdisciplinario · Capítulo Nariño</p>
+                <p class="footer-contacto">Contacto: <a href="mailto:meqy2022@udenar.edu.co">meqy2022@udenar.edu.co</a></p>
+            </div>
+            <div class="footer-creditos">
+                <p>© 2026 PIRI Capítulo Nariño · Todos los derechos reservados</p>
+                <p class="footer-desarrollo">Desarrollo web: Jhon Alvaro Cuastuza</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Countdown
+        function updateCountdown() {
+            const eventDate = new Date('March 19, 2026 08:30:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById('dias').textContent = '00';
+                document.getElementById('horas').textContent = '00';
+                document.getElementById('minutos').textContent = '00';
+                document.getElementById('segundos').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('dias').textContent = days.toString().padStart(2, '0');
+            document.getElementById('horas').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutos').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('segundos').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        // Slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            if (slides.length > 0) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

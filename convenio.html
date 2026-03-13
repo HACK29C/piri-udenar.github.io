@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convenio Internacional · PIRI · UFRO · UDENAR</title>
+    
+    <!-- Fuentes Montserrat e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS compartido -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <!-- ===== FONDO DE TEJIDO ANDINO ===== -->
+    <div class="fondo-tejido"></div>
+
+    <!-- ===== NAVEGACIÓN ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="nav-logo">
+                <span class="logo-text"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">INICIO</a></li>
+                <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
+                <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
+                <li><a href="convenio.html" class="nav-link active">CONVENIO</a></li>
+                <li><a href="noticias.html" class="nav-link">NOTICIAS</a></li>
+                <li><a href="direccion.html" class="nav-link">CONTACTO</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO CON SLIDER (COMO EL INDEX) ===== -->
+    <section class="hero-convenio">
+        <!-- Slider de fondo (mismas fotos del index) -->
+        <div class="hero-convenio-slider">
+            <div class="slide-convenio active" style="background-image: url('imagenes/fondo-hero-1.jpg');"></div>
+            <div class="slide-convenio active" style="background-image: url('imagenes/ufro0.jpg');"></div>
+            <div class="slide-convenio" style="background-image: url('imagenes/ufro1.jpg');"></div>
+            <div class="slide-convenio" style="background-image: url('imagenes/Ufro2.jpg');"></div>
+            <div class="slide-convenio" style="background-image: url('imagenes/fondo-hero-4.jpg');"></div>
+            <div class="slide-convenio" style="background-image: url('imagenes/fondo-hero-5.jpg');"></div>
+            <div class="slide-convenio" style="background-image: url('imagenes/ufro3.jpg');"></div>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Contenido del hero -->
+        <div class="hero-convenio-content">
+            <h1 class="hero-titulo-convenio">
+                <span class="linea1">PIRI</span>
+                <span class="linea2">PROGRAMA DE INTERACCIÓN RURAL</span>
+                <span class="linea3">INTERDISCIPLINARIO</span>
+            </h1>
+            <h2 class="hero-subtitulo-convenio">Universidad de Nariño · Extensión Ipiales</h2>
+        </div>
+    </section>
+
+    <!-- ===== CONVENIO INTERNACIONAL (TARJETAS PRINCIPALES) ===== -->
+    <section class="convenio-principal">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">CONVENIO INTERNACIONAL</h2>
+            <div class="seccion-linea"></div>
+            
+            <div class="convenio-universidades-grid">
+                <!-- Universidad de Nariño -->
+                <div class="universidad-convenio-card">
+                    <div class="universidad-convenio-icono">
+                        <img src="imagenes/logo-udenar.png" alt="Universidad de Nariño">
+                    </div>
+                    <h3>Universidad de Nariño</h3>
+                    <p class="pais-convenio">Colombia</p>
+                    <div class="representante">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Dra. Martha Sofía González Insuasti</span>
+                    </div>
+                    <p class="cargo">Rectora</p>
+                </div>
+                
+                <!-- Conector con fecha -->
+                <div class="convenio-fecha-destacada">
+                    <div class="fecha-circle">
+                        <span class="dia">08</span>
+                        <span class="mes">AGO</span>
+                        <span class="ano">2025</span>
+                    </div>
+                    <div class="convenio-badge-principal">
+                        <i class="fas fa-handshake"></i>
+                        <span>CONVENIO ACTIVO</span>
+                    </div>
+                    <div class="convenio-rei">
+                        <strong>REI-259422</strong>
+                    </div>
+                </div>
+                
+                <!-- Universidad de La Frontera -->
+                <div class="universidad-convenio-card">
+                    <div class="universidad-convenio-icono">
+                        <img src="imagenes/logo-ufro.png" alt="Universidad de La Frontera">
+                    </div>
+                    <h3>Universidad de La Frontera</h3>
+                    <p class="pais-convenio">Chile</p>
+                    <div class="representante">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Dr. Juan Manuel Fierro Bustos</span>
+                    </div>
+                    <p class="cargo">Rector (S)</p>
+                </div>
+            </div>
+            
+            <!-- Documento del convenio -->
+            <div class="convenio-documento">
+                <i class="fas fa-file-pdf"></i>
+                <div class="documento-info">
+                    <h4>Convenio Marco de Cooperación</h4>
+                    <p>Documento completo · 17 páginas</p>
+                </div>
+                <a href="https://www.udenar.edu.co/recursos/wp-content/uploads/2025/08/CONVENIO-MARCO-UNIVERSIDAD-DE-LA-FRONTERA-2-1.pdf" target="_blank" class="btn-documento">
+                    <i class="fas fa-download"></i> DESCARGAR PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DECLARACIONES Y OBJETIVOS (TARJETAS INTERACTIVAS) ===== -->
+    <section class="declaraciones-convenio">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">DECLARACIONES Y OBJETIVOS</h2>
+            <div class="seccion-linea"></div>
+            
+            <div class="declaraciones-grid">
+                <!-- UFRO -->
+                <div class="declaracion-card ufro-card">
+                    <div class="declaracion-header">
+                        <img src="imagenes/logo-ufro.png" alt="UFRO" class="declaracion-logo">
+                        <h3>Universidad de La Frontera</h3>
+                    </div>
+                    <ul class="declaracion-lista">
+                        <li><i class="fas fa-check-circle"></i> Corporación de derecho público chilena, autónoma (D.F.L Educación N°17 de 1981)</li>
+                        <li><i class="fas fa-check-circle"></i> Misión: contribuir al desarrollo de Chile mediante generación y transmisión de conocimiento</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicada a la enseñanza, cultivo de artes, letras y ciencias</li>
+                        <li><i class="fas fa-check-circle"></i> Compromiso con calidad, innovación y respeto por la diversidad cultural</li>
+                    </ul>
+                </div>
+                
+                <!-- UDENAR -->
+                <div class="declaracion-card udenar-card">
+                    <div class="declaracion-header">
+                        <img src="imagenes/logo-udenar.png" alt="UDENAR" class="declaracion-logo">
+                        <h3>Universidad de Nariño</h3>
+                    </div>
+                    <ul class="declaracion-lista">
+                        <li><i class="fas fa-check-circle"></i> Institución autónoma, oficial, creada mediante Decreto No. 49 de 1904</li>
+                        <li><i class="fas fa-check-circle"></i> Personería jurídica, autonomía académica, administrativa y financiera</li>
+                        <li><i class="fas fa-check-circle"></i> Vinculada al Ministerio de Educación Nacional</li>
+                        <li><i class="fas fa-check-circle"></i> Patrimonio independiente con presupuesto propio</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Objeto del convenio -->
+            <div class="objeto-convenio">
+                <div class="objeto-icono">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="objeto-texto">
+                    <h3>Objeto del Convenio Marco</h3>
+                    <p>Fomentar la colaboración entre LAS PARTES para emprender conjuntamente actividades académicas, científicas, culturales y de movilidad, tanto de docentes como de estudiantes para la participación de los programas académicos que oferta cada una de las partes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ALCANCES Y ACTIVIDADES (GRID DE BENEFICIOS) ===== -->
+    <section class="alcances-convenio">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">ALCANCES DEL CONVENIO</h2>
+            <div class="seccion-linea"></div>
+            
+            <div class="alcances-grid">
+                <div class="alcance-item">
+                    <div class="alcance-icono" style="background: linear-gradient(135deg, #326C54, #255633);">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4>Intercambio académico</h4>
+                    <p>Estimular el intercambio de personal académico para actualizar conocimientos en investigación académica, científica, tecnológica y cultural.</p>
+                </div>
+                
+                <div class="alcance-item">
+                    <div class="alcance-icono" style="background: linear-gradient(135deg, #9FC33C, #7AA32E);">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h4>Movilidad estudiantil</h4>
+                    <p>Facilitar el intercambio de estudiantes en diferentes áreas del conocimiento, investigación, pasantías y actividades culturales y deportivas.</p>
+                </div>
+                
+                <div class="alcance-item">
+                    <div class="alcance-icono" style="background: linear-gradient(135deg, #C85A2E, #9C451F);">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h4>Intercambio administrativo</h4>
+                    <p>Propiciar el intercambio de personal administrativo para fortalecer los procesos administrativos de ambas instituciones.</p>
+                </div>
+                
+                <div class="alcance-item">
+                    <div class="alcance-icono" style="background: linear-gradient(135deg, #010192, #010170);">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h4>Investigación conjunta</h4>
+                    <p>Definir líneas de investigación conjunta y estructurar proyectos de investigación en áreas de interés común.</p>
+                </div>
+                
+                <div class="alcance-item">
+                    <div class="alcance-icono" style="background: linear-gradient(135deg, #326C54, #255633);">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h4>Eventos académicos</h4>
+                    <p>Facilitar la participación mutua en eventos académicos organizados por cualquiera de las dos instituciones.</p>
+                </div>
+                
+                <div class="alcance-item">
+                    <div class="alcance-icono" style="background: linear-gradient(135deg, #9FC33C, #7AA32E);">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4>Publicaciones conjuntas</h4>
+                    <p>Programación conjunta de cursos, seminarios y publicaciones en áreas de interés común.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRIMER VIDEO: PIRI LLEGA A COLOMBIA ===== -->
+    <section class="video-seccion">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">PIRI LLEGA A COLOMBIA</h2>
+            <div class="seccion-linea"></div>
+            
+            <div class="video-grid">
+                <!-- Texto a la izquierda -->
+                <div class="video-info">
+                    <div class="video-info-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Cuando las universidades se unen, el territorio gana</h3>
+                        <p>El Programa Internado Rural de Interacción (PIRI), una experiencia que ha transformado comunidades rurales en el sur de Chile desde la <strong>Universidad de La Frontera</strong>, cruza fronteras y llega a Colombia.</p>
+                        
+                        <div class="video-destacados">
+                            <div class="destacado-item">
+                                <i class="fas fa-globe"></i>
+                                <span>Aprender desde el territorio</span>
+                            </div>
+                            <div class="destacado-item">
+                                <i class="fas fa-handshake"></i>
+                                <span>Trabajar con las comunidades</span>
+                            </div>
+                            <div class="destacado-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Formar profesionales con sentido crítico</span>
+                            </div>
+                        </div>
+                        
+                        <p class="video-firma">Gracias a un acuerdo académico entre la UFRO y la Universidad de Nariño, el PIRI también se desarrollará en la <strong>Universidad de Nariño sede Ipiales</strong>, fortaleciendo el trabajo comunitario, la formación interdisciplinaria y el compromiso social de nuestros estudiantes.</p>
+                    </div>
+                </div>
+                
+                <!-- Video a la derecha -->
+                <div class="video-contenedor-dual">
+                    <div class="fb-video-contenedor" style="padding-bottom: 56.25%;">
+                        <iframe 
+                            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1273757481612508%2F&show_text=false&width=560&t=0" 
+                            width="560" 
+                            height="314" 
+                            style="border:none;overflow:hidden" 
+                            scrolling="no" 
+                            frameborder="0" 
+                            allowfullscreen="true" 
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEGUNDO VIDEO: ESTUDIANTES A CHILE ===== -->
+    <section class="video-seccion">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">MOVILIDAD ESTUDIANTIL</h2>
+            <div class="seccion-linea"></div>
+            
+            <div class="video-grid video-grid-invertida">
+                <!-- Video a la izquierda -->
+                <div class="video-contenedor-dual">
+                    <div class="fb-video-contenedor" style="padding-bottom: 56.25%;">
+                        <iframe 
+                            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F899717129629571%2F&show_text=false&width=560&t=0" 
+                            width="560" 
+                            height="314" 
+                            style="border:none;overflow:hidden" 
+                            scrolling="no" 
+                            frameborder="0" 
+                            allowfullscreen="true" 
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Texto a la derecha -->
+                <div class="video-info">
+                    <div class="video-info-card">
+                        <i class="fas fa-plane"></i>
+                        <h3>Una experiencia académica que cruza fronteras</h3>
+                        <p><strong>Dos estudiantes del programa de Comercio Internacional</strong> de la Universidad de Nariño sede Ipiales han sido seleccionados para participar en el Programa Internado Rural Interdisciplinario (PIRI).</p>
+                        
+                        <div class="estudiantes-destacados">
+                            <div class="estudiante-badge">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Prácticas profesionales en Temuco, Chile</span>
+                            </div>
+                            <div class="estudiante-badge">
+                                <i class="fas fa-globe-americas"></i>
+                                <span>Formación internacional en contextos reales</span>
+                            </div>
+                            <div class="estudiante-badge">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Intercambio de saberes interculturales</span>
+                            </div>
+                        </div>
+                        
+                        <p class="video-firma">🌍 Una oportunidad que impulsa el aprendizaje en contextos reales, el intercambio de saberes y la proyección global de nuestros futuros profesionales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPROMISOS COMUNES ===== -->
+    <section class="compromisos-convenio">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">COMPROMISOS COMUNES</h2>
+            <div class="seccion-linea"></div>
+            
+            <div class="compromisos-grid">
+                <div class="compromiso-item">
+                    <span class="compromiso-numero">01</span>
+                    <h4>Programas de cooperación</h4>
+                    <p>Desarrollar programas de cooperación en docencia, investigación y servicio a la comunidad.</p>
+                </div>
+                
+                <div class="compromiso-item">
+                    <span class="compromiso-numero">02</span>
+                    <h4>Investigaciones conjuntas</h4>
+                    <p>Formular y desarrollar investigaciones, trabajos y prácticas conjuntas en áreas de interés.</p>
+                </div>
+                
+                <div class="compromiso-item">
+                    <span class="compromiso-numero">03</span>
+                    <h4>Programas académicos</h4>
+                    <p>Concertar acciones conjuntas para el desarrollo de programas académicos y material educativo.</p>
+                </div>
+                
+                <div class="compromiso-item">
+                    <span class="compromiso-numero">04</span>
+                    <h4>Intercambio docente</h4>
+                    <p>Promover y facilitar el intercambio docente y estudiantil en programas académicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUPERVISORES ===== -->
+    <section class="supervisores">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">SUPERVISORES DEL CONVENIO</h2>
+            <div class="seccion-linea"></div>
+            
+            <div class="supervisores-grid">
+                <div class="supervisor-card">
+                    <div class="supervisor-icono">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Milko Jorquera Tapia</h4>
+                    <p class="supervisor-cargo">Director de Internacionalización</p>
+                    <p class="supervisor-institucion">Universidad de La Frontera</p>
+                    <a href="mailto:milko.jorquera@ufrontera.cl" class="supervisor-email">
+                        <i class="fas fa-envelope"></i> milko.jorquera@ufrontera.cl
+                    </a>
+                </div>
+                
+                <div class="supervisor-card">
+                    <div class="supervisor-icono">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Adriana Erazo Ruiz</h4>
+                    <p class="supervisor-cargo">Directora de Relaciones Internacionales</p>
+                    <p class="supervisor-institucion">Universidad de Nariño</p>
+                    <a href="mailto:dri@udenar.edu.co" class="supervisor-email">
+                        <i class="fas fa-envelope"></i> dri@udenar.edu.co
+                    </a>
+                </div>
+            </div>
+            
+            <div class="vigencia-convenio">
+                <i class="fas fa-clock"></i>
+                <p><strong>Vigencia:</strong> 5 años (08·08·2025 - 08·08·2030) · Prórroga sujeta a acuerdo de las partes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-principal">
+        <div class="footer-contenedor">
+            <div class="footer-logos-horizontal">
+                <img src="imagenes/logos.svg" alt="Logos institucionales" class="footer-logos-svg">
+            </div>
+            <div class="footer-info">
+                <p class="footer-programa">PIRI · Programa de Interacción Rural Interdisciplinario · Capítulo Nariño</p>
+                <p class="footer-contacto">Contacto: <a href="mailto:meqy2022@udenar.edu.co">meqy2022@udenar.edu.co</a></p>
+            </div>
+            <div class="footer-creditos">
+                <p>© 2026 PIRI Capítulo Nariño · Todos los derechos reservados</p>
+                <p class="footer-desarrollo">Desarrollo web: Jhon Alvaro Cuastuza</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Slider del hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide-convenio');
+            let currentSlide = 0;
+            
+            if (slides.length > 0) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
