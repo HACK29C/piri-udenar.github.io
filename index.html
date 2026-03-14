@@ -10,24 +10,62 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome para íconos profesionales -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Tu archivo CSS -->
     <link rel="stylesheet" href="css/estilos.css">
+    
+    <style>
+        /* ===== MENÚ HAMBURGUESA FUNCIONAL ===== */
+        .nav-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--verde-piri);
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block !important;
+            }
+
+            .nav-menu {
+                display: none !important;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+
+            .nav-menu.show {
+                display: flex !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- ===== NAVEGACIÓN PROFESIONAL CON MENÚ HAMBURGUESA FUNCIONAL ===== -->
+    <!-- ===== NAVEGACIÓN CON MENÚ FUNCIONAL ===== -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo-container">
                 <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="nav-logo">
                 <span class="logo-text"></span>
             </div>
-            <button class="nav-toggle" aria-label="Abrir menú">
+            <button class="nav-toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link active">INICIO</a></li>
                 <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
                 <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
@@ -37,9 +75,6 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Overlay para el menú móvil -->
-    <div class="menu-overlay" id="menu-overlay"></div>
 
     <!-- ===== SECCIÓN 1: INICIO / HERO ===== -->
     <section id="inicio" class="hero">
@@ -67,7 +102,7 @@
                 
                 <h2 class="hero-subtitulo">Universidad de Nariño · Extensión Ipiales</h2>
                 
-                <!-- Calendario profesional (no emoji) -->
+                <!-- Calendario profesional -->
                 <div class="fecha-destacada">
                     <div class="calendario-icono">
                         <i class="far fa-calendar-alt"></i>
@@ -85,7 +120,7 @@
                     Auditorio Gonzalo Bravo Pérez · Sede Regional Ipiales
                 </p>
 
-                <!-- ENLACE DE TEAMS EN HERO (compacto) -->
+                <!-- ENLACE DE TEAMS -->
                 <div class="conexion-online hero-conexion">
                     <a href="https://teams.microsoft.com/meet/21705744503696?p=kUDPCD82Y1yG7qKNJ1" target="_blank" class="live-link">
                         <div class="live-icon">
@@ -100,7 +135,7 @@
                     </a>
                 </div>
 
-                <!-- Cuenta regresiva profesional -->
+                <!-- Cuenta regresiva -->
                 <div class="countdown-container">
                     <div class="countdown-box">
                         <span class="countdown-numero" id="dias">00</span>
@@ -120,13 +155,13 @@
                     </div>
                 </div>
 
-                <!-- Botones de acción con enlace de Google Forms -->
+                <!-- Botones -->
                 <div class="hero-botones">
                     <a href="https://forms.gle/SNobynyCRTwRFnmy7" target="_blank" class="btn btn-primario">CONFIRMAR ASISTENCIA</a>
                     <a href="agenda.html" class="btn btn-secundario">AGENDA</a>
                 </div>
 
-                <!-- Texto del flyer incluido sutilmente -->
+                <!-- Texto del flyer -->
                 <div class="flyer-texto">
                     <p>Invitamos a docentes, estudiantes y administrativos a ser parte de este proceso que impulsa la interacción social y el compromiso con nuestro territorio.</p>
                     <span class="convenio-badge">Convenio REI-259422</span>
@@ -144,12 +179,9 @@
     <!-- ===== BANNER DEL FLYER ===== -->
     <section class="flyer-banner">
         <div class="flyer-banner-container">
-            <!-- Lado izquierdo: El flyer visual -->
             <div class="flyer-banner-imagen">
                 <img src="imagenes/flyer.jpg" alt="Flyer oficial PIRI Lanzamiento 2026" class="flyer-banner-img">
             </div>
-
-            <!-- Lado derecho: Información clave del flyer -->
             <div class="flyer-banner-info">
                 <div class="lanzamiento-titulo-normal">LANZAMIENTO OFICIAL</div>
                 
@@ -164,9 +196,7 @@
                     </p>
                 </div>
 
-                <!-- CUADRO DE DETALLES CON ENLACE DE TEAMS -->
                 <div class="flyer-banner-detalles">
-                    <!-- Fecha -->
                     <div class="detalle-item">
                         <i class="fas fa-calendar-check"></i>
                         <div>
@@ -175,7 +205,6 @@
                         </div>
                     </div>
                     
-                    <!-- Hora -->
                     <div class="detalle-item">
                         <i class="fas fa-clock"></i>
                         <div>
@@ -184,7 +213,6 @@
                         </div>
                     </div>
                     
-                    <!-- Lugar + Conexión Online -->
                     <div class="detalle-item lugar-con-online">
                         <i class="fas fa-map-pin"></i>
                         <div class="lugar-info">
@@ -194,7 +222,6 @@
                                 <small>Sede Regional Ipiales</small>
                             </div>
                             
-                            <!-- ENLACE DE TEAMS -->
                             <div class="conexion-online-detalle">
                                 <a href="https://teams.microsoft.com/meet/21705744503696?p=kUDPCD82Y1yG7qKNJ1" target="_blank" class="live-link-detalle">
                                     <i class="fas fa-video"></i>
@@ -207,7 +234,6 @@
                     </div>
                 </div>
 
-                <!-- Convenio reorganizado -->
                 <div class="flyer-banner-convenio">
                     <span class="universidad-tag">Universidad de Nariño</span>
                     <span class="convenio-tag">Convenio REI-259422</span>
@@ -228,20 +254,7 @@
         </div>
     </section>
 
-    <!-- ===== CONTADOR DE VISITAS ===== -->
-    <div class="contador-visitas">
-        <div class="contador-icono">
-            <i class="fas fa-eye"></i>
-        </div>
-        <div class="contador-info">
-            <span class="contador-label">Visitas a esta página</span>
-            <span class="contador-numero" id="contador">
-                <span id="contador-numero">0000</span>
-            </span>
-        </div>
-    </div>
-
-    <!-- ===== FOOTER COMPLETO ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer-principal">
         <div class="footer-contenedor">
             <div class="footer-logos-horizontal">
@@ -260,68 +273,64 @@
 
     <script src="js/script.js"></script>
     
-    <!-- Script del contador personalizado -->
     <script>
-        // Función para obtener y mostrar el contador
-        async function actualizarContador() {
-            try {
-                const response = await fetch('https://counter5.stat.ovh/private/freecounterstat.php?c=6sxkkq92nqfm9tdwcsbq8pzgecypq49a');
-                const texto = await response.text();
-                const numeros = texto.match(/\d+/g);
-                if (numeros && numeros.length > 0) {
-                    const contadorValor = numeros[numeros.length - 1];
-                    document.getElementById('contador-numero').innerText = contadorValor;
-                }
-            } catch (error) {
-                console.log('Error al obtener contador:', error);
-                let visitas = localStorage.getItem('piri-visitas');
-                if (visitas) {
-                    visitas = parseInt(visitas) + 1;
-                } else {
-                    visitas = 1;
-                }
-                localStorage.setItem('piri-visitas', visitas);
-                document.getElementById('contador-numero').innerText = visitas.toString().padStart(4, '0');
+        // ===== FUNCIÓN PARA EL MENÚ =====
+        function toggleMenu() {
+            var menu = document.getElementById('navMenu');
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            } else {
+                menu.classList.add('show');
             }
         }
-        actualizarContador();
-        setInterval(actualizarContador, 30000);
-    </script>
-    
-    <!-- Script del menú hamburguesa FUNCIONAL -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-            const menuOverlay = document.querySelector('.menu-overlay');
 
-            function closeMenu() {
-                if (navMenu) navMenu.classList.remove('active');
-                if (menuOverlay) menuOverlay.classList.remove('active');
-            }
-
-            function toggleMenu() {
-                if (navMenu) navMenu.classList.toggle('active');
-                if (menuOverlay) menuOverlay.classList.toggle('active');
-            }
-
-            if (navToggle) {
-                navToggle.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    toggleMenu();
-                });
-            }
-
-            if (menuOverlay) {
-                menuOverlay.addEventListener('click', closeMenu);
-            }
-
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    closeMenu();
-                });
+        // ===== CERRAR MENÚ AL HACER CLIC EN UN ENLACE =====
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.remove('show');
             });
+        });
+
+        // ===== COUNTDOWN =====
+        function updateCountdown() {
+            const eventDate = new Date('March 19, 2026 08:30:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById('dias').textContent = '00';
+                document.getElementById('horas').textContent = '00';
+                document.getElementById('minutos').textContent = '00';
+                document.getElementById('segundos').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('dias').textContent = days.toString().padStart(2, '0');
+            document.getElementById('horas').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutos').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('segundos').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ===== SLIDER =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            if (slides.length > 0) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 5000);
+            }
         });
     </script>
 
