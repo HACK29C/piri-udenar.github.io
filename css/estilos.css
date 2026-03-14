@@ -6434,3 +6434,90 @@ body {
         align-self: flex-start;
     }
 }
+/* ===== CONTADOR PERSONALIZADO ===== */
+#contador-numero {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+/* Ajuste para que se alinee con el icono */
+.contador-numero {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+/* ===== MENÚ HAMBURGUESA PARA MÓVILES ===== */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 90px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 90px);
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 40px 20px;
+        gap: 20px;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        display: flex !important; /* Forzar display flex cuando está activo */
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 15px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-menu a:hover {
+        background: rgba(159,195,60,0.1);
+    }
+
+    .nav-toggle {
+        display: block;
+        z-index: 1000;
+    }
+
+    /* Overlay para cuando el menú está abierto */
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 998;
+    }
+
+    .menu-overlay.active {
+        display: block;
+    }
+}
+
+/* Ajustes adicionales para móviles muy pequeños */
+@media (max-width: 480px) {
+    .nav-menu {
+        width: 100%;
+    }
+}

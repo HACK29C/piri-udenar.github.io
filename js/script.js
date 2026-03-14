@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
 
     function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
+        if (slides.length > 0) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
     }
 
     // Cambiar slide cada 4 segundos
@@ -22,11 +24,19 @@ function updateCountdown() {
     const now = new Date().getTime();
     const distance = eventDate - now;
 
+    // Elementos del countdown
+    const diasElem = document.getElementById('dias');
+    const horasElem = document.getElementById('horas');
+    const minutosElem = document.getElementById('minutos');
+    const segundosElem = document.getElementById('segundos');
+
+    if (!diasElem || !horasElem || !minutosElem || !segundosElem) return;
+
     if (distance < 0) {
-        document.getElementById('dias').textContent = '00';
-        document.getElementById('horas').textContent = '00';
-        document.getElementById('minutos').textContent = '00';
-        document.getElementById('segundos').textContent = '00';
+        diasElem.textContent = '00';
+        horasElem.textContent = '00';
+        minutosElem.textContent = '00';
+        segundosElem.textContent = '00';
         return;
     }
 
@@ -35,43 +45,54 @@ function updateCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById('dias').textContent = days.toString().padStart(2, '0');
-    document.getElementById('horas').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutos').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('segundos').textContent = seconds.toString().padStart(2, '0');
+    diasElem.textContent = days.toString().padStart(2, '0');
+    horasElem.textContent = hours.toString().padStart(2, '0');
+    minutosElem.textContent = minutes.toString().padStart(2, '0');
+    segundosElem.textContent = seconds.toString().padStart(2, '0');
 }
 
 // Actualizar countdown cada segundo
 setInterval(updateCountdown, 1000);
 
-// ===== MENÚ MÓVIL (para después) =====
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
+// ===== MENÚ MÓVIL MEJORADO (CON OVERLAY) =====
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    
+    if (navToggle && navMenu) {
+        // Abrir/cerrar menú al hacer clic en el botón hamburguesa
+        navToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            if (menuOverlay) {
+                menuOverlay.classList.toggle('active');
+            }
+        });
 
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-}
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                if (menuOverlay) {
+                    menuOverlay.classList.remove('active');
+                }
+            });
+        });
 
-// Smooth scroll para los enlaces
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        // Cerrar menú al hacer clic en el overlay
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
             });
         }
-    });
+    }
 });
-// ===== CORREGIR NAVEGACIÓN ENTRE PÁGINAS =====
+
+// ===== NAVEGACIÓN ENTRE PÁGINAS =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Seleccionar todos los enlaces del menú
     const navLinks = document.querySelectorAll('.nav-menu a');
     
     navLinks.forEach(link => {
@@ -84,5 +105,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = href;
             }
         });
+    });
+});
+
+// ===== SMOOTH SCROLL PARA ANCLAS (si las hay) =====
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Cerrar menú si está abierto
+            const navMenu = document.querySelector('.nav-menu');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            if (navMenu) navMenu.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+        }
     });
 });
