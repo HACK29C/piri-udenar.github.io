@@ -259,16 +259,23 @@
 
     <script src="js/script.js"></script>
     
-    <script>
-        // Contador de visitas usando api.visitorcount.com
-        fetch("https://api.visitorcount.com/hit/piri-narino")
-            .then(res => res.text())
-            .then(count => {
-                document.getElementById("contador").innerText = count;
+     <script>
+        // Contador de visitas mejorado
+        fetch("https://api.countapi.xyz/hit/piri-narino-website/visitas")
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("contador").innerText = data.value;
             })
             .catch(error => {
-                console.log("Error en contador:", error);
-                document.getElementById("contador").innerHTML = Math.floor(Math.random() * 100) + 50;
+                console.log("Error en contador, usando localStorage:", error);
+                let visitas = localStorage.getItem('piri-visitas');
+                if (visitas) {
+                    visitas = parseInt(visitas) + 1;
+                } else {
+                    visitas = 1;
+                }
+                localStorage.setItem('piri-visitas', visitas);
+                document.getElementById("contador").innerText = visitas;
             });
     </script>
 
