@@ -228,56 +228,56 @@
     </section>
 
     <!-- ===== CONTADOR DE VISITAS ===== -->
-    <div class="contador-visitas">
-        <div class="contador-icono">
-            <i class="fas fa-eye"></i>
+<div class="contador-visitas">
+    <div class="contador-icono">
+        <i class="fas fa-eye"></i>
+    </div>
+    <div class="contador-info">
+        <span class="contador-label">Visitas a esta página</span>
+        <span class="contador-numero" id="contador">
+            <!-- Contador global de Flag Counter -->
+            <a href="https://www.freecounterstat.com" title="Contador global de visitas" target="_blank">
+                <img src="https://counter5.stat.ovh/private/freecounterstat.php?c=6sxkkq92nqfm9tdwcsbq8pzgecypq49a" 
+                     border="0" 
+                     title="Visitas globales" 
+                     alt="Contador de visitas"
+                     style="background: transparent; height: 30px; vertical-align: middle;">
+            </a>
+        </span>
+    </div>
+</div>
+
+<!-- ===== FOOTER COMPLETO ===== -->
+<footer class="footer-principal">
+    <div class="footer-contenedor">
+        <div class="footer-logos-horizontal">
+            <img src="imagenes/logos.svg" alt="Logos institucionales" class="footer-logos-svg">
         </div>
-        <div class="contador-info">
-            <span class="contador-label">Visitas a esta página</span>
-            <span class="contador-numero" id="contador">
-                <i class="fas fa-spinner fa-pulse"></i>
-            </span>
+        <div class="footer-info">
+            <p class="footer-programa">PIRI · Programa de Interacción Rural Interdisciplinario · Capítulo Nariño</p>
+            <p class="footer-contacto">Contacto: <a href="mailto:meqy2022@udenar.edu.co">meqy2022@udenar.edu.co</a></p>
+        </div>
+        <div class="footer-creditos">
+            <p>© 2026 PIRI Capítulo Nariño · Todos los derechos reservados</p>
+            <p class="footer-desarrollo">Desarrollo web: Jhon Alvaro Cuastuza</p>
         </div>
     </div>
+</footer>
 
-        <!-- ===== FOOTER COMPLETO ===== -->
-    <footer class="footer-principal">
-        <div class="footer-contenedor">
-            <div class="footer-logos-horizontal">
-                <img src="imagenes/logos.svg" alt="Logos institucionales" class="footer-logos-svg">
-            </div>
-            <div class="footer-info">
-                <p class="footer-programa">PIRI · Programa de Interacción Rural Interdisciplinario · Capítulo Nariño</p>
-                <p class="footer-contacto">Contacto: <a href="mailto:meqy2022@udenar.edu.co">meqy2022@udenar.edu.co</a></p>
-            </div>
-            <div class="footer-creditos">
-                <p>© 2026 PIRI Capítulo Nariño · Todos los derechos reservados</p>
-                <p class="footer-desarrollo">Desarrollo web: Jhon Alvaro Cuastuza</p>
-            </div>
-        </div>
-    </footer>
+<script src="js/script.js"></script>
 
-    <script src="js/script.js"></script>
-    
-     <script>
-        // Contador de visitas mejorado
-        fetch("https://api.countapi.xyz/hit/piri-narino-website/visitas")
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("contador").innerText = data.value;
-            })
-            .catch(error => {
-                console.log("Error en contador, usando localStorage:", error);
-                let visitas = localStorage.getItem('piri-visitas');
-                if (visitas) {
-                    visitas = parseInt(visitas) + 1;
-                } else {
-                    visitas = 1;
-                }
-                localStorage.setItem('piri-visitas', visitas);
-                document.getElementById("contador").innerText = visitas;
-            });
-    </script>
+<!-- Script para asegurar que el contador se vea bien (opcional) -->
+<script>
+    // Pequeño ajuste para que el contador se integre perfectamente
+    window.addEventListener('load', function() {
+        const contadorImg = document.querySelector('#contador img');
+        if (contadorImg) {
+            contadorImg.style.background = 'transparent';
+            contadorImg.style.maxHeight = '30px';
+            contadorImg.style.width = 'auto';
+        }
+    });
+</script>
 
 </body>
 </html>
