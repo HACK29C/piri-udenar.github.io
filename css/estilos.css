@@ -6908,21 +6908,20 @@ body {
         font-size: 0.7rem;
     }
 }
-/* ===== MEJORAS ESPECÍFICAS PARA QUIENES-SOMOS.HTML EN TELÉFONO ===== */
+/* ===== MEJORAS ESPECÍFICAS PARA TELÉFONO ===== */
 
+/* Para teléfonos medianos y pequeños */
 @media (max-width: 480px) {
     
     /* === 1. EVITAR DESPLAZAMIENTO HORIZONTAL === */
     body {
         overflow-x: hidden;
         width: 100%;
-        position: relative;
     }
 
     .contenedor, 
     .contenedor-seccion,
-    .hero-quienes-content,
-    .hero-quienes-content-simple {
+    section {
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
@@ -6931,306 +6930,145 @@ body {
         box-sizing: border-box;
     }
 
-    /* === 2. CARRUSEL DE FOTOS COMPLETAS === */
-    .carrusel-auto-hero,
-    .carrusel-auto-negocios,
-    .carrusel-auto-acompanamiento,
-    .carrusel-auto-bioexpo,
-    .carrusel-auto-muestra,
-    .carrusel-auto-empresa {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 15px;
-    }
-
-    .carrusel-auto-track-hero,
-    .carrusel-auto-track-negocios,
-    .carrusel-auto-track-acompanamiento,
-    .carrusel-auto-track-bioexpo,
-    .carrusel-auto-track-muestra,
-    .carrusel-auto-track-empresa {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-
-    .carrusel-auto-slide-hero,
-    .carrusel-auto-slide-negocios,
-    .carrusel-auto-slide-acompanamiento,
-    .carrusel-auto-slide-bioexpo,
-    .carrusel-auto-slide-muestra,
-    .carrusel-auto-slide-empresa {
-        min-width: 100%;
-        height: 280px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f0f0f0;
-    }
-
-    .carrusel-auto-slide-hero img,
-    .carrusel-auto-slide-negocios img,
-    .carrusel-auto-slide-acompanamiento img,
-    .carrusel-auto-slide-bioexpo img,
-    .carrusel-auto-slide-muestra img,
-    .carrusel-auto-slide-empresa img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* Para que las fotos se vean completas sin cortar */
-    .carrusel-auto-slide-hero img {
-        object-fit: contain;
-        background-color: #1a2a44;
-        max-height: 280px;
-    }
-
-    /* === 3. SECCIÓN NUESTRO LOGO (CORREGIDA) === */
-    .significado-logo {
-        padding: 40px 15px;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .logo-grid-simple {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        padding: 30px 20px;
-        width: 100%;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    .logo-imagen {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .logo-grande {
-        max-width: 200px;
-        height: auto;
-        margin: 0 auto;
-    }
-
-    .logo-descripcion {
-        width: 100%;
-        padding: 0;
-    }
-
-    .logo-descripcion h3 {
-        text-align: center;
-        font-size: 1.5rem !important;
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
-    .descripcion-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 20px 15px;
-        margin-bottom: 15px;
-        background: rgba(159,195,60,0.03);
-        border-radius: 20px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .descripcion-icono {
-        margin-bottom: 15px;
-        width: 60px;
-        height: 60px;
-    }
-
-    .descripcion-icono i {
+    /* === 2. TÍTULOS DE SECCIÓN (CORREGIDOS) === */
+    .seccion-titulo {
         font-size: 1.8rem !important;
-    }
-
-    .descripcion-texto {
-        width: 100%;
-    }
-
-    .descripcion-texto h4 {
-        font-size: 1.2rem !important;
-        margin-bottom: 8px;
-    }
-
-    .descripcion-texto p {
-        font-size: 0.9rem !important;
-        line-height: 1.5;
-    }
-
-    /* === 4. PALETA DE COLORES CENTRADA === */
-    .colores-mini {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 25px;
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    .colores-mini span {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid white;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-
-    /* === 5. ALIANZA PARA EL DESARROLLO (LOGO MÁS GRANDES) === */
-    .alianza-estrategica {
-        padding: 40px 15px;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .alianza-grid-mejorada {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-        margin: 20px 0;
-    }
-
-    .alianza-card {
-        width: 100%;
-        padding: 25px 20px !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: white;
-        border-radius: 25px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        border: 1px solid rgba(159,195,60,0.2);
-    }
-
-    .alianza-icono {
-        width: 100px !important;
-        height: 100px !important;
-        margin-bottom: 15px;
-    }
-
-    .alianza-icono img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-    .alianza-card h3 {
-        font-size: 1.3rem !important;
-        margin-bottom: 5px;
+        word-break: break-word;
+        hyphens: auto;
+        line-height: 1.2;
+        padding: 0 5px;
         text-align: center;
+        width: 100%;
+        max-width: 100%;
     }
 
-    .alianza-card p {
-        font-size: 0.9rem !important;
-        text-align: center;
-        color: #666;
-    }
-
-    .alianza-conector {
-        margin: 5px 0;
-        width: 40px;
-        height: 40px;
-        background: var(--verde-brillante);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.2rem;
-        align-self: center;
-    }
-
-    .alianza-descripcion {
-        text-align: center;
-        font-size: 0.95rem !important;
-        padding: 15px;
-        margin-top: 10px;
-    }
-
-    .programas-titulo-seccion {
+    /* Títulos largos específicos */
+    .seccion-titulo:contains("INTERDISCIPLINARIO") {
         font-size: 1.5rem !important;
-        margin: 30px 0 20px;
     }
 
-    .programas-grid-avanzado {
-        display: flex;
+    /* === 3. HERO PRINCIPAL === */
+    .hero-titulo .linea1 {
+        font-size: 2.8rem !important;
+    }
+
+    .hero-titulo .linea2 {
+        font-size: 1.1rem !important;
+        line-height: 1.3;
+        word-break: break-word;
+    }
+
+    .hero-titulo .linea3 {
+        font-size: 1.1rem !important;
+        word-break: break-word;
+    }
+
+    /* === 4. CONVENIO INTERNACIONAL === */
+    .convenio-simple .seccion-titulo {
+        font-size: 1.5rem !important;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .convenio-paises {
         flex-direction: column;
         gap: 20px;
-        width: 100%;
+        padding: 20px !important;
     }
 
-    .programa-card-avanzado {
-        width: 100%;
-        margin: 0;
-    }
-
-    .programa-destacado {
-        transform: scale(1) !important;
-    }
-
-    .programa-icono-wrapper {
-        width: 70px;
-        height: 70px;
-    }
-
-    .programa-header h4 {
+    .pais-item h3 {
         font-size: 1.1rem !important;
     }
 
-    .programa-semestre {
-        font-size: 0.85rem !important;
-        padding: 5px 10px;
+    /* === 5. ANTECEDENTES === */
+    .antecedentes-mejorados .seccion-titulo {
+        font-size: 1.5rem !important;
     }
 
-    .aporte-tag-avanzado {
-        font-size: 0.75rem !important;
-        padding: 5px 10px;
-    }
-
-    .programas-nota {
-        font-size: 0.9rem !important;
-        padding: 15px;
-        margin: 20px 0;
-    }
-
-    /* === 6. INVESTIGACIÓN EN MÓVIL === */
-    .investigacion-grid-elegante {
-        display: flex;
+    .timeline-item-vertical {
         flex-direction: column;
-        gap: 30px;
+        align-items: center;
+        text-align: center;
+        padding: 20px !important;
     }
 
-    .investigacion-imagen {
+    .timeline-ano {
+        margin-bottom: 10px;
+    }
+
+    .timeline-contenido-vertical h4 {
+        font-size: 1.1rem !important;
+    }
+
+    /* === 6. ACOMPAÑAMIENTO INSTITUCIONAL === */
+    .acompanamiento-institucional .seccion-titulo {
+        font-size: 1.3rem !important;
+        line-height: 1.2;
+    }
+
+    .acompanamiento-grid-elegante {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .acompanamiento-card {
         width: 100%;
-        padding: 0;
     }
 
-    .investigacion-imagen img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
+    .acompanamiento-header h3 {
+        font-size: 1.1rem !important;
     }
 
-    /* === 7. HITOS EN MÓVIL === */
+    /* === 7. HITOS DEL PROCESO (CORREGIDO) === */
+    .hitos-nuevos {
+        padding: 40px 15px !important;
+    }
+
     .hitos-grid-nuevo {
         display: flex;
         flex-direction: column;
         gap: 15px;
+        width: 100%;
     }
 
     .hito-card {
-        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 15px;
         padding: 20px !important;
+        width: 100%;
+        box-sizing: border-box;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        border: 1px solid rgba(159,195,60,0.2);
     }
 
-    /* === 8. ESTADO ACTUAL === */
+    .hito-numero-grande {
+        font-size: 2rem;
+        min-width: 50px;
+        text-align: center;
+        color: var(--verde-brillante);
+        opacity: 0.8;
+    }
+
+    .hito-contenido {
+        flex: 1;
+    }
+
+    .hito-contenido h4 {
+        font-size: 1rem !important;
+        margin-bottom: 3px;
+        color: var(--verde-oscuro);
+    }
+
+    .hito-contenido p {
+        font-size: 0.8rem !important;
+        color: #666;
+        line-height: 1.3;
+    }
+
+    /* === 8. CARRUSELES DE EMPRESAS CERTIFICADAS === */
     .empresas-certificadas-grid {
         display: flex;
         flex-direction: column;
@@ -7239,94 +7077,128 @@ body {
 
     .empresa-carrusel {
         width: 100%;
-        padding: 20px !important;
+        padding: 20px 15px !important;
+        background: white;
+        border-radius: 20px;
+        box-sizing: border-box;
     }
 
     .empresa-titulo {
         font-size: 1.3rem !important;
+        text-align: center;
+        margin-bottom: 15px;
     }
 
-    /* === 9. MUESTRA EMPRESARIAL === */
-    .muestra-grid-elegante {
+    .carrusel-auto-empresa {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .carrusel-auto-track-empresa {
         display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .carrusel-auto-slide-empresa {
+        min-width: 100%;
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f5f5f5;
+    }
+
+    .carrusel-auto-slide-empresa img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Para que las fotos se vean completas */
+    .carrusel-auto-slide-empresa img {
+        object-fit: contain;
+        background-color: #f0f0f0;
+        max-height: 220px;
+    }
+
+    /* === 9. AJUSTES GENERALES === */
+    .seccion-linea {
+        margin: 10px auto 20px;
+    }
+
+    .seccion-descripcion {
+        font-size: 0.9rem !important;
+        padding: 0 10px;
+    }
+
+    /* === 10. TÍTULOS DE TARJETAS === */
+    h3, h4 {
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    /* === 11. BOTONES Y ENLACES === */
+    .btn, .btn-confirmar-grande {
+        white-space: normal;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    /* === 12. MUESTRA EMPRESARIAL === */
+    .muestra-grid-elegante {
         flex-direction: column;
-        gap: 30px;
         padding: 20px !important;
     }
 
     .muestra-flyer {
-        width: 100%;
-        max-width: 280px;
+        max-width: 250px;
         margin: 0 auto;
     }
 
-    .muestra-info-elegante {
-        width: 100%;
-        text-align: center;
-    }
-
     .muestra-info-elegante h3 {
-        font-size: 1.3rem !important;
-    }
-
-    .muestra-detalles-elegante {
-        text-align: left;
-    }
-
-    .participantes-tags {
-        justify-content: center;
-    }
-
-    /* === 10. BIOEXPO EN MÓVIL === */
-    .bioexpo-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .bioexpo-card {
-        padding: 30px 20px !important;
-    }
-
-    .bioexpo-card h3 {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
+        text-align: center;
     }
 }
 
-/* === PARA TELÉFONOS MÁS PEQUEÑOS === */
+/* Para teléfonos muy pequeños (hasta 360px) */
 @media (max-width: 360px) {
-    .logo-grande {
-        max-width: 160px;
-    }
-
-    .alianza-icono {
-        width: 80px !important;
-        height: 80px !important;
-    }
-
-    .alianza-card h3 {
-        font-size: 1.1rem !important;
-    }
-
-    .descripcion-icono {
-        width: 50px;
-        height: 50px;
-    }
-
-    .descripcion-icono i {
+    .seccion-titulo {
         font-size: 1.5rem !important;
     }
 
-    .colores-mini span {
-        width: 35px;
-        height: 35px;
+    .hero-titulo .linea1 {
+        font-size: 2.2rem !important;
     }
 
-    .carrusel-auto-slide-hero {
-        height: 220px;
+    .hero-titulo .linea2,
+    .hero-titulo .linea3 {
+        font-size: 0.9rem !important;
     }
 
-    .carrusel-auto-slide-hero img {
-        max-height: 220px;
+    .hito-card {
+        padding: 15px !important;
+    }
+
+    .hito-numero-grande {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
+
+    .hito-contenido h4 {
+        font-size: 0.9rem !important;
+    }
+
+    .hito-contenido p {
+        font-size: 0.7rem !important;
+    }
+
+    .empresa-titulo {
+        font-size: 1.1rem !important;
+    }
+
+    .carrusel-auto-slide-empresa {
+        height: 180px;
     }
 }
