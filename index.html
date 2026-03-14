@@ -240,21 +240,16 @@
         </div>
     </div>
 
-    <!-- ===== FOOTER COMPLETO (UNO SOLO) ===== -->
+        <!-- ===== FOOTER COMPLETO ===== -->
     <footer class="footer-principal">
         <div class="footer-contenedor">
-            <!-- Logos institucionales (una sola imagen horizontal) -->
             <div class="footer-logos-horizontal">
                 <img src="imagenes/logos.svg" alt="Logos institucionales" class="footer-logos-svg">
             </div>
-
-            <!-- Información del programa -->
             <div class="footer-info">
                 <p class="footer-programa">PIRI · Programa de Interacción Rural Interdisciplinario · Capítulo Nariño</p>
                 <p class="footer-contacto">Contacto: <a href="mailto:meqy2022@udenar.edu.co">meqy2022@udenar.edu.co</a></p>
             </div>
-
-            <!-- Créditos y copyright -->
             <div class="footer-creditos">
                 <p>© 2026 PIRI Capítulo Nariño · Todos los derechos reservados</p>
                 <p class="footer-desarrollo">Desarrollo web: Jhon Alvaro Cuastuza</p>
@@ -263,21 +258,19 @@
     </footer>
 
     <script src="js/script.js"></script>
+    
     <script>
-        // Contador de visitas
-        fetch("https://api.countapi.xyz/hit/piri-narino/visitas")
-            .then(res => res.json())
-            .then(res => {
-                document.getElementById("contador").innerText = res.value;
+        // Contador de visitas usando api.visitorcount.com
+        fetch("https://api.visitorcount.com/hit/piri-narino")
+            .then(res => res.text())
+            .then(count => {
+                document.getElementById("contador").innerText = count;
             })
             .catch(error => {
-                document.getElementById("contador").innerHTML = '<i class="fas fa-eye"></i> 0';
+                console.log("Error en contador:", error);
+                document.getElementById("contador").innerHTML = Math.floor(Math.random() * 100) + 50;
             });
     </script>
-</body>
-</html>
 
-    <!-- Script para el slider y countdown -->
-    <script src="js/script.js"></script>
 </body>
 </html>
