@@ -6734,3 +6734,177 @@ body {
         font-size: 0.8rem !important;
     }
 }
+/* ===== MEJORAS ESPECÍFICAS PARA ACERCA.HTML EN TELÉFONO ===== */
+
+@media (max-width: 480px) {
+    
+    /* === 1. ACTORES DEL TERRITORIO (CORREGIDO) === */
+    .actores-grid {
+        display: grid;
+        grid-template-columns: 1fr !important; /* Una sola columna */
+        gap: 15px;
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .actor-card {
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px 15px !important;
+    }
+
+    .actor-centro {
+        grid-column: 1 / -1 !important; /* Ocupa todo el ancho */
+        transform: scale(1) !important; /* Sin escala */
+        margin-bottom: 5px;
+        order: -1; /* Para que aparezca primero */
+    }
+
+    .actor-centro:hover {
+        transform: scale(1) !important;
+    }
+
+    .actor-icono {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .actor-icono i {
+        font-size: 1.8rem !important;
+    }
+
+    .actor-card h4 {
+        font-size: 1.1rem !important;
+        margin-bottom: 5px;
+    }
+
+    .actor-card p {
+        font-size: 0.85rem !important;
+    }
+
+    /* === 2. DISTRIBUCIÓN DE PARTICIPANTES (CORREGIDO) === */
+    .grafica-container {
+        padding: 20px 15px !important;
+    }
+
+    .grafica-container h4 {
+        font-size: 1.1rem !important;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .barras {
+        gap: 12px;
+    }
+
+    .barra-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 5px;
+        width: 100%;
+    }
+
+    .barra-label {
+        min-width: auto !important;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--verde-piri);
+        margin-bottom: 3px;
+    }
+
+    .barra {
+        width: 100% !important;
+        height: 25px;
+        border-radius: 12px;
+    }
+
+    .barra-progreso {
+        height: 25px;
+        font-size: 0.8rem;
+        padding-right: 8px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    /* === 3. AJUSTE PARA LA TABLA DE PASANTÍAS (si se desborda) === */
+    .tabla-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 15px -15px;
+        padding: 0 15px;
+        width: calc(100% + 30px);
+    }
+
+    .tabla-pasantias {
+        min-width: 600px; /* Para que la tabla sea desplazable horizontalmente */
+    }
+
+    .tabla-pasantias th,
+    .tabla-pasantias td {
+        padding: 10px 8px !important;
+        font-size: 0.8rem;
+    }
+
+    /* === 4. LOGROS EN MÓVIL === */
+    .logros-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    .logro-categoria {
+        padding: 20px !important;
+    }
+
+    .logro-icono {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logro-icono i {
+        font-size: 1.8rem;
+    }
+
+    .logro-categoria h4 {
+        font-size: 1.2rem !important;
+    }
+
+    .logro-lista li {
+        font-size: 0.9rem !important;
+        padding: 6px 0;
+    }
+}
+
+/* Para teléfonos más pequeños */
+@media (max-width: 360px) {
+    .actor-card {
+        padding: 15px 10px !important;
+    }
+
+    .actor-icono {
+        width: 50px;
+        height: 50px;
+    }
+
+    .actor-icono i {
+        font-size: 1.5rem !important;
+    }
+
+    .actor-card h4 {
+        font-size: 1rem !important;
+    }
+
+    .actor-card p {
+        font-size: 0.8rem !important;
+    }
+
+    .grafica-container {
+        padding: 15px 10px !important;
+    }
+
+    .barra-progreso {
+        font-size: 0.7rem;
+    }
+}
