@@ -235,14 +235,7 @@
     <div class="contador-info">
         <span class="contador-label">Visitas a esta página</span>
         <span class="contador-numero" id="contador">
-            <!-- Contador global de Flag Counter -->
-            <a href="https://www.freecounterstat.com" title="Contador global de visitas" target="_blank">
-                <img src="https://counter5.stat.ovh/private/freecounterstat.php?c=6sxkkq92nqfm9tdwcsbq8pzgecypq49a" 
-                     border="0" 
-                     title="Visitas globales" 
-                     alt="Contador de visitas"
-                     style="background: transparent; height: 30px; vertical-align: middle;">
-            </a>
+            <span id="contador-numero">0000</span>
         </span>
     </div>
 </div>
@@ -266,17 +259,39 @@
 
 <script src="js/script.js"></script>
 
-<!-- Script para asegurar que el contador se vea bien (opcional) -->
+<!-- Script del contador personalizado -->
 <script>
-    // Pequeño ajuste para que el contador se integre perfectamente
-    window.addEventListener('load', function() {
-        const contadorImg = document.querySelector('#contador img');
-        if (contadorImg) {
-            contadorImg.style.background = 'transparent';
-            contadorImg.style.maxHeight = '30px';
-            contadorImg.style.width = 'auto';
+    // Función para obtener y mostrar el contador
+    async function actualizarContador() {
+        try {
+            // Usamos el mismo código pero sin mostrar la imagen
+            const response = await fetch('https://counter5.stat.ovh/private/freecounterstat.php?c=6sxkkq92nqfm9tdwcsbq8pzgecypq49a');
+            const texto = await response.text();
+            
+            // Extraemos solo los números del HTML que recibimos
+            const numeros = texto.match(/\d+/g);
+            if (numeros && numeros.length > 0) {
+                // Tomamos el último grupo de números (que es el contador)
+                const contadorValor = numeros[numeros.length - 1];
+                document.getElementById('contador-numero').innerText = contadorValor;
+            }
+        } catch (error) {
+            console.log('Error al obtener contador:', error);
+            // Si falla, usamos localStorage como respaldo
+            let visitas = localStorage.getItem('piri-visitas');
+            if (visitas) {
+                visitas = parseInt(visitas) + 1;
+            } else {
+                visitas = 1;
+            }
+            localStorage.setItem('piri-visitas', visitas);
+            document.getElementById('contador-numero').innerText = visitas.toString().padStart(4, '0');
         }
-    });
+    }
+
+    // Actualizar cada 30 segundos (para que se vea en tiempo real)
+    actualizarContador();
+    setInterval(actualizarContador, 30000);
 </script>
 
 </body>
