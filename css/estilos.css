@@ -6528,188 +6528,209 @@ body {
     
     /* === 1. BOTÓN EN VIVO MÁS ESTILIZADO === */
     .hero-conexion {
-        margin: 10px 0;
+        margin: 8px 0;
         width: 100%;
     }
 
     .live-link {
         width: 100%;
-        padding: 8px 15px !important;
-        gap: 8px;
-        border-radius: 40px;
+        padding: 6px 12px !important;  /* Más compacto */
+        gap: 6px;
+        border-radius: 30px;
         background: rgba(255,255,255,0.15);
         border: 1px solid var(--verde-brillante);
         display: flex;
         align-items: center;
     }
 
-    .live-icon {
-        flex-shrink: 0;
-    }
-
     .live-icon i {
-        font-size: 1.2rem !important;
+        font-size: 1rem !important;  /* Icono más pequeño */
     }
 
     .live-badge {
-        top: -5px;
-        right: -8px;
-        font-size: 0.45rem !important;
+        top: -6px;
+        right: -6px;
+        font-size: 0.4rem !important;
         padding: 2px 4px !important;
     }
 
-    .live-texto {
-        flex: 1;
-    }
-
     .live-texto strong {
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
     }
 
     .live-texto span {
-        font-size: 0.65rem !important;
+        font-size: 0.6rem !important;
         white-space: normal;
         word-break: break-word;
     }
 
     .external-icon {
-        font-size: 0.7rem !important;
-        flex-shrink: 0;
+        font-size: 0.65rem !important;
     }
 
-    /* === 2. CONTADOR MÁS COMPACTO === */
+    /* === 2. CONTADOR MÁS COMPACTO Y JUNTO === */
     .countdown-container {
-        gap: 4px;
+        gap: 3px;  /* Reducido al mínimo */
         justify-content: space-between;
-        margin: 15px 0;
+        margin: 12px 0;
     }
 
     .countdown-box {
-        min-width: 55px !important;
-        padding: 8px 2px !important;
-        border-radius: 8px;
+        min-width: 52px !important;
+        padding: 6px 0 !important;  /* Padding horizontal cero */
+        border-radius: 6px;
     }
 
     .countdown-numero {
-        font-size: 1.4rem !important;
+        font-size: 1.3rem !important;
     }
 
     .countdown-label {
-        font-size: 0.55rem !important;
-        letter-spacing: 0.3px;
+        font-size: 0.5rem !important;
+        letter-spacing: 0.2px;
     }
 
     /* === 3. SEGUNDO BOTÓN EN VIVO (FLYER) MÁS PEQUEÑO === */
     .live-link-detalle {
-        padding: 6px 12px !important;
-        gap: 5px;
-        font-size: 0.75rem !important;
+        padding: 4px 10px !important;  /* Aún más compacto */
+        gap: 4px;
+        font-size: 0.7rem !important;
         white-space: normal;
         width: 100%;
         justify-content: center;
-        border-radius: 30px;
+        border-radius: 25px;
     }
 
     .live-link-detalle i {
-        font-size: 0.9rem !important;
+        font-size: 0.8rem !important;
     }
 
     .live-badge-detalle {
-        font-size: 0.5rem !important;
-        padding: 2px 5px !important;
+        font-size: 0.45rem !important;
+        padding: 2px 4px !important;
     }
 
     .live-texto-detalle {
-        font-size: 0.7rem !important;
+        font-size: 0.65rem !important;
         white-space: normal;
     }
 
     /* === 4. CARRUSEL CON FOTOS COMPLETAS === */
-    .hero-slider .slide {
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* Para que las fotos no se corten en el hero */
-    .hero {
-        min-height: 100vh;
-        background-size: cover;
-    }
-
-    /* Ajuste para las imágenes del carrusel principal */
     .carrusel-auto-slide-hero {
         height: auto;
-        min-height: 300px;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #2a3a5e; /* Fondo oscuro para bordes */
     }
 
     .carrusel-auto-slide-hero img {
-        object-fit: contain; /* Cambiado de cover a contain */
-        background-color: #f0f0f0;
+        width: 100%;
         height: auto;
-        max-height: 400px;
+        max-height: 350px;
+        object-fit: contain; /* Asegura que la foto completa se vea */
+        display: block;
     }
 
-    /* === 5. TEXTO DEL HERO MÁS ORDENADO === */
+    /* Ajuste para el slider del hero */
+    .hero-slider .slide {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #1a2a44; /* Fondo oscuro para bordes */
+    }
+
+    /* === 5. BOTÓN CONFIRMAR ASISTENCIA MÁS COMPACTO === */
+    .hero-botones {
+        flex-direction: column;
+        gap: 8px;
+        margin: 15px 0 20px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px 15px !important;  /* Altura reducida */
+        font-size: 0.85rem !important;
+        border-radius: 40px;
+    }
+
+    .btn-primario, .btn-secundario {
+        border-width: 1px;  /* Borde más fino */
+    }
+
+    /* El botón de agenda ya está bien, lo dejamos igual */
+    .btn-secundario {
+        background-color: transparent;
+        color: white;
+    }
+
+    /* === 6. TEXTO DEL HERO MÁS ORDENADO === */
     .hero-titulo .linea1 {
-        font-size: 2.8rem !important;
-        margin-bottom: 5px;
+        font-size: 2.5rem !important;
+        margin-bottom: 3px;
     }
 
     .hero-titulo .linea2,
     .hero-titulo .linea3 {
-        font-size: 1.1rem !important;
-        line-height: 1.3;
+        font-size: 1rem !important;
+        line-height: 1.2;
     }
 
     .hero-subtitulo {
-        font-size: 0.9rem !important;
-        margin-bottom: 15px;
+        font-size: 0.85rem !important;
+        margin-bottom: 12px;
     }
 
     .fecha-destacada {
         flex-direction: column;
-        gap: 8px;
+        gap: 5px;
         align-items: flex-start;
     }
 
     .calendario-icono i,
     .ubicacion-icono i {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
     }
 
     .calendario-fecha {
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
     }
 
     .lugar-evento {
-        font-size: 0.85rem !important;
-        line-height: 1.3;
+        font-size: 0.8rem !important;
+        line-height: 1.2;
         word-break: break-word;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
 }
 
 /* Para teléfonos muy pequeños (hasta 360px) */
 @media (max-width: 360px) {
     .countdown-box {
-        min-width: 48px !important;
-        padding: 6px 1px !important;
+        min-width: 45px !important;
+        padding: 5px 0 !important;
     }
 
     .countdown-numero {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
     }
 
     .countdown-label {
-        font-size: 0.5rem !important;
+        font-size: 0.45rem !important;
     }
 
     .hero-titulo .linea1 {
-        font-size: 2.5rem !important;
+        font-size: 2.2rem !important;
     }
 
     .hero-titulo .linea2,
     .hero-titulo .linea3 {
-        font-size: 1rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    .btn {
+        padding: 8px 12px !important;
+        font-size: 0.8rem !important;
     }
 }
