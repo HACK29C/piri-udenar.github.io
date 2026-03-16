@@ -7782,27 +7782,26 @@ body {
     /* === 3. BOTÓN CONFIRMAR ASISTENCIA (UNA SOLA LÍNEA) === */
     .hero .btn-primario {
         width: auto !important;
-        min-width: 200px !important;      /* Ancho suficiente para una línea */
+        min-width: 200px !important;
         max-width: 220px !important;
-        padding: 12px 20px !important;    /* Padding vertical para altura adecuada */
+        padding: 12px 20px !important;
         font-size: 0.9rem !important;
-        white-space: nowrap !important;    /* FUERZA UNA SOLA LÍNEA */
+        white-space: nowrap !important;
         text-align: center;
-        letter-spacing: 0.5px;
     }
 
-    /* === 4. BOTÓN AGENDA (también en una línea) === */
+    /* === 4. BOTÓN AGENDA === */
     .hero .btn-secundario {
         width: auto !important;
         min-width: 100px !important;
         max-width: 120px !important;
         padding: 12px 15px !important;
         font-size: 0.9rem !important;
-        white-space: nowrap !important;    /* Una sola línea */
+        white-space: nowrap !important;
         text-align: center;
     }
 
-    /* === 5. CONTENEDOR DE BOTONES (flex horizontal) === */
+    /* === 5. CONTENEDOR DE BOTONES === */
     .hero .hero-botones {
         display: flex;
         gap: 10px;
@@ -7811,38 +7810,73 @@ body {
         align-items: center;
     }
 
-    /* === 6. SEGUNDO BOTÓN EN VIVO (DEL FLYER) - IGUAL AL PRIMERO === */
+    /* === 6. SEGUNDO BOTÓN EN VIVO (CORREGIDO - EXACTAMENTE IGUAL AL PRIMERO) === */
+    .flyer-banner .conexion-online-detalle {
+        margin-top: 8px;
+    }
+
     .flyer-banner .live-link-detalle {
-        width: auto !important;
-        max-width: 10px !important;      /* Mismo tamaño que el primero */
-        padding: 6px 15px !important;      /* Mismo padding */
-        margin: 0 auto 0 0 !important;
-        font-size: 0.9rem !important;
-        gap: 8px;
-        border-radius: 30px !important;
-        background: var(--verde-brillante) !important;
         display: inline-flex !important;
-        align-items: center;
+        align-items: center !important;
+        gap: 8px !important;
+        background: var(--verde-brillante) !important;
+        border: 1px solid var(--verde-piri) !important;
+        border-radius: 40px !important;
+        padding: 6px 16px !important;
+        text-decoration: none !important;
+        color: var(--verde-oscuro) !important;
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        transition: all 0.3s !important;
+        width: fit-content !important;
+        max-width: 280px !important;        /* Mismo ancho que el primero */
+        margin: 0 auto 0 0 !important;
+        white-space: normal !important;     /* Permite 2 líneas */
     }
 
     .flyer-banner .live-link-detalle i {
-        font-size: 1.1rem !important;
+        font-size: 1.2rem !important;
+        color: var(--verde-piri) !important;
+        flex-shrink: 0;
     }
 
     .flyer-banner .live-badge-detalle {
-        font-size: 0.55rem !important;
-        padding: 2px 5px !important;
         background: #ff4444 !important;
-        position: relative;
-        top: -5px;
-        right: -2px;
+        color: white !important;
+        font-size: 0.55rem !important;
+        font-weight: 700 !important;
+        padding: 2px 5px !important;
+        border-radius: 20px !important;
+        animation: blink 1.5s infinite !important;
+        text-transform: uppercase !important;
+        position: relative !important;
+        top: -6px !important;
+        right: -2px !important;
+        display: inline-block !important;
+        line-height: 1;
     }
 
     .flyer-banner .live-texto-detalle {
+        color: inherit !important;
+        font-weight: 500 !important;
+        white-space: normal !important;     /* Permite 2 líneas */
+        line-height: 1.2 !important;
         font-size: 0.8rem !important;
-        white-space: normal;               /* Permite dos líneas como el primero */
-        line-height: 1.2;
-        text-align: left;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .flyer-banner .live-texto-detalle::before {
+        content: "Conexión online";
+        display: block;
+        font-weight: 600;
+    }
+
+    .flyer-banner .live-texto-detalle::after {
+        content: "Microsoft Teams";
+        display: block;
+        font-size: 0.7rem;
+        opacity: 0.9;
     }
 
     /* === 7. TEXTO DEL FLYER === */
@@ -7866,12 +7900,9 @@ body {
         padding: 10px 12px !important;
     }
 
-    .hero .live-link {
-        max-width: 240px !important;
-    }
-
     .flyer-banner .live-link-detalle {
         max-width: 240px !important;
+        padding: 5px 12px !important;
     }
 
     .hero .countdown-box {
