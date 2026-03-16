@@ -7228,13 +7228,13 @@ body {
         object-fit: cover;
     }
 
-     /* === 7. AJUSTES GENERALES DE TÍTULOS === */
+        /* === 7. AJUSTES GENERALES DE TÍTULOS === */
     h1, h2, h3, h4 {
         word-break: break-word;
         hyphens: auto;
     }
 
-    /* TÍTULO PIRI EN 3 LÍNEAS PERFECTAS */
+    /* TÍTULO PIRI EN 4 LÍNEAS PERFECTAS */
     .hero-titulo {
         margin-bottom: 15px;
         width: 100%;
@@ -7245,11 +7245,11 @@ body {
         display: block;
         text-align: left;
         line-height: 1;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
     }
 
     .hero-titulo .linea2 {
-        font-size: 1.1rem !important;
+        font-size: 1.2rem !important;
         display: block;
         text-align: left;
         line-height: 1.2;
@@ -7258,14 +7258,37 @@ body {
         max-width: 100%;
     }
 
+    /* Forzamos que "PROGRAMA DE" esté en una línea y "INTERACCIÓN RURAL" en otra */
+    .hero-titulo .linea2 br {
+        display: none; /* Ocultamos cualquier br que pueda existir */
+    }
+
+    .hero-titulo .linea2 {
+        /* Dividimos manualmente con span interno si es necesario */
+        display: block;
+    }
+
     .hero-titulo .linea3 {
-        font-size: 1.1rem !important;
+        font-size: 1.2rem !important;
         display: block;
         text-align: left;
         line-height: 1.2;
-        margin-top: 2px;
+        margin-top: 4px;
     }
 
+    /* Versión optimizada para móvil */
+    .hero-titulo .linea2 {
+        font-size: 1.1rem !important;
+        display: block;
+    }
+
+    /* Para asegurar que INTERACCIÓN no se parte */
+    .hero-titulo .linea2 span {
+        display: inline-block;
+        white-space: nowrap;
+        margin-right: 4px;
+    }
+    
     /* === 8. ALIANZA PARA EL DESARROLLO === */
     .alianza-estrategica {
         padding: 30px 12px !important;
