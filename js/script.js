@@ -130,3 +130,38 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         }
     });
 });
+// ===== MODO OSCURO/CLARO =====
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('darkModeToggle');
+    
+    // Verificar si el botón existe (para evitar errores en páginas sin él)
+    if (!toggleButton) return;
+    
+    const moonIcon = toggleButton.querySelector('.fa-moon');
+    const sunIcon = toggleButton.querySelector('.fa-sun');
+    
+    // Verificar si hay una preferencia guardada
+    const darkMode = localStorage.getItem('darkMode');
+    
+    // Aplicar la preferencia guardada
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        if (moonIcon) moonIcon.style.display = 'none';
+        if (sunIcon) sunIcon.style.display = 'block';
+    }
+    
+    // Función para cambiar el modo
+    toggleButton.addEventListener('click', function() {
+        if (document.body.classList.contains('dark-mode')) {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', null);
+            if (moonIcon) moonIcon.style.display = 'block';
+            if (sunIcon) sunIcon.style.display = 'none';
+        } else {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
+            if (moonIcon) moonIcon.style.display = 'none';
+            if (sunIcon) sunIcon.style.display = 'block';
+        }
+    });
+});
