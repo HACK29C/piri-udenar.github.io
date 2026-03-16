@@ -7602,3 +7602,139 @@ body {
         font-size: 2rem !important;
     }
 }
+/* ===== CORRECCIÓN PARA PÁGINAS: CONVENIO, NOTICIAS, CONTACTO ===== */
+@media (max-width: 480px) {
+
+    /* === PÁGINA CONVENIO === */
+    .hero-convenio-content .hero-titulo-convenio .linea1 {
+        font-size: 2.5rem !important;
+        font-weight: 800;
+        display: block;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+        text-align: left;
+    }
+
+    .hero-convenio-content .hero-titulo-convenio .linea2 {
+        font-size: 1rem !important;
+        font-weight: 600;
+        display: block;
+        line-height: 1.3;
+        margin-bottom: 0.15rem;
+        text-align: left;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .hero-convenio-content .hero-titulo-convenio .linea3 {
+        font-size: 1rem !important;
+        font-weight: 300;
+        display: block;
+        line-height: 1.3;
+        text-align: left;
+        margin-bottom: 0.25rem;
+    }
+
+    .hero-convenio-content .hero-subtitulo-convenio {
+        font-size: 0.85rem !important;
+        text-align: left;
+        margin-top: 0.25rem;
+    }
+
+    /* === PÁGINA NOTICIAS === */
+    .hero-noticias-content .hero-titulo-noticias .linea1 {
+        font-size: 2.5rem !important;
+        font-weight: 800;
+        display: block;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+        text-align: left;
+    }
+
+    .hero-noticias-content .hero-titulo-noticias .linea2 {
+        font-size: 1rem !important;
+        font-weight: 600;
+        display: block;
+        line-height: 1.3;
+        margin-bottom: 0.15rem;
+        text-align: left;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .hero-noticias-content .hero-titulo-noticias .linea3 {
+        font-size: 1rem !important;
+        font-weight: 300;
+        display: block;
+        line-height: 1.3;
+        text-align: left;
+        margin-bottom: 0.25rem;
+    }
+
+    .hero-noticias-content .hero-subtitulo-noticias {
+        font-size: 0.85rem !important;
+        text-align: left;
+        margin-top: 0.25rem;
+    }
+
+    /* === PÁGINA CONTACTO === */
+    .hero-contacto-content .hero-titulo-contacto .linea1 {
+        font-size: 2.5rem !important;
+        font-weight: 800;
+        display: block;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+        text-align: left;
+    }
+
+    .hero-contacto-content .hero-titulo-contacto .linea2 {
+        font-size: 1rem !important;
+        font-weight: 600;
+        display: block;
+        line-height: 1.3;
+        margin-bottom: 0.15rem;
+        text-align: left;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .hero-contacto-content .hero-titulo-contacto .linea3 {
+        font-size: 1rem !important;
+        font-weight: 300;
+        display: block;
+        line-height: 1.3;
+        text-align: left;
+        margin-bottom: 0.25rem;
+    }
+
+    .hero-contacto-content .hero-subtitulo-contacto {
+        font-size: 0.85rem !important;
+        text-align: left;
+        margin-top: 0.25rem;
+    }
+}
+
+/* Ajuste para pantallas MUY pequeñas (menos de 360px) - aplica a todas */
+@media (max-width: 360px) {
+    .hero-convenio-content .hero-titulo-convenio .linea2,
+    .hero-noticias-content .hero-titulo-noticias .linea2,
+    .hero-contacto-content .hero-titulo-contacto .linea2 {
+        font-size: 0.9rem !important;
+        letter-spacing: -0.02em !important;
+    }
+    
+    .hero-convenio-content .hero-titulo-convenio .linea1,
+    .hero-noticias-content .hero-titulo-noticias .linea1,
+    .hero-contacto-content .hero-titulo-contacto .linea1 {
+        font-size: 2rem !important;
+    }
+}
