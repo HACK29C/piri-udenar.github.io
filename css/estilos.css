@@ -7738,3 +7738,135 @@ body {
         font-size: 2rem !important;
     }
 }
+/* ===== CORRECCIONES FINALES PARA INDEX Y AGENDA ===== */
+@media (max-width: 480px) {
+
+    /* === 1. BOTÓN EN VIVO PRINCIPAL (MÁS COMPACTO) === */
+    .hero .hero-conexion {
+        margin: 8px 0;
+    }
+
+    .hero .live-link {
+        width: auto !important;           /* Ancho automático */
+        max-width: 280px !important;      /* Máximo 280px */
+        padding: 6px 15px !important;     /* Padding compacto */
+        margin-left: 0 !important;        /* Alineado a la izquierda */
+        margin-right: 0 !important;
+        gap: 8px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+    }
+
+    .hero .live-link i {
+        font-size: 1rem !important;
+    }
+
+    .hero .live-texto span {
+        font-size: 0.7rem !important;
+    }
+
+    /* === 2. CONTADOR MÁS JUNTO === */
+    .hero .countdown-container {
+        display: flex;
+        gap: 4px !important;              /* Reducido de 15px a 4px */
+        justify-content: flex-start !important; /* Alineado a la izquierda */
+        margin: 15px 0;
+    }
+
+    .hero .countdown-box {
+        min-width: 55px !important;       /* Ancho reducido */
+        padding: 8px 2px !important;
+        border-radius: 8px;
+    }
+
+    .hero .countdown-numero {
+        font-size: 1.4rem !important;
+    }
+
+    .hero .countdown-label {
+        font-size: 0.6rem !important;
+    }
+
+    /* === 3. BOTONES DE ACCIÓN (CONFIRMAR Y AGENDA) === */
+    .hero .hero-botones {
+        display: flex;
+        gap: 8px;
+        margin: 15px 0;
+    }
+
+    .hero .btn {
+        width: auto !important;            /* Ancho automático */
+        min-width: 140px !important;       /* Ancho mínimo */
+        max-width: 160px !important;       /* Ancho máximo */
+        padding: 10px 15px !important;
+        font-size: 0.85rem !important;
+        text-align: center;
+    }
+
+    /* === 4. SEGUNDO BOTÓN EN VIVO (DEL FLYER) === */
+    .flyer-banner .live-link-detalle {
+        width: auto !important;
+        max-width: 250px !important;
+        padding: 6px 12px !important;
+        margin: 0 auto 0 0 !important;     /* Alineado a la izquierda */
+        font-size: 0.8rem !important;
+        gap: 6px;
+    }
+
+    .flyer-banner .live-link-detalle i {
+        font-size: 0.9rem !important;
+    }
+
+    .flyer-banner .live-badge-detalle {
+        font-size: 0.5rem !important;
+        padding: 2px 4px !important;
+    }
+
+    .flyer-banner .live-texto-detalle {
+        font-size: 0.7rem !important;
+    }
+
+    /* === 5. TEXTO DEL FLYER (INVITACIÓN) === */
+    .flyer-banner .flyer-texto {
+        width: 100%;
+        max-width: 300px;
+        margin-left: 0;
+    }
+
+    /* === 6. TÍTULO DE LA AGENDA (para página agenda.html) === */
+    .hero-agenda-content .hero-titulo .linea1 {
+        font-size: 2.5rem !important;
+    }
+
+    .hero-agenda-content .hero-titulo .linea2 {
+        font-size: 1rem !important;
+        white-space: nowrap !important;
+    }
+
+    .hero-agenda-content .hero-titulo .linea3 {
+        font-size: 1rem !important;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .hero .btn {
+        min-width: 120px !important;
+        padding: 8px 10px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .hero .live-link {
+        max-width: 240px !important;
+        padding: 5px 12px !important;
+    }
+
+    .hero .countdown-box {
+        min-width: 48px !important;
+        padding: 6px 1px !important;
+    }
+
+    .hero .countdown-numero {
+        font-size: 1.2rem !important;
+    }
+}
