@@ -7557,3 +7557,48 @@ body {
         display: block;
     }
 }
+/* ===== CORRECCIÓN URGENTE: TÍTULO QUIENES SOMOS (FORZAR "RURAL" EN MISMA LÍNEA) ===== */
+@media (max-width: 480px) {
+    /* Forzar que la línea 2 ocupe todo el ancho y no se rompa */
+    .hero-titulo-simple .linea2 {
+        white-space: nowrap !important;        /* Evita que el texto se rompa en líneas */
+        font-size: 0.95rem !important;         /* Reducir ligeramente para que quepa */
+        overflow: visible !important;
+        text-overflow: clip !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        display: block !important;
+        letter-spacing: -0.01em !important;    /* Ajuste mínimo de espaciado */
+    }
+
+    /* Ajustar el contenedor principal para dar más espacio */
+    .hero-titulo-simple {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 5px !important;
+    }
+
+    /* Reducir el tamaño de la línea 1 para dar más espacio */
+    .hero-titulo-simple .linea1 {
+        font-size: 2.3rem !important;          /* Un poco más pequeño */
+        margin-bottom: 0.2rem !important;
+    }
+
+    /* Línea 3 sin cambios */
+    .hero-titulo-simple .linea3 {
+        font-size: 0.95rem !important;
+        margin-top: 0.1rem !important;
+    }
+}
+
+/* Ajuste para pantallas MUY pequeñas (menos de 360px) */
+@media (max-width: 360px) {
+    .hero-titulo-simple .linea2 {
+        font-size: 0.9rem !important;
+        letter-spacing: -0.02em !important;
+    }
+    
+    .hero-titulo-simple .linea1 {
+        font-size: 2rem !important;
+    }
+}
