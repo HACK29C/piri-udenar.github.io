@@ -6908,343 +6908,640 @@ body {
         font-size: 0.7rem;
     }
 }
-/* ===== REORGANIZACIÓN COMPLETA PARA MÓVIL (SOLO PARA TELÉFONO) ===== */
+/* ===== DISEÑO RESPONSIVE OPTIMIZADO PARA MÓVIL ===== */
+/* Basado en viewport de 360px, escalable hasta 480px */
 
+/* === MEDIA QUERY PRINCIPAL PARA MÓVILES (0px - 480px) === */
 @media (max-width: 480px) {
 
-    /* === 1. CONTENEDORES PRINCIPALES === */
+    /* ---------------------------------------------- */
+    /* 1. CONFIGURACIÓN GLOBAL Y CONTENEDORES         */
+    /* ---------------------------------------------- */
     body {
         overflow-x: hidden;
         width: 100%;
     }
 
-    .contenedor, 
+    /* Contenedores principales: ancho completo y padding moderado */
+    .contenedor,
     .contenedor-seccion,
+    .contenedor-mapa,
     section {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        padding-left: 15px;
-        padding-right: 15px;
-        box-sizing: border-box;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 12px !important;  /* Padding óptimo: 12px laterales */
+        padding-right: 12px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
     }
 
-    /* === 2. TÍTULOS DE SECCIÓN (CORREGIDOS Y MÁS PEQUEÑOS) === */
-    .seccion-titulo {
-        font-size: 1.4rem !important;  /* Reducido de 1.6rem */
+    /* ---------------------------------------------- */
+    /* 2. ESTILOS DE TÍTULOS (OPTIMIZADOS)            */
+    /* ---------------------------------------------- */
+    .seccion-titulo,
+    h2.seccion-titulo {
+        font-size: 1.5rem !important;      /* Tamaño base para títulos */
         line-height: 1.2;
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
         word-break: break-word;
         hyphens: auto;
-        text-align: center;
-        margin-bottom: 10px;
-        padding: 0 5px;
         width: 100%;
         max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
     }
 
-    /* === 3. TÍTULOS LARGOS ESPECÍFICOS (PARA QUE QUEPAN EN 2 LÍNEAS) === */
+    /* Títulos especialmente largos - más pequeños */
     .alianza-estrategica .seccion-titulo,
     .acompanamiento-institucional .seccion-titulo,
     .que-se-ha-hecho .seccion-titulo,
-    .convenio-simple .seccion-titulo {
-        font-size: 1.2rem !important;  /* Aún más pequeño para títulos largos */
+    .convenio-simple .seccion-titulo,
+    .pasantias .seccion-titulo,
+    .esquema .seccion-titulo,
+    .acerca .seccion-titluo {
+        font-size: 1.3rem !important;
         line-height: 1.3;
-        white-space: normal;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
     }
 
-    /* === 4. HERO (TÍTULO PRINCIPAL) - ALINEACIÓN CORREGIDA === */
-    .hero-quienes-simple {
-        text-align: left; /* Alinea todo el contenedor a la izquierda */
+    /* Línea decorativa debajo de títulos */
+    .seccion-linea {
+        width: 80px;
+        height: 3px;
+        margin: 0 auto 1rem auto;
     }
 
-    .hero-titulo-simple {
-        margin-left: 10px; /* Pequeño margen izquierdo */
-        margin-right: 10px;
+    /* ---------------------------------------------- */
+    /* 3. PÁGINA: ACERCA DE PIRI (acerca.html)       */
+    /* ---------------------------------------------- */
+
+    /* === 3.1. Título principal === */
+    .seccion-acerca .seccion-titulo {
+        margin-top: 1.5rem;  /* Espacio superior extra para bajar el título */
     }
 
-    .hero-titulo-simple .linea1 {
-        font-size: 2.5rem !important;
-        display: block;
-        line-height: 1.1;
-        margin-bottom: 8px;
-        font-weight: 800;
-        text-align: left; /* Alinea "PIRI" a la izquierda */
+    /* === 3.2. Trayectoria del programa (TIMELINE) - NUEVO DISEÑO === */
+    .timeline-container {
+        margin: 1.5rem 0;
     }
 
-    .hero-titulo-simple .linea2 {
-        font-size: 1rem !important;
-        display: block;
-        line-height: 1.3;
-        max-width: 100%;
-        margin: 0 0 5px 0;  /* Sin margen automático, alineado a la izquierda */
-        word-break: break-word;
-        text-align: left; /* Alinea "PROGRAMA DE INTERACCIÓN RURAL" a la izquierda */
-        font-weight: 600;
-    }
-
-    .hero-titulo-simple .linea3 {
-        font-size: 1rem !important;
-        display: block;
-        line-height: 1.3;
-        max-width: 100%;
-        margin: 0 0 5px 0;  /* Sin margen automático */
-        word-break: break-word;
-        text-align: left; /* Alinea "INTERDISCIPLINARIO" a la izquierda */
-        font-weight: 300;
-    }
-
-    .hero-subtitulo-simple {
-        font-size: 0.9rem !important;
-        text-align: left;
-        margin-left: 10px;
-        margin-top: 5px;
-    }
-
-    /* === 5. TÍTULOS DE TARJETAS INTERNAS (MÁS PEQUEÑOS) === */
-    .mision-card-elegante h2,
-    .vision-card-elegante h2 {
-        font-size: 1.5rem !important;
-    }
-
-    .mision-card-elegante p,
-    .vision-card-elegante p {
-        font-size: 0.9rem !important;
-    }
-
-    /* === 6. NUESTRO LOGO (SIN CAMBIOS ESTRUCTURALES, SOLO TEXTO) === */
-    .logo-descripcion h3 {
-        font-size: 1.2rem !important;
-    }
-
-    .descripcion-texto h4 {
-        font-size: 1rem !important;
-    }
-
-    .descripcion-texto p {
-        font-size: 0.85rem !important;
-    }
-
-    /* === 7. TÍTULOS DE PROGRAMAS ACADÉMICOS === */
-    .programas-titulo-seccion {
-        font-size: 1.1rem !important;  /* Reducido */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
+    .timeline-titulo {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
         text-align: center;
     }
 
-    .programas-titulo-seccion i {
-        font-size: 1.3rem;
-    }
-
-    .programa-header h4 {
-        font-size: 1rem !important;
-    }
-
-    .programa-semestre {
-        font-size: 0.75rem !important;
-    }
-
-    .aporte-tag-avanzado {
-        font-size: 0.65rem !important;
-        padding: 4px 8px;
-    }
-
-    /* === 8. HITOS DEL PROCESO (YA ESTÁN BIEN) === */
-    .hitos-nuevos {
-        padding: 30px 12px !important;
-    }
-
-    .hitos-grid-nuevo {
+    .timeline {
+        position: relative;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 1rem;
+    }
+
+    /* Quitamos la línea central */
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin: 0;
+        display: block;
         width: 100%;
     }
 
-    .hito-card {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 15px !important;
+    .timeline-punto {
+        display: none; /* Ocultamos los puntos */
+    }
+
+    .timeline-contenido {
+        position: relative;
+        width: 100%;
+        left: 0 !important;
+        padding: 1rem 1.2rem;
         background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border-left: 5px solid var(--verde-brillante);
+        box-sizing: border-box;
+    }
+
+    .timeline-fecha {
+        display: inline-block;
+        padding: 0.25rem 1rem;
+        background: var(--verde-piri);
+        color: white;
         border-radius: 20px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-        border: 1px solid rgba(159,195,60,0.15);
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-contenido p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    /* === 3.3. Ajuste para textos cortados === */
+    .historia-titulo,
+    .llegada-titulo,
+    .territorio-titulo {
+        font-size: 1.3rem !important;
+        line-height: 1.2;
+        word-break: break-word;
+        margin-bottom: 0.75rem;
+    }
+
+    .carrusel-titulo {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+
+    /* "Primeros estudiantes en territorio" en 3 líneas */
+    .carrusel-titulo {
+        hyphens: manual;
+    }
+
+    /* "Territorio PIRI en Nariño" - Ajuste */
+    .territorio-titulo {
+        font-size: 1.2rem !important;
+    }
+
+    /* === 3.4. Artículos y tarjetas === */
+    .historia-grid,
+    .llegada-grid,
+    .territorio-destacado {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .historia-imagen img,
+    .llegada-imagen img,
+    .territorio-img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    .historia-texto p,
+    .llegada-parrafo,
+    .territorio-parrafo {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* === 3.5. Metodología y gráficos === */
+    .metodologia-titulo,
+    .fases-titulo {
+        font-size: 1.3rem !important;
+    }
+
+    .fases-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .fase-item {
+        padding: 1.2rem;
+    }
+
+    .fase-numero {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    /* === 3.6. Articulación interinstitucional (Universidades) === */
+    .universidades-titulo {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+
+    .universidades-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .universidad-item {
+        padding: 1rem;
+    }
+
+    .universidad-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .universidad-nombre {
+        font-size: 0.8rem;
+    }
+
+    /* === 3.7. Líneas de acción === */
+    .lineas-titulo {
+        font-size: 1.2rem !important;
+    }
+
+    .lineas-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+
+    .linea-item {
+        padding: 1rem 0.5rem;
+    }
+
+    .linea-item i {
+        font-size: 1.8rem;
+    }
+
+    .linea-item h4 {
+        font-size: 0.8rem;
+    }
+
+    /* === 3.8. Pasantías internacionales === */
+    .pasantias-titulo {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+    }
+
+    .tabla-container {
+        overflow-x: auto;
+        margin: 1rem 0;
+    }
+
+    .tabla-pasantias {
+        min-width: 500px;
+    }
+
+    .tabla-pasantias th,
+    .tabla-pasantias td {
+        padding: 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .grafica-container {
+        padding: 1rem;
+    }
+
+    .grafica-container h4 {
+        font-size: 1rem;
+    }
+
+    .barra-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .barra {
+        width: 100%;
+    }
+
+    .barra-label {
+        font-size: 0.9rem;
+    }
+
+    /* === 3.9. Logros === */
+    .logros-titulo {
+        font-size: 1.2rem !important;
+    }
+
+    .logros-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .logro-categoria {
+        padding: 1rem;
+    }
+
+    .logro-icono {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logro-icono i {
+        font-size: 1.5rem;
+    }
+
+    .logro-categoria h4 {
+        font-size: 1rem;
+    }
+
+    .logro-lista li {
+        font-size: 0.75rem;
+        padding: 0.3rem 0;
+    }
+
+    /* === 3.10. Esquema de sistematización === */
+    .esquema-titulo {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+    }
+
+    .esquema-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .esquema-capitulo h4 {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .capitulo-contenido {
+        padding: 0.8rem;
+    }
+
+    .capitulo-item strong {
+        font-size: 0.9rem;
+    }
+
+    .capitulo-item p,
+    .capitulo-item li {
+        font-size: 0.8rem;
+    }
+
+    /* === 3.11. Acompañamiento === */
+    .acompanamiento-titulo {
+        font-size: 1.2rem !important;
+        line-height: 1.2;
+    }
+
+    .acompanamiento-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .acompanamiento-categoria {
+        padding: 1rem;
+    }
+
+    .acompanamiento-categoria h4 {
+        font-size: 1rem;
+    }
+
+    .acompanamiento-item p {
+        font-size: 0.9rem;
+    }
+
+    /* ---------------------------------------------- */
+    /* 4. PÁGINA: QUIENES SOMOS (quienes-somos.html) */
+    /* ---------------------------------------------- */
+
+    /* === 4.1. HERO - Título alineado a la izquierda (OK) === */
+    .hero-quienes-simple {
+        text-align: left;
+    }
+
+    .hero-titulo-simple {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero-titulo-simple .linea1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        display: block;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+        text-align: left;
+    }
+
+    .hero-titulo-simple .linea2 {
+        font-size: 1rem;
+        font-weight: 600;
+        display: block;
+        line-height: 1.3;
+        margin-bottom: 0.15rem;
+        text-align: left;
+    }
+
+    .hero-titulo-simple .linea3 {
+        font-size: 1rem;
+        font-weight: 300;
+        display: block;
+        line-height: 1.3;
+        text-align: left;
+    }
+
+    .hero-subtitulo-simple {
+        font-size: 0.85rem;
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+
+    /* === 4.2. NUESTRO LOGO - CORREGIDO (OCUPA TODO EL ANCHO) === */
+    .logo-grid-simple {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; /* Los hijos ocupan el ancho completo */
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .logo-imagen {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo-grande {
+        max-width: 180px;
+        height: auto;
+    }
+
+    .logo-descripcion {
+        width: 100%;
+    }
+
+    .logo-descripcion h3 {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .descripcion-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+        background: #f9f9f9;
+        border-radius: 20px;
+        border-left: 5px solid var(--verde-brillante);
         width: 100%;
         box-sizing: border-box;
     }
 
-    .hito-numero-grande {
-        font-size: 2rem;
-        font-weight: 800;
-        min-width: 50px;
-        text-align: center;
-        color: var(--verde-brillante);
-        opacity: 0.7;
+    .descripcion-icono {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.75rem;
+        flex-shrink: 0;
     }
 
-    .hito-contenido h4 {
-        font-size: 0.95rem !important;
-        font-weight: 700;
-        margin-bottom: 4px;
-        color: var(--verde-oscuro);
-        line-height: 1.2;
+    .descripcion-icono i {
+        font-size: 2rem !important;
     }
 
-    .hito-contenido p {
-        font-size: 0.7rem !important;
-        color: #666;
-        line-height: 1.3;
+    .descripcion-texto {
+        width: 100%;
     }
 
-    /* === 9. BIOEXPO - TÍTULO CORREGIDO === */
-    .bioexpo .seccion-titulo {
-        font-size: 1.2rem !important;  /* Reducido */
-        word-break: break-word;
-        line-height: 1.2;
-        white-space: normal;
+    .descripcion-texto h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
     }
 
-    .bioexpo-card h3 {
-        font-size: 1.1rem !important;
-    }
-
-    .bioexpo-descripcion {
-        font-size: 0.8rem !important;
-    }
-
-    /* === 10. MUESTRA EMPRESARIAL === */
-    .muestra-info-elegante h3 {
-        font-size: 1rem !important;  /* Reducido para que no se corte */
-        line-height: 1.3;
-        word-break: break-word;
-        text-align: center;
-        max-width: 100%;
-        padding: 0 5px;
-    }
-
-    .muestra-detalles-elegante p {
-        font-size: 0.8rem !important;
-    }
-
-    .participantes-tags span {
-        font-size: 0.7rem !important;
-        padding: 5px 10px;
-    }
-
-    .muestra-nota-elegante p {
-        font-size: 0.8rem !important;
-    }
-
-    /* === 11. ¿QUÉ SE HA HECHO? (TÍTULOS DE TARJETAS) === */
-    .accion-card-moderna h3 {
-        font-size: 1rem !important;
-    }
-
-    .accion-card-moderna p {
-        font-size: 0.8rem !important;
-    }
-
-    /* === 12. INVESTIGACIÓN === */
-    .investigacion-card h3 {
-        font-size: 1rem !important;
-    }
-
-    .investigacion-card li {
-        font-size: 0.8rem !important;
-    }
-
-    /* === 13. ALIANZA PARA EL DESARROLLO (TÍTULOS) === */
-    .alianza-card h3 {
-        font-size: 1rem !important;
-    }
-
-    .alianza-card p {
-        font-size: 0.8rem !important;
-    }
-
-    .alianza-descripcion-amplia {
-        font-size: 0.9rem !important;
-        padding: 15px;
-    }
-
-    /* === 14. ANTECEDENTES === */
-    .timeline-contenido-vertical h4 {
-        font-size: 1rem !important;
-    }
-
-    .timeline-contenido-vertical p {
-        font-size: 0.8rem !important;
-    }
-
-    .municipio-tag {
-        font-size: 0.8rem !important;
-        padding: 8px 15px;
-    }
-
-    /* === 15. CARRUSELES DE EMPRESAS (BORDES REDONDOS) === */
-    .empresa-carrusel .carrusel-auto-empresa,
-    .track-agrohumus .carrusel-auto-slide-empresa img,
-    .track-hajsu .carrusel-auto-slide-empresa img {
-        border-radius: 20px !important;
-    }
-
-    .carrusel-auto-slide-empresa {
-        height: 180px; /* Un poco más pequeño para que se vea mejor */
-    }
-
-    .empresa-titulo {
-        font-size: 1.1rem !important;
-    }
-
-    /* === 16. TEXTO GENERAL === */
-    p, li, span {
-        font-size: 0.85rem;
+    .descripcion-texto p {
+        font-size: 0.9rem;
         line-height: 1.4;
     }
 
-    h1, h2, h3, h4 {
-        word-break: break-word;
-        hyphens: auto;
-    }
-}
-
-/* Para teléfonos muy pequeños (hasta 360px) */
-@media (max-width: 360px) {
-    .seccion-titulo {
-        font-size: 1.2rem !important;
+    /* Paleta de colores centrada y dentro de su contenedor */
+    .colores-mini {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0 0.5rem;
+        flex-wrap: wrap;
+        width: 100%;
     }
 
-    .hero-titulo-simple .linea1 {
-        font-size: 2.2rem !important;
+    .colores-mini span {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        flex-shrink: 0;
     }
 
-    .hero-titulo-simple .linea2,
-    .hero-titulo-simple .linea3 {
-        font-size: 0.9rem !important;
+    /* === 4.3. CARRUSELES DE EMPRESAS - MÁS GRANDES === */
+    .empresas-certificadas-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 1rem 0;
     }
 
-    .alianza-estrategica .seccion-titulo,
-    .acompanamiento-institucional .seccion-titulo,
-    .que-se-ha-hecho .seccion-titulo {
-        font-size: 1rem !important;
-    }
-
-    .hito-numero-grande {
-        font-size: 1.5rem;
-        min-width: 40px;
-    }
-
-    .carrusel-auto-slide-empresa {
-        height: 150px;
+    .empresa-carrusel {
+        padding: 1rem !important;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .empresa-titulo {
-        font-size: 1rem !important;
+        font-size: 1.2rem !important;
+        margin-bottom: 0.75rem;
+        text-align: center;
     }
+
+    .carrusel-auto-empresa {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 24px !important;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .carrusel-auto-slide-empresa {
+        min-width: 100%;
+        height: 220px; /* Más alto para mejor visualización */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
+    }
+
+    .carrusel-auto-slide-empresa img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 24px;
+    }
+
+    /* === 4.4. CARRUSEL DE BIOEXPO - MÁS HORIZONTAL === */
+    .bioexpo-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .bioexpo-card {
+        padding: 1.5rem;
+    }
+
+    .bioexpo-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .carrusel-auto-bioexpo {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+
+    .carrusel-auto-slide-bioexpo {
+        min-width: 100%;
+        height: 200px; /* Relación más horizontal */
+    }
+
+    .carrusel-auto-slide-bioexpo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* === 4.5. FLYER DE MUESTRA EMPRESARIAL - TAMAÑO INDEX === */
+    .muestra-grid-elegante {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .muestra-flyer {
+        width: 100%;
+        max-width: 280px; /* Mismo tamaño que el index */
+        margin: 0 auto;
+    }
+
+    .muestra-flyer img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .muestra-info-elegante h3 {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    /* ---------------------------------------------- */
+    /* 5. AJUSTES ADICIONALES Y COMPLEMENTOS         */
+    /* ---------------------------------------------- */
+
+    /* Mejora para textos con guiones */
+    h1, h2, h3, h4, p, span, li, a {
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    /* Evitar el uso excesivo de !important (solo donde sea necesario) */
 }
