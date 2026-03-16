@@ -7768,7 +7768,7 @@ body {
     /* === 2. CONTADOR MÁS JUNTO === */
     .hero .countdown-container {
         display: flex;
-        gap: 4px !important;              /* Reducido de 15px a 4px */
+        gap: 6px !important;              /* Reducido de 15px a 4px */
         justify-content: flex-start !important; /* Alineado a la izquierda */
         margin: 15px 0;
     }
