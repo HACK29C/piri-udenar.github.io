@@ -7932,3 +7932,41 @@ body {
         min-width: 48px !important;
     }
 }
+/* ===== OPTIMIZACIÓN DEL RELOJ PARA MÓVIL ===== */
+@media (max-width: 480px) {
+    .zona-horaria-card {
+        min-width: 120px !important;  /* Más compacto */
+        padding: 8px 12px !important;
+    }
+
+    .zona-pais {
+        font-size: 0.8rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    .zona-hora {
+        font-size: 1.3rem !important;  /* Hora más grande y legible */
+        font-weight: 700 !important;
+    }
+
+    .zona-fecha {
+        display: none !important;  /* Ocultamos la fecha en móvil */
+    }
+
+    /* Opcional: si quieres mostrar la fecha en una línea muy pequeña */
+    .zona-horaria-card::after {
+        content: attr(data-fecha);  /* Esto requeriría agregar atributos en HTML */
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .zona-horaria-card {
+        min-width: 100px !important;
+        padding: 5px 8px !important;
+    }
+
+    .zona-hora {
+        font-size: 1.1rem !important;
+    }
+}
