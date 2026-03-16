@@ -7814,7 +7814,7 @@ body {
     /* === 6. SEGUNDO BOTÓN EN VIVO (DEL FLYER) - IGUAL AL PRIMERO === */
     .flyer-banner .live-link-detalle {
         width: auto !important;
-        max-width: 260px !important;      /* Mismo tamaño que el primero */
+        max-width: 10px !important;      /* Mismo tamaño que el primero */
         padding: 6px 15px !important;      /* Mismo padding */
         margin: 0 auto 0 0 !important;
         font-size: 0.9rem !important;
