@@ -6908,11 +6908,10 @@ body {
         font-size: 0.7rem;
     }
 }
-/* ===== REORGANIZACIÓN COMPLETA PARA MÓVIL ===== */
+/* ===== REORGANIZACIÓN COMPLETA PARA MÓVIL (SOLO PARA TELÉFONO) ===== */
 
-/* Para teléfonos medianos y pequeños */
 @media (max-width: 480px) {
-    
+
     /* === 1. CONTENEDORES PRINCIPALES === */
     body {
         overflow-x: hidden;
@@ -6925,14 +6924,14 @@ body {
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 15px;
+        padding-right: 15px;
         box-sizing: border-box;
     }
 
-    /* === 2. TÍTULOS PRINCIPALES (OPTIMIZADOS) === */
+    /* === 2. TÍTULOS DE SECCIÓN (CORREGIDOS Y MÁS PEQUEÑOS) === */
     .seccion-titulo {
-        font-size: 1.6rem !important;
+        font-size: 1.4rem !important;  /* Reducido de 1.6rem */
         line-height: 1.2;
         word-break: break-word;
         hyphens: auto;
@@ -6943,178 +6942,119 @@ body {
         max-width: 100%;
     }
 
-    /* Títulos largos en múltiples líneas */
-    .seccion-titulo:contains("PROGRAMA DE INTERACCIÓN RURAL") {
-        font-size: 1rem !important;
+    /* === 3. TÍTULOS LARGOS ESPECÍFICOS (PARA QUE QUEPAN EN 2 LÍNEAS) === */
+    .alianza-estrategica .seccion-titulo,
+    .acompanamiento-institucional .seccion-titulo,
+    .que-se-ha-hecho .seccion-titulo,
+    .convenio-simple .seccion-titulo {
+        font-size: 1.2rem !important;  /* Aún más pequeño para títulos largos */
+        line-height: 1.3;
+        white-space: normal;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    /* === 3. NUESTRO LOGO (COMPLETAMENTE REORGANIZADO) === */
-    .significado-logo {
-        padding: 30px 12px !important;
-        width: 100%;
-        background: white;
-        border-radius: 20px;
-        margin: 20px 0;
+    /* === 4. HERO (TÍTULO PRINCIPAL) - ALINEACIÓN CORREGIDA === */
+    .hero-quienes-simple {
+        text-align: left; /* Alinea todo el contenedor a la izquierda */
     }
 
-    .logo-grid-simple {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        width: 100%;
-        padding: 0;
-        background: transparent;
-        box-shadow: none;
+    .hero-titulo-simple {
+        margin-left: 10px; /* Pequeño margen izquierdo */
+        margin-right: 10px;
     }
 
-    .logo-imagen {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 5px;
-    }
-
-    .logo-grande {
-        max-width: 180px;
-        height: auto;
-    }
-
-    .logo-descripcion {
-        width: 100%;
-    }
-
-    .logo-descripcion h3 {
-        text-align: center;
-        font-size: 1.3rem !important;
-        color: var(--verde-piri);
-        margin-bottom: 15px;
-    }
-
-    /* Tarjetas de descripción */
-    .descripcion-item {
+    .hero-titulo-simple .linea1 {
+        font-size: 2.5rem !important;
         display: block;
-        text-align: center;
-        padding: 20px 12px;
-        margin-bottom: 12px;
-        background: #f9f9f9;
-        border-radius: 16px;
-        border-left: 4px solid var(--verde-brillante);
-        width: 100%;
-        box-sizing: border-box;
+        line-height: 1.1;
+        margin-bottom: 8px;
+        font-weight: 800;
+        text-align: left; /* Alinea "PIRI" a la izquierda */
     }
 
-    .descripcion-icono {
-        width: 50px;
-        height: 50px;
-        margin: 0 auto 12px;
+    .hero-titulo-simple .linea2 {
+        font-size: 1rem !important;
+        display: block;
+        line-height: 1.3;
+        max-width: 100%;
+        margin: 0 0 5px 0;  /* Sin margen automático, alineado a la izquierda */
+        word-break: break-word;
+        text-align: left; /* Alinea "PROGRAMA DE INTERACCIÓN RURAL" a la izquierda */
+        font-weight: 600;
     }
 
-    .descripcion-icono i {
-        font-size: 1.8rem !important;
+    .hero-titulo-simple .linea3 {
+        font-size: 1rem !important;
+        display: block;
+        line-height: 1.3;
+        max-width: 100%;
+        margin: 0 0 5px 0;  /* Sin margen automático */
+        word-break: break-word;
+        text-align: left; /* Alinea "INTERDISCIPLINARIO" a la izquierda */
+        font-weight: 300;
+    }
+
+    .hero-subtitulo-simple {
+        font-size: 0.9rem !important;
+        text-align: left;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+    /* === 5. TÍTULOS DE TARJETAS INTERNAS (MÁS PEQUEÑOS) === */
+    .mision-card-elegante h2,
+    .vision-card-elegante h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .mision-card-elegante p,
+    .vision-card-elegante p {
+        font-size: 0.9rem !important;
+    }
+
+    /* === 6. NUESTRO LOGO (SIN CAMBIOS ESTRUCTURALES, SOLO TEXTO) === */
+    .logo-descripcion h3 {
+        font-size: 1.2rem !important;
     }
 
     .descripcion-texto h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 8px;
-        color: var(--verde-oscuro);
+        font-size: 1rem !important;
     }
 
     .descripcion-texto p {
-        font-size: 0.9rem !important;
-        line-height: 1.4;
-        color: #555;
+        font-size: 0.85rem !important;
     }
 
-    /* Paleta de colores centrada */
-    .colores-mini {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin: 25px 0 10px;
-        flex-wrap: wrap;
-    }
-
-    .colores-mini span {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid white;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    }
-
-    /* === 4. PROGRAMAS ACADÉMICOS (EN 3 LÍNEAS) === */
+    /* === 7. TÍTULOS DE PROGRAMAS ACADÉMICOS === */
     .programas-titulo-seccion {
-        font-size: 1.3rem !important;
-        text-align: center;
-        margin: 30px 0 15px;
+        font-size: 1.1rem !important;  /* Reducido */
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 5px;
+        text-align: center;
     }
 
     .programas-titulo-seccion i {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-    }
-
-    .programas-titulo-seccion br {
-        display: block;
-        content: "";
-        margin: 2px 0;
-    }
-
-    .programas-grid-avanzado {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
-    }
-
-    .programa-card-avanzado {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .programa-header {
-        padding: 20px 15px !important;
-    }
-
-    .programa-icono-wrapper {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
+        font-size: 1.3rem;
     }
 
     .programa-header h4 {
-        font-size: 1.1rem !important;
-        word-break: break-word;
-        line-height: 1.2;
-    }
-
-    .programa-body {
-        padding: 15px !important;
+        font-size: 1rem !important;
     }
 
     .programa-semestre {
-        width: fit-content;
-        margin: 0 auto 15px;
-        font-size: 0.8rem !important;
-    }
-
-    .programa-aportes-grid {
-        justify-content: center;
-        gap: 8px;
+        font-size: 0.75rem !important;
     }
 
     .aporte-tag-avanzado {
-        font-size: 0.7rem !important;
-        padding: 4px 10px;
+        font-size: 0.65rem !important;
+        padding: 4px 8px;
     }
 
-    /* === 5. HITOS DEL PROCESO (MEJORADOS) === */
+    /* === 8. HITOS DEL PROCESO (YA ESTÁN BIEN) === */
     .hitos-nuevos {
         padding: 30px 12px !important;
     }
@@ -7130,7 +7070,7 @@ body {
         display: flex;
         align-items: center;
         gap: 15px;
-        padding: 18px 15px !important;
+        padding: 15px !important;
         background: white;
         border-radius: 20px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.03);
@@ -7148,12 +7088,8 @@ body {
         opacity: 0.7;
     }
 
-    .hito-contenido {
-        flex: 1;
-    }
-
     .hito-contenido h4 {
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
         font-weight: 700;
         margin-bottom: 4px;
         color: var(--verde-oscuro);
@@ -7161,229 +7097,154 @@ body {
     }
 
     .hito-contenido p {
-        font-size: 0.75rem !important;
+        font-size: 0.7rem !important;
         color: #666;
         line-height: 1.3;
     }
 
-    /* === 6. BIOEXPO NARIÑO (CORREGIDO) === */
-    .bioexpo {
-        padding: 30px 12px !important;
-    }
-
+    /* === 9. BIOEXPO - TÍTULO CORREGIDO === */
     .bioexpo .seccion-titulo {
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important;  /* Reducido */
         word-break: break-word;
         line-height: 1.2;
-    }
-
-    .bioexpo-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .bioexpo-card {
-        padding: 25px 15px !important;
+        white-space: normal;
     }
 
     .bioexpo-card h3 {
-        font-size: 1.2rem !important;
-        word-break: break-word;
+        font-size: 1.1rem !important;
     }
 
     .bioexpo-descripcion {
-        font-size: 0.85rem !important;
-        line-height: 1.4;
+        font-size: 0.8rem !important;
+    }
+
+    /* === 10. MUESTRA EMPRESARIAL === */
+    .muestra-info-elegante h3 {
+        font-size: 1rem !important;  /* Reducido para que no se corte */
+        line-height: 1.3;
+        word-break: break-word;
+        text-align: center;
+        max-width: 100%;
         padding: 0 5px;
     }
 
-    .carrusel-bioexpo {
-        width: 100%;
+    .muestra-detalles-elegante p {
+        font-size: 0.8rem !important;
     }
 
-    .carrusel-auto-bioexpo {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 15px;
+    .participantes-tags span {
+        font-size: 0.7rem !important;
+        padding: 5px 10px;
     }
 
-    .carrusel-auto-track-bioexpo {
-        display: flex;
-        transition: transform 0.5s ease;
+    .muestra-nota-elegante p {
+        font-size: 0.8rem !important;
     }
 
-    .carrusel-auto-slide-bioexpo {
-        min-width: 100%;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f5f5f5;
+    /* === 11. ¿QUÉ SE HA HECHO? (TÍTULOS DE TARJETAS) === */
+    .accion-card-moderna h3 {
+        font-size: 1rem !important;
     }
 
-    .carrusel-auto-slide-bioexpo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .accion-card-moderna p {
+        font-size: 0.8rem !important;
     }
 
-    /* === 7. AJUSTES ESPECÍFICOS PARA QUIENES-SOMOS.HTML (TÍTULOS Y MÁS) === */
+    /* === 12. INVESTIGACIÓN === */
+    .investigacion-card h3 {
+        font-size: 1rem !important;
+    }
 
-/* Títulos del hero - ajuste de líneas */
-.hero-titulo-simple .linea1 {
-    font-size: 2.8rem !important;
-    display: block;
-    line-height: 1.1;
-    margin-bottom: 5px;
+    .investigacion-card li {
+        font-size: 0.8rem !important;
+    }
+
+    /* === 13. ALIANZA PARA EL DESARROLLO (TÍTULOS) === */
+    .alianza-card h3 {
+        font-size: 1rem !important;
+    }
+
+    .alianza-card p {
+        font-size: 0.8rem !important;
+    }
+
+    .alianza-descripcion-amplia {
+        font-size: 0.9rem !important;
+        padding: 15px;
+    }
+
+    /* === 14. ANTECEDENTES === */
+    .timeline-contenido-vertical h4 {
+        font-size: 1rem !important;
+    }
+
+    .timeline-contenido-vertical p {
+        font-size: 0.8rem !important;
+    }
+
+    .municipio-tag {
+        font-size: 0.8rem !important;
+        padding: 8px 15px;
+    }
+
+    /* === 15. CARRUSELES DE EMPRESAS (BORDES REDONDOS) === */
+    .empresa-carrusel .carrusel-auto-empresa,
+    .track-agrohumus .carrusel-auto-slide-empresa img,
+    .track-hajsu .carrusel-auto-slide-empresa img {
+        border-radius: 20px !important;
+    }
+
+    .carrusel-auto-slide-empresa {
+        height: 180px; /* Un poco más pequeño para que se vea mejor */
+    }
+
+    .empresa-titulo {
+        font-size: 1.1rem !important;
+    }
+
+    /* === 16. TEXTO GENERAL === */
+    p, li, span {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    h1, h2, h3, h4 {
+        word-break: break-word;
+        hyphens: auto;
+    }
 }
 
-.hero-titulo-simple .linea2 {
-    font-size: 1rem !important;
-    display: block;
-    line-height: 1.3;
-    max-width: 90%;
-    margin: 0 auto 5px;
-    word-break: break-word;
-}
+/* Para teléfonos muy pequeños (hasta 360px) */
+@media (max-width: 360px) {
+    .seccion-titulo {
+        font-size: 1.2rem !important;
+    }
 
-.hero-titulo-simple .linea3 {
-    font-size: 1rem !important;
-    display: block;
-    line-height: 1.3;
-    max-width: 90%;
-    margin: 0 auto;
-}
+    .hero-titulo-simple .linea1 {
+        font-size: 2.2rem !important;
+    }
 
-/* Bordes redondeados para ambos carruseles de empresas */
-.empresa-carrusel .carrusel-auto-empresa {
-    border-radius: 20px !important;
-    overflow: hidden;
-}
+    .hero-titulo-simple .linea2,
+    .hero-titulo-simple .linea3 {
+        font-size: 0.9rem !important;
+    }
 
-.empresa-carrusel .carrusel-auto-slide-empresa {
-    border-radius: 20px !important;
-}
+    .alianza-estrategica .seccion-titulo,
+    .acompanamiento-institucional .seccion-titulo,
+    .que-se-ha-hecho .seccion-titulo {
+        font-size: 1rem !important;
+    }
 
-/* Ajuste específico para Agrohumus (mismos bordes que Hajsu) */
-.track-agrohumus .carrusel-auto-slide-empresa img,
-.track-hajsu .carrusel-auto-slide-empresa img {
-    border-radius: 20px !important;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
+    .hito-numero-grande {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
 
-/* Título "Sostenibilidad que impulsa la región" - ajuste de tamaño */
-.muestra-info-elegante h3 {
-    font-size: 1.1rem !important;
-    line-height: 1.3;
-    word-break: break-word;
-    text-align: center;
-    max-width: 100%;
-    padding: 0 5px;
-}
+    .carrusel-auto-slide-empresa {
+        height: 150px;
+    }
 
-/* Ajustes generales */
-h1, h2, h3, h4 {
-    word-break: break-word;
-    hyphens: auto;
-}
-
-/* === 8. ALIANZA PARA EL DESARROLLO (SIN CAMBIOS) === */
-.alianza-estrategica {
-    padding: 30px 12px !important;
-}
-
-.alianza-grid-mejorada {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.alianza-card {
-    padding: 20px 15px !important;
-}
-
-.alianza-icono {
-    width: 80px !important;
-    height: 80px !important;
-}
-
-.alianza-card h3 {
-    font-size: 1.2rem !important;
-}
-
-.alianza-card p {
-    font-size: 0.85rem !important;
-}
-
-.alianza-conector {
-    align-self: center;
-    margin: 5px 0;
-}
-
-.alianza-descripcion {
-    font-size: 0.9rem !important;
-    padding: 15px;
-    text-align: center;
-}
-
-/* === 9. CARRUSELES DE EMPRESAS (CON BORDES REDONDEADOS) === */
-.empresas-certificadas-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.empresa-carrusel {
-    padding: 15px !important;
-}
-
-.empresa-titulo {
-    font-size: 1.2rem !important;
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-.carrusel-auto-empresa {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 20px !important;
-}
-
-.carrusel-auto-track-empresa {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.carrusel-auto-slide-empresa {
-    min-width: 100%;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5f5f5;
-    border-radius: 20px !important;
-    overflow: hidden;
-}
-
-.carrusel-auto-slide-empresa img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px !important;
-}
-
-/* === 10. BIOEXPO - TÍTULO CORREGIDO === */
-.bioexpo .seccion-titulo {
-    font-size: 1.4rem !important;
-    word-break: break-word;
-    line-height: 1.2;
-    white-space: normal;
-}
-
-.bioexpo-card h3 {
-    font-size: 1.2rem !important;
-    word-break: break-word;
+    .empresa-titulo {
+        font-size: 1rem !important;
+    }
 }
