@@ -7970,3 +7970,81 @@ body {
         font-size: 1.1rem !important;
     }
 }
+/* ===== BOTÓN DE MODO OSCURO/CLARO ===== */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--verde-piri);
+    color: white;
+    border: 2px solid var(--verde-brillante);
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    background: var(--verde-brillante);
+    color: var(--verde-oscuro);
+}
+
+/* ===== VARIABLES PARA MODO OSCURO ===== */
+body.dark-mode {
+    --verde-piri: #1e3b2f;
+    --verde-brillante: #6b8c3e;
+    --verde-oscuro: #e0e0e0;
+    --verde-montana: #1e4a3a;
+    --azul-institucional: #2a3a6a;
+    --cafe-territorio: #8b5a2b;
+    --blanco: #1a1a1a;
+    --gris-claro: #2d2d2d;
+    
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #444;
+}
+
+body.dark-mode .card,
+body.dark-mode .mision-card,
+body.dark-mode .vision-card,
+body.dark-mode .programa-card,
+body.dark-mode .noticia-card {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+/* Transición suave */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar,
+.card,
+.footer-principal {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        bottom: 90px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
