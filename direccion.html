@@ -307,38 +307,50 @@
         });
     </script>
 
-    <!-- Script para el formulario dual (Netlify + Getform) -->
-    <script>
-        function enviarFormulario(event) {
-            event.preventDefault();
-            
-            const form = document.getElementById('formulario-contacto');
-            const formData = new FormData(form);
-            
-            // 1. Enviar a Netlify (funciona cuando el sitio está en Netlify)
-            fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(() => console.log('Enviado a Netlify'))
-            .catch(error => console.error('Error Netlify:', error));
-            
-            // 2. Enviar a Getform (para GitHub Pages)
-            fetch('https://getform.io/f/it631hmrekg', {
-                method: 'POST',
-                body: formData
-            })
-            .then(() => {
-                alert('¡Mensaje enviado con éxito!');
+ <!-- Script para el formulario dual (Netlify + Getform) -->
+<script>
+    function enviarFormulario(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('formulario-contacto');
+        const formData = new FormData(form);
+        
+        // Agregar campos requeridos por Getform para mejor compatibilidad
+        formData.append('_to', 'jhonalvaro2002@gmail.com'); // Tu correo
+        formData.append('_subject', 'Nuevo mensaje desde la web PIRI');
+        
+        console.log('📤 Enviando mensaje...');
+        
+        // 1. Enviar a Netlify (opcional, puede fallar)
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => console.log('✅ Enviado a Netlify'))
+        .catch(e => console.log('⚠️ Netlify no disponible (normal en GitHub Pages)'));
+        
+        // 2. Enviar a Getform (principal)
+        fetch('https://getform.io/f/it631hmrekg', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            console.log('📥 Respuesta Getform:', response.status);
+            if (response.ok) {
+                alert('✅ ¡Mensaje enviado con éxito!');
                 form.reset();
-            })
-            .catch(error => {
-                console.error('Error Getform:', error);
-                alert('Hubo un error al enviar. Intenta de nuevo.');
-            });
-        }
-    </script>
+            } else {
+                alert('❌ Error al enviar. Código: ' + response.status);
+                return response.text().then(text => console.error('Detalles:', text));
+            }
+        })
+        .catch(error => {
+            console.error('❌ Error Getform:', error);
+            alert('Hubo un error de conexión. Intenta de nuevo.');
+        });
+    }
+</script>
 
     <!-- ===== BOTÓN DE MODO OSCURO/CLARO ===== -->
     <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
