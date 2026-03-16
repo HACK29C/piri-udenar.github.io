@@ -7228,42 +7228,23 @@ body {
         object-fit: cover;
     }
 
-     /* === 7. AJUSTES GENERALES DE TÍTULOS === */
+    /* === 7. AJUSTES GENERALES DE TÍTULOS === */
     h1, h2, h3, h4 {
         word-break: break-word;
         hyphens: auto;
     }
 
-    /* TÍTULO PIRI EN 3 LÍNEAS PERFECTAS */
-    .hero-titulo {
-        margin-bottom: 15px;
-        width: 100%;
-    }
-
     .hero-titulo .linea1 {
-        font-size: 2.8rem !important;
-        display: block;
-        text-align: left;
-        line-height: 1;
-        margin-bottom: 5px;
+        font-size: 2.5rem !important;
     }
 
     .hero-titulo .linea2 {
-        font-size: 1.1rem !important;
-        display: block;
-        text-align: left;
+        font-size: 1rem !important;
         line-height: 1.2;
-        word-break: normal;
-        white-space: normal;
-        max-width: 100%;
     }
 
     .hero-titulo .linea3 {
-        font-size: 1.1rem !important;
-        display: block;
-        text-align: left;
-        line-height: 1.2;
-        margin-top: 2px;
+        font-size: 1rem !important;
     }
 
     /* === 8. ALIANZA PARA EL DESARROLLO === */
@@ -7305,7 +7286,7 @@ body {
         text-align: center;
     }
 
-    /* === 9. CARRUSELES DE EMPRESAS CON BORDES REDONDOS === */
+    /* === 9. CARRUSELES DE EMPRESAS === */
     .empresas-certificadas-grid {
         display: flex;
         flex-direction: column;
@@ -7314,8 +7295,6 @@ body {
 
     .empresa-carrusel {
         padding: 15px !important;
-        background: white;
-        border-radius: 24px;
     }
 
     .empresa-titulo {
@@ -7327,8 +7306,7 @@ body {
     .carrusel-auto-empresa {
         width: 100%;
         overflow: hidden;
-        border-radius: 20px !important;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        border-radius: 12px;
     }
 
     .carrusel-auto-track-empresa {
@@ -7338,65 +7316,62 @@ body {
 
     .carrusel-auto-slide-empresa {
         min-width: 100%;
-        height: 220px;
+        height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #f5f5f5;
-        border-radius: 16px !important;
-        overflow: hidden;
     }
 
     .carrusel-auto-slide-empresa img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        border-radius: 16px;
-        max-height: 220px;
+        object-fit: contain;
+        background-color: #f0f0f0;
+        max-height: 200px;
+    }
+}
+
+/* Para teléfonos muy pequeños (hasta 360px) */
+@media (max-width: 360px) {
+    .seccion-titulo {
+        font-size: 1.4rem !important;
     }
 
-    /* === 10. MUESTRA EMPRESARIAL (TEXTO OPTIMIZADO) === */
-    .muestra-grid-elegante {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px 15px !important;
+    .hero-titulo .linea1 {
+        font-size: 2rem !important;
     }
 
-    .muestra-flyer {
-        max-width: 240px;
-        margin: 0 auto;
+    .logo-grande {
+        max-width: 150px;
     }
 
-    .muestra-info-elegante {
-        width: 100%;
-        text-align: center;
+    .hito-card {
+        padding: 15px 12px !important;
     }
 
-    .muestra-info-elegante h3 {
+    .hito-numero-grande {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
+
+    .hito-contenido h4 {
+        font-size: 0.9rem !important;
+    }
+
+    .hito-contenido p {
+        font-size: 0.7rem !important;
+    }
+
+    .empresa-titulo {
+        font-size: 1rem !important;
+    }
+
+    .carrusel-auto-slide-empresa {
+        height: 160px;
+    }
+
+    .bioexpo .seccion-titulo {
         font-size: 1.2rem !important;
-        line-height: 1.3;
-        word-break: break-word;
-        hyphens: none;
-        text-align: center;
-        margin-bottom: 12px;
-        color: var(--verde-piri);
-        padding: 0 5px;
-    }
-
-    .muestra-detalles-elegante {
-        text-align: left;
-        padding: 15px;
-        margin: 10px 0;
-    }
-
-    .participantes-tags {
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .participantes-tags span {
-        font-size: 0.8rem;
-        padding: 6px 12px;
     }
 }
