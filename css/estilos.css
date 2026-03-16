@@ -392,7 +392,6 @@ body {
     opacity: 0.7;
 }
 
-
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
     40% {transform: translateX(-50%) translateY(-20px);}
@@ -3452,434 +3451,6 @@ body {
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border-left: 5px solid var(--verde-brillante);
-}
-
-.investigacion-card h3 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.3rem;
-    color: var(--verde-piri);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.investigacion-card ul {
-    list-style: none;
-}
-
-.investigacion-card li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.investigacion-card li i {
-    color: var(--verde-brillante);
-}
-
-/* ===== ESTADÍSTICAS ELEGANTES ===== */
-.estadisticas-elegantes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 600px;
-    margin: 40px auto;
-}
-
-.estadistica-card {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 30px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.estadistica-numero {
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--verde-piri);
-    line-height: 1;
-    margin-bottom: 10px;
-}
-
-.estadistica-barra {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, var(--verde-brillante), var(--verde-piri));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 1s;
-}
-
-.estadistica-card:hover .estadistica-barra {
-    transform: scaleX(1);
-}
-
-/* ===== BIOEXPO GRID ===== */
-.bioexpo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 40px;
-    align-items: center;
-    margin-top: 40px;
-}
-
-.bioexpo-card {
-    background: linear-gradient(135deg, #326C54, #255633);
-    color: white;
-    padding: 40px;
-    border-radius: 30px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(50,108,84,0.3);
-}
-
-.bioexpo-card i {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--verde-brillante);
-}
-
-.bioexpo-card h3 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.bioexpo-stats {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.bioexpo-stats span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* ===== MUESTRA ELEGANTE ===== */
-.muestra-grid-elegante {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 50px;
-    align-items: center;
-    max-width: 1100px;
-    margin: 40px auto;
-    background: rgba(255,255,255,0.9);
-    padding: 40px;
-    border-radius: 40px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-}
-
-.muestra-flyer img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.muestra-info-elegante h3 {
-    font-family: var(--fuente-titulos);
-    font-size: 2rem;
-    color: var(--verde-piri);
-    margin-bottom: 20px;
-}
-
-.muestra-detalles-elegante {
-    background: var(--gris-claro);
-    padding: 25px;
-    border-radius: 20px;
-    margin: 20px 0;
-}
-
-.muestra-detalles-elegante p {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.muestra-detalles-elegante i {
-    color: var(--verde-brillante);
-    width: 25px;
-}
-
-.participantes-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.participantes-tags span {
-    background: var(--verde-piri);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-}
-
-.muestra-nota-elegante {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(159,195,60,0.1);
-    padding: 15px;
-    border-radius: 15px;
-    border-left: 4px solid var(--verde-brillante);
-}
-
-.muestra-nota-elegante i {
-    color: var(--verde-brillante);
-    font-size: 1.5rem;
-}
-
-/* ===== CARRUSELES CON ALTURA CORREGIDA ===== */
-.carrusel-auto-negocios,
-.carrusel-auto-acompanamiento,
-.carrusel-auto-bioexpo,
-.carrusel-auto-muestra,
-.carrusel-auto-empresa {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 20px;
-    margin: 20px 0;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.carrusel-auto-track-negocios,
-.carrusel-auto-track-acompanamiento,
-.carrusel-auto-track-bioexpo,
-.carrusel-auto-track-muestra,
-.carrusel-auto-track-empresa {
-    display: flex;
-    transition: transform 1s ease;
-}
-
-.carrusel-auto-slide-negocios,
-.carrusel-auto-slide-acompanamiento,
-.carrusel-auto-slide-bioexpo,
-.carrusel-auto-slide-muestra,
-.carrusel-auto-slide-empresa {
-    min-width: 100%;
-    height: 450px; /* Altura aumentada */
-}
-
-.carrusel-auto-slide-negocios img,
-.carrusel-auto-slide-acompanamiento img,
-.carrusel-auto-slide-bioexpo img,
-.carrusel-auto-slide-muestra img,
-.carrusel-auto-slide-empresa img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 968px) {
-    .mision-vision-grid-elegante,
-    .proceso-grid-elegante,
-    .acompanamiento-grid-elegante,
-    .investigacion-grid-elegante,
-    .bioexpo-grid,
-    .muestra-grid-elegante {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-titulo-simple .linea1 {
-        font-size: 3.5rem;
-    }
-    
-    .hero-titulo-simple .linea2,
-    .hero-titulo-simple .linea3 {
-        font-size: 1.5rem;
-    }
-    
-    .estadisticas-elegantes {
-        grid-template-columns: 1fr;
-    }
-    
-    .carrusel-auto-slide-negocios,
-    .carrusel-auto-slide-acompanamiento,
-    .carrusel-auto-slide-bioexpo,
-    .carrusel-auto-slide-muestra,
-    .carrusel-auto-slide-empresa {
-        height: 350px;
-    }
-}
-/* ===== SECCIÓN DUAL: TEXTO + VIDEO ===== */
-.proceso-dual {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    margin: 40px 0;
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(5px);
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-}
-
-.proceso-info h3 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.8rem;
-    color: var(--verde-piri);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.proceso-descripcion {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--verde-oscuro);
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px dashed var(--verde-brillante);
-}
-
-.proceso-aportes {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.aporte-item {
-    display: flex;
-    gap: 15px;
-    align-items: flex-start;
-}
-
-.aporte-item i {
-    font-size: 1.8rem;
-    margin-top: 5px;
-    flex-shrink: 0;
-}
-
-.aporte-item div {
-    display: flex;
-    flex-direction: column;
-}
-
-.aporte-item strong {
-    font-family: var(--fuente-titulos);
-    font-weight: 700;
-    color: var(--verde-oscuro);
-    margin-bottom: 3px;
-}
-
-.aporte-item span {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.5;
-}
-
-.proceso-impacto {
-    font-style: italic;
-    background: rgba(159, 195, 60, 0.1);
-    padding: 15px;
-    border-radius: 15px;
-    border-left: 4px solid var(--verde-brillante);
-    color: #333;
-}
-
-.proceso-impacto i {
-    color: var(--verde-brillante);
-    margin-right: 8px;
-    font-size: 1rem;
-}
-
-.video-contenedor-dual {
-    position: relative;
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-/* Responsive */
-@media (max-width: 968px) {
-    .proceso-dual {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 30px;
-    }
-    
-    .video-contenedor-dual iframe {
-        height: 300px;
-    }
-}
-
-@media (max-width: 600px) {
-    .proceso-dual {
-        padding: 20px;
-    }
-    
-    .video-contenedor-dual iframe {
-        height: 250px;
-    }
-}
-/* ===== CONTENEDOR DE VIDEO FACEBOOK ===== */
-.fb-video-contenedor {
-    position: relative;
-    width: 100%;
-    padding-bottom: 85%; /* Relación de aspecto para video vertical */
-    height: 0;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    background: #f0f2f5;
-}
-
-.fb-video-contenedor iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Para pantallas pequeñas */
-@media (max-width: 768px) {
-    .fb-video-contenedor {
-        padding-bottom: 100%; /* Más altura en móviles */
-    }
-}
-/* ===== INVESTIGACIÓN ELEGANTE (CON IMAGEN PROPORCIONAL) ===== */
-.investigacion-grid-elegante {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    max-width: 1200px;
-    margin: 40px auto 0;
-}
-
-.investigacion-contenido {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.investigacion-card {
-    background: white;
-    padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-left: 5px solid var(--verde-brillante);
     transition: transform 0.3s;
 }
 
@@ -6521,6 +6092,7 @@ body {
         width: 100%;
     }
 }
+
 /* ===== MEJORAS ESPECÍFICAS PARA TELÉFONO ===== */
 
 /* Para teléfonos medianos y pequeños */
@@ -6703,347 +6275,96 @@ body {
         word-break: break-word;
         margin-bottom: 12px;
     }
-}
 
-/* Para teléfonos muy pequeños (hasta 360px) */
-@media (max-width: 360px) {
-    .countdown-box {
-        min-width: 45px !important;
-        padding: 5px 0 !important;
-    }
-
-    .countdown-numero {
-        font-size: 1.1rem !important;
-    }
-
-    .countdown-label {
-        font-size: 0.45rem !important;
-    }
-
-    .hero-titulo .linea1 {
-        font-size: 2.2rem !important;
-    }
-
-    .hero-titulo .linea2,
-    .hero-titulo .linea3 {
-        font-size: 0.9rem !important;
-    }
-
-    .btn {
-        padding: 8px 12px !important;
-        font-size: 0.8rem !important;
-    }
-}
-/* ===== MEJORAS ESPECÍFICAS PARA ACERCA.HTML EN TELÉFONO ===== */
-
-@media (max-width: 480px) {
-    
-    /* === 1. ACTORES DEL TERRITORIO (CORREGIDO) === */
-    .actores-grid {
-        display: grid;
-        grid-template-columns: 1fr !important; /* Una sola columna */
-        gap: 15px;
-        padding: 10px;
-        max-width: 100%;
-    }
-
-    .actor-card {
-        width: 100%;
-        margin: 0 auto;
-        padding: 20px 15px !important;
-    }
-
-    .actor-centro {
-        grid-column: 1 / -1 !important; /* Ocupa todo el ancho */
-        transform: scale(1) !important; /* Sin escala */
-        margin-bottom: 5px;
-        order: -1; /* Para que aparezca primero */
-    }
-
-    .actor-centro:hover {
-        transform: scale(1) !important;
-    }
-
-    .actor-icono {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
-    }
-
-    .actor-icono i {
-        font-size: 1.8rem !important;
-    }
-
-    .actor-card h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 5px;
-    }
-
-    .actor-card p {
-        font-size: 0.85rem !important;
-    }
-
-    /* === 2. DISTRIBUCIÓN DE PARTICIPANTES (CORREGIDO) === */
-    .grafica-container {
-        padding: 20px 15px !important;
-    }
-
-    .grafica-container h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    .barras {
-        gap: 12px;
-    }
-
-    .barra-item {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 5px;
-        width: 100%;
-    }
-
-    .barra-label {
-        min-width: auto !important;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--verde-piri);
-        margin-bottom: 3px;
-    }
-
-    .barra {
-        width: 100% !important;
-        height: 25px;
-        border-radius: 12px;
-    }
-
-    .barra-progreso {
-        height: 25px;
-        font-size: 0.8rem;
-        padding-right: 8px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    /* === 3. AJUSTE PARA LA TABLA DE PASANTÍAS (si se desborda) === */
-    .tabla-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        margin: 15px -15px;
-        padding: 0 15px;
-        width: calc(100% + 30px);
-    }
-
-    .tabla-pasantias {
-        min-width: 600px; /* Para que la tabla sea desplazable horizontalmente */
-    }
-
-    .tabla-pasantias th,
-    .tabla-pasantias td {
-        padding: 10px 8px !important;
-        font-size: 0.8rem;
-    }
-
-    /* === 4. LOGROS EN MÓVIL === */
-    .logros-grid {
-        grid-template-columns: 1fr !important;
-        gap: 15px;
-    }
-
-    .logro-categoria {
-        padding: 20px !important;
-    }
-
-    .logro-icono {
-        width: 60px;
-        height: 60px;
-    }
-
-    .logro-icono i {
-        font-size: 1.8rem;
-    }
-
-    .logro-categoria h4 {
-        font-size: 1.2rem !important;
-    }
-
-    .logro-lista li {
-        font-size: 0.9rem !important;
-        padding: 6px 0;
-    }
-}
-
-/* Para teléfonos más pequeños */
-@media (max-width: 360px) {
-    .actor-card {
-        padding: 15px 10px !important;
-    }
-
-    .actor-icono {
-        width: 50px;
-        height: 50px;
-    }
-
-    .actor-icono i {
-        font-size: 1.5rem !important;
-    }
-
-    .actor-card h4 {
-        font-size: 1rem !important;
-    }
-
-    .actor-card p {
-        font-size: 0.8rem !important;
-    }
-
-    .grafica-container {
-        padding: 15px 10px !important;
-    }
-
-    .barra-progreso {
-        font-size: 0.7rem;
-    }
-}
-/* ===== REORGANIZACIÓN COMPLETA PARA MÓVIL ===== */
-
-/* Para teléfonos medianos y pequeños */
-@media (max-width: 480px) {
-    
-    /* === 1. CONTENEDORES PRINCIPALES === */
-    body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    .contenedor, 
-    .contenedor-seccion,
-    section {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        padding-left: 12px;
-        padding-right: 12px;
-        box-sizing: border-box;
-    }
-
-    /* === 2. TÍTULOS PRINCIPALES (OPTIMIZADOS) === */
-    .seccion-titulo {
-        font-size: 1.6rem !important;
-        line-height: 1.2;
+    /* === 7. AJUSTES GENERALES DE TÍTULOS === */
+    h1, h2, h3, h4 {
         word-break: break-word;
         hyphens: auto;
-        text-align: center;
-        margin-bottom: 10px;
-        padding: 0 5px;
-        width: 100%;
-        max-width: 100%;
     }
 
-    /* Títulos largos en múltiples líneas */
-    .seccion-titulo:contains("PROGRAMA DE INTERACCIÓN RURAL") {
-        font-size: 1rem !important;
-    }
-
-    /* === 3. NUESTRO LOGO (COMPLETAMENTE REORGANIZADO) === */
-    .significado-logo {
-        padding: 30px 12px !important;
-        width: 100%;
-        background: white;
-        border-radius: 20px;
-        margin: 20px 0;
-    }
-
-    .logo-grid-simple {
+    /* --- CORRECCIÓN DEL TÍTULO HERO (3 LÍNEAS CLARAS) --- */
+    .hero-titulo-simple {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 25px;
         width: 100%;
-        padding: 0;
-        background: transparent;
-        box-shadow: none;
     }
 
-    .logo-imagen {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    .hero-titulo-simple .linea1 {
+        font-size: 3rem !important;      /* PIRI grande */
+        font-weight: 800;
+        line-height: 1.1;
         margin-bottom: 5px;
-    }
-
-    .logo-grande {
-        max-width: 180px;
-        height: auto;
-    }
-
-    .logo-descripcion {
-        width: 100%;
-    }
-
-    .logo-descripcion h3 {
-        text-align: center;
-        font-size: 1.3rem !important;
-        color: var(--verde-piri);
-        margin-bottom: 15px;
-    }
-
-    /* Tarjetas de descripción */
-    .descripcion-item {
         display: block;
-        text-align: center;
-        padding: 20px 12px;
-        margin-bottom: 12px;
-        background: #f9f9f9;
-        border-radius: 16px;
-        border-left: 4px solid var(--verde-brillante);
         width: 100%;
-        box-sizing: border-box;
+        text-align: left;
     }
 
-    .descripcion-icono {
-        width: 50px;
-        height: 50px;
-        margin: 0 auto 12px;
+    .hero-titulo-simple .linea2 {
+        font-size: 1.1rem !important;    /* PROGRAMA DE INTERACCIÓN RURAL */
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 3px;
+        display: block;
+        width: 100%;
+        text-align: left;
+        word-break: normal; /* Evita cortes extraños */
     }
 
-    .descripcion-icono i {
-        font-size: 1.8rem !important;
+    .hero-titulo-simple .linea3 {
+        font-size: 1.1rem !important;     /* INTERDISCIPLINARIO */
+        font-weight: 600;
+        line-height: 1.3;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    /* ---------------------------------------------- */
+    
+    /* === 8. CORRECCIÓN PARA CARRUSELES DE EMPRESAS (BORDES REDONDOS) === */
+    .empresa-carrusel {
+        padding: 15px !important;
+        border-radius: 20px;
     }
 
-    .descripcion-texto h4 {
-        font-size: 1.1rem !important;
-        margin-bottom: 8px;
-        color: var(--verde-oscuro);
+    .carrusel-auto-empresa {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 20px;
     }
 
-    .descripcion-texto p {
-        font-size: 0.9rem !important;
-        line-height: 1.4;
-        color: #555;
-    }
-
-    /* Paleta de colores centrada */
-    .colores-mini {
+    .carrusel-auto-slide-empresa {
+        min-width: 100%;
+        height: 200px;
         display: flex;
+        align-items: center;
         justify-content: center;
-        gap: 15px;
-        margin: 25px 0 10px;
-        flex-wrap: wrap;
+        background-color: #f5f5f5;
+        border-radius: 20px;
     }
 
-    .colores-mini span {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid white;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    .carrusel-auto-slide-empresa img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background-color: #f0f0f0;
+        max-height: 200px;
+        border-radius: 20px;
     }
 
-    /* === 4. PROGRAMAS ACADÉMICOS (EN 3 LÍNEAS) === */
+    /* === 9. CORRECCIÓN TEXTO "Sostenibilidad que impulsa la región" === */
+    .muestra-info-elegante h3 {
+        font-size: 1.2rem !important;
+        font-weight: 700;
+        line-height: 1.4;
+        margin-bottom: 15px;
+        word-break: break-word;
+        hyphens: none;
+        text-align: center;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    /* === 10. CORRECCIÓN PARA PROGRAMAS ACADÉMICOS (títulos en 3 líneas) === */
     .programas-titulo-seccion {
         font-size: 1.3rem !important;
         text-align: center;
@@ -7078,43 +6399,13 @@ body {
         padding: 0;
     }
 
-    .programa-header {
-        padding: 20px 15px !important;
-    }
-
-    .programa-icono-wrapper {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
-    }
-
     .programa-header h4 {
         font-size: 1.1rem !important;
         word-break: break-word;
         line-height: 1.2;
     }
 
-    .programa-body {
-        padding: 15px !important;
-    }
-
-    .programa-semestre {
-        width: fit-content;
-        margin: 0 auto 15px;
-        font-size: 0.8rem !important;
-    }
-
-    .programa-aportes-grid {
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .aporte-tag-avanzado {
-        font-size: 0.7rem !important;
-        padding: 4px 10px;
-    }
-
-    /* === 5. HITOS DEL PROCESO (MEJORADOS) === */
+    /* === 11. CORRECCIÓN DE HITOS DEL PROCESO === */
     .hitos-nuevos {
         padding: 30px 12px !important;
     }
@@ -7148,10 +6439,6 @@ body {
         opacity: 0.7;
     }
 
-    .hito-contenido {
-        flex: 1;
-    }
-
     .hito-contenido h4 {
         font-size: 1rem !important;
         font-weight: 700;
@@ -7166,7 +6453,7 @@ body {
         line-height: 1.3;
     }
 
-    /* === 6. BIOEXPO NARIÑO (CORREGIDO) === */
+    /* === 12. CORRECCIÓN DE BIOEXPO === */
     .bioexpo {
         padding: 30px 12px !important;
     }
@@ -7183,152 +6470,48 @@ body {
         gap: 20px;
     }
 
-    .bioexpo-card {
-        padding: 25px 15px !important;
-    }
-
     .bioexpo-card h3 {
         font-size: 1.2rem !important;
         word-break: break-word;
     }
 
-    .bioexpo-descripcion {
-        font-size: 0.85rem !important;
-        line-height: 1.4;
-        padding: 0 5px;
-    }
-
-    .carrusel-bioexpo {
-        width: 100%;
-    }
-
-    .carrusel-auto-bioexpo {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 15px;
-    }
-
-    .carrusel-auto-track-bioexpo {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-
-    .carrusel-auto-slide-bioexpo {
-        min-width: 100%;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f5f5f5;
-    }
-
-    .carrusel-auto-slide-bioexpo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* === 7. AJUSTES GENERALES DE TÍTULOS === */
-    h1, h2, h3, h4 {
-        word-break: break-word;
-        hyphens: auto;
-    }
-
-    .hero-titulo .linea1 {
-        font-size: 2.5rem !important;
-    }
-
-    .hero-titulo .linea2 {
-        font-size: 1rem !important;
-        line-height: 1.2;
-    }
-
-    .hero-titulo .linea3 {
-        font-size: 1rem !important;
-    }
-
-    /* === 8. ALIANZA PARA EL DESARROLLO === */
+    /* === 13. CORRECCIÓN DE ALIANZA PARA EL DESARROLLO === */
     .alianza-estrategica {
         padding: 30px 12px !important;
     }
 
-    .alianza-grid-mejorada {
-        display: flex;
+    .alianza-grid-principal {
         flex-direction: column;
         gap: 15px;
     }
 
-    .alianza-card {
+    .alianza-card-principal {
+        width: 100%;
         padding: 20px 15px !important;
     }
 
-    .alianza-icono {
+    .alianza-icono-grande {
         width: 80px !important;
         height: 80px !important;
     }
 
-    .alianza-card h3 {
+    .alianza-card-principal h3 {
         font-size: 1.2rem !important;
     }
 
-    .alianza-card p {
+    .alianza-sub {
         font-size: 0.85rem !important;
     }
 
-    .alianza-conector {
-        align-self: center;
+    .alianza-conector-principal {
         margin: 5px 0;
+        align-self: center;
     }
 
-    .alianza-descripcion {
+    .alianza-descripcion-amplia {
         font-size: 0.9rem !important;
         padding: 15px;
         text-align: center;
-    }
-
-    /* === 9. CARRUSELES DE EMPRESAS === */
-    .empresas-certificadas-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .empresa-carrusel {
-        padding: 15px !important;
-    }
-
-    .empresa-titulo {
-        font-size: 1.2rem !important;
-        margin-bottom: 12px;
-        text-align: center;
-    }
-
-    .carrusel-auto-empresa {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 12px;
-    }
-
-    .carrusel-auto-track-empresa {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-
-    .carrusel-auto-slide-empresa {
-        min-width: 100%;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f5f5f5;
-    }
-
-    .carrusel-auto-slide-empresa img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        background-color: #f0f0f0;
-        max-height: 200px;
     }
 }
 
@@ -7338,12 +6521,31 @@ body {
         font-size: 1.4rem !important;
     }
 
-    .hero-titulo .linea1 {
-        font-size: 2rem !important;
+    .hero-titulo-simple .linea1 {
+        font-size: 2.5rem !important;
     }
 
-    .logo-grande {
-        max-width: 150px;
+    .hero-titulo-simple .linea2,
+    .hero-titulo-simple .linea3 {
+        font-size: 1rem !important;
+    }
+
+    .countdown-box {
+        min-width: 45px !important;
+        padding: 5px 0 !important;
+    }
+
+    .countdown-numero {
+        font-size: 1.1rem !important;
+    }
+
+    .countdown-label {
+        font-size: 0.45rem !important;
+    }
+
+    .btn {
+        padding: 8px 12px !important;
+        font-size: 0.8rem !important;
     }
 
     .hito-card {
@@ -7369,9 +6571,5 @@ body {
 
     .carrusel-auto-slide-empresa {
         height: 160px;
-    }
-
-    .bioexpo .seccion-titulo {
-        font-size: 1.2rem !important;
     }
 }
