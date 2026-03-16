@@ -7829,7 +7829,7 @@ body {
         font-weight: 500 !important;
         transition: all 0.3s !important;
         width: fit-content !important;
-        max-width: 280px !important;        /* Mismo ancho que el primero */
+        max-width: 200px !important;        /* Mismo ancho que el primero */
         margin: 0 auto 0 0 !important;
         white-space: normal !important;     /* Permite 2 líneas */
     }
