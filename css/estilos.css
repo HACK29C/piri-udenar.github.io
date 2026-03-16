@@ -7545,3 +7545,15 @@ body {
 
     /* Evitar el uso excesivo de !important (solo donde sea necesario) */
 }
+/* ===== CORRECCIÓN ESPECÍFICA: TÍTULO QUIENES SOMOS ===== */
+@media (max-width: 480px) {
+    .hero-titulo-simple .linea2 {
+        white-space: normal;      /* Permite que el texto fluya normalmente */
+        font-size: 1rem;           /* Mantiene el tamaño actual */
+        max-width: 100%;            /* Ocupa todo el ancho disponible */
+        width: 100%;
+        word-break: normal;         /* Evita cortes innecesarios */
+        hyphens: none;              /* Sin separación silábica */
+        display: block;
+    }
+}
