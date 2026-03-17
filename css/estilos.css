@@ -8827,3 +8827,39 @@ body {
         height: 120px;
     }
 }
+/* ===== CORRECCIÓN BOTÓN HAMBURGUESA ===== */
+.nav-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none !important;
+    border: none !important;
+    color: var(--verde-piri);
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: none !important;
+    outline: none !important;
+    width: auto;
+    height: auto;
+    line-height: 1;
+}
+
+.nav-toggle i {
+    font-size: 2rem;
+    color: var(--verde-piri);
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus,
+.nav-toggle:active {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Asegurar que en móvil se vea bien */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block !important;
+    }
+}
