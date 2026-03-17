@@ -8589,11 +8589,11 @@ body {
 }
 
 .logo-piri {
-    height: 70px; /* Ligeramente más grande por ser el principal */
+    height: 60px; /* Ligeramente más grande por ser el principal */
 }
 
 .logo-ufro, .logo-udenar {
-    height: 70px;
+    height: 60px;
     opacity: 0.9;
 }
 

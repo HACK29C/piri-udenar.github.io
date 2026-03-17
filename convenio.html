@@ -21,25 +21,27 @@
     <div class="fondo-tejido"></div>
 
     <!-- ===== NAVEGACIÓN ===== -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="nav-logo">
-                <span class="logo-text"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">INICIO</a></li>
-                <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
-                <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
-                <li><a href="convenio.html" class="nav-link active">CONVENIO</a></li>
-                <li><a href="noticias.html" class="nav-link">NOTICIAS</a></li>
-                <li><a href="direccion.html" class="nav-link">CONTACTO</a></li>
-            </ul>
-            <div class="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+     <!-- ===== NAVEGACIÓN CON LOGOS INSTITUCIONALES ===== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logos-institucionales">
+            <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="logo-institucional logo-piri">
+            <img src="imagenes/logo-ufro.png" alt="UFRO Logo" class="logo-institucional logo-ufro">
+            <img src="imagenes/logo-udenar.png" alt="UDENAR Logo" class="logo-institucional logo-udenar">
         </div>
-    </nav>
+        <button class="nav-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">INICIO</a></li>
+            <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
+            <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
+            <li><a href="convenio.html" class="nav-link">CONVENIO</a></li>
+            <li><a href="noticias.html" class="nav-link">NOTICIAS</a></li>
+            <li><a href="direccion.html" class="nav-link">CONTACTO</a></li>
+        </ul>
+    </div>
+</nav>
 
     <!-- ===== HERO CON SLIDER ===== -->
     <section class="hero-convenio">
