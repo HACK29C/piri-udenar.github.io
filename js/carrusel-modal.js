@@ -173,7 +173,7 @@ function abrirPerfilElkin() {
     const perfilDiv = document.createElement('div');
     perfilDiv.className = 'perfil-elkin-container';
     
-    // Estructura del perfil
+    // Estructura del perfil (CON NUEVOS ENLACES ACTUALIZADOS)
     perfilDiv.innerHTML = `
         <div class="perfil-elkin-header">
             <img src="imagenes/moriano.jpeg" alt="Elkin Andrés Moriano Londoño" class="perfil-elkin-foto">
@@ -232,7 +232,7 @@ function abrirPerfilElkin() {
         <div class="perfil-elkin-videos">
             <h3><i class="fas fa-play-circle"></i> Contenido PIRI Uniputumayo</h3>
             <div class="videos-grid">
-                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1T9S1Zit9EN_Jab7oYtEGhNQkVTVgO9WH/view', 'Video Inicio - PIRI Uniputumayo')">
+                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1PO0eYS9zYMp-fhfLmP_z2ufzOXRFhPMX/view', 'Video Inicio - PIRI Uniputumayo')">
                     <div class="video-card-icono">
                         <i class="fas fa-play"></i>
                     </div>
@@ -268,7 +268,7 @@ function abrirPerfilElkin() {
     crearModal(titulo, perfilDiv, '1000px');
 }
 
-// ===== INICIALIZAR EVENTOS AL CARGAR LA PÁGINA =====
+// ===== INICIALIZAR EVENTOS AL CARGAR LA PÁGINA (ACTUALIZADO CON NUEVOS NOMBRES) =====
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Inicializando eventos de agenda interactiva...');
     
@@ -290,25 +290,25 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const texto = actividad.textContent;
         
-        // Himno UFRO
-        if (texto.includes('Himno de la Universidad de la Frontera')) {
-            console.log('✅ Encontrado: Himno UFRO');
-            actividad.style.cursor = 'pointer';
-            quitarSubrayado(actividad);
-            actividad.addEventListener('click', function(e) {
-                e.stopPropagation();
-                abrirVideoYouTube('https://www.youtube.com/watch?v=4z0qdifpBSo', 'Himno Universidad de La Frontera');
-            });
-        }
-        
-        // Himno UDENAR
-        if (texto.includes('Himno de la Universidad Nariño')) {
+        // Himno Universidad de Nariño
+        if (texto.includes('Himno Universidad de Nariño')) {
             console.log('✅ Encontrado: Himno UDENAR');
             actividad.style.cursor = 'pointer';
             quitarSubrayado(actividad);
             actividad.addEventListener('click', function(e) {
                 e.stopPropagation();
                 abrirVideoYouTube('https://www.youtube.com/watch?v=I2O6veA2zrs', 'Himno Universidad de Nariño');
+            });
+        }
+        
+        // Himno Universidad de La Frontera
+        if (texto.includes('Himno Universidad de La Frontera')) {
+            console.log('✅ Encontrado: Himno UFRO');
+            actividad.style.cursor = 'pointer';
+            quitarSubrayado(actividad);
+            actividad.addEventListener('click', function(e) {
+                e.stopPropagation();
+                abrirVideoYouTube('https://www.youtube.com/watch?v=4z0qdifpBSo', 'Himno Universidad de La Frontera - Temuco, Chile');
             });
         }
     });
@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Dr. Mario Fernando Arcos (NUEVO VIDEO)
+        // Dr. Mario Fernando Arcos
         if (texto.includes('Dr. Mario Fernando Arcos')) {
             console.log('✅ Encontrado: Dr. Mario Fernando Arcos');
             itemCompleto.style.cursor = 'pointer';
@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Dra. Valeria Miramag (VIDEO DE MARIO)
+        // Dra. Valeria Miramag
         if (texto.includes('Dra. Valeria Miramag')) {
             console.log('✅ Encontrado: Dra. Valeria Miramag');
             itemCompleto.style.cursor = 'pointer';
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Docente Mirian Quitiaquez
-        if (texto.includes('Mirian Quitiaquez')) {
+        if (texto.includes('Docente Mirian Quitiaquez')) {
             console.log('✅ Encontrado: Docente Mirian Quitiaquez');
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', function() {
@@ -388,8 +388,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Elkin Andrés Moriano (PERFIL COMPLETO)
-        if (texto.includes('Elkin Andrés Moriano')) {
+        // Dra. Angelica Echavarría
+        if (texto.includes('Dra. Angelica Echavarría')) {
+            console.log('✅ Encontrado: Dra. Angelica Echavarría');
+            // Esta intervención no tiene video por ahora
+        }
+        
+        // Omar Alfredo Bravo Delgado
+        if (texto.includes('Omar Alfredo Bravo Delgado')) {
+            console.log('✅ Encontrado: Omar Bravo');
+            // Esta intervención no tiene video por ahora
+        }
+        
+        // Zaira Estrada
+        if (texto.includes('Zaira Estrada')) {
+            console.log('✅ Encontrado: Zaira Estrada');
+            // Esta intervención no tiene video por ahora
+        }
+        
+        // Elkin Andrés Moriano Londoño
+        if (texto.includes('Elkin Andrés Moriano Londoño')) {
             console.log('✅ Encontrado: Elkin Andrés Moriano');
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', function() {
