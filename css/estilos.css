@@ -8661,3 +8661,169 @@ body {
         height: 40px;
     }
 }
+/* ===== ESTILOS PARA PERFIL DE ELKIN MORIANO ===== */
+.perfil-elkin-container {
+    padding: 10px;
+}
+
+.perfil-elkin-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    border-radius: 20px;
+    border: 1px solid rgba(159,195,60,0.2);
+}
+
+.perfil-elkin-foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--verde-brillante);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.perfil-elkin-titulos h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 5px;
+}
+
+.perfil-elkin-cargo {
+    color: var(--verde-piri);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.perfil-elkin-info {
+    margin-bottom: 30px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    border-left: 4px solid var(--verde-brillante);
+}
+
+.info-item i {
+    font-size: 2rem;
+    color: var(--verde-brillante);
+}
+
+.info-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item strong {
+    font-family: var(--fuente-titulos);
+    color: var(--verde-oscuro);
+    margin-bottom: 5px;
+}
+
+.info-item span {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.perfil-elkin-videos {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 20px;
+}
+
+.perfil-elkin-videos h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--verde-piri);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.video-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid rgba(159,195,60,0.2);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(50,108,84,0.1);
+    border-color: var(--verde-brillante);
+}
+
+.video-card-icono {
+    width: 50px;
+    height: 50px;
+    background: var(--verde-brillante);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--verde-oscuro);
+    font-size: 1.3rem;
+}
+
+.video-card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-card-info strong {
+    font-family: var(--fuente-titulos);
+    color: var(--verde-oscuro);
+    margin-bottom: 3px;
+}
+
+.video-card-info span {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .perfil-elkin-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .perfil-elkin-foto {
+        width: 120px;
+        height: 120px;
+    }
+}
