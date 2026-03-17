@@ -8612,6 +8612,44 @@ body {
 /* Responsive para tablets */
 @media (max-width: 1024px) {
     .logo-institucional {
+        height: 45px;
+    }
+    
+    .logo-piri {
+        height: 50px;
+    }
+    
+    .logo-ufro, .logo-udenar {
+        height: 50px;
+    }
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+    .logos-institucionales {
+        gap: 10px;
+    }
+    
+    .logo-institucional {
+        height: 50px;
+    }
+    
+    .logo-piri {
+        height: 50px;
+    }
+    
+    .logo-ufro, .logo-udenar {
+        height: 50px;
+    }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 480px) {
+    .logos-institucionales {
+        gap: 8px;
+    }
+    
+    .logo-institucional {
         height: 35px;
     }
     
@@ -8620,44 +8658,6 @@ body {
     }
     
     .logo-ufro, .logo-udenar {
-        height: 30px;
-    }
-}
-
-/* Responsive para móvil */
-@media (max-width: 768px) {
-    .logos-institucionales {
-        gap: 8px;
-    }
-    
-    .logo-institucional {
-        height: 30px;
-    }
-    
-    .logo-piri {
-        height: 35px;
-    }
-    
-    .logo-ufro, .logo-udenar {
-        height: 25px;
-    }
-}
-
-/* Para móviles muy pequeños */
-@media (max-width: 480px) {
-    .logos-institucionales {
-        gap: 5px;
-    }
-    
-    .logo-institucional {
-        height: 25px;
-    }
-    
-    .logo-piri {
-        height: 30px;
-    }
-    
-    .logo-ufro, .logo-udenar {
-        height: 20px;
+        height: 40px;
     }
 }
