@@ -232,7 +232,8 @@ function abrirPerfilElkin() {
         <div class="perfil-elkin-videos">
             <h3><i class="fas fa-play-circle"></i> Contenido PIRI Uniputumayo</h3>
             <div class="videos-grid">
-                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1VKqfe_WhxfaVPdosJOnK0ZE2gYQYXMu4/view', 'Video Inicio - PIRI Uniputumayo')">
+                <!-- VIDEO INICIO (NUEVO ENLACE) -->
+                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1BRrE6CdtVFpx2S9B6eOwZMWcg2oiZW1N/view', 'Video Inicio - PIRI Uniputumayo')">
                     <div class="video-card-icono">
                         <i class="fas fa-play"></i>
                     </div>
@@ -242,7 +243,8 @@ function abrirPerfilElkin() {
                     </div>
                 </div>
                 
-                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1JbnniGqJBI44c_RbQnCpjLsVdZJSixih/view', 'Presentación PIRI Uniputumayo')">
+                <!-- PRESENTACIÓN (NUEVO ENLACE) -->
+                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1OTZLP7XYulBRLa40G8e6lHOkZ4_quzmG/view', 'Presentación PIRI Uniputumayo')">
                     <div class="video-card-icono">
                         <i class="fas fa-file-powerpoint"></i>
                     </div>
@@ -252,6 +254,7 @@ function abrirPerfilElkin() {
                     </div>
                 </div>
                 
+                <!-- VIDEO FINAL (NUEVO ENLACE) -->
                 <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1PO0eYS9zYMp-fhfLmP_z2ufzOXRFhPMX/view', 'Video Final - PIRI Uniputumayo')">
                     <div class="video-card-icono">
                         <i class="fas fa-film"></i>
