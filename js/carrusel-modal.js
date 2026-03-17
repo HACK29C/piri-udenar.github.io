@@ -232,7 +232,7 @@ function abrirPerfilElkin() {
         <div class="perfil-elkin-videos">
             <h3><i class="fas fa-play-circle"></i> Contenido PIRI Uniputumayo</h3>
             <div class="videos-grid">
-                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1PO0eYS9zYMp-fhfLmP_z2ufzOXRFhPMX/view', 'Video Inicio - PIRI Uniputumayo')">
+                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1VKqfe_WhxfaVPdosJOnK0ZE2gYQYXMu4/view', 'Video Inicio - PIRI Uniputumayo')">
                     <div class="video-card-icono">
                         <i class="fas fa-play"></i>
                     </div>
@@ -252,7 +252,7 @@ function abrirPerfilElkin() {
                     </div>
                 </div>
                 
-                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1VKqfe_WhxfaVPdosJOnK0ZE2gYQYXMu4/view', 'Video Final - PIRI Uniputumayo')">
+                <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1PO0eYS9zYMp-fhfLmP_z2ufzOXRFhPMX/view', 'Video Final - PIRI Uniputumayo')">
                     <div class="video-card-icono">
                         <i class="fas fa-film"></i>
                     </div>
