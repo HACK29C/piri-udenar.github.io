@@ -8827,39 +8827,46 @@ body {
         height: 120px;
     }
 }
-/* ===== CORRECCIÓN BOTÓN HAMBURGUESA ===== */
+/* ===== CORRECCIÓN URGENTE BOTÓN HAMBURGUESA ===== */
 .nav-toggle {
-    display: none;
-    font-size: 2rem;
-    background: none !important;
-    border: none !important;
-    color: var(--verde-piri);
-    cursor: pointer;
-    padding: 10px;
-    box-shadow: none !important;
-    outline: none !important;
-    width: auto;
-    height: auto;
-    line-height: 1;
+    display: none !important;
 }
 
-.nav-toggle i {
-    font-size: 2rem;
-    color: var(--verde-piri);
-}
-
-.nav-toggle:hover,
-.nav-toggle:focus,
-.nav-toggle:active {
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-/* Asegurar que en móvil se vea bien */
 @media (max-width: 768px) {
     .nav-toggle {
         display: block !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        padding: 5px !important;
+        margin: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        border-radius: 0 !important;
+    }
+
+    .nav-toggle i {
+        font-size: 2rem !important;
+        color: var(--verde-piri) !important;
+        background: transparent !important;
+        line-height: 1 !important;
+        display: inline-block !important;
+    }
+
+    .nav-toggle:hover,
+    .nav-toggle:focus,
+    .nav-toggle:active {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    /* Forzar que no haya fondo en ningún estado */
+    button.nav-toggle,
+    button.nav-toggle * {
+        background: transparent !important;
+        border: none !important;
     }
 }
