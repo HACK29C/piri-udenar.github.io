@@ -8571,3 +8571,93 @@ body {
     from { transform: translateY(50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+/* ===== LOGOS INSTITUCIONALES EN NAVBAR ===== */
+.logos-institucionales {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-institucional {
+    height: 55px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-institucional:hover {
+    transform: scale(1.05);
+}
+
+.logo-piri {
+    height: 70px; /* Ligeramente más grande por ser el principal */
+}
+
+.logo-ufro, .logo-udenar {
+    height: 70px;
+    opacity: 0.9;
+}
+
+.logo-ufro:hover, .logo-udenar:hover {
+    opacity: 1;
+}
+
+/* Separador visual entre logos y menú */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive para tablets */
+@media (max-width: 1024px) {
+    .logo-institucional {
+        height: 35px;
+    }
+    
+    .logo-piri {
+        height: 40px;
+    }
+    
+    .logo-ufro, .logo-udenar {
+        height: 30px;
+    }
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+    .logos-institucionales {
+        gap: 8px;
+    }
+    
+    .logo-institucional {
+        height: 30px;
+    }
+    
+    .logo-piri {
+        height: 35px;
+    }
+    
+    .logo-ufro, .logo-udenar {
+        height: 25px;
+    }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 480px) {
+    .logos-institucionales {
+        gap: 5px;
+    }
+    
+    .logo-institucional {
+        height: 25px;
+    }
+    
+    .logo-piri {
+        height: 30px;
+    }
+    
+    .logo-ufro, .logo-udenar {
+        height: 20px;
+    }
+}
