@@ -8292,3 +8292,140 @@ body {
         padding: 8px 12px;
     }
 }
+/* ===== CORRECCIONES PARA PÁGINA DE PERFILES (EMBAJADORES) ===== */
+
+/* Hero específico para perfiles */
+.hero-perfiles {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 40px 60px;
+    overflow: hidden;
+}
+
+.hero-perfiles-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide-perfiles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.slide-perfiles.active {
+    opacity: 1;
+}
+
+.hero-perfiles-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    color: white;
+}
+
+.hero-titulo-perfiles {
+    font-family: var(--fuente-titulos);
+    margin-bottom: 20px;
+}
+
+.hero-titulo-perfiles .linea1 {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--verde-piri);
+    display: block;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-titulo-perfiles .linea2 {
+    font-size: 2rem;
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-titulo-perfiles .linea3 {
+    font-size: 2rem;
+    font-weight: 300;
+    display: block;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-subtitulo-perfiles {
+    font-family: var(--fuente-titulos);
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--verde-brillante);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* ===== CORRECCIÓN PARA TÍTULO EN MÓVIL (PERFILES) ===== */
+@media (max-width: 480px) {
+    .hero-titulo-perfiles .linea1 {
+        font-size: 2.5rem !important;
+        margin-bottom: 0.2rem !important;
+        display: block;
+        line-height: 1.1;
+    }
+
+    .hero-titulo-perfiles .linea2 {
+        font-size: 1rem !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        display: block;
+        line-height: 1.3;
+        margin-bottom: 0.1rem;
+        letter-spacing: -0.01em !important;
+        word-break: keep-all !important;
+    }
+
+    .hero-titulo-perfiles .linea3 {
+        font-size: 1rem !important;
+        display: block;
+        line-height: 1.3;
+        white-space: nowrap !important;
+        word-break: keep-all !important;
+    }
+
+    .hero-subtitulo-perfiles {
+        font-size: 0.85rem !important;
+        line-height: 1.2;
+        margin-top: 0.25rem;
+        white-space: normal !important;
+    }
+}
+
+/* Para pantallas muy pequeñas (menos de 360px) */
+@media (max-width: 360px) {
+    .hero-titulo-perfiles .linea2,
+    .hero-titulo-perfiles .linea3 {
+        font-size: 0.9rem !important;
+        letter-spacing: -0.02em !important;
+    }
+    
+    .hero-titulo-perfiles .linea1 {
+        font-size: 2rem !important;
+    }
+}
