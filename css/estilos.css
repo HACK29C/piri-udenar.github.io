@@ -4649,7 +4649,7 @@ body {
     right: 10px;
     font-size: 3rem;
     font-weight: 800;
-    color: rgba(159,195,60,0.1);
+    color: rgba(63, 246, 7, 0.1);
 }
 
 .compromiso-item h4 {
@@ -8046,5 +8046,258 @@ body {
         width: 45px;
         height: 45px;
         font-size: 1.2rem;
+    }
+}
+/* ===== ESTUDIANTES SELECCIONADOS ===== */
+.estudiantes-seccion {
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.8) 100%);
+}
+
+.estudiantes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin: 50px 0;
+}
+
+.estudiante-card {
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    transition: all 0.4s;
+    border: 1px solid rgba(159,195,60,0.2);
+}
+
+.estudiante-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(50,108,84,0.15);
+    border-color: var(--verde-brillante);
+}
+
+.estudiante-imagen {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.estudiante-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.estudiante-card:hover .estudiante-imagen img {
+    transform: scale(1.05);
+}
+
+.estudiante-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: var(--verde-brillante);
+    color: var(--verde-oscuro);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.estudiante-info {
+    padding: 25px;
+}
+
+.estudiante-info h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 5px;
+}
+
+.estudiante-semestre {
+    color: var(--verde-piri);
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.estudiante-destacados {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.estudiante-destacados .destacado-item {
+    background: rgba(159,195,60,0.1);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.estudiante-destacados .destacado-item:hover {
+    background: var(--verde-piri);
+    color: white;
+}
+
+.estudiante-destacados .destacado-item i {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--verde-piri);
+    margin-bottom: 5px;
+}
+
+.estudiante-destacados .destacado-item:hover i {
+    color: white;
+}
+
+.estudiante-destacados .destacado-item span {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.estudiante-frase {
+    font-style: italic;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border-left: 4px solid var(--verde-brillante);
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.estudiante-frase i {
+    color: var(--verde-brillante);
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+.btn-perfil {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--verde-piri);
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--verde-brillante);
+    transition: all 0.3s;
+}
+
+.btn-perfil:hover {
+    gap: 15px;
+    color: var(--verde-oscuro);
+    border-bottom-color: var(--verde-piri);
+}
+
+.estudiantes-ver-todos {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-ver-todos {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--verde-piri), var(--verde-montana));
+    color: white;
+    padding: 15px 40px;
+    border-radius: 60px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s;
+    border: 2px solid var(--verde-brillante);
+}
+
+.btn-ver-todos:hover {
+    transform: scale(1.05);
+    background: var(--verde-brillante);
+    color: var(--verde-oscuro);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .estudiantes-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .estudiante-destacados {
+        grid-template-columns: 1fr;
+    }
+    
+    .estudiante-imagen {
+        height: 220px;
+    }
+    
+    .estudiante-info h3 {
+        font-size: 1.3rem;
+    }
+}
+/* ===== AJUSTE DE FOTOS PARA EMBAJADORES ===== */
+.estudiante-imagen {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.foto-completa {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Cambiado de cover a contain para ver la foto completa */
+    object-position: center;
+    background-color: #f5f5f5;
+}
+
+/* Para la foto de Neys (que es más ancha que alta) */
+.estudiante-card:first-child .foto-completa {
+    object-fit: contain;
+    background-color: #2a3a5e; /* Fondo oscuro para resaltar la foto */
+}
+
+/* Para la foto de Jhon (que es más alta que ancha) */
+.estudiante-card:last-child .foto-completa {
+    object-fit: contain;
+    background-color: #2a3a5e;
+}
+
+/* Badge sobre la imagen */
+.estudiante-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: var(--verde-brillante);
+    color: var(--verde-oscuro);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+    .estudiante-imagen {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .estudiante-imagen {
+        height: 220px;
     }
 }
