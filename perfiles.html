@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embajadores PIRI · Perfiles · Convenio UFRO · UDENAR</title>
+    
+    <!-- Fuentes Montserrat e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS compartido -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <style>
+        /* ===== MENÚ HAMBURGUESA FUNCIONAL ===== */
+        .nav-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--verde-piri);
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block !important;
+            }
+
+            .nav-menu {
+                display: none !important;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+
+            .nav-menu.show {
+                display: flex !important;
+            }
+        }
+
+        /* ===== HERO PARA PERFILES (IGUAL A LAS DEMÁS PÁGINAS) ===== */
+        .hero-perfiles {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 60px;
+            overflow: hidden;
+        }
+
+        .hero-perfiles-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .slide-perfiles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        .slide-perfiles.active {
+            opacity: 1;
+        }
+
+        .hero-perfiles-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            color: white;
+        }
+
+        .hero-titulo-perfiles {
+            font-family: var(--fuente-titulos);
+            margin-bottom: 20px;
+        }
+
+        .hero-titulo-perfiles .linea1 {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--verde-piri);
+            display: block;
+            line-height: 1;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-titulo-perfiles .linea2 {
+            font-size: 2rem;
+            font-weight: 600;
+            display: block;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .hero-titulo-perfiles .linea3 {
+            font-size: 2rem;
+            font-weight: 300;
+            display: block;
+            opacity: 0.9;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitulo-perfiles {
+            font-family: var(--fuente-titulos);
+            font-weight: 400;
+            font-size: 1.3rem;
+            color: var(--verde-brillante);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* ===== TÍTULO DE LA SECCIÓN ===== */
+        .perfiles-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 60px auto 40px;
+            padding: 0 20px;
+        }
+
+        .perfiles-intro h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.5rem;
+            color: var(--verde-piri);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .perfiles-intro h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--verde-brillante);
+            border-radius: 2px;
+        }
+
+        .perfiles-intro p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            margin-top: 25px;
+        }
+
+        /* ===== TARJETAS DE PERFIL OPTIMIZADAS ===== */
+        .perfiles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .perfil-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            border: 1px solid rgba(159,195,60,0.2);
+        }
+
+        .perfil-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(50,108,84,0.15);
+            border-color: var(--verde-brillante);
+        }
+
+        .perfil-imagen {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a2a44, #2a3a5e);
+        }
+
+        .foto-perfil {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.6s;
+        }
+
+        .perfil-card:hover .foto-perfil {
+            transform: scale(1.02);
+        }
+
+        .perfil-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--verde-brillante);
+            color: var(--verde-oscuro);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .perfil-badge i {
+            margin-right: 5px;
+        }
+
+        .perfil-contenido {
+            padding: 30px;
+        }
+
+        .perfil-contenido h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.6rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 5px;
+        }
+
+        .perfil-subtitulo {
+            color: var(--verde-piri);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Secciones internas */
+        .perfil-seccion {
+            margin-bottom: 25px;
+        }
+
+        .seccion-titulo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--fuente-titulos);
+            font-size: 1.2rem;
+            color: var(--verde-piri);
+            margin-bottom: 15px;
+        }
+
+        .seccion-titulo i {
+            font-size: 1.3rem;
+            color: var(--verde-brillante);
+        }
+
+        .perfil-texto {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Lista de formación */
+        .formacion-lista {
+            list-style: none;
+        }
+
+        .formacion-lista li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            border-left: 2px solid var(--verde-brillante);
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .formacion-lista strong {
+            color: var(--verde-oscuro);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* Experiencia */
+        .experiencia-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 15px;
+        }
+
+        .experiencia-titulo {
+            font-weight: 700;
+            color: var(--verde-oscuro);
+            margin-bottom: 5px;
+        }
+
+        .experiencia-lugar {
+            color: var(--verde-piri);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .experiencia-descripcion {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .proyectos-lista {
+            margin-top: 10px;
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        .proyectos-lista li {
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .proyectos-lista i {
+            color: var(--verde-brillante);
+            font-size: 0.7rem;
+        }
+
+        /* Publicación */
+        .publicacion-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--verde-brillante);
+        }
+
+        .publicacion-card h5 {
+            font-family: var(--fuente-titulos);
+            color: var(--verde-oscuro);
+            margin-bottom: 5px;
+        }
+
+        .publicacion-card a {
+            color: var(--verde-piri);
+            text-decoration: none;
+            word-break: break-word;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Idiomas y ORCID */
+        .info-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .info-mini-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .info-mini-card h5 {
+            font-family: var(--fuente-titulos);
+            color: var(--verde-piri);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .info-mini-card ul {
+            list-style: none;
+        }
+
+        .info-mini-card li {
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .orcid-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #555;
+            font-size: 0.8rem;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+
+        .orcid-link:hover {
+            background: var(--verde-piri);
+            color: white;
+        }
+
+        .orcid-link i {
+            color: #A6CE39;
+        }
+
+        /* Frase */
+        .frase-card {
+            background: linear-gradient(135deg, var(--verde-piri), var(--verde-montana));
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        .frase-card i {
+            font-size: 2rem;
+            opacity: 0.2;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+        .frase-card p {
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+            padding-left: 20px;
+        }
+
+        /* Botón volver */
+        .btn-volver {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--verde-piri), var(--verde-montana));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s;
+            border: 2px solid var(--verde-brillante);
+            margin: 40px 0 60px;
+        }
+
+        .btn-volver:hover {
+            transform: scale(1.05);
+            background: var(--verde-brillante);
+            color: var(--verde-oscuro);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .perfiles-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-titulo-perfiles .linea1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-titulo-perfiles .linea2,
+            .hero-titulo-perfiles .linea3 {
+                font-size: 1.3rem;
+            }
+            
+            .perfiles-intro h2 {
+                font-size: 2rem;
+            }
+            
+            .perfil-imagen {
+                height: 250px;
+            }
+            
+            .info-mini-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== FONDO DE TEJIDO ANDINO ===== -->
+    <div class="fondo-tejido"></div>
+
+    <!-- ===== NAVEGACIÓN ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="nav-logo">
+                <span class="logo-text"></span>
+            </div>
+            <button class="nav-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">INICIO</a></li>
+                <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
+                <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
+                <li><a href="convenio.html" class="nav-link">CONVENIO</a></li>
+                <li><a href="noticias.html" class="nav-link">NOTICIAS</a></li>
+                <li><a href="direccion.html" class="nav-link">CONTACTO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO CON SLIDER (IGUAL A LAS DEMÁS PÁGINAS) ===== -->
+    <section class="hero-perfiles">
+        <div class="hero-perfiles-slider">
+            <div class="slide-perfiles active" style="background-image: url('imagenes/fondo-hero-1.jpg');"></div>
+            <div class="slide-perfiles" style="background-image: url('imagenes/fondo-hero-2.jpg');"></div>
+            <div class="slide-perfiles" style="background-image: url('imagenes/fondo-hero-3.jpg');"></div>
+            <div class="slide-perfiles" style="background-image: url('imagenes/fondo-hero-4.jpg');"></div>
+            <div class="slide-perfiles" style="background-image: url('imagenes/fondo-hero-5.jpg');"></div>
+            <div class="slide-perfiles" style="background-image: url('imagenes/fondo-hero-6.jpg');"></div>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-perfiles-content">
+            <h1 class="hero-titulo-perfiles">
+                <span class="linea1">PIRI</span>
+                <span class="linea2">PROGRAMA DE INTERACCIÓN RURAL</span>
+                <span class="linea3">INTERDISCIPLINARIO</span>
+            </h1>
+            <h2 class="hero-subtitulo-perfiles">Universidad de Nariño · Extensión Ipiales</h2>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Conoce a nuestros embajadores</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ===== INTRODUCCIÓN ===== -->
+    <section class="perfiles-intro">
+        <div class="contenedor">
+            <h2>EMBAJADORES PIRI</h2>
+            <div class="seccion-linea"></div>
+            <p>Estudiantes del programa de Comercio Internacional de la Facultad de Ciencias Económicas y Administrativas de la Universidad de Nariño, sede regional Ipiales, seleccionados para realizar su práctica profesional en la Universidad de La Frontera, Chile, como parte del convenio PIRI.</p>
+        </div>
+    </section>
+
+    <!-- ===== PERFILES EN GRID ===== -->
+    <section class="perfiles-principal">
+        <div class="contenedor">
+            <div class="perfiles-grid">
+                
+                <!-- PERFIL 1: NEYS FERNANDA -->
+                <div id="neys" class="perfil-card">
+                    <div class="perfil-imagen">
+                        <img src="imagenes/neysfer.jpeg" alt="Neys Fernanda Tacan Tenganan" class="foto-perfil">
+                        <div class="perfil-badge">
+                            <i class="fas fa-star"></i> EMBAJADORA
+                        </div>
+                    </div>
+                    
+                    <div class="perfil-contenido">
+                        <h3>Neys Fernanda Tacan Tenganan</h3>
+                        <div class="perfil-subtitulo">Practicante – Comercio Internacional (X semestre)</div>
+                        
+                        <!-- Perfil -->
+                        <div class="perfil-seccion">
+                            <div class="seccion-titulo">
+                                <i class="fas fa-globe-americas"></i>
+                                <span>Perfil Profesional</span>
+                            </div>
+                            <p class="perfil-texto">Profesional en formación con enfoque en el desarrollo territorial sostenible, articulando conocimiento técnico, investigación aplicada y saberes comunitarios. Experiencia en dinámicas productivas, economía circular y fortalecimiento organizacional en contextos interculturales.</p>
+                        </div>
+                        
+                        <!-- Formación -->
+                        <div class="perfil-seccion">
+                            <div class="seccion-titulo">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Formación</span>
+                            </div>
+                            <ul class="formacion-lista">
+                                <li><strong>Universidad de Nariño</strong> Pregrado en Comercio Internacional (X semestre)</li>
+                                <li><strong>Universidad Mariana (2025)</strong> Diplomado en Contabilidad bajo NIIF</li>
+                                <li><strong>Cámara de Comercio de Ipiales (2025)</strong> Diplomado en Asociatividad Estratégica</li>
+                                <li><strong>Servicio Nacional de Aprendizaje (SENA) 2017 – 2019</strong> Técnico en Contabilización de Operaciones Comerciales</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Experiencia (resumida) -->
+                        <div class="perfil-seccion">
+                            <div class="seccion-titulo">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Experiencia</span>
+                            </div>
+                            
+                            <div class="experiencia-item">
+                                <div class="experiencia-titulo">Relatora</div>
+                                <div class="experiencia-lugar"><i class="fas fa-building"></i> ACIZI, 2025</div>
+                                <div class="experiencia-descripcion">Apoyo en insumos analíticos y normativos para procesos del territorio indígena de Ipiales.</div>
+                            </div>
+                            
+                            <div class="experiencia-item">
+                                <div class="experiencia-titulo">Asesora</div>
+                                <div class="experiencia-lugar"><i class="fas fa-leaf"></i> Ventanilla de Negocios Verdes - Corponariño, 2025</div>
+                                <div class="experiencia-descripcion">Acompañamiento a iniciativas sostenibles, marketing y estructuración comercial.</div>
+                            </div>
+                            
+                            <div class="experiencia-item">
+                                <div class="experiencia-titulo">Investigadora</div>
+                                <div class="experiencia-lugar"><i class="fas fa-university"></i> Universidad de Nariño, 2022 – 2025</div>
+                                <div class="experiencia-descripcion">Semillero Sur Atenea: turismo, economía circular y caracterización agrícola.</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Idiomas y ORCID -->
+                        <div class="info-mini-grid">
+                            <div class="info-mini-card">
+                                <h5><i class="fas fa-language"></i> Idiomas</h5>
+                                <ul>
+                                    <li>🇪🇸 Español: Nativo</li>
+                                    <li>🇬🇧 Inglés: B2</li>
+                                </ul>
+                            </div>
+                            <div class="info-mini-card">
+                                <h5><i class="fab fa-orcid"></i> ORCID</h5>
+                                <a href="https://orcid.org/0009-0008-0300-3350" target="_blank" class="orcid-link">
+                                    <i class="fab fa-orcid"></i> 0009-0008-0300-3350
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Frase -->
+                        <div class="frase-card">
+                            <i class="fas fa-quote-left"></i>
+                            <p>“Conocer el mundo a través de los otros nos hace conscientes de nosotros mismos.”</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PERFIL 2: JHON ÁLVARO -->
+                <div id="jhon" class="perfil-card">
+                    <div class="perfil-imagen">
+                        <img src="imagenes/jhonalvaro.jpeg" alt="Jhon Álvaro Cuastuza Guaquez" class="foto-perfil">
+                        <div class="perfil-badge">
+                            <i class="fas fa-star"></i> EMBAJADOR
+                        </div>
+                    </div>
+                    
+                    <div class="perfil-contenido">
+                        <h3>Jhon Álvaro Cuastuza Guaquez</h3>
+                        <div class="perfil-subtitulo">Practicante – Comercio Internacional (X semestre)</div>
+                        
+                        <!-- Perfil -->
+                        <div class="perfil-seccion">
+                            <div class="seccion-titulo">
+                                <i class="fas fa-microchip"></i>
+                                <span>Perfil Profesional</span>
+                            </div>
+                            <p class="perfil-texto">Profesional en formación con enfoque en transformación digital, análisis de datos y desarrollo territorial sostenible. Experiencia en proyectos I+D+i de agricultura 4.0, IoT y optimización de cadenas de suministro. Autor de publicación científica internacional.</p>
+                        </div>
+                        
+                        <!-- Formación -->
+                        <div class="perfil-seccion">
+                            <div class="seccion-titulo">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Formación</span>
+                            </div>
+                            <ul class="formacion-lista">
+                                <li><strong>Universidad de Nariño</strong> Comercio Internacional (en formación)</li>
+                                <li><strong>Servicio Nacional de Aprendizaje (SENA) 2023</strong> Técnico en Programación de Software</li>
+                                <li><strong>Instituto Técnico Sistematizado de Nariño (2018)</strong> Técnico en Comercio Exterior y Aduanas</li>
+                                <li><strong>DataCamp (2025)</strong> Associate Data Scientist / Associate Data Analyst</li>
+                                <li><strong>Escuela Superior de Administración Pública (ESAP) 2025</strong> Diplomado en Ciencia de Datos</li>
+                                <li><strong>Universidad de Nariño (2025)</strong> Diplomado en Métodos Estadísticos</li>
+                                <li><strong>Universidad Tecnológica de Pereira (UTP) 2024</strong> Bootcamp en Análisis de Datos</li>
+                                <li><strong>Universidad Tecnológica de Bolívar (UTB) 2023</strong> Diplomado Tecnologías 4.0</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Experiencia (resumida) -->
+                        <div class="perfil-seccion">
+                            <div class="seccion-titulo">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Experiencia</span>
+                            </div>
+                            
+                            <div class="experiencia-item">
+                                <div class="experiencia-titulo">Investigador</div>
+                                <div class="experiencia-lugar"><i class="fas fa-flask"></i> SENNOVA, 2021 – actualidad</div>
+                                <div class="experiencia-descripcion">Proyectos I+D+i en agricultura 4.0, IoT y análisis de datos.</div>
+                                <ul class="proyectos-lista">
+                                    <li><i class="fas fa-check-circle"></i> Invernaderos inteligentes (2024)</li>
+                                    <li><i class="fas fa-check-circle"></i> Sensor electroquímico (2022)</li>
+                                    <li><i class="fas fa-check-circle"></i> Plataforma IoT para cadena de frío (2021)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="experiencia-item">
+                                <div class="experiencia-titulo">Asesor</div>
+                                <div class="experiencia-lugar"><i class="fas fa-leaf"></i> Negocios Verdes - Corponariño, 2025</div>
+                                <div class="experiencia-descripcion">Identidad visual, estrategias digitales y soluciones web para iniciativas sostenibles.</div>
+                            </div>
+                            
+                            <div class="experiencia-item">
+                                <div class="experiencia-titulo">Investigador</div>
+                                <div class="experiencia-lugar"><i class="fas fa-university"></i> Universidad de Nariño, 2022 – 2025</div>
+                                <div class="experiencia-descripcion">Semillero Sur Atenea: economía circular, logística 4.0, análisis agrícola.</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Publicación -->
+                        <div class="perfil-seccion">
+                            <div class="seccion-titulo">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Publicación Internacional</span>
+                            </div>
+                            <div class="publicacion-card">
+                                <h5>Portable, Energy-Autonomous Electrochemical Impedance Spectroscopy (EIS) System</h5>
+                                <p style="font-size: 0.85rem; color: #666;">5th International Electronic Conference on Applied Sciences, 2024</p>
+                                <a href="https://doi.org/10.3390/engproc2025087089" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> https://doi.org/10.3390/engproc2025087089
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Idiomas y ORCID -->
+                        <div class="info-mini-grid">
+                            <div class="info-mini-card">
+                                <h5><i class="fas fa-language"></i> Idiomas</h5>
+                                <ul>
+                                    <li>🇪🇸 Español: Nativo</li>
+                                    <li>🇬🇧 Inglés: B1</li>
+                                </ul>
+                            </div>
+                            <div class="info-mini-card">
+                                <h5><i class="fab fa-orcid"></i> ORCID</h5>
+                                <a href="https://orcid.org/0009-0007-7034-5695" target="_blank" class="orcid-link">
+                                    <i class="fab fa-orcid"></i> 0009-0007-7034-5695
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Frase -->
+                        <div class="frase-card">
+                            <i class="fas fa-quote-left"></i>
+                            <p>“La tecnología aplicada al territorio transforma datos en decisiones y conocimiento en desarrollo sostenible.”</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botón volver al convenio -->
+            <div style="text-align: center;">
+                <a href="convenio.html" class="btn-volver">
+                    <i class="fas fa-arrow-left"></i> VOLVER AL CONVENIO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-principal">
+        <div class="footer-contenedor">
+            <div class="footer-logos-horizontal">
+                <img src="imagenes/logos.svg" alt="Logos institucionales" class="footer-logos-svg">
+            </div>
+            <div class="footer-info">
+                <p class="footer-programa">PIRI · Programa de Interacción Rural Interdisciplinario · Capítulo Nariño</p>
+                <p class="footer-contacto">Contacto: <a href="mailto:meqy2022@udenar.edu.co">meqy2022@udenar.edu.co</a></p>
+            </div>
+            <div class="footer-creditos">
+                <p>© 2026 PIRI Capítulo Nariño · Todos los derechos reservados</p>
+                <p class="footer-desarrollo">Desarrollo web: Jhon Alvaro Cuastuza</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('navMenu');
+            menu.classList.toggle('show');
+        }
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.remove('show');
+            });
+        });
+
+        // Slider del hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide-perfiles');
+            let currentSlide = 0;
+            
+            if (slides.length > 0) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 5000);
+            }
+        });
+    </script>
+
+    <!-- ===== BOTÓN DE MODO OSCURO/CLARO ===== -->
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun" style="display: none;"></i>
+    </button>
+</body>
+</html>
