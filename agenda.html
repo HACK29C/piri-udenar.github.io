@@ -113,31 +113,30 @@
     <!-- ===== FONDO DE TEJIDO ANDINO ===== -->
     <div class="fondo-tejido"></div>
 
-     <!-- ===== NAVEGACIÓN CON LOGOS INSTITUCIONALES ===== -->
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logos-institucionales">
-            <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="logo-institucional logo-piri">
-            <img src="imagenes/logo-ufro.png" alt="UFRO Logo" class="logo-institucional logo-ufro">
-            <img src="imagenes/logo-udenar.png" alt="UDENAR Logo" class="logo-institucional logo-udenar">
+    <!-- ===== NAVEGACIÓN CON LOGOS INSTITUCIONALES ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logos-institucionales">
+                <img src="imagenes/logo-piri.png" alt="PIRI Logo" class="logo-institucional logo-piri">
+                <img src="imagenes/logo-ufro.png" alt="UFRO Logo" class="logo-institucional logo-ufro">
+                <img src="imagenes/logo-udenar.png" alt="UDENAR Logo" class="logo-institucional logo-udenar">
+            </div>
+            <button class="nav-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">INICIO</a></li>
+                <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
+                <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
+                <li><a href="convenio.html" class="nav-link">CONVENIO</a></li>
+                <li><a href="noticias.html" class="nav-link">NOTICIAS</a></li>
+                <li><a href="direccion.html" class="nav-link">CONTACTO</a></li>
+            </ul>
         </div>
-        <button class="nav-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html" class="nav-link">INICIO</a></li>
-            <li><a href="acerca.html" class="nav-link">ACERCA</a></li>
-            <li><a href="quienes-somos.html" class="nav-link">QUIÉNES SOMOS</a></li>
-            <li><a href="convenio.html" class="nav-link">CONVENIO</a></li>
-            <li><a href="noticias.html" class="nav-link">NOTICIAS</a></li>
-            <li><a href="direccion.html" class="nav-link">CONTACTO</a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
-    <!-- ===== HERO (EXACTAMENTE IGUAL AL INDEX) ===== -->
+    <!-- ===== HERO CON SLIDER ===== -->
     <section class="hero">
-        <!-- Fondo con slider de imágenes -->
         <div class="hero-slider">
             <div class="slide active" style="background-image: url('imagenes/fondo-hero-1.jpg');"></div>
             <div class="slide" style="background-image: url('imagenes/fondo-hero-2.jpg');"></div>
@@ -145,13 +144,10 @@
             <div class="slide" style="background-image: url('imagenes/fondo-hero-4.jpg');"></div>
             <div class="slide" style="background-image: url('imagenes/fondo-hero-5.jpg');"></div>
             <div class="slide" style="background-image: url('imagenes/fondo-hero-6.jpg');"></div>
-            <!-- Overlay oscuro para legibilidad -->
             <div class="hero-overlay"></div>
         </div>
 
-        <!-- Contenido principal del hero -->
         <div class="hero-content">
-            <!-- Lado izquierdo: Texto principal -->
             <div class="hero-texto">
                 <h1 class="hero-titulo">
                     <span class="linea1">PIRI</span>
@@ -161,7 +157,6 @@
                 
                 <h2 class="hero-subtitulo">Universidad de Nariño · Extensión Ipiales</h2>
                 
-                <!-- Calendario profesional -->
                 <div class="fecha-destacada">
                     <div class="calendario-icono">
                         <i class="far fa-calendar-alt"></i>
@@ -173,13 +168,11 @@
                     </div>
                 </div>
 
-                <!-- Lugar específico -->
                 <p class="lugar-evento">
                     <i class="fas fa-location-dot" style="color: var(--verde-brillante);"></i>
                     Auditorio Gonzalo Bravo Pérez · Sede Regional Ipiales
                 </p>
 
-                <!-- ===== RELOJ DE ZONAS HORARIAS (AGREGADO) ===== -->
                 <div class="zona-horaria-container">
                     <div class="zona-horaria-card">
                         <div class="zona-pais"><i class="fas fa-flag"></i> Colombia</div>
@@ -193,7 +186,6 @@
                     </div>
                 </div>
 
-                <!-- ENLACE DE TEAMS -->
                 <div class="conexion-online hero-conexion">
                     <a href="https://teams.microsoft.com/meet/21705744503696?p=kUDPCD82Y1yG7qKNJ1" target="_blank" class="live-link">
                         <div class="live-icon">
@@ -208,7 +200,6 @@
                     </a>
                 </div>
 
-                <!-- Cuenta regresiva -->
                 <div class="countdown-container">
                     <div class="countdown-box">
                         <span class="countdown-numero" id="dias">00</span>
@@ -228,12 +219,10 @@
                     </div>
                 </div>
 
-                <!-- Botón de acción -->
                 <div class="hero-botones">
                     <a href="https://forms.gle/SNobynyCRTwRFnmy7" target="_blank" class="btn btn-primario">CONFIRMAR ASISTENCIA</a>
                 </div>
 
-                <!-- Texto del flyer -->
                 <div class="flyer-texto">
                     <p>Invitamos a docentes, estudiantes y administrativos a ser parte de este proceso que impulsa la interacción social y el compromiso con nuestro territorio.</p>
                     <span class="convenio-badge">Convenio REI-259422</span>
@@ -241,14 +230,13 @@
             </div>
         </div>
 
-        <!-- Indicador de scroll -->
         <div class="scroll-indicator">
             <span>Descubre la agenda</span>
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- ===== AGENDA PRINCIPAL (ACTUALIZADA) ===== -->
+    <!-- ===== AGENDA PRINCIPAL ACTUALIZADA ===== -->
     <section class="agenda-principal">
         <div class="contenedor">
             <div class="agenda-header">
@@ -270,7 +258,7 @@
                 </div>
             </div>
 
-            <!-- Timeline visual con la nueva agenda -->
+            <!-- Timeline visual con la nueva agenda actualizada -->
             <div class="agenda-timeline-moderna">
                 
                 <!-- Bloque 1: Apertura (8:30 - 8:50) -->
@@ -287,11 +275,11 @@
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
                                 <span class="item-hora">8:30 - 8:35</span>
-                                <span class="item-actividad">Himno de la Universidad de la Frontera</span>
+                                <span class="item-actividad">Himno Universidad de Nariño</span>
                             </div>
                             <div class="timeline-moderna-item">
                                 <span class="item-hora">8:35 - 8:40</span>
-                                <span class="item-actividad">Himno de la Universidad Nariño</span>
+                                <span class="item-actividad">Himno Universidad de La Frontera - Temuco, Chile</span>
                             </div>
                             <div class="timeline-moderna-item">
                                 <span class="item-hora">8:40 - 8:50</span>
@@ -304,11 +292,11 @@
                     </div>
                 </div>
 
-                <!-- Bloque 2: PIRI Internacional (8:50 - 9:10) -->
+                <!-- Bloque 2: PIRI Internacional (8:50 - 9:05) -->
                 <div class="timeline-moderna-bloque">
                     <div class="timeline-moderna-tiempo">
                         <span class="hora-inicio">8:50</span>
-                        <span class="hora-fin">9:10</span>
+                        <span class="hora-fin">9:05</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #C85A2E;">
@@ -317,7 +305,7 @@
                         </div>
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">8:50 - 9:10</span>
+                                <span class="item-hora">8:50 - 9:05</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Coordinador del Programa de Internado Rural Interdisciplinario PIRI</span>
                                     <span class="item-ponente">Mag. Marcelo Carrasco · Universidad de La Frontera, Temuco-Chile</span>
@@ -327,11 +315,11 @@
                     </div>
                 </div>
 
-                <!-- Bloque 3: Autoridades Académicas (9:10 - 9:20) -->
+                <!-- Bloque 3: Autoridades Académicas (9:05 - 9:25) -->
                 <div class="timeline-moderna-bloque">
                     <div class="timeline-moderna-tiempo">
-                        <span class="hora-inicio">9:10</span>
-                        <span class="hora-fin">9:20</span>
+                        <span class="hora-inicio">9:05</span>
+                        <span class="hora-fin">9:25</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #9FC33C;">
@@ -340,14 +328,14 @@
                         </div>
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">9:10 - 9:15</span>
+                                <span class="item-hora">9:05 - 9:15</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Intervención Decano de la Facultad de Ciencias Económicas y Administrativas</span>
                                     <span class="item-ponente">Dr. Carlos Manuel Córdoba</span>
                                 </div>
                             </div>
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">9:15 - 9:20</span>
+                                <span class="item-hora">9:15 - 9:25</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Intervención Director del Departamento Comercio Internacional y Mercadeo</span>
                                     <span class="item-ponente">Dr. Mario Fernando Arcos</span>
@@ -357,11 +345,11 @@
                     </div>
                 </div>
 
-                <!-- Bloque 4: Interacción Social (9:20 - 9:30) -->
+                <!-- Bloque 4: Interacción Social (9:25 - 9:35) -->
                 <div class="timeline-moderna-bloque">
                     <div class="timeline-moderna-tiempo">
-                        <span class="hora-inicio">9:20</span>
-                        <span class="hora-fin">9:30</span>
+                        <span class="hora-inicio">9:25</span>
+                        <span class="hora-fin">9:35</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #010192;">
@@ -370,28 +358,21 @@
                         </div>
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">9:20 - 9:25</span>
+                                <span class="item-hora">9:25 - 9:35</span>
                                 <div class="item-con-ponente">
-                                    <span class="item-actividad">Intervención Director de la División de Interacción Social</span>
+                                    <span class="item-actividad">Intervención de la División de Interacción Social</span>
                                     <span class="item-ponente">Dra. Valeria Miramag</span>
-                                </div>
-                            </div>
-                            <div class="timeline-moderna-item">
-                                <span class="item-hora">9:25 - 9:30</span>
-                                <div class="item-con-ponente">
-                                    <span class="item-actividad">Intervención Coordinador del Centro de Investigación e Interacción Social</span>
-                                    <span class="item-ponente">Dr. Juan Camilo Mejía</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bloque 5: Presentación PIRI Nariño (9:30 - 9:50) -->
+                <!-- Bloque 5: Presentación PIRI Nariño (9:35 - 9:45) -->
                 <div class="timeline-moderna-bloque destacado">
                     <div class="timeline-moderna-tiempo">
-                        <span class="hora-inicio">9:30</span>
-                        <span class="hora-fin">9:50</span>
+                        <span class="hora-inicio">9:35</span>
+                        <span class="hora-fin">9:45</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #FFD700; color: #333;">
@@ -400,7 +381,7 @@
                         </div>
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">9:30 - 9:50</span>
+                                <span class="item-hora">9:35 - 9:45</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Presentación PIRI Capítulo Nariño</span>
                                     <span class="item-ponente">Docente Mirian Quitiaquez Yepes</span>
@@ -410,11 +391,11 @@
                     </div>
                 </div>
 
-                <!-- Bloque 6: Intervención Internacional (9:50 - 10:05) -->
+                <!-- Bloque 6: Participación Internacional (9:45 - 10:00) -->
                 <div class="timeline-moderna-bloque">
                     <div class="timeline-moderna-tiempo">
-                        <span class="hora-inicio">9:50</span>
-                        <span class="hora-fin">10:05</span>
+                        <span class="hora-inicio">9:45</span>
+                        <span class="hora-fin">10:00</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #326C54;">
@@ -423,21 +404,21 @@
                         </div>
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">9:50 - 10:05</span>
+                                <span class="item-hora">9:45 - 10:00</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Intervención</span>
-                                    <span class="item-ponente">Dra. Angelica Echavarría · Escuela del Sur, Chile</span>
+                                    <span class="item-ponente">Dra. Angelica Echavarría · Directora Escuela del Sur, Chile</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bloque 7: Experiencias PIRI (10:05 - 10:50) -->
+                <!-- Bloque 7: Experiencias PIRI (10:00 - 10:45) -->
                 <div class="timeline-moderna-bloque">
                     <div class="timeline-moderna-tiempo">
-                        <span class="hora-inicio">10:05</span>
-                        <span class="hora-fin">10:50</span>
+                        <span class="hora-inicio">10:00</span>
+                        <span class="hora-fin">10:45</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #326C54;">
@@ -446,21 +427,21 @@
                         </div>
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">10:05 - 10:20</span>
+                                <span class="item-hora">10:00 - 10:15</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Intervención experiencia PIRI</span>
                                     <span class="item-ponente">Omar Alfredo Bravo Delgado · Empresario, Mercadólogo Universidad de Nariño</span>
                                 </div>
                             </div>
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">10:20 - 10:40</span>
+                                <span class="item-hora">10:15 - 10:30</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Intervención experiencia PIRI</span>
                                     <span class="item-ponente">Zaira Estrada · Mercadóloga, docente Universidad Mariana</span>
                                 </div>
                             </div>
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">10:40 - 10:50</span>
+                                <span class="item-hora">10:30 - 10:45</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Intervención experiencia PIRI - Putumayo</span>
                                     <span class="item-ponente">Elkin Andrés Moriano Londoño · Docente y coordinador PIRI Uniputumayo</span>
@@ -470,11 +451,11 @@
                     </div>
                 </div>
 
-                <!-- Bloque 8: Movilidad Internacional (10:50 - 11:10) -->
+                <!-- Bloque 8: Movilidad Internacional (10:45 - 11:00) -->
                 <div class="timeline-moderna-bloque">
                     <div class="timeline-moderna-tiempo">
-                        <span class="hora-inicio">10:50</span>
-                        <span class="hora-fin">11:10</span>
+                        <span class="hora-inicio">10:45</span>
+                        <span class="hora-fin">11:00</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #9FC33C;">
@@ -483,7 +464,7 @@
                         </div>
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">10:50 - 11:10</span>
+                                <span class="item-hora">10:45 - 11:00</span>
                                 <div class="item-con-ponente">
                                     <span class="item-actividad">Presentación estudiantes PIRI regional Ipiales en movilidad</span>
                                     <span class="item-ponente">Semestre 2026 A</span>
@@ -493,11 +474,11 @@
                     </div>
                 </div>
 
-                <!-- Bloque 9: Interacción (11:10 - 11:30) -->
+                <!-- Bloque 9: Interacción (11:00 - 11:20) -->
                 <div class="timeline-moderna-bloque">
                     <div class="timeline-moderna-tiempo">
-                        <span class="hora-inicio">11:10</span>
-                        <span class="hora-fin">11:30</span>
+                        <span class="hora-inicio">11:00</span>
+                        <span class="hora-fin">11:20</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #C85A2E;">
@@ -506,18 +487,18 @@
                         </div>
                         <div class="timeline-moderna-items">
                             <div class="timeline-moderna-item">
-                                <span class="item-hora">11:10 - 11:30</span>
+                                <span class="item-hora">11:00 - 11:20</span>
                                 <span class="item-actividad">Espacio para preguntas del público</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bloque 10: Cierre (11:30 - 12:00) -->
+                <!-- Bloque 10: Cierre (11:20 - 11:40) -->
                 <div class="timeline-moderna-bloque">
                     <div class="timeline-moderna-tiempo">
-                        <span class="hora-inicio">11:30</span>
-                        <span class="hora-fin">12:00</span>
+                        <span class="hora-inicio">11:20</span>
+                        <span class="hora-fin">11:40</span>
                     </div>
                     <div class="timeline-moderna-contenido">
                         <div class="timeline-moderna-header" style="background: #C85A2E;">
@@ -525,12 +506,8 @@
                             <h3>Cierre del Evento</h3>
                         </div>
                         <div class="timeline-moderna-items">
-                            <div class="timeline-moderna-item">
-                                <span class="item-hora">11:30 - 11:40</span>
-                                <span class="item-actividad">Entrega de souvenir PIRI</span>
-                            </div>
                             <div class="timeline-moderna-item destacado-cierre">
-                                <span class="item-hora">11:40 - 12:00</span>
+                                <span class="item-hora">11:20 - 11:40</span>
                                 <span class="item-actividad">Agradecimientos y cierre del evento</span>
                             </div>
                         </div>
@@ -567,7 +544,6 @@
     <script src="js/script.js"></script>
     
     <script>
-        // ===== FUNCIÓN PARA EL MENÚ =====
         function toggleMenu() {
             var menu = document.getElementById('navMenu');
             if (menu.classList.contains('show')) {
@@ -577,14 +553,12 @@
             }
         }
 
-        // ===== CERRAR MENÚ AL HACER CLIC EN UN ENLACE =====
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', function() {
                 document.getElementById('navMenu').classList.remove('show');
             });
         });
 
-        // ===== COUNTDOWN =====
         function updateCountdown() {
             const eventDate = new Date('March 19, 2026 08:30:00').getTime();
             const now = new Date().getTime();
@@ -612,7 +586,6 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // ===== SLIDER =====
         document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.slide');
             let currentSlide = 0;
@@ -626,9 +599,7 @@
             }
         });
 
-        // ===== RELOJ EN TIEMPO REAL PARA COLOMBIA Y CHILE =====
         function actualizarHoras() {
-            // Opciones de formato para hora
             const opcionesHora = {
                 hour: '2-digit',
                 minute: '2-digit',
@@ -636,7 +607,6 @@
                 hour12: false
             };
 
-            // Hora Colombia
             const horaColombia = new Intl.DateTimeFormat('es-CO', {
                 ...opcionesHora,
                 timeZone: 'America/Bogota'
@@ -644,7 +614,6 @@
             
             document.getElementById('hora-colombia').textContent = horaColombia;
 
-            // Fecha Colombia
             const fechaColombia = new Intl.DateTimeFormat('es-CO', {
                 weekday: 'long',
                 day: 'numeric',
@@ -655,7 +624,6 @@
             
             document.getElementById('fecha-colombia').textContent = fechaColombia;
 
-            // Hora Chile
             const horaChile = new Intl.DateTimeFormat('es-CL', {
                 ...opcionesHora,
                 timeZone: 'America/Santiago'
@@ -663,7 +631,6 @@
             
             document.getElementById('hora-chile').textContent = horaChile;
 
-            // Fecha Chile
             const fechaChile = new Intl.DateTimeFormat('es-CL', {
                 weekday: 'long',
                 day: 'numeric',
@@ -675,15 +642,15 @@
             document.getElementById('fecha-chile').textContent = fechaChile;
         }
 
-        // Actualizar cada segundo
         actualizarHoras();
         setInterval(actualizarHoras, 1000);
     </script>
-    <!-- ===== BOTÓN DE MODO OSCURO/CLARO ===== -->
-<button id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
-    <i class="fas fa-moon"></i>
-    <i class="fas fa-sun" style="display: none;"></i>
-</button>
-<script src="js/carrusel-modal.js"></script>
+    
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun" style="display: none;"></i>
+    </button>
+    
+    <script src="js/carrusel-modal.js"></script>
 </body>
 </html>
