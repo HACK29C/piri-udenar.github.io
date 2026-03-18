@@ -187,6 +187,67 @@ function abrirPerfilZaira() {
     crearModal(titulo, perfilDiv, '1000px');
 }
 
+// ===== NUEVO PERFIL: OMAR ALFREDO BRAVO DELGADO =====
+function abrirPerfilOmar() {
+    const titulo = 'Omar Alfredo Bravo Delgado · Empresario · Mercadólogo';
+    const perfilDiv = document.createElement('div');
+    perfilDiv.className = 'perfil-container';
+    perfilDiv.innerHTML = `
+        <div class="perfil-header">
+            <img src="imagenes/omar.jpg" alt="Omar Alfredo Bravo Delgado" class="perfil-foto">
+            <div class="perfil-titulos">
+                <h2>Omar Alfredo Bravo Delgado</h2>
+                <p class="perfil-cargo">Profesional en Mercadeo · Universidad de Nariño · Empresario</p>
+            </div>
+            <button class="btn-fullscreen" onclick="toggleFullScreen(this)">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        
+        <div class="perfil-info-grid">
+            <div class="info-card">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                    <strong>Formación</strong>
+                    <span>Profesional en Mercadeo - Universidad de Nariño (2020)</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-globe-americas"></i>
+                <div>
+                    <strong>Experiencia PIRI</strong>
+                    <span>Beneficiario del programa PIRI en 2017</span>
+                    <span>Práctica profesional en Melipeuco, Chile</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-utensils"></i>
+                <div>
+                    <strong>Emprendimiento</strong>
+                    <span>Empresario del sector gastronómico</span>
+                    <span>+5 años en gestión y administración de restaurante</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-medal"></i>
+                <div>
+                    <strong>Competencias</strong>
+                    <span>Liderazgo · Trabajo en equipo · Resolución de conflictos</span>
+                    <span>Servicio al cliente · Mejora continua</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="perfil-descripcion">
+            <p>Profesional con visión estratégica orientada al crecimiento y posicionamiento de negocios. Alta capacidad de adaptación a contextos dinámicos y retadores. Beneficiario del programa PIRI en 2017, experiencia que fortaleció sus habilidades en liderazgo, organización y trabajo en entornos multiculturales. Actualmente empresario del sector gastronómico, con más de cinco años de experiencia en la gestión y administración de su propio restaurante, desarrollando competencias en servicio al cliente, manejo de personal, control de operaciones y toma de decisiones. Persona proactiva y enfocada en la mejora continua, siempre buscando generar valor en cada proyecto que lidera.</p>
+        </div>
+    `;
+    crearModal(titulo, perfilDiv, '1000px');
+}
+
 function toggleFullScreen(btn) {
     const modalContainer = btn.closest('.modal-container');
     if (!modalContainer) return;
@@ -258,6 +319,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (texto.includes('Elkin Andrés Moriano Londoño')) {
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', () => abrirPerfilElkin());
+        }
+        // ===== NUEVO EVENTO PARA OMAR BRAVO =====
+        if (texto.includes('Omar Alfredo Bravo Delgado')) {
+            console.log('✅ Omar Alfredo Bravo Delgado');
+            itemCompleto.style.cursor = 'pointer';
+            itemCompleto.addEventListener('click', () => abrirPerfilOmar());
         }
         if (texto.includes('Semestre 2026 A')) {
             itemCompleto.style.cursor = 'pointer';
