@@ -1,16 +1,10 @@
 // ===== SISTEMA DE MODALES PARA VIDEOS Y CARRUSELES =====
 
-// Variable global para el modal actual
 let modalActual = null;
 
-// Función para crear un modal genérico
 function crearModal(titulo, contenido, anchoPersonalizado = '900px') {
-    // Si ya hay un modal abierto, cerrarlo
-    if (modalActual) {
-        cerrarModal();
-    }
+    if (modalActual) cerrarModal();
 
-    // Crear elementos del modal
     const modalOverlay = document.createElement('div');
     modalOverlay.className = 'modal-overlay';
     modalOverlay.id = 'modal-overlay';
@@ -39,33 +33,23 @@ function crearModal(titulo, contenido, anchoPersonalizado = '900px') {
         modalBody.appendChild(contenido);
     }
     
-    // Ensamblar modal
     modalHeader.appendChild(modalTitulo);
     modalHeader.appendChild(modalClose);
     modalContainer.appendChild(modalHeader);
     modalContainer.appendChild(modalBody);
     modalOverlay.appendChild(modalContainer);
-    
-    // Agregar al body
     document.body.appendChild(modalOverlay);
     
-    // Cerrar al hacer clic fuera del modal
     modalOverlay.addEventListener('click', function(e) {
-        if (e.target === modalOverlay) {
-            cerrarModal();
-        }
+        if (e.target === modalOverlay) cerrarModal();
     });
     
     modalActual = modalOverlay;
-    
-    // Prevenir scroll del body
     document.body.style.overflow = 'hidden';
 }
 
-// Función para cerrar modal
 function cerrarModal() {
     if (modalActual) {
-        // Limpiar intervalo si existe
         if (window.cleanupCarrusel) {
             window.cleanupCarrusel();
             window.cleanupCarrusel = null;
@@ -75,356 +59,209 @@ function cerrarModal() {
         document.body.style.overflow = 'auto';
     }
 }
-
-// Función para cerrar modal (versión global)
 window.cerrarModal = cerrarModal;
 
-// ===== FUNCIONES ESPECÍFICAS PARA CADA ÍTEM DE LA AGENDA =====
-
-// 1. Video de YouTube
 function abrirVideoYouTube(url, titulo) {
     let videoId = '';
-    
-    if (url.includes('youtube.com/watch')) {
-        videoId = url.split('v=')[1].split('&')[0];
-    } else if (url.includes('youtu.be')) {
-        videoId = url.split('/').pop().split('?')[0];
-    } else if (url.includes('youtube.com/shorts')) {
-        videoId = url.split('/').pop().split('?')[0];
-    } else {
-        videoId = url;
-    }
+    if (url.includes('youtube.com/watch')) videoId = url.split('v=')[1].split('&')[0];
+    else if (url.includes('youtu.be')) videoId = url.split('/').pop().split('?')[0];
+    else if (url.includes('youtube.com/shorts')) videoId = url.split('/').pop().split('?')[0];
+    else videoId = url;
     
     const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    
-    const contenido = `
-        <div class="video-modal-contenedor">
-            <iframe width="100%" height="400" src="${embedUrl}" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    `;
-    
-    crearModal(titulo, contenido);
+    crearModal(titulo, `<div class="video-modal-contenedor"><iframe width="100%" height="400" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`);
 }
 
-// 2. Video de Facebook
 function abrirVideoFacebook(url, titulo) {
-    const contenido = `
-        <div class="video-modal-contenedor">
-            <iframe src="${url}" width="560" height="314" 
-                style="border:none;overflow:hidden" 
-                scrolling="no" frameborder="0" 
-                allowfullscreen="true" 
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-            </iframe>
-        </div>
-    `;
-    
-    crearModal(titulo, contenido);
+    crearModal(titulo, `<div class="video-modal-contenedor"><iframe src="${url}" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>`);
 }
 
-// 3. Video de Google Drive
 function abrirVideoGoogleDrive(url, titulo) {
-    // Convertir URL de Google Drive a formato embed
     let fileId = '';
-    
-    if (url.includes('/d/')) {
-        fileId = url.split('/d/')[1].split('/')[0];
-    } else if (url.includes('id=')) {
-        fileId = url.split('id=')[1].split('&')[0];
-    }
-    
+    if (url.includes('/d/')) fileId = url.split('/d/')[1].split('/')[0];
+    else if (url.includes('id=')) fileId = url.split('id=')[1].split('&')[0];
     const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
-    
-    const contenido = `
-        <div class="video-modal-contenedor">
-            <iframe src="${embedUrl}" width="100%" height="400" 
-                frameborder="0" allow="autoplay; encrypted-media" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    `;
-    
-    crearModal(titulo, contenido);
+    crearModal(titulo, `<div class="video-modal-contenedor"><iframe src="${embedUrl}" width="100%" height="400" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`);
 }
 
-// 4. Video de YouTube (para Marcelo Carrasco)
 function abrirVideoMarcelo(titulo) {
     abrirVideoYouTube('https://www.youtube.com/watch?v=IqQKOsoIgaY', titulo);
 }
 
-// 5. Video de YouTube (para Dr. Carlos Manuel Córdoba)
 function abrirVideoCordoba(titulo) {
     abrirVideoYouTube('https://youtube.com/shorts/q_McgkNMAow', titulo);
 }
 
-// 6. Abrir perfiles de estudiantes
 function abrirPerfiles() {
     window.open('perfiles.html', '_blank');
 }
 
-// 7. Función para abrir perfil de Elkin Moriano con selector de contenido
 function abrirPerfilElkin() {
     const titulo = 'Elkin Andrés Moriano Londoño · PIRI Uniputumayo';
-    
-    // Crear contenedor del perfil
     const perfilDiv = document.createElement('div');
-    perfilDiv.className = 'perfil-elkin-container';
-    
-    // Estructura del perfil (CON NUEVOS ENLACES ACTUALIZADOS)
+    perfilDiv.className = 'perfil-container';
     perfilDiv.innerHTML = `
-        <div class="perfil-elkin-header">
-            <img src="imagenes/moriano.jpeg" alt="Elkin Andrés Moriano Londoño" class="perfil-elkin-foto">
-            <div class="perfil-elkin-titulos">
+        <div class="perfil-header">
+            <img src="imagenes/moriano.jpeg" alt="Elkin Andrés Moriano Londoño" class="perfil-foto">
+            <div class="perfil-titulos">
                 <h2>Elkin Andrés Moriano Londoño</h2>
-                <p class="perfil-elkin-cargo">Docente y Coordinador PIRI · UNIPUTUMAYO</p>
+                <p class="perfil-cargo">Docente y Coordinador PIRI · UNIPUTUMAYO</p>
+            </div>
+            <button class="btn-fullscreen" onclick="toggleFullScreen(this)">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        <div class="perfil-info-grid">
+            <div class="info-card">
+                <i class="fas fa-graduation-cap"></i>
+                <div><strong>Formación</strong><span>Ingeniero Mecánico</span><span>Especialista en Industria 4.0</span><span>Candidato a Magíster en Energías Renovables</span></div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div><strong>Docencia</strong><span>Física, Mecánica de Fluidos, Estática</span></div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <div><strong>Líder PIRI</strong><span>Articulación territorial, desarrollo social</span></div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-briefcase"></i>
+                <div><strong>Representante Legal</strong><span>DISEM S.A.S.</span></div>
             </div>
         </div>
-        
-        <div class="perfil-elkin-info">
-            <div class="info-grid">
-                <div class="info-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <div>
-                        <strong>Formación</strong>
-                        <span>Ingeniero Mecánico</span>
-                        <span>Especialista en Industria 4.0</span>
-                        <span>Candidato a Magíster en Energías Renovables</span>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <div>
-                        <strong>Docencia Universitaria</strong>
-                        <span>Física, Mecánica de Fluidos, Estática</span>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <div>
-                        <strong>Líder PIRI UNIPUTUMAYO</strong>
-                        <span>Articulación territorial, desarrollo social, salud y bienestar</span>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-truck"></i>
-                    <div>
-                        <strong>Coordinador Operativo</strong>
-                        <span>Empresa de transporte de residuos peligrosos</span>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-briefcase"></i>
-                    <div>
-                        <strong>Representante Legal</strong>
-                        <span>DISEM S.A.S. · Sector energético, eléctrico y automotriz</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="perfil-elkin-videos">
+        <div class="perfil-videos">
             <h3><i class="fas fa-play-circle"></i> Contenido PIRI Uniputumayo</h3>
             <div class="videos-grid">
-                <!-- VIDEO INICIO (NUEVO ENLACE) -->
                 <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1BRrE6CdtVFpx2S9B6eOwZMWcg2oiZW1N/view', 'Video Inicio - PIRI Uniputumayo')">
-                    <div class="video-card-icono">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <div class="video-card-info">
-                        <strong>VIDEO INICIO</strong>
-                        <span>Presentación PIRI Uniputumayo</span>
-                    </div>
+                    <i class="fas fa-play"></i><div><strong>VIDEO INICIO</strong><span>Presentación</span></div>
                 </div>
-                
-                <!-- PRESENTACIÓN (NUEVO ENLACE) -->
                 <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1OTZLP7XYulBRLa40G8e6lHOkZ4_quzmG/view', 'Presentación PIRI Uniputumayo')">
-                    <div class="video-card-icono">
-                        <i class="fas fa-file-powerpoint"></i>
-                    </div>
-                    <div class="video-card-info">
-                        <strong>PRESENTACIÓN</strong>
-                        <span>Diapositivas PIRI Uniputumayo</span>
-                    </div>
+                    <i class="fas fa-file-powerpoint"></i><div><strong>PRESENTACIÓN</strong><span>Diapositivas</span></div>
                 </div>
-                
-                <!-- VIDEO FINAL (NUEVO ENLACE) -->
                 <div class="video-card" onclick="abrirVideoGoogleDrive('https://drive.google.com/file/d/1PO0eYS9zYMp-fhfLmP_z2ufzOXRFhPMX/view', 'Video Final - PIRI Uniputumayo')">
-                    <div class="video-card-icono">
-                        <i class="fas fa-film"></i>
-                    </div>
-                    <div class="video-card-info">
-                        <strong>VIDEO FINAL</strong>
-                        <span>Cierre PIRI Uniputumayo</span>
-                    </div>
+                    <i class="fas fa-film"></i><div><strong>VIDEO FINAL</strong><span>Cierre</span></div>
                 </div>
             </div>
         </div>
     `;
-    
     crearModal(titulo, perfilDiv, '1000px');
 }
 
-// ===== INICIALIZAR EVENTOS AL CARGAR LA PÁGINA (ACTUALIZADO CON NUEVOS NOMBRES) =====
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Inicializando eventos de agenda interactiva...');
-    
-    // Eliminar subrayado de los himnos (solo deben ser cliqueables, no subrayados)
-    function quitarSubrayado(elemento) {
-        if (elemento) {
-            elemento.style.textDecoration = 'none';
-        }
+function abrirPerfilZaira() {
+    const titulo = 'Zaira Estrada · Mercadóloga · Universidad Mariana';
+    const perfilDiv = document.createElement('div');
+    perfilDiv.className = 'perfil-container';
+    perfilDiv.innerHTML = `
+        <div class="perfil-header">
+            <img src="imagenes/anonimo.jpeg" alt="Zaira Estrada" class="perfil-foto">
+            <div class="perfil-titulos">
+                <h2>Zaira Estrada</h2>
+                <p class="perfil-cargo">Mercadóloga · Docente Universidad Mariana</p>
+            </div>
+            <button class="btn-fullscreen" onclick="toggleFullScreen(this)">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        <div class="perfil-info-grid">
+            <div class="info-card">
+                <i class="fas fa-graduation-cap"></i>
+                <div><strong>Formación</strong><span>Profesional en Mercadeo</span><span>Candidata a Magíster en Mercadeo</span></div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chart-line"></i>
+                <div><strong>Experiencia</strong><span>+7 años en mercadeo</span><span>Sectores salud y educativo</span></div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-globe-americas"></i>
+                <div><strong>Práctica Internacional</strong><span>Melipeuco, Chile</span><span>Desarrollo económico local</span></div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div><strong>Docencia</strong><span>Formación profesional</span><span>Ponente nacional</span></div>
+            </div>
+        </div>
+        <div class="perfil-descripcion">
+            <p>Profesional con enfoque analítico y orientación a resultados. He liderado procesos de planeación estratégica, posicionamiento de marca y gestión de campañas multicanal. Mi trayectoria integra experiencia profesional, académica e investigativa.</p>
+        </div>
+    `;
+    crearModal(titulo, perfilDiv, '1000px');
+}
+
+function toggleFullScreen(btn) {
+    const modalContainer = btn.closest('.modal-container');
+    if (!modalContainer) return;
+    if (!document.fullscreenElement) {
+        modalContainer.requestFullscreen();
+        btn.innerHTML = '<i class="fas fa-compress"></i>';
+    } else {
+        document.exitFullscreen();
+        btn.innerHTML = '<i class="fas fa-expand"></i>';
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Inicializando eventos...');
     
-    // ===== 1. HIMNOS (SIN SUBRAYADO) =====
-    const itemsHora = document.querySelectorAll('.item-hora');
-    itemsHora.forEach((item, index) => {
+    function quitarSubrayado(e) { if (e) e.style.textDecoration = 'none'; }
+    
+    document.querySelectorAll('.item-hora').forEach(item => {
         const itemCompleto = item.closest('.timeline-moderna-item');
         if (!itemCompleto) return;
-        
         const actividad = itemCompleto.querySelector('.item-actividad');
         if (!actividad) return;
-        
         const texto = actividad.textContent;
         
-        // Himno Universidad de Nariño
         if (texto.includes('Himno Universidad de Nariño')) {
-            console.log('✅ Encontrado: Himno UDENAR');
-            actividad.style.cursor = 'pointer';
-            quitarSubrayado(actividad);
-            actividad.addEventListener('click', function(e) {
-                e.stopPropagation();
-                abrirVideoYouTube('https://www.youtube.com/watch?v=I2O6veA2zrs', 'Himno Universidad de Nariño');
-            });
+            actividad.style.cursor = 'pointer'; quitarSubrayado(actividad);
+            actividad.addEventListener('click', e => { e.stopPropagation(); abrirVideoYouTube('https://www.youtube.com/watch?v=I2O6veA2zrs', 'Himno Universidad de Nariño'); });
         }
-        
-        // Himno Universidad de La Frontera
         if (texto.includes('Himno Universidad de La Frontera')) {
-            console.log('✅ Encontrado: Himno UFRO');
-            actividad.style.cursor = 'pointer';
-            quitarSubrayado(actividad);
-            actividad.addEventListener('click', function(e) {
-                e.stopPropagation();
-                abrirVideoYouTube('https://www.youtube.com/watch?v=4z0qdifpBSo', 'Himno Universidad de La Frontera - Temuco, Chile');
-            });
+            actividad.style.cursor = 'pointer'; quitarSubrayado(actividad);
+            actividad.addEventListener('click', e => { e.stopPropagation(); abrirVideoYouTube('https://www.youtube.com/watch?v=4z0qdifpBSo', 'Himno Universidad de La Frontera'); });
         }
     });
     
-    // ===== 2. BUSCAR POR PONENTES =====
-    const ponentes = document.querySelectorAll('.item-ponente');
-    
-    ponentes.forEach(ponente => {
+    document.querySelectorAll('.item-ponente').forEach(ponente => {
         const texto = ponente.textContent;
         const itemCompleto = ponente.closest('.timeline-moderna-item');
-        
         if (!itemCompleto) return;
         
-        // Dr. Gerardo Mauricio Bravo
         if (texto.includes('Dr. Gerardo Mauricio Bravo')) {
-            console.log('✅ Encontrado: Dr. Gerardo Bravo');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', function() {
-                abrirVideoFacebook(
-                    'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F899717129629571%2F&show_text=false&width=560&t=0',
-                    'Intervención Dr. Gerardo Mauricio Bravo'
-                );
-            });
+            itemCompleto.addEventListener('click', () => abrirVideoFacebook('https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F899717129629571%2F&show_text=false&width=560&t=0', 'Dr. Gerardo Mauricio Bravo'));
         }
-        
-        // Mag. Marcelo Carrasco
         if (texto.includes('Mag. Marcelo Carrasco')) {
-            console.log('✅ Encontrado: Mag. Marcelo Carrasco');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', function() {
-                abrirVideoMarcelo('PIRI - Universidad de La Frontera');
-            });
+            itemCompleto.addEventListener('click', () => abrirVideoMarcelo('Marcelo Carrasco'));
         }
-        
-        // Dr. Carlos Manuel Córdoba
         if (texto.includes('Dr. Carlos Manuel Córdoba')) {
-            console.log('✅ Encontrado: Dr. Carlos Manuel Córdoba');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', function() {
-                abrirVideoCordoba('Intervención Dr. Carlos Manuel Córdoba');
-            });
+            itemCompleto.addEventListener('click', () => abrirVideoCordoba('Dr. Carlos Manuel Córdoba'));
         }
-        
-        // Dr. Mario Fernando Arcos
         if (texto.includes('Dr. Mario Fernando Arcos')) {
-            console.log('✅ Encontrado: Dr. Mario Fernando Arcos');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', function() {
-                abrirVideoGoogleDrive(
-                    'https://drive.google.com/file/d/1c_6oJiBpK_gYbDSteZujYdls7OCmf-55/view',
-                    'Intervención Dr. Mario Fernando Arcos'
-                );
-            });
+            itemCompleto.addEventListener('click', () => abrirVideoGoogleDrive('https://drive.google.com/file/d/1c_6oJiBpK_gYbDSteZujYdls7OCmf-55/view', 'Dr. Mario Fernando Arcos'));
         }
-        
-        // Dra. Valeria Miramag
         if (texto.includes('Dra. Valeria Miramag')) {
-            console.log('✅ Encontrado: Dra. Valeria Miramag');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', function() {
-                abrirVideoYouTube(
-                    'https://www.youtube.com/watch?v=zVamONMw7bg',
-                    'Intervención Dra. Valeria Miramag'
-                );
-            });
+            itemCompleto.addEventListener('click', () => abrirVideoYouTube('https://www.youtube.com/watch?v=zVamONMw7bg', 'Dra. Valeria Miramag'));
         }
-        
-        // Docente Mirian Quitiaquez
         if (texto.includes('Docente Mirian Quitiaquez')) {
-            console.log('✅ Encontrado: Docente Mirian Quitiaquez');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', function() {
-                abrirVideoFacebook(
-                    'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1600584374448210%2F&show_text=false&width=560&t=0',
-                    'Presentación PIRI - Docente Mirian Quitiaquez'
-                );
-            });
+            itemCompleto.addEventListener('click', () => abrirVideoFacebook('https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1600584374448210%2F&show_text=false&width=560&t=0', 'Docente Mirian Quitiaquez'));
         }
-        
-        // Dra. Angelica Echavarría
-        if (texto.includes('Dra. Angelica Echavarría')) {
-            console.log('✅ Encontrado: Dra. Angelica Echavarría');
-            // Esta intervención no tiene video por ahora
-        }
-        
-        // Omar Alfredo Bravo Delgado
-        if (texto.includes('Omar Alfredo Bravo Delgado')) {
-            console.log('✅ Encontrado: Omar Bravo');
-            // Esta intervención no tiene video por ahora
-        }
-        
-        // Zaira Estrada
         if (texto.includes('Zaira Estrada')) {
-            console.log('✅ Encontrado: Zaira Estrada');
-            // Esta intervención no tiene video por ahora
+            console.log('✅ Zaira Estrada');
+            itemCompleto.style.cursor = 'pointer';
+            itemCompleto.addEventListener('click', () => abrirPerfilZaira());
         }
-        
-        // Elkin Andrés Moriano Londoño
         if (texto.includes('Elkin Andrés Moriano Londoño')) {
-            console.log('✅ Encontrado: Elkin Andrés Moriano');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', function() {
-                abrirPerfilElkin();
-            });
+            itemCompleto.addEventListener('click', () => abrirPerfilElkin());
         }
-        
-        // Semestre 2026 A (Estudiantes)
         if (texto.includes('Semestre 2026 A')) {
-            console.log('✅ Encontrado: Estudiantes en movilidad');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', function() {
-                abrirPerfiles();
-            });
+            itemCompleto.addEventListener('click', () => abrirPerfiles());
         }
     });
     
