@@ -256,7 +256,7 @@ function abrirPerfilAngelica() {
     // La foto es horizontal (1051x711), se ajusta con object-fit: contain
     perfilDiv.innerHTML = `
         <div class="perfil-header">
-            <img src="imagenes/angelica.jpeg" alt="Dra. Angelica Echavarría" class="perfil-foto" style="object-fit: contain; background-color: #20571f; padding: 10px;">
+            <img src="imagenes/angelicador.jpeg" alt="Dra. Angelica Echavarría" class="perfil-foto" style="object-fit: contain; background-color: #20571f; padding: 10px;">
             <div class="perfil-titulos">
                 <h2>Dra. Angelica Echavarría</h2>
                 <p class="perfil-cargo">Directora · Escuela del Sur, Chile</p>
