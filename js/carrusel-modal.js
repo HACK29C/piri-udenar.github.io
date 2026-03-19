@@ -96,6 +96,216 @@ function abrirPerfiles() {
     window.open('perfiles.html', '_blank');
 }
 
+function abrirQuienesSomos() {
+    window.open('quienes-somos.html', '_blank');
+}
+
+// ===== NUEVO: ESPACIO DE PREGUNTAS INTERACTIVO =====
+function abrirEspacioPreguntas() {
+    const titulo = 'Espacio de preguntas del público';
+    
+    const espacioDiv = document.createElement('div');
+    espacioDiv.className = 'espacio-preguntas-container';
+    
+    // Carrusel de fotos del territorio
+    const fotosTerritorio = [
+        { src: 'imagenes/cocha-1.jpg', desc: 'Laguna de la Cocha - El Encano' },
+        { src: 'imagenes/cocha-2.jpg', desc: 'Santuario de flora y fauna' },
+        { src: 'imagenes/cocha-3.jpg', desc: 'Comunidades rurales' },
+        { src: 'imagenes/cocha-4.jpg', desc: 'Territorio PIRI en Nariño' },
+        { src: 'imagenes/fondo-hero-1.jpg', desc: 'Paisaje andino' },
+        { src: 'imagenes/fondo-hero-2.jpg', desc: 'Trabajo comunitario' }
+    ];
+    
+    let currentIndex = 0;
+    
+    // Crear estructura del carrusel
+    const carruselContainer = document.createElement('div');
+    carruselContainer.className = 'carrusel-preguntas';
+    
+    const imgPrincipal = document.createElement('img');
+    imgPrincipal.src = fotosTerritorio[0].src;
+    imgPrincipal.alt = fotosTerritorio[0].desc;
+    imgPrincipal.className = 'carrusel-preguntas-img';
+    
+    const descDiv = document.createElement('div');
+    descDiv.className = 'carrusel-preguntas-desc';
+    descDiv.textContent = fotosTerritorio[0].desc;
+    
+    const controlesDiv = document.createElement('div');
+    controlesDiv.className = 'carrusel-preguntas-controles';
+    
+    const btnPrev = document.createElement('button');
+    btnPrev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    btnPrev.className = 'carrusel-preguntas-btn';
+    btnPrev.onclick = () => {
+        currentIndex = (currentIndex - 1 + fotosTerritorio.length) % fotosTerritorio.length;
+        imgPrincipal.src = fotosTerritorio[currentIndex].src;
+        imgPrincipal.alt = fotosTerritorio[currentIndex].desc;
+        descDiv.textContent = fotosTerritorio[currentIndex].desc;
+    };
+    
+    const btnNext = document.createElement('button');
+    btnNext.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    btnNext.className = 'carrusel-preguntas-btn';
+    btnNext.onclick = () => {
+        currentIndex = (currentIndex + 1) % fotosTerritorio.length;
+        imgPrincipal.src = fotosTerritorio[currentIndex].src;
+        imgPrincipal.alt = fotosTerritorio[currentIndex].desc;
+        descDiv.textContent = fotosTerritorio[currentIndex].desc;
+    };
+    
+    // Auto-play cada 4 segundos
+    let interval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % fotosTerritorio.length;
+        imgPrincipal.src = fotosTerritorio[currentIndex].src;
+        imgPrincipal.alt = fotosTerritorio[currentIndex].desc;
+        descDiv.textContent = fotosTerritorio[currentIndex].desc;
+    }, 4000);
+    
+    window.cleanupCarrusel = () => clearInterval(interval);
+    
+    controlesDiv.appendChild(btnPrev);
+    controlesDiv.appendChild(btnNext);
+    carruselContainer.appendChild(imgPrincipal);
+    carruselContainer.appendChild(descDiv);
+    carruselContainer.appendChild(controlesDiv);
+    
+    // Contenido del espacio de preguntas
+    espacioDiv.innerHTML = `
+        <div class="preguntas-header">
+            <i class="fas fa-comments"></i>
+            <h2>Comparte tus inquietudes</h2>
+            <p class="preguntas-subtitulo">Este espacio está abierto para resolver todas tus dudas sobre el programa PIRI</p>
+        </div>
+        
+        <div class="preguntas-grid">
+            <div class="preguntas-card">
+                <i class="fas fa-question-circle"></i>
+                <h3>¿Qué es PIRI?</h3>
+                <p>Programa de Interacción Rural Interdisciplinario que conecta la academia con las comunidades rurales.</p>
+            </div>
+            <div class="preguntas-card">
+                <i class="fas fa-users"></i>
+                <h3>¿Quiénes pueden participar?</h3>
+                <p>Estudiantes, docentes y administrativos de todas las disciplinas con compromiso social.</p>
+            </div>
+            <div class="preguntas-card">
+                <i class="fas fa-globe-americas"></i>
+                <h3>¿Cómo funciona la movilidad?</h3>
+                <p>Intercambio académico entre la UFRO (Chile) y la Universidad de Nariño (Colombia).</p>
+            </div>
+            <div class="preguntas-card">
+                <i class="fas fa-leaf"></i>
+                <h3>¿Qué son los negocios verdes?</h3>
+                <p>Iniciativas sostenibles que promueven el desarrollo económico con enfoque ambiental.</p>
+            </div>
+        </div>
+        
+        <div class="preguntas-contacto">
+            <p>¿Tienes más preguntas? Escríbenos directamente</p>
+            <div class="preguntas-botones">
+                <a href="https://wa.me/573155128979" target="_blank" class="btn-preguntas">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:meqy2022@udenar.edu.co" class="btn-preguntas">
+                    <i class="fas fa-envelope"></i> Correo
+                </a>
+                <button class="btn-preguntas" onclick="window.open('quienes-somos.html', '_blank')">
+                    <i class="fas fa-info-circle"></i> Conoce más
+                </button>
+            </div>
+        </div>
+        
+        <div class="preguntas-carrusel-placeholder"></div>
+    `;
+    
+    // Insertar el carrusel en el placeholder
+    const placeholder = espacioDiv.querySelector('.preguntas-carrusel-placeholder');
+    if (placeholder) {
+        placeholder.appendChild(carruselContainer);
+    }
+    
+    crearModal(titulo, espacioDiv, '1000px');
+}
+
+// ===== NUEVO PERFIL: DOCENTE MIRIAN QUITIAQUEZ =====
+function abrirPerfilMirian() {
+    const titulo = 'Docente Mirian Quitiaquez Yepes · Líder PIRI Capítulo Nariño';
+    
+    const perfilDiv = document.createElement('div');
+    perfilDiv.className = 'perfil-container';
+    
+    perfilDiv.innerHTML = `
+        <div class="perfil-header">
+            <img src="imagenes/mirian.jpeg" alt="Docente Mirian Quitiaquez Yepes" class="perfil-foto" style="object-fit: cover; border: 4px solid var(--verde-brillante);">
+            <div class="perfil-titulos">
+                <h2>Mirian Quitiaquez Yepes</h2>
+                <p class="perfil-cargo">Docente de Comercio Internacional · Universidad de Nariño · Sede Regional Ipiales</p>
+            </div>
+            <button class="btn-fullscreen" onclick="toggleFullScreen(this)">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        
+        <div class="perfil-info-grid">
+            <div class="info-card">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                    <strong>Formación</strong>
+                    <span>Docente de Comercio Internacional</span>
+                    <span>Universidad de Nariño · Sede Regional Ipiales</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-globe-americas"></i>
+                <div>
+                    <strong>Trayectoria PIRI</strong>
+                    <span>Participó en el primer convenio PIRI Nariño (2010)</span>
+                    <span>Representante en la visita a UFRO · Chile</span>
+                    <span>Líder del PIRI Capítulo Nariño 2026</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <div>
+                    <strong>Aportes al programa</strong>
+                    <span>Ha sido parte del proceso desde sus inicios</span>
+                    <span>Gestión del convenio REI-259422</span>
+                    <span>Impulsora de la movilidad estudiantil</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <div>
+                    <strong>Hitos clave</strong>
+                    <span>2010: Primer convenio PIRI Nariño</span>
+                    <span>2025: Visita a UFRO, Chile</span>
+                    <span>2026: Lanzamiento Capítulo Nariño</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="perfil-descripcion">
+            <p>La Docente Mirian Quitiaquez Yepes ha sido parte fundamental del programa PIRI desde sus inicios en Nariño. En 2010 participó en la firma del primer convenio para implementar el Programa de Interacción Rural Interdisciplinario en Nariño, bajo una metodología que fomenta la conformación de equipos de trabajo interdisciplinario en territorios. Fue una de las primeras en viajar a Chile para conocer la experiencia de la UFRO y actualmente lidera el PIRI Capítulo Nariño, siendo la coordinadora y gestora del convenio que permite la movilidad estudiantil y el trabajo interdisciplinario en el territorio.</p>
+        </div>
+        
+        <div class="perfil-acciones">
+            <button class="btn-accion" onclick="abrirVideoFacebook('https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1600584374448210%2F&show_text=false&width=560&t=0', 'Presentación PIRI - Docente Mirian Quitiaquez')">
+                <i class="fas fa-play-circle"></i> VER VIDEO
+            </button>
+            <button class="btn-accion" onclick="window.open('quienes-somos.html', '_blank')">
+                <i class="fas fa-users"></i> CONOCE QUIÉNES SOMOS
+            </button>
+        </div>
+    `;
+    
+    crearModal(titulo, perfilDiv, '1000px');
+}
+
 function abrirPerfilElkin() {
     const titulo = 'Elkin Andrés Moriano Londoño · PIRI Uniputumayo';
     const perfilDiv = document.createElement('div');
@@ -251,7 +461,6 @@ function abrirPerfilAngelica() {
     const titulo = 'Dra. Angelica Echavarría · Directora Escuela del Sur, Chile';
     const perfilDiv = document.createElement('div');
     perfilDiv.className = 'perfil-container';
-    
     perfilDiv.innerHTML = `
         <div class="perfil-header">
             <img src="imagenes/angelicador.jpeg" alt="Dra. Angelica Echavarría" class="perfil-foto" style="object-fit: contain; background-color: #20571f; padding: 10px;">
@@ -313,7 +522,6 @@ function abrirPerfilAndrea() {
     const titulo = 'Andrea Figueroa Estrella · Administradora de Empresas';
     const perfilDiv = document.createElement('div');
     perfilDiv.className = 'perfil-container';
-    
     perfilDiv.innerHTML = `
         <div class="perfil-header">
             <img src="imagenes/Andrea Figueroa.jpg" alt="Andrea Figueroa Estrella" class="perfil-foto" style="object-fit: cover; background-color: #ffffff; border: 4px solid var(--verde-brillante);">
@@ -368,81 +576,6 @@ function abrirPerfilAndrea() {
         
         <div class="perfil-descripcion">
             <p>Profesional con trayectoria en asistencia administrativa, dinámica y propositiva en la gestión operativa y logística de proyectos productivos, de investigación, sociales, culturales y ambientales. Con conocimientos en gestión documental y experiencia en la facilitación, implementación y ejecución de planes de trabajo con equipos interdisciplinarios. Lideró el proceso PIRI NARIÑO desde el 2014 al 2020 y participó en el programa de intercambio PIRI UFRO en Chile en el 2016. Actualmente se desempeña como funcionaria pública en el sector cultura en la Alcaldía de Yacuanquer y es voluntaria y líder del Colectivo Artesanas de la Vida, enfocado en el trabajo comunitario con mujeres. Motivada a conectar con personas comprometidas con la colaboración para intercambiar experiencias y encender nuevas iniciativas, buscando construir entornos donde el cuidado mutuo, la escucha activa y el trabajo conjunto sean la base para generar impacto.</p>
-        </div>
-    `;
-    crearModal(titulo, perfilDiv, '1000px');
-}
-
-// ===== NUEVO PERFIL: DOCENTE MIRIAN QUITIAQUEZ YEPES =====
-function abrirPerfilMirian() {
-    const titulo = 'Docente Mirian Quitiaquez Yepes · Directora PIRI Capítulo Nariño';
-    const perfilDiv = document.createElement('div');
-    perfilDiv.className = 'perfil-container';
-    
-    // La foto es 509x480, casi cuadrada, se ajusta con object-fit: cover
-    perfilDiv.innerHTML = `
-        <div class="perfil-header">
-            <img src="imagenes/mirian.jpeg" alt="Docente Mirian Quitiaquez Yepes" class="perfil-foto" style="object-fit: cover; background-color: #ffffff; border: 4px solid var(--verde-brillante);">
-            <div class="perfil-titulos">
-                <h2>Docente Mirian Quitiaquez Yepes</h2>
-                <p class="perfil-cargo">Docente de Comercio Internacional · Universidad de Nariño · Sede Regional Ipiales</p>
-            </div>
-            <button class="btn-fullscreen" onclick="toggleFullScreen(this)">
-                <i class="fas fa-expand"></i>
-            </button>
-        </div>
-        
-        <div class="perfil-info-grid">
-            <div class="info-card">
-                <i class="fas fa-history"></i>
-                <div>
-                    <strong>Trayectoria PIRI</strong>
-                    <span>Desde 2010: Primer convenio PIRI en Nariño</span>
-                    <span>Participante activa desde los inicios del programa</span>
-                    <span>Viajó a Chile para fortalecer la cooperación UFRO-UDENAR</span>
-                </div>
-            </div>
-            
-            <div class="info-card">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <div>
-                    <strong>Docencia</strong>
-                    <span>Docente de Comercio Internacional</span>
-                    <span>Facultad de Ciencias Económicas y Administrativas</span>
-                    <span>Universidad de Nariño · Sede Regional Ipiales</span>
-                </div>
-            </div>
-            
-            <div class="info-card">
-                <i class="fas fa-star"></i>
-                <div>
-                    <strong>Rol Actual</strong>
-                    <span>Directora del Programa PIRI · Capítulo Nariño</span>
-                    <span>Líder del proceso de interacción rural interdisciplinario</span>
-                </div>
-            </div>
-            
-            <div class="info-card">
-                <i class="fas fa-calendar-alt"></i>
-                <div>
-                    <strong>Participación</strong>
-                    <span>Presentación PIRI Capítulo Nariño</span>
-                    <span>19 de marzo de 2026 · 9:35 - 9:45 A.M.</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="perfil-descripcion">
-            <p>La Docente Mirian Quitiaquez Yepes ha sido parte fundamental del Programa PIRI desde sus inicios en 2010, cuando se firmó el primer convenio para implementar el Programa de Interacción Rural Interdisciplinario en Nariño. Su trayectoria incluye participación activa en la metodología que fomenta equipos de trabajo interdisciplinario e interinstitucional en territorios. Viajó a Chile para fortalecer los lazos académicos con la Universidad de La Frontera (UFRO) y actualmente lidera el PIRI Capítulo Nariño como directora, guiando el trabajo de estudiantes, docentes y comunidades en el territorio rural del departamento.</p>
-        </div>
-        
-        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 25px;">
-            <button class="btn-fullscreen" onclick="abrirVideoFacebook('https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1600584374448210%2F&show_text=false&width=560&t=0', 'Video - Docente Mirian Quitiaquez')" style="position: static; width: auto; padding: 10px 25px; border-radius: 40px; background: var(--verde-brillante); color: var(--verde-oscuro);">
-                <i class="fas fa-video"></i> VER VIDEO
-            </button>
-            <button class="btn-fullscreen" onclick="window.open('quienes-somos.html', '_blank')" style="position: static; width: auto; padding: 10px 25px; border-radius: 40px; background: var(--verde-piri); color: white;">
-                <i class="fas fa-users"></i> CONOCE EL EQUIPO
-            </button>
         </div>
     `;
     crearModal(titulo, perfilDiv, '1000px');
@@ -508,9 +641,9 @@ document.addEventListener('DOMContentLoaded', function() {
             itemCompleto.addEventListener('click', () => abrirVideoYouTube('https://www.youtube.com/watch?v=zVamONMw7bg', 'Dra. Valeria Miramag'));
         }
         
-        // ===== PERFIL DE MIRIAN QUITIAQUEZ (AHORA CON PERFIL) =====
-        if (texto.includes('Docente Mirian Quitiaquez Yepes')) {
-            console.log('✅ Docente Mirian Quitiaquez Yepes');
+        // ===== PERFIL DE MIRIAN QUITIAQUEZ (con foto y botones) =====
+        if (texto.includes('Docente Mirian Quitiaquez')) {
+            console.log('✅ Docente Mirian Quitiaquez');
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', () => abrirPerfilMirian());
         }
@@ -545,6 +678,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (texto.includes('Semestre 2026 A')) {
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', () => abrirPerfiles());
+        }
+    });
+    
+    // ===== NUEVO: Espacio de preguntas =====
+    document.querySelectorAll('.item-actividad').forEach(actividad => {
+        const texto = actividad.textContent;
+        if (texto.includes('Espacio para preguntas del público')) {
+            const itemCompleto = actividad.closest('.timeline-moderna-item');
+            if (itemCompleto) {
+                itemCompleto.style.cursor = 'pointer';
+                itemCompleto.addEventListener('click', () => abrirEspacioPreguntas());
+            }
         }
     });
     
