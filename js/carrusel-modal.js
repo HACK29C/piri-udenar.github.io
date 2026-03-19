@@ -187,14 +187,13 @@ function abrirPerfilZaira() {
     crearModal(titulo, perfilDiv, '1000px');
 }
 
-// ===== NUEVO PERFIL: OMAR ALFREDO BRAVO DELGADO =====
 function abrirPerfilOmar() {
     const titulo = 'Omar Alfredo Bravo Delgado · Empresario · Mercadólogo';
     const perfilDiv = document.createElement('div');
     perfilDiv.className = 'perfil-container';
     perfilDiv.innerHTML = `
         <div class="perfil-header">
-            <img src="imagenes/omar.jpg" alt="Omar Alfredo Bravo Delgado" class="perfil-foto">
+            <img src="imagenes/omar.jpeg" alt="Omar Alfredo Bravo Delgado" class="perfil-foto">
             <div class="perfil-titulos">
                 <h2>Omar Alfredo Bravo Delgado</h2>
                 <p class="perfil-cargo">Profesional en Mercadeo · Universidad de Nariño · Empresario</p>
@@ -243,6 +242,136 @@ function abrirPerfilOmar() {
         
         <div class="perfil-descripcion">
             <p>Profesional con visión estratégica orientada al crecimiento y posicionamiento de negocios. Alta capacidad de adaptación a contextos dinámicos y retadores. Beneficiario del programa PIRI en 2017, experiencia que fortaleció sus habilidades en liderazgo, organización y trabajo en entornos multiculturales. Actualmente empresario del sector gastronómico, con más de cinco años de experiencia en la gestión y administración de su propio restaurante, desarrollando competencias en servicio al cliente, manejo de personal, control de operaciones y toma de decisiones. Persona proactiva y enfocada en la mejora continua, siempre buscando generar valor en cada proyecto que lidera.</p>
+        </div>
+    `;
+    crearModal(titulo, perfilDiv, '1000px');
+}
+
+// ===== NUEVO PERFIL: DRA. ANGELICA ECHAVARRÍA =====
+function abrirPerfilAngelica() {
+    const titulo = 'Dra. Angelica Echavarría · Directora Escuela del Sur, Chile';
+    const perfilDiv = document.createElement('div');
+    perfilDiv.className = 'perfil-container';
+    
+    // La foto es horizontal (1051x711), se ajusta con object-fit: contain
+    perfilDiv.innerHTML = `
+        <div class="perfil-header">
+            <img src="imagenes/angelica.jpeg" alt="Dra. Angelica Echavarría" class="perfil-foto" style="object-fit: contain; background-color: #20571f; padding: 10px;">
+            <div class="perfil-titulos">
+                <h2>Dra. Angelica Echavarría</h2>
+                <p class="perfil-cargo">Directora · Escuela del Sur, Chile</p>
+            </div>
+            <button class="btn-fullscreen" onclick="toggleFullScreen(this)">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        
+        <div class="perfil-info-grid">
+            <div class="info-card">
+                <i class="fas fa-globe-americas"></i>
+                <div>
+                    <strong>Institución</strong>
+                    <span>Escuela del Sur · Chile</span>
+                    <span>Directora</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-handshake"></i>
+                <div>
+                    <strong>Participación</strong>
+                    <span>Intervención Internacional</span>
+                    <span>PIRI Capítulo Nariño</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <div>
+                    <strong>Fecha</strong>
+                    <span>19 de marzo de 2026</span>
+                    <span>9:45 - 10:00 A.M.</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-star"></i>
+                <div>
+                    <strong>Participación Internacional</strong>
+                    <span>Representante de la Escuela del Sur</span>
+                    <span>Fortalecimiento de lazos académicos</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="perfil-descripcion">
+            <p>La Dra. Angelica Echavarría, Directora de la Escuela del Sur en Chile, participa en el lanzamiento del PIRI Capítulo Nariño como representante internacional, fortaleciendo los lazos académicos entre Chile y Colombia. Su intervención destaca la importancia de la colaboración interinstitucional para el desarrollo territorial sostenible.</p>
+        </div>
+    `;
+    crearModal(titulo, perfilDiv, '1000px');
+}
+
+// ===== NUEVO PERFIL: ANDREA FIGUEROA ESTRELLA =====
+function abrirPerfilAndrea() {
+    const titulo = 'Andrea Figueroa Estrella · Administradora de Empresas';
+    const perfilDiv = document.createElement('div');
+    perfilDiv.className = 'perfil-container';
+    
+    // La foto es cuadrada (258x257), se ajusta con object-fit: cover
+    perfilDiv.innerHTML = `
+        <div class="perfil-header">
+            <img src="imagenes/Andrea Figueroa.jpg" alt="Andrea Figueroa Estrella" class="perfil-foto" style="object-fit: cover; background-color: #ffffff; border: 4px solid var(--verde-brillante);">
+            <div class="perfil-titulos">
+                <h2>Andrea Figueroa Estrella</h2>
+                <p class="perfil-cargo">Administradora de Empresas · Alcaldía de Yacuanquer</p>
+            </div>
+            <button class="btn-fullscreen" onclick="toggleFullScreen(this)">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        
+        <div class="perfil-info-grid">
+            <div class="info-card">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                    <strong>Formación</strong>
+                    <span>Administradora de Empresas</span>
+                    <span>Tecnóloga en Sistemas</span>
+                    <span>Egresada de la Escuela TEJEREDES (2023)</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-globe-americas"></i>
+                <div>
+                    <strong>Experiencia PIRI</strong>
+                    <span>Líder del proceso PIRI NARIÑO (2014-2020)</span>
+                    <span>Intercambio PIRI UFRO · Chile (2016)</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <div>
+                    <strong>Trabajo Comunitario</strong>
+                    <span>Voluntaria y líder del Colectivo Artesanas de la Vida</span>
+                    <span>Trabajo con mujeres en el sector público y social</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-building"></i>
+                <div>
+                    <strong>Experiencia Profesional</strong>
+                    <span>Funcionaria pública · Alcaldía de Yacuanquer</span>
+                    <span>Facilitadora de redes y procesos sociales</span>
+                    <span>Gestión operativa y logística de proyectos</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="perfil-descripcion">
+            <p>Profesional con trayectoria en asistencia administrativa, dinámica y propositiva en la gestión operativa y logística de proyectos productivos, de investigación, sociales, culturales y ambientales. Con conocimientos en gestión documental y experiencia en la facilitación, implementación y ejecución de planes de trabajo con equipos interdisciplinarios. Lideró el proceso PIRI NARIÑO desde el 2014 al 2020 y participó en el programa de intercambio PIRI UFRO en Chile en el 2016. Actualmente se desempeña como funcionaria pública en el sector cultura en la Alcaldía de Yacuanquer y es voluntaria y líder del Colectivo Artesanas de la Vida, enfocado en el trabajo comunitario con mujeres. Motivada a conectar con personas comprometidas con la colaboración para intercambiar experiencias y encender nuevas iniciativas, buscando construir entornos donde el cuidado mutuo, la escucha activa y el trabajo conjunto sean la base para generar impacto.</p>
         </div>
     `;
     crearModal(titulo, perfilDiv, '1000px');
@@ -311,6 +440,14 @@ document.addEventListener('DOMContentLoaded', function() {
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', () => abrirVideoFacebook('https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1600584374448210%2F&show_text=false&width=560&t=0', 'Docente Mirian Quitiaquez'));
         }
+        
+        // ===== NUEVO: Dra. Angelica Echavarría =====
+        if (texto.includes('Dra. Angelica Echavarría')) {
+            console.log('✅ Dra. Angelica Echavarría');
+            itemCompleto.style.cursor = 'pointer';
+            itemCompleto.addEventListener('click', () => abrirPerfilAngelica());
+        }
+        
         if (texto.includes('Zaira Estrada')) {
             console.log('✅ Zaira Estrada');
             itemCompleto.style.cursor = 'pointer';
@@ -320,12 +457,19 @@ document.addEventListener('DOMContentLoaded', function() {
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', () => abrirPerfilElkin());
         }
-        // ===== NUEVO EVENTO PARA OMAR BRAVO =====
         if (texto.includes('Omar Alfredo Bravo Delgado')) {
             console.log('✅ Omar Alfredo Bravo Delgado');
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', () => abrirPerfilOmar());
         }
+        
+        // ===== NUEVO: Andrea Figueroa Estrella =====
+        if (texto.includes('Andrea Figueroa Estrella')) {
+            console.log('✅ Andrea Figueroa Estrella');
+            itemCompleto.style.cursor = 'pointer';
+            itemCompleto.addEventListener('click', () => abrirPerfilAndrea());
+        }
+        
         if (texto.includes('Semestre 2026 A')) {
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', () => abrirPerfiles());
