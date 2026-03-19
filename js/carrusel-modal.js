@@ -247,13 +247,11 @@ function abrirPerfilOmar() {
     crearModal(titulo, perfilDiv, '1000px');
 }
 
-// ===== NUEVO PERFIL: DRA. ANGELICA ECHAVARRÍA =====
 function abrirPerfilAngelica() {
     const titulo = 'Dra. Angelica Echavarría · Directora Escuela del Sur, Chile';
     const perfilDiv = document.createElement('div');
     perfilDiv.className = 'perfil-container';
     
-    // La foto es horizontal (1051x711), se ajusta con object-fit: contain
     perfilDiv.innerHTML = `
         <div class="perfil-header">
             <img src="imagenes/angelicador.jpeg" alt="Dra. Angelica Echavarría" class="perfil-foto" style="object-fit: contain; background-color: #20571f; padding: 10px;">
@@ -311,13 +309,11 @@ function abrirPerfilAngelica() {
     crearModal(titulo, perfilDiv, '1000px');
 }
 
-// ===== NUEVO PERFIL: ANDREA FIGUEROA ESTRELLA =====
 function abrirPerfilAndrea() {
     const titulo = 'Andrea Figueroa Estrella · Administradora de Empresas';
     const perfilDiv = document.createElement('div');
     perfilDiv.className = 'perfil-container';
     
-    // La foto es cuadrada (258x257), se ajusta con object-fit: cover
     perfilDiv.innerHTML = `
         <div class="perfil-header">
             <img src="imagenes/Andrea Figueroa.jpg" alt="Andrea Figueroa Estrella" class="perfil-foto" style="object-fit: cover; background-color: #ffffff; border: 4px solid var(--verde-brillante);">
@@ -372,6 +368,81 @@ function abrirPerfilAndrea() {
         
         <div class="perfil-descripcion">
             <p>Profesional con trayectoria en asistencia administrativa, dinámica y propositiva en la gestión operativa y logística de proyectos productivos, de investigación, sociales, culturales y ambientales. Con conocimientos en gestión documental y experiencia en la facilitación, implementación y ejecución de planes de trabajo con equipos interdisciplinarios. Lideró el proceso PIRI NARIÑO desde el 2014 al 2020 y participó en el programa de intercambio PIRI UFRO en Chile en el 2016. Actualmente se desempeña como funcionaria pública en el sector cultura en la Alcaldía de Yacuanquer y es voluntaria y líder del Colectivo Artesanas de la Vida, enfocado en el trabajo comunitario con mujeres. Motivada a conectar con personas comprometidas con la colaboración para intercambiar experiencias y encender nuevas iniciativas, buscando construir entornos donde el cuidado mutuo, la escucha activa y el trabajo conjunto sean la base para generar impacto.</p>
+        </div>
+    `;
+    crearModal(titulo, perfilDiv, '1000px');
+}
+
+// ===== NUEVO PERFIL: DOCENTE MIRIAN QUITIAQUEZ YEPES =====
+function abrirPerfilMirian() {
+    const titulo = 'Docente Mirian Quitiaquez Yepes · Directora PIRI Capítulo Nariño';
+    const perfilDiv = document.createElement('div');
+    perfilDiv.className = 'perfil-container';
+    
+    // La foto es 509x480, casi cuadrada, se ajusta con object-fit: cover
+    perfilDiv.innerHTML = `
+        <div class="perfil-header">
+            <img src="imagenes/mirian.jpeg" alt="Docente Mirian Quitiaquez Yepes" class="perfil-foto" style="object-fit: cover; background-color: #ffffff; border: 4px solid var(--verde-brillante);">
+            <div class="perfil-titulos">
+                <h2>Docente Mirian Quitiaquez Yepes</h2>
+                <p class="perfil-cargo">Docente de Comercio Internacional · Universidad de Nariño · Sede Regional Ipiales</p>
+            </div>
+            <button class="btn-fullscreen" onclick="toggleFullScreen(this)">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        
+        <div class="perfil-info-grid">
+            <div class="info-card">
+                <i class="fas fa-history"></i>
+                <div>
+                    <strong>Trayectoria PIRI</strong>
+                    <span>Desde 2010: Primer convenio PIRI en Nariño</span>
+                    <span>Participante activa desde los inicios del programa</span>
+                    <span>Viajó a Chile para fortalecer la cooperación UFRO-UDENAR</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div>
+                    <strong>Docencia</strong>
+                    <span>Docente de Comercio Internacional</span>
+                    <span>Facultad de Ciencias Económicas y Administrativas</span>
+                    <span>Universidad de Nariño · Sede Regional Ipiales</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-star"></i>
+                <div>
+                    <strong>Rol Actual</strong>
+                    <span>Directora del Programa PIRI · Capítulo Nariño</span>
+                    <span>Líder del proceso de interacción rural interdisciplinario</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <div>
+                    <strong>Participación</strong>
+                    <span>Presentación PIRI Capítulo Nariño</span>
+                    <span>19 de marzo de 2026 · 9:35 - 9:45 A.M.</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="perfil-descripcion">
+            <p>La Docente Mirian Quitiaquez Yepes ha sido parte fundamental del Programa PIRI desde sus inicios en 2010, cuando se firmó el primer convenio para implementar el Programa de Interacción Rural Interdisciplinario en Nariño. Su trayectoria incluye participación activa en la metodología que fomenta equipos de trabajo interdisciplinario e interinstitucional en territorios. Viajó a Chile para fortalecer los lazos académicos con la Universidad de La Frontera (UFRO) y actualmente lidera el PIRI Capítulo Nariño como directora, guiando el trabajo de estudiantes, docentes y comunidades en el territorio rural del departamento.</p>
+        </div>
+        
+        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 25px;">
+            <button class="btn-fullscreen" onclick="abrirVideoFacebook('https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1600584374448210%2F&show_text=false&width=560&t=0', 'Video - Docente Mirian Quitiaquez')" style="position: static; width: auto; padding: 10px 25px; border-radius: 40px; background: var(--verde-brillante); color: var(--verde-oscuro);">
+                <i class="fas fa-video"></i> VER VIDEO
+            </button>
+            <button class="btn-fullscreen" onclick="window.open('quienes-somos.html', '_blank')" style="position: static; width: auto; padding: 10px 25px; border-radius: 40px; background: var(--verde-piri); color: white;">
+                <i class="fas fa-users"></i> CONOCE EL EQUIPO
+            </button>
         </div>
     `;
     crearModal(titulo, perfilDiv, '1000px');
@@ -436,12 +507,14 @@ document.addEventListener('DOMContentLoaded', function() {
             itemCompleto.style.cursor = 'pointer';
             itemCompleto.addEventListener('click', () => abrirVideoYouTube('https://www.youtube.com/watch?v=zVamONMw7bg', 'Dra. Valeria Miramag'));
         }
-        if (texto.includes('Docente Mirian Quitiaquez')) {
+        
+        // ===== PERFIL DE MIRIAN QUITIAQUEZ (AHORA CON PERFIL) =====
+        if (texto.includes('Docente Mirian Quitiaquez Yepes')) {
+            console.log('✅ Docente Mirian Quitiaquez Yepes');
             itemCompleto.style.cursor = 'pointer';
-            itemCompleto.addEventListener('click', () => abrirVideoFacebook('https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1600584374448210%2F&show_text=false&width=560&t=0', 'Docente Mirian Quitiaquez'));
+            itemCompleto.addEventListener('click', () => abrirPerfilMirian());
         }
         
-        // ===== NUEVO: Dra. Angelica Echavarría =====
         if (texto.includes('Dra. Angelica Echavarría')) {
             console.log('✅ Dra. Angelica Echavarría');
             itemCompleto.style.cursor = 'pointer';
@@ -463,7 +536,6 @@ document.addEventListener('DOMContentLoaded', function() {
             itemCompleto.addEventListener('click', () => abrirPerfilOmar());
         }
         
-        // ===== NUEVO: Andrea Figueroa Estrella =====
         if (texto.includes('Andrea Figueroa Estrella')) {
             console.log('✅ Andrea Figueroa Estrella');
             itemCompleto.style.cursor = 'pointer';
