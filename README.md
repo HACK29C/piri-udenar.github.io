@@ -129,7 +129,7 @@ git merge main
 ## Equipo
 
 - **Desarrollo web inicial:** Jhon Alvaro Cuastuza
-- **Colaboradores:** (agregar nombres a medida que se unan)
+- **Colaboradores:** (Pendientes)
 
 **Instituciones:** Universidad de Nariño · Universidad de La Frontera
 
