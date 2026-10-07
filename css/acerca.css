@@ -1,0 +1,2403 @@
+/* =========================================================
+   PÁGINA ACERCA (acerca.html)
+   El hero con el carrusel de fotos usa los estilos de
+   estilos.css (.hero-quienes-simple), igual que Quiénes somos.
+   Aquí va todo el contenido de abajo.
+   En modo oscuro las variables de :root de estilos.css cambian
+   de valor (por ejemplo, --verde-oscuro pasa a ser gris claro),
+   por eso los colores pasan por las variables --ac-* de abajo,
+   que tienen su ajuste en body.dark-mode al final.
+   Todas las clases llevan el prefijo ac- para no chocar con
+   estilos.css.
+   ========================================================= */
+
+.pagina-acerca {
+    --ac-fondo: #FFFFFF;
+    --ac-fondo-alterno: #F2F4F3;
+    --ac-tarjeta: #FFFFFF;
+    --ac-titulo: #326C54;
+    --ac-texto: #255633;
+    --ac-suave: rgba(37, 86, 51, 0.8);
+    --ac-borde: rgba(50, 108, 84, 0.18);
+    --ac-acento: #9FC33C;
+    --ac-acento-suave: rgba(159, 195, 60, 0.18);
+    --ac-acento-texto: #326C54;
+    --ac-icono-fondo: #326C54;
+    --ac-icono-texto: #FFFFFF;
+    --ac-banda: #1D4430;
+    --ac-sombra: 0 1px 2px rgba(22, 48, 31, 0.06), 0 14px 34px rgba(22, 48, 31, 0.08);
+    --ac-sombra-hover: 0 2px 4px rgba(22, 48, 31, 0.08), 0 22px 48px rgba(22, 48, 31, 0.14);
+    --ac-radio: 14px;
+    --ac-curva: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --ac-ancho: 1200px;
+}
+
+.pagina-acerca main {
+    display: block;
+}
+
+/* El indicador del hero es un enlace real a la primera sección */
+.pagina-acerca .scroll-indicator {
+    text-decoration: none;
+}
+
+/* Lema propio de esta página, bajo el subtítulo del hero */
+.ac-hero-lema {
+    max-width: 34rem;
+    margin-top: 1.1rem;
+    padding-left: 1rem;
+    border-left: 4px solid var(--verde-brillante, #9FC33C);
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.3rem);
+    line-height: 1.4;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.ac-contenedor {
+    max-width: var(--ac-ancho);
+    margin: 0 auto;
+    padding-inline: clamp(20px, 5vw, 40px);
+}
+
+.ac-seccion {
+    scroll-margin-top: 90px; /* alto de la barra de navegación fija */
+    padding-block: clamp(64px, 9vw, 112px);
+    background-color: var(--ac-fondo);
+    color: var(--ac-texto);
+}
+
+.ac-seccion p {
+    line-height: 1.65;
+}
+
+.ac-seccion figure {
+    margin: 0;
+}
+
+.ac-seccion ul,
+.ac-seccion ol,
+.ac-seccion dl,
+.ac-seccion dd {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ac-seccion img {
+    display: block;
+    max-width: 100%;
+}
+
+.ac-cabecera {
+    margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.ac-cabecera--centro {
+    text-align: center;
+}
+
+.ac-cabecera--centro .ac-intro {
+    margin-inline: auto;
+}
+
+.ac-antetitulo {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    padding: 0.3em 0.9em;
+    border-radius: 999px;
+    background: var(--ac-acento-suave);
+    color: var(--ac-acento-texto);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ac-titulo {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--ac-titulo);
+    margin-bottom: 0.5em;
+}
+
+.ac-titulo--mediano {
+    font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+}
+
+.ac-intro {
+    font-size: 1.1rem;
+    max-width: 42rem;
+    color: var(--ac-suave);
+}
+
+.ac-subtitulo {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+    text-align: center;
+    color: var(--ac-titulo);
+    margin: clamp(56px, 8vw, 96px) 0 clamp(24px, 4vw, 40px);
+}
+
+.ac-enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.7rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--ac-acento-texto);
+    text-decoration: none;
+    border-bottom: 2px solid var(--ac-acento);
+    padding-bottom: 2px;
+}
+
+.ac-enlace i {
+    transition: transform 0.2s ease;
+}
+
+.ac-enlace:hover i {
+    transform: translateX(4px);
+}
+
+/* Etiquetas pequeñas (listas cortas convertidas en chips) */
+.ac-etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ac-etiquetas li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0.4em 0.9em;
+    border-radius: 999px;
+    background: var(--ac-acento-suave);
+    color: var(--ac-texto);
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.35;
+}
+
+.ac-etiquetas i {
+    color: var(--ac-acento-texto);
+}
+
+.ac-etiquetas--simples li {
+    font-weight: 500;
+}
+
+.ac-cita {
+    margin-top: 1.5rem;
+    padding-left: 1.1rem;
+    border-left: 4px solid var(--ac-acento);
+    font-style: italic;
+    color: var(--ac-suave);
+}
+
+/* Texto solo para lectores de pantalla */
+.ac-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.ac-ayuda {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    color: var(--ac-suave);
+}
+
+.ac-ayuda i {
+    color: var(--ac-acento-texto);
+}
+
+.ac-ayuda[hidden] {
+    display: none;
+}
+
+/* ----- Botón "Conocer su historia" y texto que se despliega ----- */
+.ac-boton-mas {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    min-height: 44px;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid var(--ac-titulo);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ac-titulo);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ac-boton-mas[hidden] {
+    display: none;
+}
+
+/* Solo con mouse: en pantallas táctiles el estado hover se quedaría pegado tras tocar */
+@media (hover: hover) {
+    .ac-boton-mas:hover {
+        background: var(--ac-titulo);
+        color: #FFFFFF;
+    }
+}
+
+.ac-boton-mas i {
+    transition: transform 0.3s ease;
+}
+
+.ac-boton-mas[aria-expanded="true"] i {
+    transform: rotate(45deg);
+}
+
+/* Sin JS el texto se ve siempre; con JS se recoge y se despliega */
+.ac-js .ac-desplegable {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s var(--ac-curva);
+}
+
+.ac-js .ac-desplegable-interior {
+    overflow: hidden;
+    min-height: 0;
+    visibility: hidden;
+    transition: visibility 0s linear 0.5s;
+}
+
+.ac-js .ac-desplegable--abierto {
+    grid-template-rows: 1fr;
+}
+
+.ac-js .ac-desplegable--abierto .ac-desplegable-interior {
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.ac-desplegable-interior p {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+/* ----- Foco visible con teclado ----- */
+.pagina-acerca main a:focus-visible,
+.pagina-acerca main button:focus-visible,
+.pagina-acerca main summary:focus-visible,
+.ac-visor button:focus-visible {
+    outline: 3px solid var(--ac-acento) !important;
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* =========================================================
+   ÍNDICE DE LA PÁGINA
+   ========================================================= */
+.ac-indice {
+    padding: 18px clamp(16px, 4vw, 40px);
+    background: var(--ac-fondo-alterno);
+    border-bottom: 1px solid var(--ac-borde);
+}
+
+.ac-indice ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: var(--ac-ancho);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.ac-indice a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--ac-borde);
+    border-radius: 999px;
+    background: var(--ac-tarjeta);
+    color: var(--ac-titulo);
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.ac-indice a:hover {
+    background: var(--ac-icono-fondo);
+    border-color: var(--ac-icono-fondo);
+    color: #FFFFFF;
+}
+
+.ac-indice a:focus-visible {
+    outline: 3px solid var(--ac-acento);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   1. ORIGEN Y FUNDADOR
+   ========================================================= */
+.ac-origen-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+}
+
+.ac-origen-anios {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 1rem;
+    margin-top: 2rem;
+    padding: 22px 26px;
+    border-radius: var(--ac-radio);
+    background: var(--ac-fondo-alterno);
+    border-left: 6px solid var(--ac-acento);
+}
+
+.ac-anios {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 3.4rem);
+    line-height: 1;
+    color: var(--ac-titulo);
+}
+
+.ac-origen-anios > span {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    color: var(--ac-suave);
+}
+
+.ac-fundador {
+    border-radius: 20px;
+    background: var(--ac-tarjeta);
+    border: 1px solid var(--ac-borde);
+    box-shadow: var(--ac-sombra);
+    overflow: hidden;
+}
+
+/* La foto se ve completa (sin recorte) */
+.ac-fundador-foto {
+    background: #DDE5DF;
+}
+
+.ac-seccion .ac-fundador-foto img {
+    width: 100%;
+    height: auto;
+}
+
+.ac-fundador-texto {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(20px, 3vw, 30px);
+}
+
+.ac-fundador-etiqueta {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ac-acento-texto);
+}
+
+.ac-fundador h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.65rem);
+    line-height: 1.2;
+    color: var(--ac-titulo);
+    margin: 0.2rem 0 0.6rem;
+}
+
+.ac-fundador h3 span {
+    font-weight: 500;
+    color: var(--ac-suave);
+}
+
+.ac-fundador-resumen {
+    margin-bottom: 1.1rem;
+}
+
+/* =========================================================
+   2. TRAYECTORIA: LÍNEA DE TIEMPO VERTICAL
+   Sin JS, en celular o con movimiento reducido: todos los
+   hitos se ven completos y la línea llena.
+   En computador, js/acerca.js añade .ac-trayectoria--animada:
+   la línea se llena con el scroll y cada hito se activa
+   (.ac-hito--activo) cuando el relleno lo alcanza.
+   ========================================================= */
+.ac-trayectoria {
+    --ac-riel-x: 12px;      /* centro del riel dentro de .ac-linea */
+    --ac-hito-pad: clamp(22px, 3vw, 34px);
+    --ac-punto-y: calc(var(--ac-hito-pad) + 1.3rem);
+    background-color: var(--ac-fondo-alterno);
+}
+
+.ac-trayectoria-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: clamp(32px, 6vw, 96px);
+    align-items: start;
+}
+
+/* El título acompaña a los hitos mientras se recorren */
+.ac-trayectoria-cabecera {
+    position: sticky;
+    top: 130px;
+}
+
+.ac-linea {
+    position: relative;
+    padding-left: 56px;
+}
+
+.ac-linea-riel {
+    position: absolute;
+    left: calc(var(--ac-riel-x) - 2px);
+    /* js/acerca.js ajusta top y height para que el riel termine en el último punto */
+    top: var(--ac-punto-y);
+    bottom: var(--ac-punto-y);
+    width: 4px;
+    border-radius: 4px;
+    background: var(--ac-borde);
+    overflow: hidden;
+}
+
+.ac-linea-relleno {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--ac-acento), #326C54);
+    transform-origin: top center;
+}
+
+.ac-hito {
+    position: relative;
+    padding-block: var(--ac-hito-pad);
+}
+
+.ac-hito + .ac-hito {
+    border-top: 1px solid var(--ac-borde);
+}
+
+/* Punto sobre el riel, a la altura del año */
+.ac-hito::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--ac-riel-x) - 56px - 10px);
+    top: calc(var(--ac-punto-y) - 10px);
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--ac-acento);
+    border: 4px solid var(--ac-fondo-alterno);
+    box-shadow: 0 0 0 2px var(--ac-acento);
+    transition: transform 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.ac-hito-fecha {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem);
+    line-height: 1 !important;
+    color: var(--ac-acento-texto);
+    margin-bottom: 0.6rem;
+    transition: color 0.5s ease, opacity 0.5s ease;
+}
+
+.ac-hito h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem);
+    line-height: 1.3;
+    color: var(--ac-titulo);
+    margin-bottom: 0.4rem;
+}
+
+.ac-hito h3,
+.ac-hito > p:not(.ac-hito-fecha),
+.ac-hito .ac-enlace {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ac-hito > p:not(.ac-hito-fecha) {
+    max-width: 52ch;
+}
+
+/* Hitos que aún no se alcanzan con el scroll (solo en modo animado) */
+.ac-trayectoria--animada .ac-hito:not(.ac-hito--activo) .ac-hito-fecha {
+    opacity: 0.3;
+}
+
+.ac-trayectoria--animada .ac-hito:not(.ac-hito--activo) h3,
+.ac-trayectoria--animada .ac-hito:not(.ac-hito--activo) > p:not(.ac-hito-fecha),
+.ac-trayectoria--animada .ac-hito:not(.ac-hito--activo) .ac-enlace {
+    opacity: 0.35;
+    transform: translateX(-8px);
+}
+
+.ac-trayectoria--animada .ac-hito:not(.ac-hito--activo)::before {
+    background: var(--ac-fondo-alterno);
+    box-shadow: 0 0 0 2px var(--ac-borde);
+    transform: scale(0.75);
+}
+
+.ac-trayectoria--animada .ac-hito--activo::before {
+    box-shadow: 0 0 0 2px var(--ac-acento), 0 0 0 9px rgba(159, 195, 60, 0.22);
+}
+
+/* =========================================================
+   3. PIRI EN NARIÑO
+   ========================================================= */
+.ac-narino-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+}
+
+.ac-narino .ac-etiquetas {
+    margin-top: 1.5rem;
+}
+
+/* =========================================================
+   4. ACTORES DEL TERRITORIO
+   Base (celular, sin JS): el centro arriba y los cuatro
+   actores en cuadrícula, con su descripción visible.
+   Desde 769px: diagrama circular con el centro y los actores
+   alrededor, unidos por líneas.
+   Con JS (.ac-js) la descripción aparece al pasar el mouse,
+   tocar o enfocar cada actor.
+   ========================================================= */
+.ac-actores {
+    background-color: var(--ac-banda);
+    color: #FFFFFF;
+    overflow-x: clip;
+}
+
+.ac-actores .ac-titulo {
+    color: #FFFFFF;
+}
+
+.ac-actores .ac-intro,
+.ac-actores .ac-ayuda {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.ac-actores .ac-antetitulo {
+    background: rgba(159, 195, 60, 0.2);
+    color: #C9E27F;
+}
+
+.ac-actores .ac-ayuda i {
+    color: var(--ac-acento);
+}
+
+.ac-actores-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+}
+
+.ac-diagrama {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 1;
+    /* Espacio para el nombre y la descripción del actor de abajo */
+    margin: 0 auto 80px;
+}
+
+.ac-diagrama-lineas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.ac-diagrama-orbita {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.14);
+    stroke-width: 1.5px;
+    stroke-dasharray: 3 6;
+    vector-effect: non-scaling-stroke;
+}
+
+.ac-diagrama-linea {
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-dasharray: 5 6;
+    vector-effect: non-scaling-stroke;
+    transition: stroke 0.3s ease, stroke-width 0.3s ease, stroke-opacity 0.3s ease;
+}
+
+.ac-diagrama--enfocado .ac-diagrama-linea {
+    stroke-opacity: 0.4;
+}
+
+.ac-diagrama-linea--activa {
+    stroke: var(--ac-acento);
+    stroke-width: 3px;
+    stroke-opacity: 1 !important;
+    animation: ac-flujo 1s linear infinite;
+}
+
+@keyframes ac-flujo {
+    to { stroke-dashoffset: -22; }
+}
+
+.ac-diagrama-centro {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 34%;
+    aspect-ratio: 1;
+    padding: 12px;
+    border-radius: 50%;
+    background: var(--ac-acento);
+    color: #10251A;
+    text-align: center;
+    box-shadow: 0 0 0 12px rgba(159, 195, 60, 0.18), 0 0 0 26px rgba(159, 195, 60, 0.08);
+    transition: box-shadow 0.4s ease;
+}
+
+.ac-diagrama--enfocado .ac-diagrama-centro {
+    box-shadow: 0 0 0 14px rgba(159, 195, 60, 0.3), 0 0 0 32px rgba(159, 195, 60, 0.12);
+}
+
+.ac-diagrama-centro i {
+    font-size: 1.7rem;
+    margin-bottom: 0.3rem;
+}
+
+.ac-diagrama-centro h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(0.9rem, 0.75rem + 0.4vw, 1.1rem);
+    line-height: 1.2;
+}
+
+.ac-diagrama-centro p {
+    font-size: 0.78rem;
+    line-height: 1.3 !important;
+    margin-top: 0.2rem;
+}
+
+/* El centro del ícono (64px) queda sobre el punto del círculo; el nombre y la descripción van debajo */
+.ac-actor {
+    position: absolute;
+    transform: translate(-50%, -32px);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    text-align: center;
+}
+
+.ac-actor--arriba { left: 50%; top: 14%; }
+.ac-actor--derecha { left: 86%; top: 50%; }
+.ac-actor--abajo { left: 50%; top: 86%; }
+.ac-actor--izquierda { left: 14%; top: 50%; }
+
+.ac-actor-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #326C54;
+    font-size: 1.4rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.35s var(--ac-curva), background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ac-actor-nombre {
+    margin-top: 0.5rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.25;
+}
+
+.ac-actor-desc {
+    margin-top: 0.4rem;
+    padding: 0.35em 0.8em;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 0.85rem;
+    line-height: 1.35 !important;
+}
+
+/* Con JS el nombre es un botón que incluye el ícono */
+.ac-actor-boton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.ac-actor-boton .ac-actor-icono + span {
+    margin-top: 0.5rem;
+    padding: 0.15em 0.6em;
+    border-radius: 999px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ac-js .ac-actor-nombre {
+    margin-top: 0;
+}
+
+/* La descripción aparece solo para el actor activo */
+.ac-js .ac-actor-desc {
+    opacity: 0;
+    transform: translateY(-6px);
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.ac-js .ac-actor--activo .ac-actor-desc {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    transition-delay: 0s;
+    background: #FFFFFF;
+    color: #1D4430;
+    font-weight: 600;
+}
+
+.ac-actor-boton:hover .ac-actor-icono {
+    transform: scale(1.08);
+}
+
+.ac-actor--activo .ac-actor-icono {
+    transform: scale(1.14) !important;
+    background: var(--ac-acento);
+    color: #10251A;
+    box-shadow: 0 0 0 8px rgba(159, 195, 60, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.ac-actor--activo .ac-actor-boton .ac-actor-icono + span {
+    background: var(--ac-acento);
+    color: #10251A;
+}
+
+.ac-diagrama--enfocado .ac-actor:not(.ac-actor--activo) .ac-actor-icono {
+    opacity: 0.7;
+}
+
+.ac-actores .ac-actor-boton:focus-visible {
+    outline: none !important;
+}
+
+.ac-actor-boton:focus-visible .ac-actor-icono {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   5. FASES DE LA METODOLOGÍA
+   Computador: recorrido horizontal; con JS (.ac-recorrido--animado)
+   la línea se llena con el scroll y cada fase se activa al
+   alcanzarla. Hasta 900px: lista vertical, completa y estática.
+   ========================================================= */
+.ac-metodologia {
+    background-color: var(--ac-fondo-alterno);
+}
+
+.ac-recorrido {
+    position: relative;
+}
+
+/* La línea va del centro del primer círculo al centro del último */
+.ac-recorrido-riel {
+    position: absolute;
+    top: 26px;
+    left: 10%;
+    right: 10%;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--ac-borde);
+    overflow: hidden;
+}
+
+.ac-recorrido-relleno {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--ac-acento), #326C54);
+    transform-origin: left center;
+}
+
+.ac-fases {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(10px, 1.6vw, 20px);
+}
+
+.ac-fase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ac-fase-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ac-icono-fondo);
+    color: #FFFFFF;
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: 1.35rem;
+    border: 4px solid var(--ac-fondo-alterno);
+    box-shadow: 0 0 0 2px var(--ac-acento);
+    transition: transform 0.5s var(--ac-curva), background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.ac-fase-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin: 1.2rem 0 0.8rem;
+    border-radius: 12px;
+    background: var(--ac-acento-suave);
+    color: var(--ac-acento-texto);
+    font-size: 1.15rem;
+}
+
+.ac-fase h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: var(--ac-titulo);
+    margin-bottom: 0.35rem;
+}
+
+.ac-fase p {
+    font-size: 0.9rem;
+    color: var(--ac-suave);
+}
+
+.ac-fase-icono,
+.ac-fase h3,
+.ac-fase p {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ac-recorrido--animado .ac-fase:not(.ac-fase--activa) .ac-fase-numero {
+    background: var(--ac-fondo-alterno);
+    color: var(--ac-suave);
+    box-shadow: 0 0 0 2px var(--ac-borde);
+    transform: scale(0.85);
+}
+
+.ac-recorrido--animado .ac-fase:not(.ac-fase--activa) .ac-fase-icono,
+.ac-recorrido--animado .ac-fase:not(.ac-fase--activa) h3,
+.ac-recorrido--animado .ac-fase:not(.ac-fase--activa) p {
+    opacity: 0.35;
+    transform: translateY(8px);
+}
+
+.ac-recorrido--animado .ac-fase--activa .ac-fase-numero {
+    background: var(--ac-acento);
+    color: #10251A;
+    box-shadow: 0 0 0 2px var(--ac-acento), 0 0 0 10px rgba(159, 195, 60, 0.22);
+}
+
+/* =========================================================
+   6 y 7. ARTICULACIÓN Y LÍNEAS DE ACCIÓN
+   ========================================================= */
+.ac-instituciones {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 2.4vw, 28px);
+}
+
+.ac-institucion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 18px;
+    border-radius: var(--ac-radio);
+    background: var(--ac-tarjeta);
+    border: 1px solid var(--ac-borde);
+    transition: transform 0.3s var(--ac-curva), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ac-institucion:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ac-sombra-hover);
+    border-color: transparent;
+}
+
+/* Placa blanca: los logos se leen igual en modo claro y oscuro */
+.ac-institucion-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
+    margin-bottom: 1rem;
+    padding: 10px;
+    border-radius: 12px;
+    background: #FFFFFF;
+}
+
+.ac-seccion .ac-institucion-logo img {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.ac-institucion h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: var(--ac-titulo);
+}
+
+.ac-lineas {
+    --ac-por-fila: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* Siete líneas: cuatro arriba y tres centradas abajo */
+.ac-linea-accion {
+    flex: 0 0 calc((100% - (var(--ac-por-fila) - 1) * 16px) / var(--ac-por-fila));
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.9rem;
+    padding: 26px 18px;
+    border-radius: var(--ac-radio);
+    background: var(--ac-fondo-alterno);
+    text-align: center;
+    transition: transform 0.3s var(--ac-curva), box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.ac-linea-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--ac-icono-fondo);
+    color: var(--ac-icono-texto);
+    font-size: 1.4rem;
+    transition: transform 0.4s var(--ac-curva), background-color 0.3s ease, color 0.3s ease;
+}
+
+.ac-linea-accion h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: var(--ac-titulo);
+}
+
+.ac-linea-accion:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ac-sombra-hover);
+    background: var(--ac-tarjeta);
+}
+
+.ac-linea-accion:hover .ac-linea-icono {
+    transform: scale(1.1) rotate(-8deg);
+    background: var(--ac-acento);
+    color: #10251A;
+}
+
+/* =========================================================
+   8. EL PROGRAMA EN CIFRAS
+   ========================================================= */
+.ac-cifras {
+    background-color: var(--ac-fondo-alterno);
+}
+
+.ac-contadores {
+    --ac-por-fila: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.ac-contador {
+    position: relative;
+    flex: 0 0 calc((100% - (var(--ac-por-fila) - 1) * 16px) / var(--ac-por-fila));
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 22px 22px;
+    border-radius: var(--ac-radio);
+    background: var(--ac-tarjeta);
+    border-bottom: 4px solid var(--ac-acento);
+    box-shadow: var(--ac-sombra);
+    overflow: hidden;
+}
+
+.ac-contador-numero {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(2.8rem, 2rem + 2.6vw, 4.2rem);
+    line-height: 1;
+    color: var(--ac-titulo);
+    font-variant-numeric: tabular-nums;
+}
+
+.ac-contador-texto {
+    margin-top: 0.6rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.98rem;
+    line-height: 1.3;
+    color: var(--ac-texto);
+}
+
+/* Desglose por universidad: sin JS va debajo del texto */
+.ac-desglose {
+    display: grid;
+    gap: 6px;
+    margin-top: 1rem !important;
+    padding-top: 0.9rem !important;
+    border-top: 1px solid var(--ac-borde);
+}
+
+.ac-desglose > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 2px 10px;
+    font-size: 0.88rem;
+}
+
+.ac-desglose dd {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Barrita de cada universidad (la crea js/acerca.js) */
+.ac-desglose-barra {
+    grid-column: 1 / -1;
+    height: 6px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+}
+
+.ac-desglose-barra span {
+    display: block;
+    height: 100%;
+    width: var(--ac-parte, 0%);
+    border-radius: 6px;
+    background: var(--ac-acento);
+}
+
+/* Botón que muestra el desglose (lo crea js/acerca.js) */
+.ac-contador-boton {
+    align-self: flex-start;
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    min-height: 40px;
+    margin-top: auto;
+    padding: 0.4rem 0.9rem;
+    border: 2px solid var(--ac-acento);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ac-acento-texto);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.ac-contador-texto {
+    margin-bottom: 1rem;
+}
+
+.ac-contador-boton i {
+    transition: transform 0.3s ease;
+}
+
+.ac-contador--abierto .ac-contador-boton {
+    background: var(--ac-acento);
+    color: #10251A;
+}
+
+.ac-contador--abierto .ac-contador-boton i {
+    transform: rotate(45deg);
+}
+
+/* Alto suficiente para que el desglose quepa sobre la tarjeta */
+.ac-js .ac-contador {
+    min-height: 250px;
+}
+
+/* Con JS el desglose cubre la tarjeta y sube desde abajo */
+.ac-js .ac-desglose {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    align-content: start;
+    margin: 0 !important;
+    padding: 20px 22px 70px !important;
+    border-top: 0;
+    background: var(--ac-banda);
+    color: #FFFFFF;
+    transform: translateY(101%);
+    visibility: hidden;
+    transition: transform 0.45s var(--ac-curva), visibility 0s linear 0.45s;
+}
+
+.ac-js .ac-desglose::before {
+    content: 'Por universidad';
+    margin-bottom: 0.3rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ac-acento);
+}
+
+.ac-js .ac-contador--abierto .ac-desglose {
+    transform: none;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.ac-contador--abierto .ac-contador-boton:focus-visible {
+    outline-color: #FFFFFF !important;
+}
+
+/* Gráfico de barras: distribución por universidad */
+.ac-distribucion {
+    margin-top: clamp(32px, 5vw, 56px);
+    padding: clamp(22px, 3.5vw, 40px);
+    border-radius: 20px;
+    background: var(--ac-banda);
+    color: #FFFFFF;
+}
+
+.ac-distribucion-titulo {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: clamp(1.1rem, 0.95rem + 0.6vw, 1.4rem);
+    margin-bottom: 1.5rem;
+}
+
+.ac-barras {
+    display: grid;
+    gap: 18px;
+}
+
+.ac-barra {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) 64px;
+    align-items: center;
+    gap: 16px;
+}
+
+.ac-barra-nombre {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+}
+
+.ac-barra-pista {
+    display: block;
+    height: 22px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+
+.ac-barra-relleno {
+    display: block;
+    height: 100%;
+    width: var(--ac-valor, 0%);
+    border-radius: 999px;
+    background: linear-gradient(90deg, #6E8F1F, var(--ac-acento));
+    transform-origin: left center;
+}
+
+.ac-barra-valor {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Tabla completa (dentro de "Ver la tabla completa") */
+.ac-tabla-detalle {
+    margin-top: 1.5rem;
+}
+
+.ac-tabla-detalle summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    min-height: 44px;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    border: 2px solid var(--ac-titulo);
+    color: var(--ac-titulo);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+.ac-tabla-detalle summary::-webkit-details-marker {
+    display: none;
+}
+
+.ac-tabla-contenedor {
+    margin-top: 1rem;
+    overflow-x: auto;
+    border-radius: var(--ac-radio);
+    border: 1px solid var(--ac-borde);
+    background: var(--ac-tarjeta);
+}
+
+.ac-tabla {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.ac-tabla caption {
+    padding: 14px 16px 6px;
+    text-align: left;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--ac-titulo);
+}
+
+.ac-tabla th,
+.ac-tabla td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--ac-borde);
+    text-align: center;
+    color: var(--ac-texto);
+}
+
+.ac-tabla thead th {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--ac-titulo);
+}
+
+.ac-tabla tbody th {
+    text-align: left;
+    font-weight: 600;
+}
+
+.ac-tabla td:nth-child(2) {
+    font-weight: 800;
+    color: var(--ac-titulo);
+}
+
+.ac-tabla tbody tr:last-child th,
+.ac-tabla tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* =========================================================
+   9. LOGROS (pestañas)
+   Sin JS se ven los cuatro grupos en cuadrícula.
+   ========================================================= */
+.ac-pestanas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.ac-pestanas[hidden] {
+    display: none;
+}
+
+.ac-pestana {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    min-height: 48px;
+    padding: 0.6rem 1.3rem;
+    border: 2px solid var(--ac-borde);
+    border-radius: 999px;
+    background: var(--ac-tarjeta);
+    color: var(--ac-titulo);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ac-pestana:hover {
+    border-color: var(--ac-titulo);
+}
+
+.ac-pestana[aria-selected="true"] {
+    background: var(--ac-icono-fondo);
+    border-color: var(--ac-icono-fondo);
+    color: #FFFFFF;
+}
+
+.ac-pestana[aria-selected="true"] i {
+    color: var(--ac-acento);
+}
+
+.ac-paneles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.ac-js .ac-paneles {
+    display: block;
+}
+
+.ac-panel {
+    padding: clamp(22px, 3.5vw, 40px);
+    border-radius: 20px;
+    background: var(--ac-fondo-alterno);
+}
+
+.ac-panel[hidden] {
+    display: none;
+}
+
+.ac-panel:focus-visible {
+    outline: 3px solid var(--ac-acento);
+    outline-offset: 4px;
+}
+
+.ac-panel-titulo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--ac-titulo);
+    margin-bottom: 1.2rem;
+}
+
+/* Con pestañas el título ya está en la pestaña elegida */
+.ac-js .ac-panel-titulo {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.ac-logros-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.ac-logros-lista li {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: var(--ac-tarjeta);
+    border: 1px solid var(--ac-borde);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.ac-logros-lista li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--ac-acento);
+    box-shadow: 0 0 0 4px var(--ac-acento-suave);
+}
+
+/* Al cambiar de pestaña los logros aparecen uno tras otro */
+.ac-panel--entrando .ac-logros-lista li {
+    animation: ac-aparecer 0.45s var(--ac-curva) both;
+    animation-delay: calc(var(--ac-i, 0) * 45ms);
+}
+
+@keyframes ac-aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* =========================================================
+   10 y 11. SISTEMATIZACIÓN Y ACOMPAÑAMIENTO URBANO
+   ========================================================= */
+.ac-sistematizacion-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+}
+
+.ac-acordeon {
+    display: grid;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.ac-capitulo {
+    border-radius: var(--ac-radio);
+    background: var(--ac-fondo-alterno);
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.ac-capitulo[open] {
+    background: var(--ac-tarjeta);
+    border-color: var(--ac-borde);
+    box-shadow: var(--ac-sombra);
+}
+
+.ac-capitulo summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 60px;
+    padding: 12px 18px;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--ac-titulo);
+}
+
+.ac-capitulo summary::-webkit-details-marker {
+    display: none;
+}
+
+.ac-capitulo-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--ac-icono-fondo);
+    color: #FFFFFF;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.ac-capitulo-nombre {
+    flex: 1;
+    line-height: 1.3;
+}
+
+.ac-capitulo summary i {
+    transition: transform 0.3s ease;
+}
+
+.ac-capitulo[open] summary i {
+    transform: rotate(180deg);
+}
+
+.ac-capitulo-contenido {
+    padding: 0 18px 20px 72px;
+}
+
+.ac-capitulo[open] .ac-capitulo-contenido {
+    animation: ac-aparecer 0.35s var(--ac-curva);
+}
+
+.ac-capitulo-contenido h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ac-acento-texto);
+    margin: 0.4rem 0 0.5rem;
+}
+
+.ac-capitulo-contenido h3 + p {
+    margin-bottom: 1rem;
+}
+
+.ac-urbano-lista {
+    display: grid;
+    gap: 16px;
+    margin-top: 1rem !important;
+}
+
+.ac-urbano-grupo {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 4px 16px;
+    padding: 22px;
+    border-radius: var(--ac-radio);
+    background: var(--ac-banda);
+    color: #FFFFFF;
+}
+
+.ac-urbano-icono {
+    grid-row: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--ac-acento);
+    color: #10251A;
+    font-size: 1.2rem;
+}
+
+.ac-urbano-grupo h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #C9E27F;
+    align-self: center;
+}
+
+.ac-urbano-grupo ul {
+    display: grid;
+    gap: 8px;
+}
+
+.ac-urbano-grupo li {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.ac-urbano-grupo strong {
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+}
+
+.ac-urbano-grupo li span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+/* =========================================================
+   FOTOS EN FILAS JUSTIFICADAS (territorio y galería)
+   Todas las fotos de una fila tienen el mismo alto y ninguna
+   se recorta. js/acerca.js pone en --ac-proporcion el
+   ancho/alto de cada foto.
+   ========================================================= */
+.ac-fotos {
+    --ac-fila: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ac-foto-item {
+    flex: var(--ac-proporcion, 1.5) 0 calc(var(--ac-proporcion, 1.5) * var(--ac-fila));
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Evita que la última fila, si tiene pocas fotos, se estire de más */
+.ac-fotos::after {
+    content: '';
+    flex: 10 1 0;
+}
+
+.ac-fotos--territorio {
+    --ac-fila: 170px;
+}
+
+/* En el territorio las fotos llenan las filas completas */
+.ac-fotos--territorio::after {
+    display: none;
+}
+
+.ac-fotos--territorio .ac-foto-item {
+    flex-shrink: 1;
+}
+
+.ac-fotos--galeria {
+    --ac-fila: 170px;
+    gap: 12px;
+}
+
+.ac-foto-boton {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.06);
+    cursor: zoom-in;
+}
+
+.ac-seccion .ac-foto-boton img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.ac-foto-boton:hover img {
+    transform: scale(1.04);
+}
+
+/* =========================================================
+   12. GALERÍA HISTÓRICA
+   ========================================================= */
+.ac-galeria {
+    background-color: var(--ac-banda);
+    color: #FFFFFF;
+}
+
+.ac-galeria .ac-titulo {
+    color: #FFFFFF;
+}
+
+.ac-galeria .ac-intro {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.ac-galeria .ac-antetitulo {
+    background: rgba(159, 195, 60, 0.2);
+    color: #C9E27F;
+}
+
+.ac-galeria .ac-foto-boton {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.ac-galeria .ac-foto-boton:focus-visible {
+    outline-color: #FFFFFF !important;
+}
+
+/* =========================================================
+   13. VIDEO INSTITUCIONAL: YouTube se carga solo al pulsar
+   ========================================================= */
+.ac-seccion .ac-video {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ac-video figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--ac-suave);
+    text-align: center;
+}
+
+.ac-video-portada,
+.ac-video-marco {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--ac-radio);
+    overflow: hidden;
+    background: #0E2215;
+    box-shadow: var(--ac-sombra);
+}
+
+.ac-video-portada {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.ac-seccion .ac-video-fondo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(18px) brightness(0.55);
+    transform: scale(1.15);
+}
+
+/* La foto se ve completa sobre su propia copia difuminada */
+.ac-seccion .ac-video-imagen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+.ac-video-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: var(--ac-acento);
+    color: #10251A;
+    font-size: 1.8rem;
+    padding-left: 5px;
+    box-shadow: 0 0 0 10px rgba(159, 195, 60, 0.28), 0 14px 30px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s var(--ac-curva);
+}
+
+.ac-video-texto {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2.5rem 1.2rem 1.1rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    text-align: center;
+}
+
+.ac-video-portada:hover .ac-video-play,
+.ac-video-portada:focus-visible .ac-video-play {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.ac-video-portada:hover .ac-video-imagen {
+    filter: brightness(0.95);
+}
+
+.ac-video-marco iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* =========================================================
+   VISOR DE FOTOS AMPLIADAS
+   ========================================================= */
+/* 100% y no 100vw/100vh: 100vw incluye la barra de desplazamiento y 100vh
+   no coincide con la pantalla visible en celulares */
+.ac-visor {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+/* Mientras el visor está abierto, la página no se desplaza por detrás */
+body:has(.ac-visor[open]) {
+    overflow: hidden;
+}
+
+.ac-visor[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ac-visor::backdrop {
+    background: rgba(12, 24, 16, 0.94);
+}
+
+/* Las fotos históricas son pequeñas: se amplían hasta el doble de su tamaño
+   (js/acerca.js pone --ac-natural), sin deformarse */
+.ac-visor-imagen {
+    display: block;
+    width: min(90vw, 1600px, calc(var(--ac-natural, 800px) * 2));
+    max-height: 84vh;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.ac-visor-contador {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    padding: 0.3em 0.9em;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.ac-visor-contador:empty {
+    display: none;
+}
+
+.ac-visor-boton {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ac-visor-boton:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.ac-visor-boton[hidden] {
+    display: none;
+}
+
+.ac-visor-cerrar {
+    top: 16px;
+    right: 16px;
+}
+
+.ac-visor-anterior,
+.ac-visor-siguiente {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ac-visor-anterior {
+    left: 16px;
+}
+
+.ac-visor-siguiente {
+    right: 16px;
+}
+
+/* =========================================================
+   MODO OSCURO
+   ========================================================= */
+body.dark-mode.pagina-acerca {
+    --ac-fondo: #1a1a1a;
+    --ac-fondo-alterno: #232323;
+    --ac-tarjeta: #2d2d2d;
+    --ac-titulo: #e0e0e0;
+    --ac-texto: #e0e0e0;
+    --ac-suave: rgba(224, 224, 224, 0.78);
+    --ac-borde: rgba(224, 224, 224, 0.16);
+    --ac-acento: #b5d36a;
+    --ac-acento-suave: rgba(181, 211, 106, 0.16);
+    --ac-acento-texto: #b5d36a;
+    --ac-icono-fondo: #2F5C46;
+    --ac-icono-texto: #FFFFFF;
+    --ac-banda: #111111;
+    --ac-sombra: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 34px rgba(0, 0, 0, 0.35);
+    --ac-sombra-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 22px 48px rgba(0, 0, 0, 0.5);
+}
+
+@media (hover: hover) {
+    body.dark-mode .ac-boton-mas:hover {
+        background: #e0e0e0;
+        color: #1a1a1a;
+    }
+}
+
+body.dark-mode .ac-fundador-foto {
+    background: #3a3a3a;
+}
+
+body.dark-mode .ac-linea-relleno {
+    background: linear-gradient(180deg, #b5d36a, #4E8A6C);
+}
+
+body.dark-mode .ac-recorrido-relleno {
+    background: linear-gradient(90deg, #b5d36a, #4E8A6C);
+}
+
+body.dark-mode .ac-indice a:hover {
+    color: #FFFFFF;
+}
+
+body.dark-mode .ac-pestana[aria-selected="true"] {
+    color: #FFFFFF;
+}
+
+/* En la banda casi negra las tarjetas oscuras se distinguen con un borde */
+body.dark-mode .ac-urbano-grupo,
+body.dark-mode .ac-distribucion {
+    border: 1px solid rgba(224, 224, 224, 0.14);
+}
+
+body.dark-mode .ac-video-play,
+body.dark-mode .ac-urbano-icono,
+body.dark-mode .ac-diagrama-centro,
+body.dark-mode .ac-contador--abierto .ac-contador-boton,
+body.dark-mode .ac-linea-accion:hover .ac-linea-icono {
+    color: #1a1a1a;
+}
+
+body.dark-mode .ac-actor-icono {
+    background: #e0e0e0;
+    color: #1D4430;
+}
+
+body.dark-mode .ac-actor--activo .ac-actor-icono {
+    background: var(--ac-acento);
+    color: #1a1a1a;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1024px) {
+    .ac-lineas,
+    .ac-contadores {
+        --ac-por-fila: 3;
+    }
+
+    .ac-instituciones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ac-actores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ac-actores-texto {
+        text-align: center;
+    }
+
+    .ac-actores .ac-intro {
+        margin-inline: auto;
+    }
+
+    .ac-actores .ac-ayuda {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .ac-origen-grid,
+    .ac-narino-grid,
+    .ac-sistematizacion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ac-fundador {
+        max-width: 620px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    /* Fases en vertical, completas y estáticas */
+    .ac-recorrido-riel {
+        display: none;
+    }
+
+    .ac-fases {
+        grid-template-columns: 1fr;
+        gap: 0;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+
+    .ac-fase {
+        position: relative;
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        column-gap: 18px;
+        align-items: start;
+        text-align: left;
+        padding-bottom: 26px;
+    }
+
+    /* Tramo de línea que une cada fase con la siguiente */
+    .ac-fase:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        left: 26px;
+        top: 56px;
+        bottom: 0;
+        width: 4px;
+        border-radius: 4px;
+        background: linear-gradient(180deg, var(--ac-acento), var(--ac-borde));
+    }
+
+    .ac-fase-numero {
+        grid-row: span 3;
+    }
+
+    .ac-fase-icono {
+        display: none;
+    }
+
+    .ac-fase h3 {
+        margin-top: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ac-trayectoria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* En celular la línea de tiempo va completa y estática */
+    .ac-trayectoria-cabecera {
+        position: static;
+    }
+
+    .ac-trayectoria {
+        --ac-riel-x: 8px;
+    }
+
+    .ac-linea {
+        padding-left: 36px;
+    }
+
+    .ac-hito::before {
+        left: calc(var(--ac-riel-x) - 36px - 8px);
+        top: calc(var(--ac-punto-y) - 8px);
+        width: 16px;
+        height: 16px;
+        border-width: 3px;
+    }
+
+    .ac-lineas,
+    .ac-contadores {
+        --ac-por-fila: 2;
+    }
+
+    .ac-paneles {
+        grid-template-columns: 1fr;
+    }
+
+    .ac-fotos--galeria,
+    .ac-fotos--territorio {
+        --ac-fila: 110px;
+        gap: 8px;
+    }
+
+    /* Actores: el centro arriba y los cuatro actores en cuadrícula */
+    .ac-diagrama {
+        display: grid;
+        gap: 22px;
+        max-width: 520px;
+        aspect-ratio: auto;
+        margin: 0 auto;
+    }
+
+    .ac-diagrama-lineas {
+        display: none;
+    }
+
+    .ac-diagrama-centro {
+        position: static;
+        transform: none;
+        width: 180px;
+        margin: 26px auto 10px;
+    }
+
+    .ac-actores-lista {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .ac-actor {
+        position: static;
+        transform: none;
+        width: auto;
+        padding: 18px 10px;
+        border-radius: var(--ac-radio);
+        background: rgba(255, 255, 255, 0.07);
+    }
+
+    .ac-visor-anterior,
+    .ac-visor-siguiente {
+        top: auto;
+        bottom: 16px;
+        transform: none;
+    }
+
+    .ac-visor-contador {
+        bottom: 28px;
+    }
+}
+
+@media (max-width: 560px) {
+    .ac-instituciones {
+        gap: 10px;
+    }
+
+    .ac-institucion {
+        padding: 16px 10px;
+    }
+
+    .ac-institucion-logo {
+        height: 90px;
+    }
+
+    .ac-seccion .ac-institucion-logo img {
+        max-height: 72px;
+    }
+
+    .ac-institucion h3,
+    .ac-linea-accion h3 {
+        font-size: 0.9rem;
+    }
+
+    .ac-linea-accion {
+        padding: 20px 12px;
+    }
+
+    /* Cifras de a dos por fila, más compactas */
+    .ac-contadores {
+        gap: 10px;
+    }
+
+    .ac-contador {
+        flex-basis: calc((100% - 10px) / 2);
+        padding: 18px 14px 16px;
+    }
+
+    .ac-js .ac-contador {
+        min-height: 230px;
+    }
+
+    .ac-contador-numero {
+        font-size: 2.6rem;
+    }
+
+    .ac-contador-texto {
+        font-size: 0.85rem;
+    }
+
+    .ac-contador-boton {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.75rem;
+    }
+
+    .ac-js .ac-desglose {
+        padding: 16px 14px 64px !important;
+    }
+
+    .ac-desglose > div {
+        font-size: 0.8rem;
+    }
+
+    .ac-barra {
+        grid-template-columns: 96px minmax(0, 1fr) 48px;
+        gap: 10px;
+    }
+
+    .ac-barra-nombre {
+        font-size: 0.82rem;
+        white-space: nowrap;
+    }
+
+    /* Fotos pequeñas: dos por fila, sin ampliarlas de más */
+    .ac-fotos--galeria,
+    .ac-fotos--territorio {
+        --ac-fila: 80px;
+    }
+
+    .ac-barra-valor {
+        font-size: 1rem;
+    }
+
+    .ac-pestana {
+        flex: 1 1 calc(50% - 10px);
+        justify-content: center;
+        padding: 0.55rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .ac-capitulo-contenido {
+        padding-left: 18px;
+    }
+
+    .ac-actor-icono {
+        width: 54px;
+        height: 54px;
+        font-size: 1.2rem;
+    }
+
+    .ac-actor-nombre {
+        font-size: 0.88rem;
+    }
+}
+
+/* estilos.css ya añade 12px de margen lateral a cada <section> en pantallas pequeñas */
+@media (max-width: 480px) {
+    .ac-contenedor {
+        padding-inline: 8px;
+    }
+
+    .ac-hero-lema {
+        font-size: 0.95rem;
+    }
+
+    .ac-origen-anios {
+        padding: 18px;
+    }
+
+    .ac-hito-fecha {
+        font-size: 1.6rem;
+    }
+
+    .ac-video-play {
+        width: 64px;
+        height: 64px;
+        font-size: 1.4rem;
+    }
+
+    .ac-video-texto {
+        font-size: 0.85rem;
+        padding: 1.6rem 0.8rem 0.8rem;
+    }
+}
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO: sin animaciones, con la misma función
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    .ac-enlace i,
+    .ac-boton-mas,
+    .ac-boton-mas i,
+    .ac-js .ac-desplegable,
+    .ac-js .ac-desplegable-interior,
+    .ac-indice a,
+    .ac-hito::before,
+    .ac-hito-fecha,
+    .ac-hito h3,
+    .ac-hito > p,
+    .ac-hito .ac-enlace,
+    .ac-diagrama-linea,
+    .ac-diagrama-centro,
+    .ac-actor-icono,
+    .ac-js .ac-actor-desc,
+    .ac-actor-boton .ac-actor-icono + span,
+    .ac-fase-numero,
+    .ac-fase-icono,
+    .ac-fase h3,
+    .ac-fase p,
+    .ac-institucion,
+    .ac-linea-accion,
+    .ac-linea-icono,
+    .ac-js .ac-desglose,
+    .ac-contador-boton i,
+    .ac-pestana,
+    .ac-capitulo,
+    .ac-capitulo summary i,
+    .ac-foto-boton img,
+    .ac-video-play,
+    .ac-video-imagen {
+        transition: none;
+    }
+
+    .ac-diagrama-linea--activa,
+    .ac-panel--entrando .ac-logros-lista li,
+    .ac-capitulo[open] .ac-capitulo-contenido,
+    .scroll-indicator {
+        animation: none;
+    }
+
+    .ac-enlace:hover i,
+    .ac-foto-boton:hover img,
+    .ac-institucion:hover,
+    .ac-linea-accion:hover,
+    .ac-linea-accion:hover .ac-linea-icono,
+    .ac-actor-boton:hover .ac-actor-icono,
+    .ac-js .ac-actor-desc {
+        transform: none;
+    }
+
+    .ac-actor--activo .ac-actor-icono {
+        transform: none !important;
+    }
+
+    .ac-video-portada:hover .ac-video-play,
+    .ac-video-portada:focus-visible .ac-video-play {
+        transform: translate(-50%, -50%);
+    }
+}
