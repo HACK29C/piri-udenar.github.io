@@ -1,0 +1,1395 @@
+/* =========================================================
+   PÁGINA DE INICIO (index.html)
+   Usa solo las variables de :root de estilos.css. En modo
+   oscuro esas variables cambian de valor (por ejemplo,
+   --verde-oscuro pasa a ser gris claro), por eso algunos
+   bloques tienen su ajuste en body.dark-mode al final.
+   Todas las clases llevan el prefijo ini- para no chocar
+   con estilos.css.
+   ========================================================= */
+
+.pagina-inicio {
+    --ini-hero-fondo: var(--verde-oscuro);
+    --ini-hero-velo: rgba(37, 86, 51, 0.88);
+    --ini-hero-lineas: var(--verde-brillante);
+    --ini-titulo: var(--verde-piri);
+    --ini-texto: var(--verde-oscuro);
+    --ini-acento: var(--verde-brillante);
+    --ini-borde: rgba(50, 108, 84, 0.2);
+    --ini-ancho: 1200px;
+}
+
+.pagina-inicio main {
+    display: block;
+}
+
+.ini-contenedor {
+    max-width: var(--ini-ancho);
+    margin: 0 auto;
+    padding-inline: clamp(20px, 5vw, 40px);
+}
+
+.ini-seccion {
+    scroll-margin-top: 90px; /* alto de la barra de navegación fija */
+    padding-block: clamp(72px, 10vw, 128px);
+    background-color: var(--blanco);
+    color: var(--ini-texto);
+}
+
+.ini-titulo {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--ini-titulo);
+    margin-bottom: 0.6em;
+}
+
+.ini-intro {
+    font-size: 1.1rem;
+    max-width: 38rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.85;
+}
+
+.ini-seccion p {
+    line-height: 1.7;
+}
+
+.ini-seccion p + p {
+    margin-top: 1em;
+}
+
+.ini-seccion figure {
+    margin: 0;
+}
+
+.ini-seccion img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Texto que falta completar: visible y fácil de encontrar */
+.ini-pendiente {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.35em 0.6em;
+    border: 1px dashed var(--cafe-territorio);
+    border-radius: 4px;
+    background: rgba(159, 195, 60, 0.14);
+    color: var(--cafe-territorio);
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ----- Botones y enlaces ----- */
+.ini-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+.ini-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.ini-boton--claro {
+    background: #FFFFFF;
+    color: var(--verde-oscuro);
+}
+
+.ini-boton--claro:hover {
+    background: var(--verde-brillante);
+}
+
+.ini-boton--contorno {
+    border-color: rgba(255, 255, 255, 0.75);
+    color: #FFFFFF;
+}
+
+.ini-boton--contorno:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #FFFFFF;
+}
+
+.ini-boton--solido {
+    background: var(--verde-piri);
+    color: #FFFFFF;
+}
+
+.ini-boton--solido:hover {
+    background: var(--verde-oscuro);
+}
+
+.ini-boton--contorno-oscuro {
+    border-color: var(--verde-piri);
+    color: var(--verde-piri);
+}
+
+.ini-boton--contorno-oscuro:hover {
+    background: var(--verde-piri);
+    color: #FFFFFF;
+}
+
+.ini-enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1.5rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--verde-piri);
+    text-decoration: none;
+    border-bottom: 2px solid var(--verde-brillante);
+    padding-bottom: 2px;
+}
+
+.ini-enlace i {
+    transition: transform 0.2s ease;
+}
+
+.ini-enlace:hover i {
+    transform: translateX(4px);
+}
+
+/* ----- Foco visible con teclado ----- */
+.pagina-inicio a:focus-visible,
+.pagina-inicio button:focus-visible {
+    outline: 3px solid var(--verde-brillante) !important;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.pagina-inicio .ini-boton:focus-visible {
+    border-radius: 999px;
+}
+
+/* =========================================================
+   1. HERO
+   ========================================================= */
+.ini-hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: 130px clamp(20px, 5vw, 40px) 110px;
+    background-color: var(--ini-hero-fondo);
+    color: #FFFFFF;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Relieve estático: el SVG funciona como máscara y toma el color del tema */
+.ini-hero-relieve {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background-color: var(--ini-hero-lineas);
+    opacity: 0.5;
+    -webkit-mask: url('../imagenes/relieve-topografico.svg') center / cover no-repeat;
+    mask: url('../imagenes/relieve-topografico.svg') center / cover no-repeat;
+    transition: opacity 1.2s ease;
+}
+
+.ini-hero-lienzo {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.ini-hero-lienzo canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Cuando el 3D ya dibujó su primer cuadro, reemplaza al relieve estático */
+.ini-hero--3d .ini-hero-lienzo {
+    opacity: 1;
+}
+
+.ini-hero--3d .ini-hero-relieve {
+    opacity: 0;
+}
+
+/* Velo para que el texto se lea sobre las curvas */
+.ini-hero-velo {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(90deg, var(--ini-hero-velo) 0%, rgba(0, 0, 0, 0) 70%),
+        linear-gradient(0deg, var(--ini-hero-fondo) 0%, rgba(0, 0, 0, 0) 30%);
+    pointer-events: none;
+}
+
+.ini-hero-contenido {
+    width: 100%;
+    max-width: var(--ini-ancho);
+    margin: 0 auto;
+}
+
+.ini-hero-sede {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    font-size: clamp(0.95rem, 0.8rem + 0.4vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 1rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--verde-brillante); /* el verde brillante solo como acento: en texto pequeño no alcanza 4.5:1 */
+}
+
+.ini-hero-titulo {
+    font-family: var(--fuente-titulos);
+    line-height: 0.95;
+    margin: 0;
+}
+
+.ini-hero-sigla {
+    display: block;
+    font-weight: 800;
+    font-size: clamp(4.5rem, 2rem + 12vw, 10rem);
+    letter-spacing: -0.03em;
+}
+
+.ini-hero-capitulo {
+    display: block;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 1rem + 3.5vw, 3.4rem);
+    margin-top: 0.15em;
+}
+
+.ini-hero-texto {
+    max-width: 36rem;
+    margin-top: 1.75rem;
+    font-size: clamp(1rem, 0.9rem + 0.35vw, 1.2rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.ini-hero-bajar {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.ini-hero-bajar i {
+    animation: ini-flotar 2.4s ease-in-out infinite;
+}
+
+@keyframes ini-flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* =========================================================
+   2. QUÉ ES EL PIRI
+   ========================================================= */
+.ini-que-es-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+}
+
+.ini-entrada {
+    font-size: clamp(1.15rem, 1rem + 0.5vw, 1.35rem);
+    font-weight: 500;
+    color: var(--ini-titulo);
+}
+
+.ini-municipios {
+    margin-top: 1.5rem !important;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--ini-borde);
+    font-size: 0.95rem;
+}
+
+.ini-que-es-foto {
+    aspect-ratio: 4 / 5;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   3. LÍNEAS DE TRABAJO (bloques alternados)
+   ========================================================= */
+.ini-lineas {
+    background-color: var(--gris-claro);
+}
+
+.ini-linea {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+}
+
+.ini-linea + .ini-linea {
+    margin-top: clamp(56px, 8vw, 104px);
+}
+
+.ini-linea--invertida {
+    grid-template-columns: 1fr 1.15fr;
+}
+
+.ini-linea--invertida .ini-linea-foto {
+    order: 2;
+}
+
+.ini-linea-foto {
+    aspect-ratio: 3 / 2;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Foto vertical: marco cuadrado para que quepan la cara del estudiante y el portátil */
+.ini-linea-foto--digital {
+    aspect-ratio: 1 / 1;
+}
+
+.ini-linea-foto--digital img {
+    object-position: 50% 45%;
+}
+
+.ini-linea-numero {
+    display: block;
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--verde-brillante);
+    margin-bottom: 0.5rem;
+}
+
+.ini-linea-texto h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+    line-height: 1.2;
+    color: var(--ini-titulo);
+    margin-bottom: 1rem;
+}
+
+/* =========================================================
+   4. CÓMO TRABAJAMOS: LÍNEA DE TIEMPO VERTICAL
+   Sin JS, en celular o con movimiento reducido: todas las
+   etapas se ven completas y la línea llena.
+   En computador, js/inicio.js añade .ini-proceso--animado:
+   la línea se llena con el scroll y cada etapa se activa
+   (.ini-etapa--activa) al entrar en pantalla.
+   ========================================================= */
+.ini-proceso {
+    --ini-riel-x: 12px;        /* centro del riel dentro de .ini-proceso-linea */
+    --ini-etapa-pad: clamp(22px, 3vw, 36px);
+    background-color: var(--blanco);
+}
+
+.ini-proceso-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(32px, 6vw, 96px);
+    align-items: start;
+}
+
+/* El título acompaña a las etapas mientras se recorren */
+.ini-proceso-cabecera {
+    position: sticky;
+    top: 130px;
+}
+
+.ini-proceso-linea {
+    position: relative;
+    padding-left: 56px;
+}
+
+.ini-proceso-riel {
+    position: absolute;
+    left: calc(var(--ini-riel-x) - 2px);
+    top: calc(var(--ini-etapa-pad) + 1.6rem);
+    bottom: calc(var(--ini-etapa-pad) + 1.6rem);
+    width: 4px;
+    border-radius: 4px;
+    background: var(--ini-borde);
+    overflow: hidden;
+}
+
+.ini-proceso-relleno {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--verde-brillante), var(--verde-piri));
+    transform-origin: top center;
+}
+
+.ini-proceso-etapas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ini-etapa {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0 clamp(16px, 2vw, 28px);
+    align-items: start;
+    padding-block: var(--ini-etapa-pad);
+}
+
+.ini-etapa + .ini-etapa {
+    border-top: 1px solid var(--ini-borde);
+}
+
+/* Punto sobre el riel, a la altura del número */
+.ini-etapa::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--ini-riel-x) - 56px - 10px);
+    top: calc(var(--ini-etapa-pad) + 1.6rem - 10px);
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--verde-brillante);
+    border: 4px solid var(--blanco);
+    box-shadow: 0 0 0 2px var(--verde-brillante);
+    transition: transform 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.ini-etapa-numero {
+    display: block;
+    width: 1.45em;
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 1.8rem + 2.4vw, 4.2rem);
+    line-height: 0.9;
+    color: var(--verde-brillante);
+    -webkit-text-stroke: 2px var(--verde-brillante);
+    transition: color 0.5s ease, -webkit-text-stroke-color 0.5s ease, transform 0.5s ease;
+}
+
+.ini-etapa-texto {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ini-etapa h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: clamp(1.25rem, 1rem + 0.8vw, 1.6rem);
+    line-height: 1.25;
+    color: var(--ini-titulo);
+    margin-bottom: 0.5rem;
+}
+
+.ini-etapa p {
+    max-width: 42ch;
+}
+
+/* Etapas que aún no se alcanzan con el scroll (solo en modo animado) */
+.ini-proceso--animado .ini-etapa:not(.ini-etapa--activa) .ini-etapa-numero {
+    color: transparent;
+    -webkit-text-stroke-color: var(--ini-borde);
+    transform: scale(0.92);
+}
+
+.ini-proceso--animado .ini-etapa:not(.ini-etapa--activa) .ini-etapa-texto {
+    opacity: 0.35;
+    transform: translateX(-8px);
+}
+
+.ini-proceso--animado .ini-etapa:not(.ini-etapa--activa)::before {
+    background: var(--blanco);
+    box-shadow: 0 0 0 2px var(--ini-borde);
+    transform: scale(0.75);
+}
+
+.ini-proceso--animado .ini-etapa--activa::before {
+    box-shadow: 0 0 0 2px var(--verde-brillante), 0 0 0 9px rgba(159, 195, 60, 0.22);
+}
+
+/* =========================================================
+   5. EN TERRITORIO: GALERÍA Y VIDEO
+   Banda oscura. Mientras js/inicio.js no confirme que existe
+   al menos una foto o el video, la sección no ocupa espacio.
+   ========================================================= */
+.ini-galeria {
+    background-color: var(--ini-hero-fondo);
+    color: #FFFFFF;
+}
+
+.ini-galeria--vacia {
+    padding-block: 0;
+}
+
+.ini-galeria--vacia > * {
+    display: none;
+}
+
+.ini-galeria .ini-titulo {
+    color: #FFFFFF;
+}
+
+.ini-galeria .ini-intro {
+    color: rgba(255, 255, 255, 0.88);
+    opacity: 1;
+}
+
+.ini-galeria-cabecera {
+    margin-bottom: 2.5rem;
+}
+
+.ini-galeria-cabecera .ini-intro {
+    margin-bottom: 0;
+}
+
+/* Filas justificadas: todas las fotos de una fila tienen el mismo alto y ninguna se recorta.
+   js/inicio.js pone en --ini-proporcion el ancho/alto real de cada foto. */
+.ini-galeria-lista {
+    --ini-fila: 240px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.ini-galeria-item {
+    flex: var(--ini-proporcion, 1.5) 1 calc(var(--ini-proporcion, 1.5) * var(--ini-fila));
+    min-width: 0;
+}
+
+/* Evita que la última fila, si tiene pocas fotos, se estire de más */
+.ini-galeria-lista::after {
+    content: '';
+    flex: 6 1 0;
+}
+
+.ini-galeria-boton {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    cursor: zoom-in;
+}
+
+.ini-seccion .ini-galeria-boton img {
+    height: auto;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.ini-galeria-boton:hover img {
+    transform: scale(1.04);
+}
+
+.ini-galeria-boton:focus-visible {
+    outline-color: #FFFFFF !important;
+}
+
+.ini-video {
+    margin-top: clamp(40px, 6vw, 72px);
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000000;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.ini-galeria-lista:not(:has(.ini-galeria-item:not([hidden]))) {
+    display: none;
+}
+
+.ini-galeria-lista:not(:has(.ini-galeria-item:not([hidden]))) + .ini-video {
+    margin-top: 0;
+}
+
+.ini-video-reproductor {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Visor de fotos ampliadas */
+.ini-visor {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+/* Mientras el visor está abierto, la página no se desplaza por detrás */
+body:has(.ini-visor[open]) {
+    overflow: hidden;
+}
+
+.ini-visor[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ini-visor::backdrop {
+    background: rgba(12, 24, 16, 0.94);
+}
+
+.ini-seccion .ini-visor-imagen {
+    width: auto;
+    height: auto;
+    max-width: min(90vw, 1600px);
+    max-height: 86vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.ini-visor-boton {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ini-visor-boton:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.ini-visor-boton[hidden] {
+    display: none;
+}
+
+.ini-visor-cerrar {
+    top: 16px;
+    right: 16px;
+}
+
+.ini-visor-anterior,
+.ini-visor-siguiente {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ini-visor-anterior {
+    left: 16px;
+}
+
+.ini-visor-siguiente {
+    right: 16px;
+}
+
+/* =========================================================
+   6. CONVENIO
+   ========================================================= */
+.ini-convenio {
+    background-color: var(--gris-claro);
+}
+
+.ini-convenio-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(40px, 6vw, 88px);
+    align-items: center;
+}
+
+.ini-convenio-fotos {
+    position: relative;
+    padding-bottom: 18%;
+    padding-right: 14%;
+}
+
+.ini-convenio-foto {
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 3 / 2;
+}
+
+.ini-convenio-foto--b {
+    position: absolute;
+    width: 62%;
+    right: 0;
+    bottom: 0;
+    border: 6px solid var(--gris-claro);
+    border-radius: 10px;
+}
+
+.ini-convenio-foto figcaption {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 0.25em 0.6em;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.ini-convenio-codigo {
+    display: inline-block;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--azul-institucional);
+    padding: 0.4em 0.8em;
+    border-left: 3px solid var(--azul-institucional);
+    background: rgba(1, 1, 146, 0.06);
+    margin-bottom: 1.25rem;
+}
+
+/* =========================================================
+   7. NOTICIAS RECIENTES
+   ========================================================= */
+.ini-noticias-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0 24px;
+    margin-bottom: 2rem;
+}
+
+.ini-noticias-cabecera .ini-titulo {
+    margin-bottom: 0;
+}
+
+.ini-noticias-cabecera .ini-enlace {
+    margin-top: 0.5rem;
+}
+
+/* ----- Evento destacado (colores del afiche) ----- */
+.ini-evento {
+    --ini-evento-fondo: #F4E9D5;
+    --ini-evento-texto: var(--cafe-territorio);
+    --ini-evento-acento: var(--verde-piri);
+    --ini-evento-linea: rgba(82, 48, 25, 0.2);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+    padding: clamp(20px, 4vw, 48px);
+    border-radius: 12px;
+    background: var(--ini-evento-fondo);
+    color: var(--ini-evento-texto);
+    margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+/* El afiche se muestra completo, sin recortar */
+.ini-evento-afiche {
+    width: 100%;
+    max-width: 440px;
+    justify-self: center;
+}
+
+.ini-seccion .ini-evento-afiche img {
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 18px 44px rgba(82, 48, 25, 0.28);
+}
+
+.ini-evento-estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 1.25rem;
+    padding: 0.4em 0.95em;
+    border-radius: 999px;
+    background: var(--verde-piri);
+    color: #FFFFFF;
+    font-family: var(--fuente-titulos);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ini-evento-estado[hidden] {
+    display: none;
+}
+
+.ini-evento-estado::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--verde-brillante);
+    animation: ini-latido 1.8s ease-in-out infinite;
+}
+
+.ini-evento-estado--realizado {
+    background: var(--ini-evento-linea);
+    color: var(--ini-evento-texto);
+}
+
+.ini-evento-estado--realizado::before {
+    background: currentColor;
+    animation: none;
+}
+
+@keyframes ini-latido {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.ini-evento-titulo {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 1.6rem + 3.6vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ini-evento-acento);
+}
+
+.ini-evento-titulo span {
+    display: block;
+    margin-top: 0.45em;
+    font-size: clamp(1.1rem, 0.95rem + 0.6vw, 1.45rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0;
+    color: var(--ini-evento-texto);
+}
+
+.ini-evento-lema {
+    margin: 1.5rem 0 1.75rem !important;
+    padding-left: 1rem;
+    border-left: 4px solid #D98A1F;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+    line-height: 1.35 !important;
+}
+
+.ini-evento-datos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+    font-weight: 600;
+}
+
+.ini-evento-datos li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    line-height: 1.5;
+}
+
+.ini-evento-datos i {
+    width: 1.2em;
+    margin-top: 0.2em;
+    text-align: center;
+    color: var(--ini-evento-acento);
+}
+
+.ini-evento-invitan {
+    margin-top: 1.75rem !important;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--ini-evento-linea);
+    font-size: 0.9rem;
+}
+
+/* ----- Mosaico: una noticia principal y dos laterales ----- */
+.ini-noticias-mosaico {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: clamp(20px, 3vw, 32px);
+}
+
+.ini-noticia time {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--verde-piri);
+    margin-bottom: 0.4rem;
+}
+
+.ini-noticia h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--ini-titulo);
+    margin-bottom: 0.5rem;
+}
+
+.ini-noticia p {
+    line-height: 1.6;
+}
+
+/* Principal: foto completa con el texto encima */
+.ini-noticia--principal {
+    grid-row: span 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 560px;
+    border-radius: 12px;
+    overflow: hidden;
+    color: #FFFFFF;
+}
+
+.ini-noticia--principal .ini-noticia-foto {
+    position: absolute;
+    inset: 0;
+}
+
+.ini-noticia--principal .ini-noticia-foto img {
+    object-position: 50% 62%;
+}
+
+.ini-noticia--principal .ini-noticia-foto::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(14, 34, 21, 0.94) 0%, rgba(14, 34, 21, 0.6) 38%, rgba(14, 34, 21, 0) 68%);
+}
+
+.ini-noticia--principal .ini-noticia-texto {
+    position: relative;
+    padding: clamp(24px, 3vw, 40px);
+}
+
+.ini-noticia--principal time {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ini-noticia--principal h3 {
+    font-size: clamp(1.9rem, 1.3rem + 2vw, 2.8rem);
+    line-height: 1.05;
+    color: #FFFFFF;
+}
+
+.ini-noticia--principal p {
+    max-width: 34rem;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.ini-noticia-sello {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-bottom: 0.9rem;
+    padding: 0.35em 0.85em;
+    border-radius: 999px;
+    background: var(--verde-brillante);
+    color: #16301F;
+    font-family: var(--fuente-titulos);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Laterales: foto cuadrada y texto al lado, alternando el lado */
+.ini-noticia--lateral {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(16px, 2vw, 24px);
+    align-items: center;
+    padding: clamp(12px, 1.5vw, 16px);
+    border-radius: 12px;
+    background: var(--gris-claro);
+}
+
+.ini-noticia--lateral:last-child .ini-noticia-foto {
+    order: 2;
+}
+
+.ini-noticia--lateral .ini-noticia-foto {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ini-noticia--lateral p {
+    font-size: 0.95rem;
+}
+
+/* Foto grupal del taller: se centra en las personas */
+.ini-noticia--lateral img[src*="eventoori"] {
+    object-position: 50% 60%;
+}
+
+/* Afiche de septiembre: se ve la foto de los productores */
+.ini-noticia--lateral img[src*="laminga01"] {
+    object-position: 50% 12%;
+}
+
+/* =========================================================
+   8. CIERRE
+   ========================================================= */
+.ini-cierre {
+    background-color: var(--gris-claro);
+}
+
+.ini-cierre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+}
+
+.ini-cierre-foto {
+    aspect-ratio: 3 / 2;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Foto vertical: el marco horizontal se centra en el grupo, no en el césped */
+.ini-cierre-foto img {
+    object-position: 50% 40%;
+}
+
+/* =========================================================
+   MODO OSCURO
+   ========================================================= */
+body.dark-mode.pagina-inicio {
+    --ini-hero-fondo: #1a1a1a;
+    --ini-hero-velo: rgba(26, 26, 26, 0.88);
+    --ini-titulo: #e0e0e0;
+    --ini-texto: #e0e0e0;
+    --ini-borde: rgba(224, 224, 224, 0.18);
+}
+
+body.dark-mode .ini-hero-relieve {
+    opacity: 0.6;
+}
+
+body.dark-mode .ini-hero--3d .ini-hero-relieve {
+    opacity: 0;
+}
+
+body.dark-mode .ini-boton--claro {
+    background: #e0e0e0;
+    color: #1a1a1a;
+}
+
+body.dark-mode .ini-boton--claro:hover {
+    background: var(--verde-brillante);
+    color: #FFFFFF;
+}
+
+body.dark-mode .ini-boton--solido {
+    background: var(--verde-brillante);
+    color: #1a1a1a;
+}
+
+body.dark-mode .ini-boton--solido:hover {
+    background: #e0e0e0;
+}
+
+body.dark-mode .ini-boton--contorno-oscuro {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+}
+
+body.dark-mode .ini-boton--contorno-oscuro:hover {
+    background: #e0e0e0;
+    color: #1a1a1a;
+}
+
+body.dark-mode .ini-enlace,
+body.dark-mode .ini-noticia time {
+    color: #e0e0e0;
+}
+
+body.dark-mode .ini-convenio-codigo {
+    color: #e0e0e0;
+    border-left-color: var(--verde-brillante);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .ini-pendiente {
+    color: #e0e0e0;
+    border-color: var(--verde-brillante);
+}
+
+/* La banda de la galería se distingue del fondo #1a1a1a */
+body.dark-mode .ini-galeria {
+    background-color: #111111;
+}
+
+body.dark-mode .ini-evento {
+    --ini-evento-fondo: #2d2d2d;
+    --ini-evento-texto: #e0e0e0;
+    --ini-evento-acento: #b5d36a;
+    --ini-evento-linea: rgba(224, 224, 224, 0.18);
+}
+
+body.dark-mode .ini-evento-estado {
+    background: #b5d36a;
+    color: #1a1a1a;
+}
+
+body.dark-mode .ini-evento-estado::before {
+    background: #1a1a1a;
+}
+
+body.dark-mode .ini-evento-estado--realizado {
+    background: rgba(224, 224, 224, 0.14);
+    color: #e0e0e0;
+}
+
+body.dark-mode .ini-evento-estado--realizado::before {
+    background: currentColor;
+}
+
+body.dark-mode .ini-seccion .ini-evento-afiche img {
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .ini-noticia-sello {
+    background: #b5d36a;
+    color: #1a1a1a;
+}
+
+body.dark-mode .ini-noticia--principal time {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1024px) {
+    .ini-noticia--principal {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 900px) {
+    .ini-evento {
+        grid-template-columns: 1fr;
+    }
+
+    /* En pantallas angostas primero va la etiqueta y los datos, luego el afiche */
+    .ini-evento-afiche {
+        order: 2;
+        max-width: 340px;
+    }
+
+    .ini-noticias-mosaico {
+        grid-template-columns: 1fr;
+    }
+
+    .ini-noticia--principal {
+        grid-row: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+        max-height: 640px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ini-que-es-grid,
+    .ini-linea,
+    .ini-linea--invertida,
+    .ini-convenio-grid,
+    .ini-cierre-grid,
+    .ini-proceso-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ini-linea--invertida .ini-linea-foto {
+        order: 0;
+    }
+
+    .ini-que-es-foto {
+        aspect-ratio: 4 / 3;
+    }
+
+    /* En celular la línea de tiempo va completa y estática */
+    .ini-proceso-cabecera {
+        position: static;
+    }
+
+    .ini-proceso {
+        --ini-riel-x: 8px;
+    }
+
+    .ini-proceso-linea {
+        padding-left: 36px;
+    }
+
+    .ini-etapa::before {
+        left: calc(var(--ini-riel-x) - 36px - 8px);
+        width: 16px;
+        height: 16px;
+        top: calc(var(--ini-etapa-pad) + 1.6rem - 8px);
+        border-width: 3px;
+    }
+
+    .ini-etapa-numero {
+        font-size: 2.6rem;
+    }
+
+    .ini-galeria-lista {
+        --ini-fila: 140px;
+        gap: 8px;
+    }
+
+    .ini-visor-anterior,
+    .ini-visor-siguiente {
+        top: auto;
+        bottom: 16px;
+        transform: none;
+    }
+
+    .ini-hero-bajar {
+        display: none;
+    }
+}
+
+/* Celular: la noticia principal pasa a foto arriba y texto abajo, para no tapar a las personas */
+@media (max-width: 600px) {
+    .ini-noticia--principal {
+        aspect-ratio: auto;
+        max-height: none;
+        background: #0E2215;
+    }
+
+    .ini-noticia--principal .ini-noticia-foto {
+        position: relative;
+        aspect-ratio: 4 / 5;
+    }
+
+    .ini-noticia--principal .ini-noticia-foto::after {
+        background: linear-gradient(0deg, #0E2215 0%, rgba(14, 34, 21, 0) 30%);
+    }
+
+    .ini-noticia--principal .ini-noticia-texto {
+        margin-top: -3.5rem;
+        padding-top: 0;
+    }
+}
+
+/* estilos.css ya añade 12px de margen lateral a cada <section> en pantallas pequeñas */
+@media (max-width: 480px) {
+    .ini-contenedor {
+        padding-inline: 8px;
+    }
+
+    .ini-hero {
+        padding-top: 120px;
+        padding-bottom: 72px;
+    }
+
+    .ini-botones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ini-convenio-fotos {
+        padding: 0;
+        display: grid;
+        gap: 12px;
+    }
+
+    .ini-convenio-foto--b {
+        position: relative;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+    }
+
+    .ini-etapa {
+        grid-template-columns: 1fr;
+    }
+
+    .ini-etapa-numero {
+        margin-bottom: 0.5rem;
+    }
+
+    .ini-noticia--lateral {
+        grid-template-columns: 1fr;
+    }
+
+    .ini-noticia--lateral:last-child .ini-noticia-foto {
+        order: 0;
+    }
+
+    .ini-noticia--lateral .ini-noticia-foto {
+        aspect-ratio: 16 / 10;
+    }
+
+    .ini-noticia--lateral .ini-noticia-texto {
+        padding: 0 4px 6px;
+    }
+}
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO: sin animaciones y sin 3D
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    .ini-hero-lienzo {
+        display: none;
+    }
+
+    .ini-hero-relieve,
+    .ini-boton,
+    .ini-enlace i,
+    .ini-galeria-boton img,
+    .ini-etapa::before,
+    .ini-etapa-numero,
+    .ini-etapa-texto {
+        transition: none;
+    }
+
+    .ini-hero-bajar i,
+    .ini-evento-estado::before {
+        animation: none;
+    }
+
+    .ini-galeria-boton:hover img,
+    .ini-enlace:hover i {
+        transform: none;
+    }
+}

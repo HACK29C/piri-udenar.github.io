@@ -4,59 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIRI · Capítulo Nariño – Universidad de Nariño</title>
-    
+    <meta name="description" content="Programa de Interacción Rural Interdisciplinario (PIRI) – Capítulo Nariño. Universidad de Nariño, Extensión Ipiales, en convenio con la Universidad de La Frontera (Chile).">
+
     <!-- Fuentes Montserrat e Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Tu archivo CSS -->
+
+    <!-- CSS compartido -->
     <link rel="stylesheet" href="css/estilos.css">
-    
-    <style>
-        /* ===== MENÚ HAMBURGUESA FUNCIONAL ===== */
-        .nav-toggle {
-            display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            color: var(--verde-piri);
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block !important;
-            }
-
-            .nav-menu {
-                display: none !important;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                gap: 15px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                z-index: 999;
-            }
-
-            .nav-menu.show {
-                display: flex !important;
-            }
-        }
-    </style>
+    <!-- CSS de la página de inicio -->
+    <link rel="stylesheet" href="css/inicio.css">
 </head>
-<body>
-    <!-- ===== NAVEGACIÓN CON MENÚ FUNCIONAL ===== -->
-  <!-- ===== NAVEGACIÓN CON LOGOS INSTITUCIONALES ===== -->
+<body class="pagina-inicio">
+    <!-- ===== NAVEGACIÓN CON LOGOS INSTITUCIONALES ===== -->
 <nav class="navbar">
     <div class="nav-container">
         <div class="logos-institucionales">
@@ -78,183 +42,365 @@
     </div>
 </nav>
 
-    <!-- ===== SECCIÓN 1: INICIO / HERO ===== -->
-    <section id="inicio" class="hero">
-        <!-- Fondo con slider de imágenes -->
-        <div class="hero-slider">
-            <div class="slide active" style="background-image: url('imagenes/fondo-hero-1.jpg');"></div>
-            <div class="slide" style="background-image: url('imagenes/fondo-hero-2.jpg');"></div>
-            <div class="slide" style="background-image: url('imagenes/fondo-hero-3.jpg');"></div>
-            <div class="slide" style="background-image: url('imagenes/fondo-hero-4.jpg');"></div>
-            <div class="slide" style="background-image: url('imagenes/fondo-hero-5.jpg');"></div>
-            <div class="slide" style="background-image: url('imagenes/fondo-hero-6.jpg');"></div>
-            <!-- Overlay oscuro para legibilidad -->
-            <div class="hero-overlay"></div>
-        </div>
+<main id="contenido">
 
-        <!-- Contenido principal del hero -->
-        <div class="hero-content">
-            <!-- Lado izquierdo: Texto principal -->
-            <div class="hero-texto">
-                <h1 class="hero-titulo">
-                    <span class="linea1">PIRI</span>
-                    <span class="linea2">PROGRAMA DE INTERACCIÓN RURAL</span>
-                    <span class="linea3">INTERDISCIPLINARIO</span>
-                </h1>
-                
-                <h2 class="hero-subtitulo">Universidad de Nariño · Extensión Ipiales</h2>
-                
-                <!-- Calendario profesional -->
-                <div class="fecha-destacada">
-                    <div class="calendario-icono">
-                        <i class="far fa-calendar-alt"></i>
-                        <span class="calendario-fecha">19 MAR 2026</span>
-                    </div>
-                    <div class="ubicacion-icono">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Ipiales, Colombia</span>
-                    </div>
-                </div>
+    <!-- ===== 1. HERO: RELIEVE ANDINO EN CURVAS DE NIVEL ===== -->
+    <section class="ini-hero" id="inicio" aria-labelledby="ini-hero-titulo">
+        <!-- Relieve estático: se ve mientras carga el 3D, con movimiento reducido o si no hay WebGL -->
+        <div class="ini-hero-relieve" aria-hidden="true"></div>
+        <!-- Aquí js/inicio.js inserta el canvas de Three.js -->
+        <div class="ini-hero-lienzo" id="relieve3d" aria-hidden="true"></div>
+        <div class="ini-hero-velo" aria-hidden="true"></div>
 
-                <!-- Lugar específico -->
-                <p class="lugar-evento">
-                    <i class="fas fa-location-dot" style="color: var(--verde-brillante);"></i>
-                    Auditorio Gonzalo Bravo Pérez · Sede Regional Ipiales
-                </p>
-
-                <!-- ENLACE DE TEAMS -->
-                <div class="conexion-online hero-conexion">
-                    <a href="https://teams.microsoft.com/meet/21705744503696?p=kUDPCD82Y1yG7qKNJ1" target="_blank" class="live-link">
-                        <div class="live-icon">
-                            <i class="fas fa-video"></i>
-                            <span class="live-badge">EN VIVO</span>
-                        </div>
-                        <div class="live-texto">
-                            <strong>Conexión online</strong>
-                            <span>Únete por Microsoft Teams</span>
-                        </div>
-                        <i class="fas fa-external-link-alt external-icon"></i>
-                    </a>
-                </div>
-
-                <!-- Cuenta regresiva -->
-                <div class="countdown-container">
-                    <div class="countdown-box">
-                        <span class="countdown-numero" id="dias">00</span>
-                        <span class="countdown-label">DÍAS</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-numero" id="horas">00</span>
-                        <span class="countdown-label">HORAS</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-numero" id="minutos">00</span>
-                        <span class="countdown-label">MIN</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-numero" id="segundos">00</span>
-                        <span class="countdown-label">SEG</span>
-                    </div>
-                </div>
-
-                <!-- Botones -->
-                <div class="hero-botones">
-                    <a href="https://forms.gle/SNobynyCRTwRFnmy7" target="_blank" class="btn btn-primario">CONFIRMAR ASISTENCIA</a>
-                    <a href="agenda.html" class="btn btn-secundario">AGENDA</a>
-                </div>
-
-                <!-- Texto del flyer -->
-                <div class="flyer-texto">
-                    <p>Invitamos a docentes, estudiantes y administrativos a ser parte de este proceso que impulsa la interacción social y el compromiso con nuestro territorio.</p>
-                    <span class="convenio-badge">Convenio REI-259422</span>
-                </div>
+        <div class="ini-hero-contenido">
+            <p class="ini-hero-sede">Universidad de Nariño · Extensión Ipiales</p>
+            <h1 class="ini-hero-titulo" id="ini-hero-titulo">
+                <span class="ini-hero-sigla">PIRI</span>
+                <span class="ini-hero-capitulo">Capítulo Nariño</span>
+            </h1>
+            <p class="ini-hero-texto">
+                Programa de Interacción Rural Interdisciplinario. Estudiantes y docentes de distintas disciplinas trabajan junto a las comunidades y unidades productivas del territorio rural, en convenio con la Universidad de La Frontera (Chile).
+            </p>
+            <div class="ini-botones">
+                <a href="#que-es" class="ini-boton ini-boton--claro">Conoce el programa</a>
+                <a href="direccion.html" class="ini-boton ini-boton--contorno">Contacto</a>
             </div>
         </div>
 
-        <!-- Indicador de scroll -->
-        <div class="scroll-indicator">
+        <a href="#que-es" class="ini-hero-bajar">
             <span>Descubre más</span>
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </a>
+    </section>
+
+    <!-- ===== 2. QUÉ ES EL PIRI ===== -->
+    <section class="ini-seccion ini-que-es" id="que-es" aria-labelledby="que-es-titulo">
+        <div class="ini-contenedor ini-que-es-grid ini-revelar">
+            <div class="ini-que-es-texto">
+                <h2 class="ini-titulo" id="que-es-titulo">La universidad, en el territorio rural</h2>
+                <p class="ini-entrada">
+                    El PIRI Capítulo Nariño es un programa de la Universidad de Nariño, Extensión Ipiales, que fortalece la interacción social de la universidad con las comunidades rurales del sur de Nariño.
+                </p>
+                <p>
+                    Estudiantes y docentes de programas como Comercio Internacional, Mercadeo e Ingeniería de Sistemas, junto con el área de la salud, forman equipos interdisciplinarios que trabajan en territorio con las comunidades y las unidades productivas.
+                </p>
+                <p>
+                    Los equipos rotan por cohortes: cada grupo recibe el trabajo del anterior y lo continúa, para que el acompañamiento no se interrumpa.
+                </p>
+                <p class="ini-municipios">
+                    <strong>Municipios participantes:</strong> Cumbal, Contadero, Guachucal, Pupiales, Sapuyes, Potosí, Córdoba y Carlosama.
+                </p>
+            </div>
+            <figure class="ini-que-es-foto">
+                <img src="imagenes/quienes-fondo-1-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                     alt="Paisaje andino: una laguna entre montañas, rodeada de potreros y parcelas de cultivo, bajo un cielo nublado">
+            </figure>
         </div>
     </section>
 
-    <!-- ===== BANNER DEL FLYER ===== -->
-    <section class="flyer-banner">
-        <div class="flyer-banner-container">
-            <div class="flyer-banner-imagen">
-                <img src="imagenes/flyer.jpg" alt="Flyer oficial PIRI Lanzamiento 2026" class="flyer-banner-img">
-            </div>
-            <div class="flyer-banner-info">
-                <div class="lanzamiento-titulo-normal">LANZAMIENTO OFICIAL</div>
-                
-                <h3 class="flyer-banner-titulo">
-                    <span class="capitulo">CAPÍTULO NARIÑO</span>
-                    <span class="programa">PIRI 2026</span>
-                </h3>
-                
-                <div class="flyer-banner-destacado">
-                    <p class="flyer-banner-invitacion">
-                        Invitamos a docentes, estudiantes y administrativos a ser parte de este proceso que impulsa la interacción social y el compromiso con nuestro territorio.
+    <!-- ===== 3. LÍNEAS DE TRABAJO ===== -->
+    <section class="ini-seccion ini-lineas" aria-labelledby="lineas-titulo">
+        <div class="ini-contenedor">
+            <h2 class="ini-titulo" id="lineas-titulo">Líneas de trabajo</h2>
+            <p class="ini-intro">Tres frentes que se cruzan en el trabajo con las comunidades.</p>
+
+            <article class="ini-linea ini-revelar">
+                <figure class="ini-linea-foto">
+                    <img src="imagenes/hajsu-0-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                         alt="Una emprendedora de Hajsú Etnomoda muestra el certificado de Aval de Confianza de Negocios Verdes de Corponariño, junto a tres acompañantes, en un puesto de feria con un canasto de lana">
+                </figure>
+                <div class="ini-linea-texto">
+                    <span class="ini-linea-numero" aria-hidden="true">01</span>
+                    <h3>Negocios verdes</h3>
+                    <p>
+                        Acompañamos a unidades productivas vinculadas a Corponariño en producción, ventas, ingresos, egresos y planes de desarrollo.
+                    </p>
+                    <p>
+                        Con los estudiantes documentamos cada unidad y construimos planes de mejora bajo criterios de certificación verde.
                     </p>
                 </div>
+            </article>
 
-                <div class="flyer-banner-detalles">
-                    <div class="detalle-item">
-                        <i class="fas fa-calendar-check"></i>
-                        <div>
-                            <strong>Fecha</strong>
-                            <span>19 de marzo de 2026</span>
-                        </div>
-                    </div>
-                    
-                    <div class="detalle-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>Hora</strong>
-                            <span>8:30 A.M.</span>
-                        </div>
-                    </div>
-                    
-                    <div class="detalle-item lugar-con-online">
-                        <i class="fas fa-map-pin"></i>
-                        <div class="lugar-info">
-                            <div>
-                                <strong>Lugar</strong>
-                                <span>Auditorio Gonzalo Bravo Pérez</span>
-                                <small>Sede Regional Ipiales</small>
-                            </div>
-                            
-                            <div class="conexion-online-detalle">
-                                <a href="https://teams.microsoft.com/meet/21705744503696?p=kUDPCD82Y1yG7qKNJ1" target="_blank" class="live-link-detalle">
-                                    <i class="fas fa-video"></i>
-                                    <span class="live-badge-detalle">EN VIVO</span>
-                                    <span class="live-texto-detalle">Conexión online · Microsoft Teams</span>
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <article class="ini-linea ini-linea--invertida ini-revelar">
+                <figure class="ini-linea-foto ini-linea-foto--digital">
+                    <img src="imagenes/joven1.jpg" width="1365" height="2048" loading="lazy" decoding="async"
+                         alt="Un estudiante muestra en un computador portátil el prototipo de sitio web de la granja agroecológica La Flor del Campo, frente a un cartel con los wireframes del proyecto">
+                </figure>
+                <div class="ini-linea-texto">
+                    <span class="ini-linea-numero" aria-hidden="true">02</span>
+                    <h3>Transformación digital y analítica de datos</h3>
+                    <p>
+                        Apoyamos a las unidades productivas con herramientas tecnológicas: gestión de redes sociales, marketing de contenidos, modelado de rutas en 3D y gestión documental.
+                    </p>
+                    <p>
+                        A partir del análisis de datos, formulamos proyectos con resultados medibles.
+                    </p>
                 </div>
+            </article>
 
-                <div class="flyer-banner-convenio">
-                    <span class="universidad-tag">Universidad de Nariño</span>
-                    <span class="convenio-tag">Convenio REI-259422</span>
-                    <span class="ufro-tag">Universidad de La Frontera</span>
+            <article class="ini-linea ini-revelar">
+                <figure class="ini-linea-foto">
+                    <img src="imagenes/eventoori.jpeg" width="1280" height="960" loading="lazy" decoding="async"
+                         alt="Una veintena de estudiantes y docentes posan en grupo en un salón de actos, frente al escenario con telón dorado y pantalla de proyección">
+                </figure>
+                <div class="ini-linea-texto">
+                    <span class="ini-linea-numero" aria-hidden="true">03</span>
+                    <h3>Salud</h3>
+                    <p>
+                        Estudiantes de medicina, terapia ocupacional y nutrición llevan a las comunidades e instituciones educativas talleres de autocuidado y promoción de la salud, para cuidar el cuerpo y la mente de quienes cuidan a otros.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ===== 4. CÓMO TRABAJAMOS (línea de tiempo vertical que avanza con el scroll) ===== -->
+    <section class="ini-seccion ini-proceso" id="como-trabajamos" aria-labelledby="proceso-titulo">
+        <div class="ini-contenedor ini-proceso-grid">
+            <div class="ini-proceso-cabecera">
+                <h2 class="ini-titulo" id="proceso-titulo">Cómo trabajamos</h2>
+                <p class="ini-intro">Un proceso que se repite con cada cohorte.</p>
+            </div>
+
+            <div class="ini-proceso-linea">
+                <div class="ini-proceso-riel" aria-hidden="true">
+                    <div class="ini-proceso-relleno"></div>
+                </div>
+                <ol class="ini-proceso-etapas">
+                    <li class="ini-etapa">
+                        <span class="ini-etapa-numero" aria-hidden="true">01</span>
+                        <div class="ini-etapa-texto">
+                            <h3>Conformamos el equipo</h3>
+                            <p>Estudiantes de distintos programas forman un equipo interdisciplinario con acompañamiento docente.</p>
+                        </div>
+                    </li>
+                    <li class="ini-etapa">
+                        <span class="ini-etapa-numero" aria-hidden="true">02</span>
+                        <div class="ini-etapa-texto">
+                            <h3>Llegamos al territorio</h3>
+                            <p>Visitas técnicas y encuentros presenciales y virtuales con las comunidades y las unidades productivas.</p>
+                        </div>
+                    </li>
+                    <li class="ini-etapa">
+                        <span class="ini-etapa-numero" aria-hidden="true">03</span>
+                        <div class="ini-etapa-texto">
+                            <h3>Diagnosticamos y planeamos</h3>
+                            <p>Documentamos cada unidad productiva y construimos con ella un plan de mejora.</p>
+                        </div>
+                    </li>
+                    <li class="ini-etapa">
+                        <span class="ini-etapa-numero" aria-hidden="true">04</span>
+                        <div class="ini-etapa-texto">
+                            <h3>Acompañamos y hacemos seguimiento</h3>
+                            <p>Actas de permanencia, guías de seguimiento y fichas de avance registran el progreso.</p>
+                        </div>
+                    </li>
+                    <li class="ini-etapa">
+                        <span class="ini-etapa-numero" aria-hidden="true">05</span>
+                        <div class="ini-etapa-texto">
+                            <h3>Relevo de cohorte</h3>
+                            <p>Un nuevo equipo recibe el proceso y le da continuidad.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. EN TERRITORIO: GALERÍA Y VIDEO =====
+         Basta con copiar los archivos con estos nombres:
+         imagenes/galeria-01.jpg … imagenes/galeria-08.jpg, videos/piri-video.mp4
+         y, opcional, imagenes/piri-video-portada.jpg (imagen previa del video).
+         js/inicio.js carga cada archivo al acercarse a la sección y oculta los que no existan;
+         si no hay ninguno, la sección entera queda oculta. Para describir cada foto, edita su data-alt. -->
+    <section class="ini-seccion ini-galeria ini-galeria--vacia" id="en-territorio" aria-labelledby="galeria-titulo">
+        <div class="ini-contenedor">
+            <div class="ini-galeria-cabecera">
+                <h2 class="ini-titulo" id="galeria-titulo">En territorio</h2>
+                <p class="ini-intro">Imágenes del trabajo de los equipos con las comunidades del sur de Nariño.</p>
+            </div>
+
+            <ul class="ini-galeria-lista">
+                <li class="ini-galeria-item" hidden>
+                    <button type="button" class="ini-galeria-boton" data-src="imagenes/galeria-01.jpg"
+                            data-alt="Trabajo del equipo PIRI en territorio, foto 1"></button>
+                </li>
+                <li class="ini-galeria-item" hidden>
+                    <button type="button" class="ini-galeria-boton" data-src="imagenes/galeria-02.jpg"
+                            data-alt="Trabajo del equipo PIRI en territorio, foto 2"></button>
+                </li>
+                <li class="ini-galeria-item" hidden>
+                    <button type="button" class="ini-galeria-boton" data-src="imagenes/galeria-03.jpg"
+                            data-alt="Trabajo del equipo PIRI en territorio, foto 3"></button>
+                </li>
+                <li class="ini-galeria-item" hidden>
+                    <button type="button" class="ini-galeria-boton" data-src="imagenes/galeria-04.jpg"
+                            data-alt="Trabajo del equipo PIRI en territorio, foto 4"></button>
+                </li>
+                <li class="ini-galeria-item" hidden>
+                    <button type="button" class="ini-galeria-boton" data-src="imagenes/galeria-05.jpg"
+                            data-alt="Trabajo del equipo PIRI en territorio, foto 5"></button>
+                </li>
+                <li class="ini-galeria-item" hidden>
+                    <button type="button" class="ini-galeria-boton" data-src="imagenes/galeria-06.jpg"
+                            data-alt="Trabajo del equipo PIRI en territorio, foto 6"></button>
+                </li>
+                <li class="ini-galeria-item" hidden>
+                    <button type="button" class="ini-galeria-boton" data-src="imagenes/galeria-07.jpg"
+                            data-alt="Trabajo del equipo PIRI en territorio, foto 7"></button>
+                </li>
+                <li class="ini-galeria-item" hidden>
+                    <button type="button" class="ini-galeria-boton" data-src="imagenes/galeria-08.jpg"
+                            data-alt="Trabajo del equipo PIRI en territorio, foto 8"></button>
+                </li>
+            </ul>
+
+            <div class="ini-video" hidden>
+                <video class="ini-video-reproductor" controls muted playsinline preload="none"
+                       data-src="videos/piri-video.mp4" data-poster="imagenes/piri-video-portada.jpg"
+                       aria-label="Video del PIRI Capítulo Nariño">
+                    Tu navegador no puede reproducir este video.
+                </video>
+            </div>
+        </div>
+
+        <dialog class="ini-visor" aria-label="Foto ampliada">
+            <img class="ini-visor-imagen" alt="">
+            <button type="button" class="ini-visor-boton ini-visor-cerrar" aria-label="Cerrar"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+            <button type="button" class="ini-visor-boton ini-visor-anterior" aria-label="Foto anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button type="button" class="ini-visor-boton ini-visor-siguiente" aria-label="Foto siguiente"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+        </dialog>
+    </section>
+
+    <!-- ===== 6. CONVENIO UDENAR – UFRO ===== -->
+    <section class="ini-seccion ini-convenio" aria-labelledby="convenio-titulo">
+        <div class="ini-contenedor ini-convenio-grid ini-revelar">
+            <div class="ini-convenio-fotos">
+                <figure class="ini-convenio-foto ini-convenio-foto--a">
+                    <img src="imagenes/fondo-hero-1.jpg" width="2048" height="1365" loading="lazy" decoding="async"
+                         alt="Entrada de la Universidad de Nariño, Sede Regional Ipiales">
+                    <figcaption>Universidad de Nariño · Colombia</figcaption>
+                </figure>
+                <figure class="ini-convenio-foto ini-convenio-foto--b">
+                    <img src="imagenes/ufro1.jpg" width="2048" height="1365" loading="lazy" decoding="async"
+                         alt="Reunión de trabajo entre académicos de la Universidad de Nariño y de la Universidad de La Frontera">
+                    <figcaption>Universidad de La Frontera · Chile</figcaption>
+                </figure>
+            </div>
+            <div class="ini-convenio-texto">
+                <h2 class="ini-titulo" id="convenio-titulo">Un convenio entre Colombia y Chile</h2>
+                <p class="ini-convenio-codigo">Convenio REI-259422 · Vigente del 08·08·2025 al 08·08·2030</p>
+                <p>
+                    La Universidad de Nariño y la Universidad de La Frontera (UFRO) firmaron un convenio marco para emprender juntas actividades académicas, científicas, culturales y de movilidad de docentes y estudiantes.
+                </p>
+                <p>
+                    El PIRI nació en la UFRO en 1991. Allí el programa se llama originalmente <em>Programa Internado Rural Interdisciplinario</em>; en Nariño lo desarrollamos como Programa de Interacción Rural Interdisciplinario.
+                </p>
+                <a href="convenio.html" class="ini-enlace">Ver el convenio <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 7. NOTICIAS RECIENTES (de lo más actual a lo más antiguo) ===== -->
+    <section class="ini-seccion ini-noticias" aria-labelledby="noticias-titulo">
+        <div class="ini-contenedor">
+            <div class="ini-noticias-cabecera">
+                <h2 class="ini-titulo" id="noticias-titulo">Noticias recientes</h2>
+                <a href="noticias.html" class="ini-enlace">Todas las noticias <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+
+            <!-- Evento destacado: js/inicio.js muestra "Próximo evento" o "Realizado" según data-fin -->
+            <article class="ini-evento ini-revelar" data-fin="2026-10-08T00:00:00-05:00" aria-labelledby="evento-titulo">
+                <figure class="ini-evento-afiche">
+                    <img src="imagenes/laminga.jpeg" width="1131" height="1600" loading="lazy" decoding="async"
+                         alt="Afiche de La Minga, mercado campesino y agroecológico: cuatro productores con sus frutas, verduras y granos. 7 de octubre, de 8:30 a. m. a 2:00 p. m., en la Universidad de Nariño, Ipiales, Calle 1 N° 3-81, barrio La Floresta">
+                </figure>
+                <div class="ini-evento-texto">
+                    <p class="ini-evento-estado" hidden></p>
+                    <h3 class="ini-evento-titulo" id="evento-titulo">La Minga <span>Mercado campesino y agroecológico</span></h3>
+                    <p class="ini-evento-lema">«Apoyar el campo es apoyar el futuro»</p>
+                    <ul class="ini-evento-datos">
+                        <li>
+                            <i class="fas fa-calendar-day" aria-hidden="true"></i>
+                            <span><time datetime="2026-10-07">7 de octubre de 2026</time></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span><time datetime="2026-10-07T08:30-05:00">8:30 a. m.</time> a <time datetime="2026-10-07T14:00-05:00">2:00 p. m.</time></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-location-dot" aria-hidden="true"></i>
+                            <span>Universidad de Nariño – Ipiales<br>Calle 1 N° 3-81, barrio La Floresta</span>
+                        </li>
+                    </ul>
+                    <p class="ini-evento-invitan">
+                        <strong>Invitan:</strong> Secretaría Diocesana de Pastoral Social Ipiales, Raíces de Vida, Aval de Confianza Negocios Verdes y Universidad de Nariño.
+                    </p>
+                </div>
+            </article>
+
+            <div class="ini-noticias-mosaico">
+                <article class="ini-noticia ini-noticia--principal ini-revelar">
+                    <figure class="ini-noticia-foto">
+                        <img src="imagenes/proyec1.jpeg" width="900" height="1600" loading="lazy" decoding="async"
+                             alt="Dos integrantes del equipo PIRI, con guantes, sostienen bolsas de residuos recogidos en la orilla pedregosa del río Blanco">
+                    </figure>
+                    <div class="ini-noticia-texto">
+                        <span class="ini-noticia-sello"><i class="fas fa-droplet" aria-hidden="true"></i> Proyecto del equipo PIRI</span>
+                        <time datetime="2026-10-05">5 de octubre de 2026</time>
+                        <h3>Guardianes del Agua</h3>
+                        <p>El equipo PIRI limpió y recogió residuos en el río Blanco, fuente de agua de Ipiales. Es un proyecto propio que obtuvo recursos en una convocatoria de movilidad.</p>
+                    </div>
+                </article>
+
+                <article class="ini-noticia ini-noticia--lateral ini-revelar">
+                    <figure class="ini-noticia-foto">
+                        <img src="imagenes/eventoori.jpeg" width="1280" height="960" loading="lazy" decoding="async"
+                             alt="Una veintena de estudiantes y docentes posan en grupo en un salón de actos, frente al escenario con telón dorado y pantalla de proyección">
+                    </figure>
+                    <div class="ini-noticia-texto">
+                        <time datetime="2026-09-28">28 de septiembre de 2026</time>
+                        <h3>Taller de autocuidado en la I.&nbsp;E. Pérez Pallares</h3>
+                        <p>Camila Oriette Morales Ormeño, estudiante de terapia ocupacional de Chile, compartió con estudiantes y docentes una reflexión: cuidar el cuerpo y la mente para poder cuidar a quienes nos rodean.</p>
+                    </div>
+                </article>
+
+                <article class="ini-noticia ini-noticia--lateral ini-revelar">
+                    <figure class="ini-noticia-foto">
+                        <img src="imagenes/laminga01.jpg" width="1018" height="1440" loading="lazy" decoding="async"
+                             alt="Afiche de La Minga de septiembre: cuatro productores campesinos con frutas, verduras y productos de la región">
+                    </figure>
+                    <div class="ini-noticia-texto">
+                        <time datetime="2026-09-03">3 de septiembre de 2026</time>
+                        <h3>La Minga, mercado campesino y agroecológico</h3>
+                        <p>Productos del campo y de la economía campesina en la Universidad de Nariño, sede Ipiales.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 8. CIERRE: INVITACIÓN A PARTICIPAR ===== -->
+    <section class="ini-seccion ini-cierre" aria-labelledby="cierre-titulo">
+        <div class="ini-contenedor ini-cierre-grid ini-revelar">
+            <figure class="ini-cierre-foto">
+                <img src="imagenes/territorio02.jpeg" width="1200" height="1600" loading="lazy" decoding="async"
+                     alt="Estudiantes y docentes celebran frente a una casa de madera amarilla y sostienen un marco decorado que dice «PIRI Melipeuco»">
+            </figure>
+            <div class="ini-cierre-texto">
+                <h2 class="ini-titulo" id="cierre-titulo">Súmate al PIRI</h2>
+                <p>
+                    Si eres estudiante o docente de la Universidad de Nariño, o haces parte de una comunidad u organización del territorio, queremos conocerte.
+                </p>
+                <div class="ini-botones">
+                    <a href="acerca.html" class="ini-boton ini-boton--solido">Conoce la historia del programa</a>
+                    <a href="direccion.html" class="ini-boton ini-boton--contorno-oscuro">Escríbenos</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== MAPA DE UBICACIÓN ===== -->
-    <section class="seccion-mapa">
-        <div class="contenedor-mapa">
-            <h3 class="mapa-titulo">Ubicación del evento</h3>
-            <div class="mapa-contenedor">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.192258833275!2d-77.6278851!3d0.8223019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e296b9180f85a61%3A0xc97584b738e77208!2sUniversidad%20De%20Nari%C3%B1o!5e0!3m2!1ses!2sco!4v1741812345678!5m2!1ses!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <p class="mapa-direccion">Universidad de Nariño · Extensión Ipiales · Auditorio Gonzalo Bravo Pérez</p>
-        </div>
-    </section>
+</main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer-principal">
@@ -273,73 +419,13 @@
     </footer>
 
     <script src="js/script.js"></script>
-    
-    <script>
-        // ===== FUNCIÓN PARA EL MENÚ =====
-        function toggleMenu() {
-            var menu = document.getElementById('navMenu');
-            if (menu.classList.contains('show')) {
-                menu.classList.remove('show');
-            } else {
-                menu.classList.add('show');
-            }
-        }
-
-        // ===== CERRAR MENÚ AL HACER CLIC EN UN ENLACE =====
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('navMenu').classList.remove('show');
-            });
-        });
-
-        // ===== COUNTDOWN =====
-        function updateCountdown() {
-            const eventDate = new Date('March 19, 2026 08:30:00').getTime();
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-
-            if (distance < 0) {
-                document.getElementById('dias').textContent = '00';
-                document.getElementById('horas').textContent = '00';
-                document.getElementById('minutos').textContent = '00';
-                document.getElementById('segundos').textContent = '00';
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('dias').textContent = days.toString().padStart(2, '0');
-            document.getElementById('horas').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutos').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('segundos').textContent = seconds.toString().padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // ===== SLIDER =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
-            
-            if (slides.length > 0) {
-                setInterval(() => {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }, 5000);
-            }
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/inicio.js"></script>
     <!-- ===== BOTÓN DE MODO OSCURO/CLARO ===== -->
 <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
     <i class="fas fa-moon"></i>
     <i class="fas fa-sun" style="display: none;"></i>
 </button>
-
-
 </body>
 </html>
