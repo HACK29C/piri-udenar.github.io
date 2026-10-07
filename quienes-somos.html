@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiénes Somos · PIRI Capítulo Nariño</title>
-    
+    <meta name="description" content="Equipo, identidad, alianzas y trayectoria del Programa de Interacción Rural Interdisciplinario (PIRI) – Capítulo Nariño, Universidad de Nariño, Extensión Ipiales.">
+
     <!-- Fuentes Montserrat e Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <!-- CSS compartido -->
     <link rel="stylesheet" href="css/estilos.css">
+    <!-- CSS de la página Quiénes somos -->
+    <link rel="stylesheet" href="css/quienes.css">
 </head>
-<body>
+<body class="pagina-quienes">
     <!-- ===== FONDO DE TEJIDO ANDINO ===== -->
     <div class="fondo-tejido"></div>
 
-    <!-- ===== NAVIGACIÓN ===== -->
      <!-- ===== NAVEGACIÓN CON LOGOS INSTITUCIONALES ===== -->
 <nav class="navbar">
     <div class="nav-container">
@@ -43,13 +45,15 @@
     </div>
 </nav>
 
+<main id="contenido">
+
 <!-- ===== HERO CON SLIDER (SOLO TÍTULO) ===== -->
 <section class="hero-quienes-simple">
     <!-- Slider de fondo -->
     <div class="hero-quienes-slider">
-        <div class="slide-quienes active" style="background-image: url('imagenes/quienes-fondo-1.jpeg');"></div>
-        <div class="slide-quienes" style="background-image: url('imagenes/quienes-fondo-2.jpeg');"></div>
-        <div class="slide-quienes" style="background-image: url('imagenes/quienes-fondo-3.jpeg');"></div>
+        <div class="slide-quienes active" style="background-image: url('imagenes/quienes-fondo-1-web.jpg');"></div>
+        <div class="slide-quienes" style="background-image: url('imagenes/quienes-fondo-2-web.jpg');"></div>
+        <div class="slide-quienes" style="background-image: url('imagenes/quienes-fondo-3-web.jpg');"></div>
         <div class="slide-quienes" style="background-image: url('imagenes/quienes-fondo-4.jpg');"></div>
         <div class="slide-quienes" style="background-image: url('imagenes/laguna de la bolsa.svg');"></div>
         <div class="hero-overlay"></div>
@@ -65,802 +69,805 @@
         <h2 class="hero-subtitulo-simple">Universidad de Nariño · Extensión Ipiales</h2>
     </div>
 
-    <!-- SCROLL INDICATOR (UNA SOLA VEZ, DENTRO DE LA MISMA SECCIÓN) -->
-    <div class="scroll-indicator">
+    <a href="#equipo" class="scroll-indicator">
         <span>Descubre nuestro equipo</span>
-        <i class="fas fa-chevron-down"></i>
-    </div>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </a>
 </section>
 
-    <!-- ===== MISIÓN Y VISIÓN (AHORA COMO TARJETAS ELEGANTES) ===== -->
-    <section class="mision-vision-seccion">
-        <div class="contenedor">
-            <div class="mision-vision-grid-elegante">
-                <!-- Misión -->
-                <div class="mision-card-elegante">
-                    <div class="mision-icono-elegante">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h2>Misión</h2>
-                    <p>Fortalecer la interacción entre la academia y los territorios rurales de Nariño mediante equipos interdisciplinarios que generan soluciones sostenibles con participación comunitaria, formando profesionales con compromiso social y ambiental.</p>
-                </div>
+    <!-- ===== 1. MISIÓN Y VISIÓN ===== -->
+    <section class="qs-seccion qs-proposito" id="mision-vision" aria-label="Misión y visión">
+        <div class="qs-contenedor qs-proposito-grid">
+            <article class="qs-proposito-bloque qs-revelar">
+                <span class="qs-proposito-icono" aria-hidden="true"><i class="fas fa-bullseye"></i></span>
+                <h2>Misión</h2>
+                <p>Fortalecer la interacción entre la academia y los territorios rurales de Nariño mediante equipos interdisciplinarios que generan soluciones sostenibles con participación comunitaria, formando profesionales con compromiso social y ambiental.</p>
+            </article>
+            <article class="qs-proposito-bloque qs-revelar">
+                <span class="qs-proposito-icono" aria-hidden="true"><i class="fas fa-eye"></i></span>
+                <h2>Visión</h2>
+                <p>Ser un programa líder en la articulación universidad-territorio en el sur de Colombia, reconocido por su enfoque interdisciplinario, su contribución al desarrollo rural sostenible y la formación de profesionales con conciencia social y ambiental.</p>
+            </article>
+        </div>
+    </section>
 
-                <!-- Visión -->
-                <div class="vision-card-elegante">
-                    <div class="vision-icono-elegante">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h2>Visión</h2>
-                    <p>Ser un programa líder en la articulación universidad-territorio en el sur de Colombia, reconocido por su enfoque interdisciplinario, su contribución al desarrollo rural sostenible y la formación de profesionales con conciencia social y ambiental.</p>
+    <!-- ===== 2. EQUIPO PIRI =====
+         Las tarjetas son la versión base: grilla en celular, en tablet, sin JS y con movimiento reducido.
+         En computador js/quienes.js las convierte en una red de nodos (como las líneas del logo):
+         cada nodo es la foto de una persona y su tarjeta aparece en el panel lateral.
+         Para agregar a alguien: copiar un <li class="qs-perfil">, con id único, y su foto 4:5 en imagenes/. -->
+    <section class="qs-seccion qs-equipo" id="equipo" aria-labelledby="equipo-titulo">
+        <div class="qs-contenedor">
+            <div class="qs-cabecera qs-revelar">
+                <h2 class="qs-titulo" id="equipo-titulo">Distintas disciplinas, dos países, un mismo territorio</h2>
+                <p class="qs-intro">Docentes, egresados y estudiantes de Colombia y Chile. Cada quien desde su disciplina, todos con el mismo propósito: trabajar junto a las comunidades del territorio.</p>
+            </div>
+
+            <div class="qs-equipo-cuerpo">
+                <!-- Aquí js/quienes.js inserta la red de nodos en computador -->
+                <div class="qs-red" hidden></div>
+
+                <div class="qs-equipo-panel">
+                    <p class="qs-red-ayuda" hidden>
+                        <i class="fas fa-project-diagram" aria-hidden="true"></i>
+                        Pasa el mouse o toca una foto para conocer a cada integrante y sus conexiones.
+                    </p>
+
+                    <ul class="qs-equipo-lista">
+                        <li class="qs-perfil" id="perfil-mirian">
+                            <figure class="qs-perfil-foto">
+                                <img src="imagenes/equipo-mirian.jpg" width="384" height="480" loading="lazy" decoding="async"
+                                     alt="Mirian Quitiaquez Yepes habla con un micrófono durante un evento al aire libre, con gafas de sol y una camisa blanca estampada con flores">
+                            </figure>
+                            <div class="qs-perfil-texto">
+                                <h3>Mirian Quitiaquez Yepes</h3>
+                                <p class="qs-perfil-programa">Docente de Comercio Internacional · Universidad de Nariño, Sede Regional Ipiales</p>
+                                <ul class="qs-perfil-claves" aria-label="Palabras clave">
+                                    <li>Convenio</li><li>Movilidad</li><li>Territorio</li>
+                                </ul>
+                                <p class="qs-perfil-resumen">Acompaña el PIRI en Nariño desde el primer convenio, en 2010. Gestiona el convenio REI-259422 y la movilidad estudiantil con la UFRO.</p>
+                                <button type="button" class="qs-perfil-mas" aria-expanded="false" aria-controls="mas-mirian" hidden>
+                                    <span>Ver más</span> <i class="fas fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="qs-perfil-detalle" id="mas-mirian">
+                                    <div class="qs-perfil-detalle-interior">
+                                        <h4>Trayectoria en el PIRI</h4>
+                                        <ul>
+                                            <li><strong>2010</strong> · Participó en la firma del primer convenio para implementar el PIRI en Nariño.</li>
+                                            <li>Fue de las primeras en viajar a Chile para conocer la experiencia de la UFRO.</li>
+                                            <li><strong>2025</strong> · Visita a la UFRO, Chile, para retomar el trabajo conjunto.</li>
+                                            <li><strong>2026</strong> · Lanzamiento del PIRI Capítulo Nariño.</li>
+                                        </ul>
+                                        <h4>Aportes al programa</h4>
+                                        <ul>
+                                            <li>Gestión del convenio REI-259422.</li>
+                                            <li>Impulso a la movilidad estudiantil y al trabajo interdisciplinario en el territorio.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="qs-perfil" id="perfil-neys">
+                            <figure class="qs-perfil-foto">
+                                <img src="imagenes/equipo-neys.jpg" width="800" height="1000" loading="lazy" decoding="async"
+                                     alt="Neys Fernanda Tacan Tenganan sonríe con los brazos cruzados frente a un muro de piedra; lleva saco negro y blusa blanca">
+                            </figure>
+                            <div class="qs-perfil-texto">
+                                <h3>Neys Fernanda Tacan Tenganan</h3>
+                                <p class="qs-perfil-programa">Egresada de Comercio Internacional · Universidad de Nariño</p>
+                                <ul class="qs-perfil-claves" aria-label="Palabras clave">
+                                    <li>Desarrollo territorial</li><li>Economía circular</li><li>Fortalecimiento organizacional</li>
+                                </ul>
+                                <p class="qs-perfil-resumen">Une conocimiento técnico, investigación aplicada y saberes comunitarios en contextos interculturales. Hizo su práctica profesional en la UFRO, Melipeuco Chile.</p>
+                                <button type="button" class="qs-perfil-mas" aria-expanded="false" aria-controls="mas-neys" hidden>
+                                    <span>Ver más</span> <i class="fas fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="qs-perfil-detalle" id="mas-neys">
+                                    <div class="qs-perfil-detalle-interior">
+                                        <h4>Formación</h4>
+                                        <ul>
+                                            <li>Comercio Internacional · Universidad de Nariño</li>
+                                            <li>Diplomado en Contabilidad bajo NIIF · Universidad Mariana (2025)</li>
+                                            <li>Diplomado en Asociatividad Estratégica · Cámara de Comercio de Ipiales (2025)</li>
+                                            <li>Técnica en Contabilización de Operaciones Comerciales · SENA (2019)</li>
+                                        </ul>
+                                        <h4>Experiencia</h4>
+                                        <ul>
+                                            <li><strong>Asesora</strong> · Ventanilla de Negocios Verdes, Corponariño – Universidad de Nariño (2025)</li>
+                                            <li><strong>Relatora</strong> · ACIZI (2025)</li>
+                                            <li><strong>Investigadora</strong> · Semillero Sur Atenea, Universidad de Nariño (2022 – 2025)</li>
+                                        </ul>
+                                        <p class="qs-perfil-enlaces">
+                                            Inglés B2 ·
+                                            <a href="https://orcid.org/0009-0008-0300-3350" target="_blank" rel="noopener">ORCID <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="qs-perfil" id="perfil-jhon">
+                            <figure class="qs-perfil-foto">
+                                <img src="imagenes/equipo-jhon.jpg" width="400" height="500" loading="lazy" decoding="async"
+                                     alt="Jhon Alvaro Cuastuza Guaquez con casco blanco de seguridad en un muelle, con barcos detrás y el cielo nublado">
+                            </figure>
+                            <div class="qs-perfil-texto">
+                                <h3>Jhon Alvaro Cuastuza Guaquez</h3>
+                                <p class="qs-perfil-programa">Egresado de Comercio Internacional · Universidad de Nariño</p>
+                                <ul class="qs-perfil-claves" aria-label="Palabras clave">
+                                    <li>Transformación digital</li><li>Análisis de datos</li><li>Desarrollo territorial</li>
+                                </ul>
+                                <p class="qs-perfil-resumen">Experiencia en proyectos I+D+i de agricultura 4.0, IoT y cadenas de suministro. Hizo su práctica profesional en la UFRO, Angol,Chile.</p>
+                                <button type="button" class="qs-perfil-mas" aria-expanded="false" aria-controls="mas-jhon" hidden>
+                                    <span>Ver más</span> <i class="fas fa-plus" aria-hidden="true"></i>
+                                </button>
+                                <div class="qs-perfil-detalle" id="mas-jhon">
+                                    <div class="qs-perfil-detalle-interior">
+                                        <h4>Formación</h4>
+                                        <ul>
+                                            <li>Comercio Internacional · Universidad de Nariño</li>
+                                            <li>Técnico en Programación de Software · SENA (2023)</li>
+                                            <li>Associate Data Scientist y Associate Data Analyst · DataCamp (2025)</li>
+                                            <li>Diplomados en Ciencia de Datos (ESAP, 2025), Métodos Estadísticos (Universidad de Nariño, 2025) y Tecnologías 4.0 (UTB, 2023)</li>
+                                        </ul>
+                                        <h4>Experiencia</h4>
+                                        <ul>
+                                            <li><strong>Investigador</strong> · SENNOVA (2021 – actualidad): invernaderos inteligentes, sensor electroquímico y plataforma IoT para cadena de frío</li>
+                                            <li><strong>Asesor</strong> · Ventanilla de Negocios Verdes, Corponariño – Universidad de Nariño (2025)</li>
+                                            <li><strong>Investigador</strong> · Semillero Sur Atenea, Universidad de Nariño (2022 – 2025)</li>
+                                        </ul>
+                                        <p class="qs-perfil-enlaces">
+                                            <a href="https://doi.org/10.3390/engproc2025087089" target="_blank" rel="noopener">Publicación internacional (2024) <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a> ·
+                                            <a href="https://orcid.org/0009-0007-7034-5695" target="_blank" rel="noopener">ORCID <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="qs-perfil" id="perfil-diego">
+                            <figure class="qs-perfil-foto">
+                                <img src="imagenes/equipo-diego.jpg" width="720" height="900" loading="lazy" decoding="async"
+                                     alt="Diego Armando Morales Cabrera sonríe con camisa blanca junto a un afiche académico y máscaras artesanales en la pared">
+                            </figure>
+                            <div class="qs-perfil-texto">
+                                <h3>Diego Armando Morales Cabrera</h3>
+                                <p class="qs-perfil-programa">Estudiante de Comercio Internacional (9.º semestre) · Universidad de Nariño</p>
+                                <ul class="qs-perfil-claves" aria-label="Palabras clave">
+                                    <li>Organización</li><li>Proactividad</li><li>Responsabilidad</li>
+                                </ul>
+                                <p class="qs-perfil-resumen">Apasionado por el aprendizaje constante, le motiva asumir nuevos retos y aplicar lo que sabe para resolver problemas reales.</p>
+                            </div>
+                        </li>
+
+                        <li class="qs-perfil" id="perfil-fabiana">
+                            <figure class="qs-perfil-foto">
+                                <img src="imagenes/equipo-fabiana.jpg" width="448" height="560" loading="lazy" decoding="async"
+                                     alt="Fabiana Taquez Ortiz sonríe apoyada en un muro de piedra, con una ciudad y montañas al fondo">
+                            </figure>
+                            <div class="qs-perfil-texto">
+                                <h3>Fabiana Taquez Ortiz</h3>
+                                <p class="qs-perfil-programa">Estudiante de Comercio Internacional (9.º semestre) · Universidad de Nariño</p>
+                                <ul class="qs-perfil-claves" aria-label="Palabras clave">
+                                    <li>Creatividad</li><li>Compromiso</li><li>Aprendizaje</li>
+                                </ul>
+                                <p class="qs-perfil-resumen">Curiosa, creativa y abierta a nuevas experiencias. Explora ideas y busca maneras de aportar desde lo que sabe y lo que va descubriendo.</p>
+                            </div>
+                        </li>
+
+                        <li class="qs-perfil" id="perfil-linna">
+                            <figure class="qs-perfil-foto">
+                                <img src="imagenes/equipo-linna.jpg" width="560" height="700" loading="lazy" decoding="async"
+                                     alt="Linna Estefhania Rosales sonríe detrás de un puesto de venta de dulces, con guantes negros y un aviso con códigos QR">
+                            </figure>
+                            <div class="qs-perfil-texto">
+                                <h3>Linna Estefhania Rosales</h3>
+                                <p class="qs-perfil-programa">Estudiante de Comercio Internacional (9.º semestre) · Universidad de Nariño</p>
+                                <ul class="qs-perfil-claves" aria-label="Palabras clave">
+                                    <li>Creación de contenido</li><li>Comunicación</li><li>Creatividad</li>
+                                </ul>
+                                <p class="qs-perfil-resumen">Versátil y creativa, conecta con las personas a través de la comunicación y aporta al equipo una mirada comercial y estratégica.</p>
+                            </div>
+                        </li>
+
+                        <li class="qs-perfil" id="perfil-camila">
+                            <figure class="qs-perfil-foto">
+                                <img src="imagenes/equipo-camila.jpg" width="800" height="1000" loading="lazy" decoding="async"
+                                     alt="Camila Oriette Morales Ormeño, con trenzas y uniforme clínico negro de Terapia Ocupacional, frente al escudo de madera de la Universidad de La Frontera">
+                            </figure>
+                            <div class="qs-perfil-texto">
+                                <h3>Camila Oriette Morales Ormeño</h3>
+                                <p class="qs-perfil-programa">Estudiante de 5.º año de Terapia Ocupacional · Universidad de La Frontera (Chile), en movilidad en la sede Ipiales</p>
+                                <ul class="qs-perfil-claves" aria-label="Palabras clave">
+                                    <li>Interculturalidad</li><li>Comunidad</li><li>Justicia social</li>
+                                </ul>
+                                <p class="qs-perfil-resumen">Curiosa y con ganas de aprender, participa en voluntariados y actividades comunitarias. Le interesan la justicia social, los derechos y la interculturalidad, y busca intercambiar saberes con las personas.</p>
+                            </div>
+                        </li>
+
+                        <li class="qs-perfil" id="perfil-barbara">
+                            <figure class="qs-perfil-foto">
+                                <img src="imagenes/equipo-barbara.jpg" width="720" height="900" loading="lazy" decoding="async"
+                                     alt="Bárbara Navarrete Bolados sonríe con uniforme clínico morado y credencial, sobre fondo blanco">
+                            </figure>
+                            <div class="qs-perfil-texto">
+                                <h3>Bárbara Navarrete Bolados</h3>
+                                <p class="qs-perfil-programa">Estudiante de Nutrición · Universidad de La Frontera (Chile), en movilidad en la sede Ipiales</p>
+                                <ul class="qs-perfil-claves" aria-label="Palabras clave">
+                                    <li>Nutrición</li><li>Salud</li><li>Educación</li>
+                                </ul>
+                                <p class="qs-perfil-resumen">Empática y comprometida, entiende la nutrición desde una mirada humana, cercana y atenta a las necesidades de cada persona.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SIGNIFICADO DEL LOGO ===== -->
-    <section class="significado-logo">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">NUESTRO LOGO</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="logo-grid-simple">
-                <!-- Logo a la izquierda -->
-                <div class="logo-imagen">
-                    <img src="imagenes/logo-piri.png" alt="Logo PIRI" class="logo-grande">
-                </div>
-                
-                <!-- Descripción a la derecha -->
-                <div class="logo-descripcion">
-                    <h3>El significado de nuestra identidad</h3>
-                    
-                    <div class="descripcion-item">
-                        <div class="descripcion-icono" style="background: #326C54;">
-                            <i class="fas fa-mountain"></i>
+    <!-- ===== 3. NUESTRO LOGO ===== -->
+    <section class="qs-seccion qs-logo" aria-labelledby="logo-titulo">
+        <div class="qs-contenedor qs-logo-grid">
+            <figure class="qs-logo-imagen qs-revelar">
+                <img src="imagenes/logo-piri-web.png" width="1000" height="469" loading="lazy" decoding="async"
+                     alt="Logo del PIRI Capítulo Nariño: emblema circular con dos montañas nevadas bajo un cielo azul, tierra café y líneas blancas que se cruzan y unen dos nodos, junto al texto PIRI, Programa de Interacción Rural Interdisciplinario">
+            </figure>
+            <div class="qs-logo-texto">
+                <h2 class="qs-titulo" id="logo-titulo">Nuestro logo</h2>
+                <p class="qs-intro">El significado de nuestra identidad.</p>
+                <ul class="qs-logo-lista">
+                    <li class="qs-revelar">
+                        <span class="qs-logo-icono qs-logo-icono--verde" aria-hidden="true"><i class="fas fa-mountain"></i></span>
+                        <div>
+                            <h3>Territorio andino</h3>
+                            <p>Las montañas y el volcán representan el paisaje de Nariño y el contexto rural donde trabaja el programa.</p>
                         </div>
-                        <div class="descripcion-texto">
-                            <h4>Territorio Andino</h4>
-                            <p>La silueta de montañas y el volcán andino representan el paisaje característico del departamento de Nariño y el contexto rural donde el programa desarrolla sus actividades.</p>
+                    </li>
+                    <li class="qs-revelar">
+                        <span class="qs-logo-icono qs-logo-icono--lima" aria-hidden="true"><i class="fas fa-project-diagram"></i></span>
+                        <div>
+                            <h3>Interdisciplinariedad</h3>
+                            <p>Las líneas y nodos interconectados son la colaboración entre disciplinas y entre estudiantes, docentes y comunidades rurales.</p>
                         </div>
-                    </div>
-                    
-                    <div class="descripcion-item">
-                        <div class="descripcion-icono" style="background: #9FC33C;">
-                            <i class="fas fa-project-diagram"></i>
+                    </li>
+                    <li class="qs-revelar">
+                        <span class="qs-logo-icono qs-logo-icono--terracota" aria-hidden="true"><i class="fas fa-circle"></i></span>
+                        <div>
+                            <h3>Integración y comunidad</h3>
+                            <p>La forma circular sugiere integración, comunidad y un trabajo articulado entre universidad y territorio.</p>
                         </div>
-                        <div class="descripcion-texto">
-                            <h4>Interdisciplinariedad</h4>
-                            <p>Las líneas y nodos interconectados representan la colaboración entre distintas disciplinas académicas y la interacción entre estudiantes, profesores y comunidades rurales.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="descripcion-item">
-                        <div class="descripcion-icono" style="background: #C85A2E;">
-                            <i class="fas fa-circle"></i>
-                        </div>
-                        <div class="descripcion-texto">
-                            <h4>Integración y Comunidad</h4>
-                            <p>La forma circular del emblema sugiere integración, comunidad y un sistema de trabajo articulado entre universidad y territorio.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="colores-mini">
-                        <span style="background: #326C54;" title="Verde profundo - Naturaleza"></span>
-                        <span style="background: #C85A2E;" title="Terracota - Tierra andina"></span>
-                        <span style="background: #010192;" title="Azul - Conocimiento"></span>
-                        <span style="background: #9FC33C;" title="Verde brillante - Esperanza"></span>
-                    </div>
-                </div>
+                    </li>
+                </ul>
+                <ul class="qs-paleta" aria-label="Colores del logo">
+                    <li><span class="qs-paleta-muestra qs-paleta--verde" aria-hidden="true"></span>Verde profundo · Naturaleza</li>
+                    <li><span class="qs-paleta-muestra qs-paleta--terracota" aria-hidden="true"></span>Terracota · Tierra andina</li>
+                    <li><span class="qs-paleta-muestra qs-paleta--azul" aria-hidden="true"></span>Azul · Conocimiento</li>
+                    <li><span class="qs-paleta-muestra qs-paleta--lima" aria-hidden="true"></span>Verde brillante · Esperanza</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONVENIO INTERNACIONAL ===== -->
-    <section class="convenio-simple">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">CONVENIO INTERNACIONAL</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="convenio-paises">
-                <div class="pais-item">
-                    <img src="imagenes/logo-udenar.png" alt="Universidad de Nariño" class="pais-logo">
-                    <h3>Universidad de Nariño</h3>
-                    <span class="pais-nombre">Colombia</span>
-                </div>
-                
-                <div class="convenio-icono-grande">
-                    <i class="fas fa-handshake"></i>
-                    <span class="convenio-fecha">08·08·2025</span>
-                </div>
-                
-                <div class="pais-item">
-                    <img src="imagenes/logo-ufro.png" alt="Universidad de La Frontera" class="pais-logo">
-                    <h3>Universidad de La Frontera</h3>
-                    <span class="pais-nombre">Chile</span>
-                </div>
+    <!-- ===== 4. ALIANZAS ===== -->
+    <section class="qs-seccion qs-alianzas" aria-labelledby="alianzas-titulo">
+        <div class="qs-contenedor">
+            <div class="qs-cabecera">
+                <h2 class="qs-titulo" id="alianzas-titulo">Alianzas</h2>
+                <p class="qs-intro">Trabajamos con universidades e instituciones que comparten el compromiso con el territorio.</p>
             </div>
-        </div>
-    </section>
-    <!-- ===== ALIANZA PARA EL DESARROLLO ===== -->
-<section class="alianza-estrategica">
-    <div class="contenedor">
-        <h2 class="seccion-titulo">ALIANZA PARA EL DESARROLLO</h2>
-        <div class="seccion-linea"></div>
-        
-        <!-- Instituciones principales (3 aliados) -->
-        <div class="alianza-grid-principal">
-            <!-- Corponariño -->
-            <div class="alianza-card-principal">
-                <div class="alianza-icono-grande">
-                    <img src="imagenes/logo-corponarino.png" alt="Corponariño">
-                </div>
-                <h3>Corponariño</h3>
-                <p class="alianza-sub">Ventanilla de Negocios Verdes</p>
-                <div class="alianza-badge">Aliado estratégico</div>
-            </div>
-            
-            <!-- Conector 1 -->
-            <div class="alianza-conector-principal">
-                <i class="fas fa-plus-circle"></i>
-            </div>
-            
-            <!-- Universidad de Nariño -->
-            <div class="alianza-card-principal">
-                <div class="alianza-icono-grande">
-                    <img src="imagenes/logo-udenar.png" alt="Universidad de Nariño">
-                </div>
-                <h3>Universidad de Nariño</h3>
-                <p class="alianza-sub">Sede Regional Ipiales</p>
-                <div class="alianza-badge">Institución base</div>
-            </div>
-            
-            <!-- Conector 2 -->
-            <div class="alianza-conector-principal">
-                <i class="fas fa-plus-circle"></i>
-            </div>
-            
-            <!-- UNEMPRESA -->
-            <div class="alianza-card-principal">
-                <div class="alianza-icono-grande">
-                    <img src="imagenes/logo-unempresa.png" alt="UNEMPRESA">
-                </div>
-                <h3>UNEMPRESA</h3>
-                <p class="alianza-sub">Universidad de Nariño</p>
-                <div class="alianza-badge">Unidad académica</div>
-            </div>
-        </div>
-        
-        <p class="alianza-descripcion-amplia">
-            <i class="fas fa-quote-left"></i> 
-            Trabajo conjunto para impulsar los negocios verdes en el departamento, articulando la academia, 
-            la institucionalidad ambiental y el emprendimiento universitario en beneficio del territorio.
-            <i class="fas fa-quote-right"></i>
-        </p>
-        
-        <!-- Programas académicos participantes -->
-        <div class="programas-academicos-seccion">
-            <h3 class="programas-titulo-seccion">
-                <i class="fas fa-graduation-cap"></i> 
-                Programas académicos participantes
-            </h3>
-            
-            <div class="programas-grid-avanzado">
-                <!-- Comercio Internacional -->
-                <div class="programa-card-avanzado">
-                    <div class="programa-header" style="background: linear-gradient(135deg, #326C54, #255633);">
-                        
-                        <h4>Comercio Internacional</h4>
-                    </div>
-                    <div class="programa-body">
-                        <div class="programa-semestre">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Semestres: <strong>8° y 9°</strong></span>
-                        </div>
-                        <div class="programa-aportes-grid">
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-certificate"></i> Certificaciones
-                            </span>
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-image"></i> Imagen comercial
-                            </span>
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-globe-americas"></i> Mercados internacionales
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Ingeniería en Sistemas -->
-                <div class="programa-card-avanzado">
-                    <div class="programa-header" style="background: linear-gradient(135deg, #9FC33C, #7AA32E);">
-                        <h4>Ingeniería en Sistemas</h4>
-                    </div>
-                    <div class="programa-body">
-                        <div class="programa-semestre">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Semestres: <strong>5°</strong></span>
-                        </div>
-                        <div class="programa-aportes-grid">
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-route"></i> Rutas 3D
-                            </span>
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-chart-line"></i> Marketing digital
-                            </span>
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-cogs"></i> Gestión tecnológica
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- UNEMPRESA (como programa) -->
-                <div class="programa-card-avanzado programa-destacado">
-                    <div class="programa-header" style="background: linear-gradient(135deg, #C85A2E, #9C451F);">
-                        <h4>UNEMPRESA</h4>
-                    </div>
-                    <div class="programa-body">
-                        <div class="programa-semestre">
-                            <i class="fas fa-users"></i>
-                            <span><strong>Emprendimiento universitario</strong></span>
-                        </div>
-                        <div class="programa-aportes-grid">
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-lightbulb"></i> Incubación
-                            </span>
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-handshake"></i> Alianzas estratégicas
-                            </span>
-                            <span class="aporte-tag-avanzado">
-                                <i class="fas fa-chart-pie"></i> Modelos de negocio
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <p class="programas-nota">
-                <i class="fas fa-star"></i>
-                Estudiantes de estos programas trabajan interdisciplinariamente para potenciar los negocios verdes de la región.
-            </p>
-        </div>
-    </div>
-</section>
 
-    
-
-    <!-- ===== ANTECEDENTES ===== -->
-    <section class="antecedentes-mejorados">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">ANTECEDENTES</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="timeline-vertical">
-                <div class="timeline-item-vertical">
-                    <div class="timeline-ano">2022</div>
-                    <div class="timeline-contenido-vertical">
-                        <h4>Construcción del proceso</h4>
-                        <p>Inicio del trabajo con estudiantes y comunidades</p>
+            <!-- Convenio internacional -->
+            <div class="qs-convenio qs-revelar">
+                <div class="qs-convenio-parte">
+                    <img src="imagenes/logo-udenar.png" width="300" height="300" loading="lazy" decoding="async" alt="">
+                    <div>
+                        <h3>Universidad de Nariño</h3>
+                        <p>Colombia</p>
                     </div>
                 </div>
-                
-                <div class="timeline-item-vertical">
-                    <div class="timeline-ano">2023</div>
-                    <div class="timeline-contenido-vertical">
-                        <h4>Implementación</h4>
-                        <p>Proceso de implementación con estudiantes en territorio</p>
-                    </div>
+                <div class="qs-convenio-centro">
+                    <span class="qs-convenio-icono" aria-hidden="true"><i class="fas fa-handshake"></i></span>
+                    <p class="qs-convenio-nombre">Convenio internacional REI-259422</p>
+                    <p class="qs-convenio-fecha">Firmado el <time datetime="2025-08-08">08·08·2025</time></p>
+                    <a href="convenio.html" class="qs-enlace">Ver el convenio <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-                
-                <div class="timeline-item-vertical">
-                    <div class="timeline-ano">2024</div>
-                    <div class="timeline-contenido-vertical">
-                        <h4>Diseño del programa</h4>
-                        <p>Hoja de trabajo con Francisco Chavés - Ventanilla Negocios Verdes</p>
+                <div class="qs-convenio-parte qs-convenio-parte--derecha">
+                    <img src="imagenes/logo-ufro.png" width="1385" height="1194" loading="lazy" decoding="async" alt="">
+                    <div>
+                        <h3>Universidad de La Frontera</h3>
+                        <p>Chile</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Municipios participantes -->
-            <div class="municipios-destacados">
-                <h3>Municipios participantes</h3>
-                <div class="municipios-nube">
-                    <span class="municipio-tag" style="--i:1">Cumbal</span>
-                    <span class="municipio-tag" style="--i:2">Contadero</span>
-                    <span class="municipio-tag" style="--i:3">Guachucal</span>
-                    <span class="municipio-tag" style="--i:4">Pupiales</span>
-                    <span class="municipio-tag" style="--i:5">Sapuyes</span>
-                    <span class="municipio-tag" style="--i:6">Potosí</span>
-                    <span class="municipio-tag" style="--i:7">Córdoba</span>
-                    <span class="municipio-tag" style="--i:8">Carlosama</span>
-                </div>
-            </div>
+            <!-- Alianza para el desarrollo -->
+            <h3 class="qs-subtitulo">Alianza para el desarrollo</h3>
+            <ul class="qs-aliados">
+                <li class="qs-aliado qs-revelar">
+                    <span class="qs-aliado-logo"><img src="imagenes/logo-corponarino.png" width="270" height="187" loading="lazy" decoding="async" alt=""></span>
+                    <h4>Corponariño</h4>
+                    <p>Ventanilla de Negocios Verdes</p>
+                    <span class="qs-aliado-rol">Aliado estratégico</span>
+                </li>
+                <li class="qs-aliado qs-revelar">
+                    <span class="qs-aliado-logo"><img src="imagenes/logo-udenar.png" width="300" height="300" loading="lazy" decoding="async" alt=""></span>
+                    <h4>Universidad de Nariño</h4>
+                    <p>Sede Regional Ipiales</p>
+                    <span class="qs-aliado-rol">Institución base</span>
+                </li>
+                <li class="qs-aliado qs-revelar">
+                    <span class="qs-aliado-logo"><img src="imagenes/logo-unempresa.png" width="239" height="69" loading="lazy" decoding="async" alt=""></span>
+                    <h4>UNEMPRESA</h4>
+                    <p>Emprendimiento universitario: incubación, alianzas estratégicas y modelos de negocio</p>
+                    <span class="qs-aliado-rol">Unidad académica</span>
+                </li>
+            </ul>
+            <p class="qs-cita qs-revelar">Trabajo conjunto para impulsar los negocios verdes del departamento, articulando la academia, la institucionalidad ambiental y el emprendimiento universitario en beneficio del territorio.</p>
         </div>
     </section>
 
-    <!-- ===== NEGOCIOS VERDES (REDISEÑADO) ===== -->
-    <section class="negocios-verdes">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">NEGOCIOS VERDES</h2>
-            <div class="seccion-linea"></div>
-            
-            <!-- Frase destacada -->
-            <div class="frase-destacada">
-                <i class="fas fa-quote-left"></i>
-                <p>Negocios verdes avanzando hacia la certificación con el respaldo académico de los estudiantes.</p>
+    <!-- ===== 5. CÓMO TRABAJAMOS EN EL TERRITORIO ===== -->
+    <section class="qs-seccion qs-territorio" aria-labelledby="territorio-titulo">
+        <div class="qs-contenedor">
+            <div class="qs-cabecera">
+                <h2 class="qs-titulo" id="territorio-titulo">Cómo trabajamos en el territorio</h2>
+                <p class="qs-intro">Estudiantes de varios programas trabajan de forma interdisciplinaria para que los negocios verdes de la región avancen hacia la certificación. El trabajo conjunto fortalece las capacidades locales y abre oportunidades para el desarrollo sostenible.</p>
             </div>
 
-            <!-- Carrusel de estudiantes -->
-            <div class="carrusel-negocios">
-                <h3>Acompañamiento estudiantil</h3>
-                <div class="carrusel-auto-negocios">
-                    <div class="carrusel-auto-track-negocios">
-                        <div class="carrusel-auto-slide-negocios">
-                            <img src="imagenes/negocios-1.svg" alt="Estudiantes en territorio">
-                        </div>
-                        <div class="carrusel-auto-slide-negocios">
-                            <img src="imagenes/negocios-2.jpg" alt="Capacitación">
-                        </div>
-                        <div class="carrusel-auto-slide-negocios">
-                            <img src="imagenes/negocios-4.svg" alt="Visita técnica">
-                        </div>
-                        <div class="carrusel-auto-slide-negocios">
-                            <img src="imagenes/logi.jpeg" alt="Trabajo comunitario">
-                        </div>
-                    </div>
+            <!-- Programas participantes y video -->
+            <div class="qs-programas-grid">
+                <div>
+                    <h3 class="qs-subtitulo qs-subtitulo--izquierda">Programas participantes</h3>
+                    <ul class="qs-programas">
+                        <li class="qs-programa qs-revelar">
+                            <span class="qs-programa-icono" aria-hidden="true"><i class="fas fa-globe-americas"></i></span>
+                            <div>
+                                <h4>Comercio Internacional <span>8.º y 9.º semestre</span></h4>
+                                <p>Certificaciones, imagen comercial y preparación para mercados nacionales e internacionales.</p>
+                            </div>
+                        </li>
+                        <li class="qs-programa qs-revelar">
+                            <span class="qs-programa-icono" aria-hidden="true"><i class="fas fa-cube"></i></span>
+                            <div>
+                                <h4>Ingeniería de Sistemas <span>5.º semestre</span></h4>
+                                <p>Modelado de rutas 3D, marketing digital y gestión tecnológica para promover los emprendimientos.</p>
+                            </div>
+                        </li>
+                        <li class="qs-programa qs-revelar">
+                            <span class="qs-programa-icono" aria-hidden="true"><i class="fas fa-store"></i></span>
+                            <div>
+                                <h4>Mercadeo <span>7.º y 8.º semestre</span></h4>
+                                <p>Formación académica que se suma al trabajo con las unidades productivas.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
+
+                <!-- Video de Facebook: solo se carga cuando el visitante lo pide.
+                     Sin JS, el enlace abre el video en Facebook. -->
+                <figure class="qs-video qs-revelar">
+                    <a class="qs-video-portada" href="https://web.facebook.com/reel/900553082968662/" target="_blank" rel="noopener"
+                       data-embed="https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fweb.facebook.com%2Freel%2F900553082968662%2F&amp;show_text=false&amp;width=560&amp;t=0">
+                        <img class="qs-video-fondo" src="imagenes/negocios-2.jpg" width="2048" height="1152" loading="lazy" decoding="async" alt="">
+                        <img class="qs-video-imagen" src="imagenes/negocios-2.jpg" width="2048" height="1152" loading="lazy" decoding="async"
+                             alt="Dos estudiantes presentan el canvas verde de una unidad productiva frente a un auditorio">
+                        <span class="qs-video-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+                        <span class="qs-video-texto">Reproducir video: Conoce el proceso</span>
+                    </a>
+                    <figcaption>El video se carga desde Facebook al pulsar reproducir.</figcaption>
+                </figure>
             </div>
 
-            <!-- Proceso de capacitación en tarjetas interactivas -->
-            <div class="proceso-grid-elegante">
-                <div class="proceso-card">
-                    <div class="proceso-icono" style="background: linear-gradient(135deg, #326C54, #9FC33C);">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h4>Capacitación Sostenible</h4>
+            <!-- Municipios -->
+            <div class="qs-municipios qs-revelar">
+                <h3><i class="fas fa-location-dot" aria-hidden="true"></i> Municipios participantes</h3>
+                <ul>
+                    <li>Cumbal</li><li>Contadero</li><li>Guachucal</li><li>Pupiales</li>
+                    <li>Sapuyes</li><li>Potosí</li><li>Córdoba</li><li>Carlosama</li>
+                </ul>
+            </div>
+
+            <!-- Acompañamiento y seguimiento -->
+            <h3 class="qs-subtitulo">Acompañamiento y seguimiento</h3>
+            <ul class="qs-acompanamiento">
+                <li class="qs-bloque qs-revelar">
+                    <span class="qs-bloque-icono" aria-hidden="true"><i class="fas fa-certificate"></i></span>
+                    <h4>Capacitación sostenible</h4>
                     <p>Documentación de unidades productivas y planes de mejora bajo criterios de certificación verde.</p>
-                    <div class="proceso-hover"></div>
-                </div>
-                
-                <div class="proceso-card">
-                    <div class="proceso-icono" style="background: linear-gradient(135deg, #C85A2E, #9FC33C);">
-                        <i class="fas fa-users"></i>
-                    </div>
+                </li>
+                <li class="qs-bloque qs-revelar">
+                    <span class="qs-bloque-icono" aria-hidden="true"><i class="fas fa-users"></i></span>
                     <h4>Socialización</h4>
-                    <p>Plan de trabajo desde el curso Ética y Compromiso Social</p>
-                </div>
-                
-                <div class="proceso-card">
-                    <div class="proceso-icono" style="background: linear-gradient(135deg, #010192, #326C54);">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h4>Formación académica</h4>
-                    <p>Mercadeo (7° y 8°) · Comercio Internacional (8° y 9°)</p>
-                </div>
-            </div>
-            <!-- ===== CONOCE EL PROCESO (TEXTO + VIDEO FACEBOOK) ===== -->
-<div class="proceso-dual">
-    <!-- Lado izquierdo: Texto explicativo -->
-    <div class="proceso-info">
-        <h3><i class="fas fa-seedling"></i> Conoce el proceso</h3>
-        <p class="proceso-descripcion">
-            Estudiantes de <strong>Comercio Internacional</strong> e <strong>Ingeniería en Sistemas</strong> trabajan de manera interdisciplinaria para potenciar los negocios verdes de la región.
-        </p>
-        <div class="proceso-aportes">
-            <div class="aporte-item">
-                <i class="fas fa-globe" style="color: var(--verde-piri);"></i>
-                <div>
-                    <strong>Comercio Internacional</strong>
-                    <span>Asesoría en certificaciones, imagen comercial y preparación para mercados nacionales e internacionales.</span>
-                </div>
-            </div>
-            <div class="aporte-item">
-                <i class="fas fa-laptop-code" style="color: var(--verde-piri);"></i>
-                <div>
-                    <strong>Ingeniería en Sistemas</strong>
-                    <span>Modelado de rutas 3D, marketing digital y gestión tecnológica para la promoción de los emprendimientos.</span>
-                </div>
-            </div>
-        </div>
-        <p class="proceso-impacto">
-            <i class="fas fa-quote-left"></i> El trabajo conjunto fortalece las capacidades locales y abre nuevas oportunidades para el desarrollo sostenible.
-        </p>
-    </div>
-
-    <!-- Lado derecho: Video de Facebook -->
-    <div class="proceso-video">
-        <div class="fb-video-contenedor" style="padding-bottom: 85%;">
-            <iframe 
-                src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F900553082968662%2F&show_text=false&width=560&t=0" 
-                width="560" 
-                height="476" 
-                style="border:none;overflow:hidden" 
-                scrolling="no" 
-                frameborder="0" 
-                allowfullscreen="true" 
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                loading="lazy">
-            </iframe>
-        </div>
-    </div>
-</div>
-            
-
-    <!-- ===== ACOMPAÑAMIENTO INSTITUCIONAL (REDISEÑADO) ===== -->
-    <section class="acompanamiento-institucional">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">ACOMPAÑAMIENTO INSTITUCIONAL</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="acompanamiento-grid-elegante">
-                <div class="acompanamiento-card">
-                    <div class="acompanamiento-header" style="background: #326C54;">
-                        <i class="fas fa-building"></i>
-                        <h3>Apoyo institucional</h3>
-                    </div>
-                    <ul class="acompanamiento-lista">
-                        <li><i class="fas fa-check-circle"></i> Recursos desde la sede</li>
-                        <li><i class="fas fa-check-circle"></i> Visitas técnicas y acompañamiento en campo</li>
-                        <li><i class="fas fa-check-circle"></i> Propuesta gestión de recursos</li>
-                        <li><i class="fas fa-check-circle"></i> Encuentros virtuales y presenciales</li>
+                    <p>Plan de trabajo desde el curso Ética y Compromiso Social.</p>
+                </li>
+                <li class="qs-bloque qs-revelar">
+                    <span class="qs-bloque-icono" aria-hidden="true"><i class="fas fa-building"></i></span>
+                    <h4>Apoyo institucional</h4>
+                    <ul class="qs-etiquetas">
+                        <li>Recursos desde la sede</li>
+                        <li>Visitas técnicas y acompañamiento en campo</li>
+                        <li>Propuesta de gestión de recursos</li>
+                        <li>Encuentros virtuales y presenciales</li>
                     </ul>
-                </div>
-                
-                <div class="acompanamiento-card">
-                    <div class="acompanamiento-header" style="background: #C85A2E;">
-                        <i class="fas fa-clipboard-check"></i>
-                        <h3>Seguimiento</h3>
-                    </div>
-                    <ul class="acompanamiento-lista">
-                        <li><i class="fas fa-check-circle"></i> Actas de permanencia</li>
-                        <li><i class="fas fa-check-circle"></i> Guías de seguimiento</li>
-                        <li><i class="fas fa-check-circle"></i> Fichas de avance</li>
+                </li>
+                <li class="qs-bloque qs-revelar">
+                    <span class="qs-bloque-icono" aria-hidden="true"><i class="fas fa-clipboard-check"></i></span>
+                    <h4>Seguimiento</h4>
+                    <ul class="qs-etiquetas">
+                        <li>Actas de permanencia</li>
+                        <li>Guías de seguimiento</li>
+                        <li>Fichas de avance</li>
                     </ul>
-                </div>
-            </div>
+                </li>
+            </ul>
 
-            <!-- Carrusel acompañamiento (altura corregida) -->
-            <div class="carrusel-acompanamiento">
-                <div class="carrusel-auto-acompanamiento">
-                    <div class="carrusel-auto-track-acompanamiento">
-                        <div class="carrusel-auto-slide-acompanamiento">
-                            <img src="imagenes/acompanamiento-1.jpg" alt="Visita técnica">
+            <!-- Lo que hemos hecho -->
+            <h3 class="qs-subtitulo">Lo que hemos hecho</h3>
+            <ul class="qs-acciones">
+                <li class="qs-accion qs-revelar">
+                    <span class="qs-accion-icono" aria-hidden="true"><i class="fas fa-share-alt"></i></span>
+                    <h4>Gestión de redes sociales</h4>
+                    <p>Planificación de contenidos e interacción con la comunidad.</p>
+                </li>
+                <li class="qs-accion qs-revelar">
+                    <span class="qs-accion-icono" aria-hidden="true"><i class="fas fa-podcast"></i></span>
+                    <h4>Marketing de contenidos</h4>
+                    <p>Podcast, artículos, videos e infografías.</p>
+                </li>
+                <li class="qs-accion qs-revelar">
+                    <span class="qs-accion-icono" aria-hidden="true"><i class="fas fa-route"></i></span>
+                    <h4>Modelado de rutas en 3D</h4>
+                    <p>Diseño y simulación de rutas georreferenciadas.</p>
+                </li>
+                <li class="qs-accion qs-revelar">
+                    <span class="qs-accion-icono" aria-hidden="true"><i class="fas fa-paint-brush"></i></span>
+                    <h4>Canvas sostenible</h4>
+                    <p>Diseñar, visualizar y gestionar proyectos con enfoque ambiental.</p>
+                </li>
+                <li class="qs-accion qs-revelar">
+                    <span class="qs-accion-icono" aria-hidden="true"><i class="fas fa-heart"></i></span>
+                    <h4>Responsabilidad social</h4>
+                    <p>Tareas de comunidad y compromiso social empresarial.</p>
+                </li>
+                <li class="qs-accion qs-revelar">
+                    <span class="qs-accion-icono" aria-hidden="true"><i class="fas fa-file-alt"></i></span>
+                    <h4>Gestión documental</h4>
+                    <p>Acciones documentales para el desarrollo del proceso.</p>
+                </li>
+                <li class="qs-accion qs-revelar">
+                    <span class="qs-accion-icono" aria-hidden="true"><i class="fas fa-chart-bar"></i></span>
+                    <h4>Gestión comercial</h4>
+                    <p>Certificaciones, etiquetado, imagen y atención al cliente.</p>
+                </li>
+            </ul>
+
+            <!-- Investigación -->
+            <div class="qs-investigacion qs-revelar">
+                <div class="qs-investigacion-texto">
+                    <h3 class="qs-subtitulo qs-subtitulo--izquierda">Investigación</h3>
+                    <div class="qs-investigacion-item">
+                        <span class="qs-bloque-icono" aria-hidden="true"><i class="fas fa-flask"></i></span>
+                        <div>
+                            <h4>Propuesta VIIS</h4>
+                            <p>Diseño y presentación bajo el enfoque de investigación-acción participativa.</p>
                         </div>
-                        <div class="carrusel-auto-slide-acompanamiento">
-                            <img src="imagenes/acompanamiento-2.jpeg" alt="Trabajo en campo">
-                        </div>
-                        <div class="carrusel-auto-slide-acompanamiento">
-                            <img src="imagenes/acompanamiento-3.jpeg" alt="Reunión institucional">
+                    </div>
+                    <div class="qs-investigacion-item">
+                        <span class="qs-bloque-icono" aria-hidden="true"><i class="fas fa-microphone-alt"></i></span>
+                        <div>
+                            <h4>Participación académica</h4>
+                            <ul class="qs-etiquetas">
+                                <li>Ponencias en eventos</li>
+                                <li>Socialización de resultados cada semestre</li>
+                                <li>Encuentros y muestras empresariales</li>
+                                <li>Certificaciones</li>
+                                <li>Postulación a convocatorias nacionales</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+                <figure class="qs-investigacion-foto">
+                    <img src="imagenes/investigacion.jpg" width="2048" height="1150" loading="lazy" decoding="async"
+                         alt="Una docente habla en un atril con micrófono junto a dos estudiantes, frente a las banderas de Colombia y de un municipio">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. TRAYECTORIA (línea de tiempo que avanza con el scroll) ===== -->
+    <section class="qs-seccion qs-trayectoria" aria-labelledby="trayectoria-titulo">
+        <div class="qs-contenedor qs-trayectoria-grid">
+            <div class="qs-trayectoria-cabecera">
+                <h2 class="qs-titulo" id="trayectoria-titulo">Trayectoria</h2>
+                <p class="qs-intro">Del primer trabajo con las comunidades a las muestras empresariales.</p>
+            </div>
+
+            <div class="qs-linea">
+                <div class="qs-linea-riel" aria-hidden="true">
+                    <div class="qs-linea-relleno"></div>
+                </div>
+                <ol class="qs-hitos">
+                    <li class="qs-hito">
+                        <p class="qs-hito-fecha"><time datetime="2022">2022</time></p>
+                        <h3>Construcción del proceso</h3>
+                        <p>Inicio del trabajo con estudiantes y comunidades.</p>
+                    </li>
+                    <li class="qs-hito">
+                        <p class="qs-hito-fecha"><time datetime="2023">2023</time></p>
+                        <h3>Implementación</h3>
+                        <p>Proceso de implementación con estudiantes en territorio.</p>
+                    </li>
+                    <li class="qs-hito">
+                        <p class="qs-hito-fecha"><time datetime="2024">2024</time></p>
+                        <h3>Diseño del programa y primera Muestra Empresarial</h3>
+                        <p>Hoja de trabajo con Francisco Chavés, de la Ventanilla de Negocios Verdes. Primera muestra de negocios verdes, con 12 empresas, y planes de mejora para la certificación verde.</p>
+                    </li>
+                    <li class="qs-hito">
+                        <p class="qs-hito-fecha"><time datetime="2025">2025</time></p>
+                        <h3>BIOEXPO Nariño, «5 mundos por descubrir»</h3>
+                        <p>Socialización de los negocios verdes y de los procesos académicos. El 8 de agosto se firma el convenio REI-259422 con la Universidad de La Frontera.</p>
+                    </li>
+                    <li class="qs-hito">
+                        <p class="qs-hito-fecha"><time datetime="2026-03-06">6 de marzo de 2026</time></p>
+                        <h3>Muestra Empresarial «Sostenibilidad que impulsa la región»</h3>
+                        <p>12 empresas presentaron sus proyectos sostenibles. Participaron estudiantes de X semestre de Comercio Internacional, de V semestre de Ingeniería de Sistemas y la Ventanilla de Negocios Verdes.</p>
+                        <p class="qs-hito-datos"><span><i class="fas fa-clock" aria-hidden="true"></i> 2:00 p. m.</span> <span><i class="fas fa-location-dot" aria-hidden="true"></i> Calle 1 No. 3-81, La Floresta, bloque 1</span></p>
+                    </li>
+                    <li class="qs-hito">
+                        <p class="qs-hito-fecha">Continuidad</p>
+                        <h3>Relevo de equipos de trabajo</h3>
+                        <p>Se forman nuevos equipos para dar continuidad al proceso.</p>
+                    </li>
+                </ol>
             </div>
         </div>
     </section>
 
-    <!-- ===== ¿QUÉ SE HA HECHO? (GRID INTERACTIVO MEJORADO) ===== -->
-    <section class="que-se-ha-hecho">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">¿QUÉ SE HA HECHO EN EL PROCESO?</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="acciones-grid-mejorada">
-                <!-- Redes sociales -->
-                <div class="accion-card-moderna">
-                    <div class="accion-icono" style="background: #326C54;">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                    <h3>Gestión de redes sociales</h3>
-                    <p>Planificación de contenidos e interacción con la comunidad</p>
-                </div>
-
-                <!-- Marketing de contenidos -->
-                <div class="accion-card-moderna">
-                    <div class="accion-icono" style="background: #9FC33C;">
-                        <i class="fas fa-podcast"></i>
-                    </div>
-                    <h3>Marketing de contenidos</h3>
-                    <p>Podcast, artículos, videos, infografías</p>
-                </div>
-
-                <!-- Rutas 3D -->
-                <div class="accion-card-moderna">
-                    <div class="accion-icono" style="background: #C85A2E;">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <h3>Modelado de rutas en 3D</h3>
-                    <p>Diseño y simulación de rutas georreferenciadas</p>
-                </div>
-
-                <!-- Canvas sostenible -->
-                <div class="accion-card-moderna">
-                    <div class="accion-icono" style="background: #010192;">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Canvas sostenible</h3>
-                    <p>Diseñar, visualizar y gestionar proyectos con enfoque ambiental</p>
-                </div>
-
-                <!-- Responsabilidad social -->
-                <div class="accion-card-moderna">
-                    <div class="accion-icono" style="background: #326C54;">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Responsabilidad social</h3>
-                    <p>Tareas de comunidad y compromiso social empresarial</p>
-                </div>
-
-                <!-- Gestión documental -->
-                <div class="accion-card-moderna">
-                    <div class="accion-icono" style="background: #9FC33C;">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Gestión documental</h3>
-                    <p>Acciones documentales para el desarrollo del proceso</p>
-                </div>
-
-                <!-- Gestión comercial -->
-                <div class="accion-card-moderna">
-                    <div class="accion-icono" style="background: #C85A2E;">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>Gestión comercial</h3>
-                    <p>Certificaciones, etiquetados, imagen, atención al cliente</p>
-                </div>
+    <!-- ===== 7. EN QUÉ ESTAMOS ===== -->
+    <section class="qs-seccion qs-estado" aria-labelledby="estado-titulo">
+        <div class="qs-contenedor">
+            <div class="qs-cabecera">
+                <h2 class="qs-titulo" id="estado-titulo">En qué estamos</h2>
             </div>
-        </div>
-    </section>
-    <!-- ===== INVESTIGACIÓN ===== -->
-<section class="investigacion">
-    <div class="contenedor">
-        <h2 class="seccion-titulo">INVESTIGACIÓN</h2>
-        <div class="seccion-linea"></div>
-        
-        <div class="investigacion-grid-elegante">
-            <div class="investigacion-contenido">
-                <div class="investigacion-card">
-                    <h3><i class="fas fa-flask"></i> Propuesta VIIS</h3>
-                    <p>Diseño y presentación bajo el enfoque de investigación-acción participativa.</p>
-                </div>
-                
-                <div class="investigacion-card">
-                    <h3><i class="fas fa-microphone-alt"></i> Participación académica</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Ponencias en eventos</li>
-                        <li><i class="fas fa-check"></i> Socialización de resultados cada semestre</li>
-                        <li><i class="fas fa-check"></i> Encuentros, muestras empresariales</li>
-                        <li><i class="fas fa-check"></i> Certificaciones</li>
-                        <li><i class="fas fa-check"></i> Postulación a convocatorias nacionales</li>
+
+            <ul class="qs-cifras">
+                <li class="qs-cifra qs-revelar">
+                    <span class="qs-cifra-numero" data-valor="12">12</span>
+                    <span class="qs-cifra-texto">iniciativas apoyadas</span>
+                </li>
+                <li class="qs-cifra qs-revelar">
+                    <span class="qs-cifra-numero" data-valor="2">2</span>
+                    <span class="qs-cifra-texto">empresas certificadas</span>
+                </li>
+            </ul>
+
+            <div class="qs-empresas">
+                <article class="qs-empresa qs-revelar" aria-labelledby="empresa-agrohumus">
+                    <h3 id="empresa-agrohumus">Agrohumus El Nogal</h3>
+                    <p class="qs-empresa-sello"><i class="fas fa-award" aria-hidden="true"></i> Empresa certificada</p>
+                    <ul class="qs-fotos" data-grupo="agrohumus">
+                        <li class="qs-foto-item">
+                            <button type="button" class="qs-foto-boton">
+                                <img src="imagenes/agrohumus-1.jpg" width="2048" height="1150" loading="lazy" decoding="async"
+                                     alt="Dos hombres sostienen un certificado de negocios verdes frente al logo de la Cámara de Comercio de Ipiales">
+                            </button>
+                        </li>
+                        <li class="qs-foto-item">
+                            <button type="button" class="qs-foto-boton">
+                                <img src="imagenes/503372423_1131520825668704_5232038785097385395_n.jpg" width="2048" height="1150" loading="lazy" decoding="async"
+                                     alt="Una joven y un señor sonríen; él sostiene un certificado y un reconocimiento verde en la Cámara de Comercio de Ipiales">
+                            </button>
+                        </li>
+                        <li class="qs-foto-item">
+                            <button type="button" class="qs-foto-boton">
+                                <img src="imagenes/agrohumus-3-web.jpg" width="1600" height="898" loading="lazy" decoding="async"
+                                     alt="Público sentado en un auditorio durante la entrega de certificados">
+                            </button>
+                        </li>
                     </ul>
-                </div>
-            </div>
-            <div class="investigacion-imagen">
-                <img src="imagenes/investigacion.jpg" alt="Evento de investigación">
-            </div>
-        </div>
-    </div>
-</section>
+                </article>
 
-    <!-- ===== HITOS DEL PROCESO ===== -->
-    <section class="hitos-nuevos">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">HITOS DEL PROCESO</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="hitos-grid-nuevo">
-                <div class="hito-card">
-                    <div class="hito-numero-grande">01</div>
-                    <div class="hito-contenido">
-                        <h4>MUESTRA EMPRESARIAL 2024</h4>
-                        <p>Primera muestra de negocios verdes con participación de 12 empresas</p>
-                    </div>
-                </div>
-                
-                <div class="hito-card">
-                    <div class="hito-numero-grande">02</div>
-                    <div class="hito-contenido">
-                        <h4>PLANES DE MEJORA</h4>
-                        <p>Implementación de planes de mejora para certificación verde</p>
-                    </div>
-                </div>
-                
-                <div class="hito-card">
-                    <div class="hito-numero-grande">03</div>
-                    <div class="hito-contenido">
-                        <h4>TRABAJO INTERDISCIPLINARIO</h4>
-                        <p>Integración de Comercio Internacional, Mercadeo y Sistemas</p>
-                    </div>
-                </div>
-                
-                <div class="hito-card">
-                    <div class="hito-numero-grande">04</div>
-                    <div class="hito-contenido">
-                        <h4>RELEVO - EQUIPOS DE TRABAJO</h4>
-                        <p>Formación de nuevos equipos para continuidad del proceso</p>
-                    </div>
-                </div>
+                <article class="qs-empresa qs-revelar" aria-labelledby="empresa-hajsu">
+                    <h3 id="empresa-hajsu">Hajsú – Etnomoda</h3>
+                    <p class="qs-empresa-sello"><i class="fas fa-award" aria-hidden="true"></i> Empresa certificada</p>
+                    <ul class="qs-fotos" data-grupo="hajsu">
+                        <li class="qs-foto-item">
+                            <button type="button" class="qs-foto-boton">
+                                <img src="imagenes/hajsu-0-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                                     alt="Una emprendedora de Hajsú Etnomoda muestra su certificado de negocios verdes junto a tres acompañantes, en un puesto de feria con un canasto de lana">
+                            </button>
+                        </li>
+                        <li class="qs-foto-item">
+                            <button type="button" class="qs-foto-boton">
+                                <img src="imagenes/hajsu-1.jpg" width="2048" height="1365" loading="lazy" decoding="async"
+                                     alt="La emprendedora de Hajsú, con ruana vino tinto, junto a un tejido azul en su puesto de feria">
+                            </button>
+                        </li>
+                        <li class="qs-foto-item">
+                            <button type="button" class="qs-foto-boton">
+                                <img src="imagenes/hajsu-2.jpg" width="2048" height="1365" loading="lazy" decoding="async"
+                                     alt="Entrega de un certificado a una joven de ruana vino tinto, junto a un aviso de UNEMPRESA">
+                            </button>
+                        </li>
+                        <li class="qs-foto-item">
+                            <button type="button" class="qs-foto-boton">
+                                <img src="imagenes/hajsu-3-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                                     alt="Mesa de honor al aire libre en la cancha de la universidad, con una mujer que muestra un certificado">
+                            </button>
+                        </li>
+                    </ul>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- ===== ESTADO ACTUAL (REDISEÑADO) ===== -->
-    <section class="estado-actual">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">¿EN QUÉ ESTAMOS?</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="estadisticas-elegantes">
-                <div class="estadistica-card">
-                    <div class="estadistica-numero">12</div>
-                    <p>Iniciativas apoyadas</p>
-                    <div class="estadistica-barra"></div>
-                </div>
-                
-                <div class="estadistica-card">
-                    <div class="estadistica-numero">2</div>
-                    <p>Empresas certificadas</p>
-                    <div class="estadistica-barra"></div>
-                </div>
+    <!-- ===== 8. GALERÍA CON PESTAÑAS ===== -->
+    <section class="qs-seccion qs-galeria" aria-labelledby="galeria-titulo">
+        <div class="qs-contenedor">
+            <div class="qs-cabecera">
+                <h2 class="qs-titulo" id="galeria-titulo">Galería</h2>
+                <p class="qs-intro">Momentos del proceso. Toca una foto para verla en grande.</p>
             </div>
 
-            <!-- Dos carruseles para las empresas certificadas -->
-            <div class="empresas-certificadas-grid">
-                <!-- AGROHUMUS EL NOGAL -->
-                <div class="empresa-carrusel">
-                    <h3 class="empresa-titulo" style="color: #326C54;">AGROHUMUS EL NOGAL</h3>
-                    <div class="carrusel-auto-empresa">
-                        <div class="carrusel-auto-track-empresa track-agrohumus">
-                            <div class="carrusel-auto-slide-empresa">
-                                <img src="imagenes/agrohumus-1.jpg" alt="AGROHUMUS EL NOGAL">
-                            </div>
-                            <div class="carrusel-auto-slide-empresa">
-                                <img src="imagenes/503372423_1131520825668704_5232038785097385395_n.jpg" alt="AGROHUMUS EL NOGAL">
-                            </div>
-                            <div class="carrusel-auto-slide-empresa">
-                                <img src="imagenes/agrohumus-3.jpg" alt="AGROHUMUS EL NOGAL">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Sin JS se ven los tres paneles seguidos, cada uno con su título -->
+            <div class="qs-pestanas" role="tablist" aria-label="Eventos de la galería" hidden>
+                <button type="button" class="qs-pestana" role="tab" id="pestana-muestra" aria-controls="panel-muestra" aria-selected="true">Muestra Empresarial</button>
+                <button type="button" class="qs-pestana" role="tab" id="pestana-bioexpo" aria-controls="panel-bioexpo" aria-selected="false" tabindex="-1">BIOEXPO 2025</button>
+                <button type="button" class="qs-pestana" role="tab" id="pestana-territorio" aria-controls="panel-territorio" aria-selected="false" tabindex="-1">En territorio</button>
+            </div>
 
-                <!-- Hajsú – Etnomoda -->
-                <div class="empresa-carrusel">
-                    <h3 class="empresa-titulo" style="color: #C85A2E;">HAJSÚ – ETNOMODA</h3>
-                    <div class="carrusel-auto-empresa">
-                        <div class="carrusel-auto-track-empresa track-hajsu">
-                            <div class="carrusel-auto-slide-empresa">
-                                <img src="imagenes/hajsu-0.jpg" alt="Hajsú – Etnomoda">
-                            </div>
-                            <div class="carrusel-auto-slide-empresa">
-                                <img src="imagenes/hajsu-1.jpg" alt="Hajsú – Etnomoda">
-                            </div>
-                            <div class="carrusel-auto-slide-empresa">
-                                <img src="imagenes/hajsu-2.jpg" alt="Hajsú – Etnomoda">
-                            </div>
-                            <div class="carrusel-auto-slide-empresa">
-                                <img src="imagenes/hajsu-3.jpg" alt="Hajsú – Etnomoda">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="qs-panel" id="panel-muestra" role="tabpanel" aria-labelledby="pestana-muestra">
+                <h3 class="qs-panel-titulo">Muestra Empresarial · 6 de marzo de 2026</h3>
+                <ul class="qs-fotos qs-fotos--galeria" data-grupo="muestra">
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/flyer-muestra-web.jpg" width="1191" height="1684" loading="lazy" decoding="async"
+                                 alt="Afiche de la Muestra Empresarial, 6 de marzo de 2026, 2:00 p. m., «Sostenibilidad que impulsa región». Invitados: Calicanto, Intimakuna, La Kumba, Quinazaur, Hajsú, Biofruit Napoli, TejiArtes Mueses, Los Machines, Asproinfro, Jardines Floverzul, La Flor del Campo y Laguna de la Bolsa">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-2-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                                 alt="Seis integrantes de la Fundación Indígena Intimakuna posan con sus certificados frente a su pendón">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-1.jpg" width="2048" height="1365" loading="lazy" decoding="async"
+                                 alt="Apretón de manos durante la entrega de certificados, junto a un pendón de negocios verdes">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-4-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                                 alt="Productores sonríen detrás de una mesa con brócoli, coliflor, calabacín y otras hortalizas">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-3.jpg" width="2048" height="1365" loading="lazy" decoding="async"
+                                 alt="Dos mujeres se abrazan sonrientes mientras otras se saludan con certificados en la mano">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-5-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                                 alt="Visitantes recorren el stand de la Universidad de Nariño, con un pendón de una ruta turística">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-6-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                                 alt="Tres mujeres muestran sus certificados bajo una carpa de colores">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-7-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                                 alt="Dos jóvenes con certificados posan junto a dos hombres con ruana frente a un edificio de ladrillo">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-8-web.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+                                 alt="Foto grupal de unas cuarenta personas con sus certificados en la cancha de la universidad">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/muestra-evento-9-web.jpg" width="1600" height="1120" loading="lazy" decoding="async"
+                                 alt="Dos mujeres y un joven sonríen; una de ellas sostiene un obsequio envuelto con un lazo verde">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="qs-panel" id="panel-bioexpo" role="tabpanel" aria-labelledby="pestana-bioexpo">
+                <h3 class="qs-panel-titulo">BIOEXPO Nariño 2025 · 5 mundos por descubrir</h3>
+                <ul class="qs-fotos qs-fotos--galeria" data-grupo="bioexpo">
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/bioexpo-1-web.jpg" width="1600" height="900" loading="lazy" decoding="async"
+                                 alt="Pieza gráfica de BIOEXPO: «Nariño, 5 mundos por descubrir», con los logos del Ministerio de Ambiente, la Gobernación de Nariño y Corponariño">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/bioexpo-2.jpeg" width="866" height="1280" loading="lazy" decoding="async"
+                                 alt="Cuatro personas posan frente a la pantalla de BIOEXPO en un salón">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/bioexpo-3-web.jpg" width="1440" height="1080" loading="lazy" decoding="async"
+                                 alt="Panel de cinco personas en un escenario con plantas, bajo la pantalla «Lo que vas a descubrir en el mundo amazónico»">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/bioexpo-4.jpg" width="960" height="720" loading="lazy" decoding="async"
+                                 alt="Una panelista habla con micrófono y hace la señal de paz con la mano">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="qs-panel" id="panel-territorio" role="tabpanel" aria-labelledby="pestana-territorio">
+                <h3 class="qs-panel-titulo">En territorio</h3>
+                <ul class="qs-fotos qs-fotos--galeria" data-grupo="territorio">
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/negocios-1-web.jpg" width="1600" height="1200" loading="lazy" decoding="async"
+                                 alt="Estudiantes con niños de un colegio, con plantas en la mano, frente al Parque Ecológico Naturalia">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/negocios-4-web.jpg" width="1600" height="1200" loading="lazy" decoding="async"
+                                 alt="Productores y estudiantes de pie en un vivero de plántulas bajo una malla de sombra">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/acompanamiento-2.jpeg" width="1600" height="1200" loading="lazy" decoding="async"
+                                 alt="Tres jóvenes sostienen un cartel con un árbol dibujado en el patio de la Institución Educativa Yo Reinaré">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/acompanamiento-1.jpg" width="2048" height="1150" loading="lazy" decoding="async"
+                                 alt="Dos jóvenes presentan con micrófono ante un auditorio, junto a la proyección del logo de Asproinfro">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/acompanamiento-3.jpeg" width="1280" height="960" loading="lazy" decoding="async"
+                                 alt="Estudiantes de colegio sentados escuchan a dos personas que dirigen una actividad en un salón">
+                        </button>
+                    </li>
+                    <li class="qs-foto-item">
+                        <button type="button" class="qs-foto-boton">
+                            <img src="imagenes/logi.jpeg" width="1280" height="1280" loading="lazy" decoding="async"
+                                 alt="Siete personas en la cabina de Radio Universidad de Nariño, con audífonos y micrófonos, junto al letrero «Al aire»">
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- ===== BIOEXPO 2025 (INFORMACIÓN + CARRUSEL) ===== -->
-    <section class="bioexpo">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">BIOEXPO NARIÑO 2025</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="bioexpo-grid">
-                <div class="bioexpo-info">
-                    <div class="bioexpo-card">
-                        <i class="fas fa-leaf"></i>
-                        <h3>5 mundos por descubrir</h3>
-                        <p>Participación en BIOEXPO Nariño - Socialización de Negocios Verdes y procesos académicos</p>
-                        <div class="bioexpo-stats">
-                            <span><i class="fas fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Nariño</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bioexpo-carrusel">
-                    <div class="carrusel-auto-bioexpo">
-                        <div class="carrusel-auto-track-bioexpo">
-                            <div class="carrusel-auto-slide-bioexpo">
-                                <img src="imagenes/bioexpo-1.svg" alt="BIOEXPO 2025">
-                            </div>
-                            <div class="carrusel-auto-slide-bioexpo">
-                                <img src="imagenes/bioexpo-2.jpeg" alt="BIOEXPO 2025">
-                            </div>
-                            <div class="carrusel-auto-slide-bioexpo">
-                                <img src="imagenes/bioexpo-3.jpg" alt="BIOEXPO 2025">
-                            </div>
-                            <div class="carrusel-auto-slide-bioexpo">
-                                <img src="imagenes/bioexpo-4.jpg" alt="BIOEXPO 2025">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Visor de fotos ampliadas: lo usan la galería y las empresas certificadas -->
+    <dialog class="qs-visor" aria-label="Foto ampliada">
+        <img class="qs-visor-imagen" alt="">
+        <p class="qs-visor-contador" aria-live="polite"></p>
+        <button type="button" class="qs-visor-boton qs-visor-cerrar" aria-label="Cerrar"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+        <button type="button" class="qs-visor-boton qs-visor-anterior" aria-label="Foto anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" class="qs-visor-boton qs-visor-siguiente" aria-label="Foto siguiente"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+    </dialog>
 
-    <!-- ===== MUESTRA EMPRESARIAL 2026 (REDISEÑADO) ===== -->
-    <section class="muestra-empresarial">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">MUESTRA EMPRESARIAL</h2>
-            <div class="seccion-linea"></div>
-            
-            <div class="muestra-grid-elegante">
-                <!-- Flyer del evento -->
-                <div class="muestra-flyer">
-                    <img src="imagenes/flyer-muestra.svg" alt="Flyer Muestra Empresarial">
-                </div>
-                
-                <!-- Información del evento -->
-                <div class="muestra-info-elegante">
-                    <h3>Sostenibilidad que impulsa la región</h3>
-                    <div class="muestra-detalles-elegante">
-                        <p><i class="fas fa-calendar-alt"></i> <strong>6 de marzo de 2026</strong></p>
-                        <p><i class="fas fa-clock"></i> <strong>2:00 P.M.</strong></p>
-                        <p><i class="fas fa-map-marker-alt"></i> Calle 1 No. 3 – 81 La Floresta - BLOQUE 1</p>
-                    </div>
-                    
-                    <div class="muestra-participantes-elegante">
-                        <h4>Participantes:</h4>
-                        <div class="participantes-tags">
-                            <span>X Comercio Internacional</span>
-                            <span>V Ingeniería en Sistemas</span>
-                            <span>Ventanilla Negocios Verdes</span>
-                        </div>
-                    </div>
-                    
-                    <div class="muestra-nota-elegante">
-                        <i class="fas fa-star"></i>
-                        <p>12 empresas participantes presentando sus proyectos sostenibles</p>
-                    </div>
-                </div>
-            </div>
-            <!-- ===== GALERÍA DEL EVENTO (MOSAICO) ===== -->
-<div class="galeria-mosaico">
-    <h3>Galería del evento</h3>
-    <div class="mosaico-grid">
-        <div class="mosaico-item mosaico-grande">
-            <img src="imagenes/muestra-evento-1.jpg" alt="Muestra empresarial">
-        </div>
-        <div class="mosaico-item">
-            <img src="imagenes/muestra-evento-2.jpg" alt="Muestra empresarial">
-        </div>
-        <div class="mosaico-item">
-            <img src="imagenes/muestra-evento-3.jpg" alt="Muestra empresarial">
-        </div>
-        <div class="mosaico-item">
-            <img src="imagenes/muestra-evento-4.jpg" alt="Muestra empresarial">
-        </div>
-        <div class="mosaico-item">
-            <img src="imagenes/muestra-evento-5.jpg" alt="Muestra empresarial">
-        </div>
-        <div class="mosaico-item">
-            <img src="imagenes/muestra-evento-6.jpg" alt="Muestra empresarial">
-        </div>
-        <div class="mosaico-item">
-            <img src="imagenes/muestra-evento-7.jpg" alt="Muestra empresarial">
-        </div>
-        <div class="mosaico-item">
-            <img src="imagenes/muestra-evento-8.jpg" alt="Muestra empresarial">
-        </div>
-        <div class="mosaico-item">
-            <img src="imagenes/muestra-evento-9.jpg" alt="Muestra empresarial">
-        </div>
-    </div>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+</main>
+
     <!-- ===== FOOTER ===== -->
     <footer class="footer-principal">
         <div class="footer-contenedor">
@@ -878,44 +885,9 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        // Slider del hero
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide-quienes');
-            let currentSlide = 0;
-            
-            if (slides.length > 0) {
-                setInterval(() => {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }, 5000);
-            }
-            
-            // Carruseles automáticos
-            const carruseles = [
-                { track: '.carrusel-auto-track-negocios', slides: '.carrusel-auto-slide-negocios', tiempo: 3000 },
-                { track: '.carrusel-auto-track-acompanamiento', slides: '.carrusel-auto-slide-acompanamiento', tiempo: 3500 },
-                { track: '.carrusel-auto-track-bioexpo', slides: '.carrusel-auto-slide-bioexpo', tiempo: 4000 },
-                { track: '.carrusel-auto-track-muestra', slides: '.carrusel-auto-slide-muestra', tiempo: 4000 },
-                { track: '.track-agrohumus', slides: '.carrusel-auto-slide-empresa', tiempo: 4500 },
-                { track: '.track-hajsu', slides: '.carrusel-auto-slide-empresa', tiempo: 4500 }
-            ];
-            
-            carruseles.forEach(c => {
-                const track = document.querySelector(c.track);
-                if (track) {
-                    const slides = track.children;
-                    let index = 0;
-                    
-                    setInterval(() => {
-                        index = (index + 1) % slides.length;
-                        track.style.transform = `translateX(-${index * 100}%)`;
-                    }, c.tiempo);
-                }
-            });
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/quienes.js"></script>
     <!-- ===== BOTÓN DE MODO OSCURO/CLARO ===== -->
 <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
     <i class="fas fa-moon"></i>
