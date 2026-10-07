@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noticias · PIRI · UFRO · UDENAR</title>
-    
+    <meta name="description" content="Noticias del Programa de Interacción Rural Interdisciplinario (PIRI) – Capítulo Nariño: eventos, proyectos, salud y cooperación internacional.">
+
     <!-- Fuentes Montserrat e Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <!-- CSS compartido -->
     <link rel="stylesheet" href="css/estilos.css">
+    <!-- CSS de la página de noticias -->
+    <link rel="stylesheet" href="css/noticias.css">
 </head>
-<body>
+<body class="pagina-noticias">
     <!-- ===== FONDO DE TEJIDO ANDINO ===== -->
     <div class="fondo-tejido"></div>
 
@@ -42,6 +45,8 @@
         </ul>
     </div>
 </nav>
+
+<main id="contenido">
 
     <!-- ===== HERO CON SLIDER ===== -->
 <section class="hero-noticias">
@@ -69,215 +74,284 @@
     </div>
 </section>
 
-    <!-- ===== NOTICIAS DESTACADAS ===== -->
-    <section class="noticias-destacadas">
-        <div class="contenedor">
-            <h2 class="seccion-titulo">ÚLTIMAS NOTICIAS</h2>
-            <div class="seccion-linea"></div>
-            <p class="seccion-descripcion">Mantente informado sobre los avances y actividades del programa PIRI</p>
+    <!-- ===== NOTICIAS =====
+         Cada noticia es un <article class="nt-noticia"> con:
+         - id: dirección para enlazarla (noticias.html#id). Si se entra con ese enlace, la noticia se abre sola.
+         - data-categoria: eventos, proyectos, salud o cooperacion (los filtros de arriba).
+         - .nt-resumen: lo que se ve siempre; .nt-completa: lo que se despliega con "Leer noticia completa".
+         js/noticias.js añade el botón de leer, los botones de compartir y el visor de fotos.
+         Van de la más reciente a la más antigua. -->
+    <section class="nt-seccion" id="ultimas-noticias" aria-labelledby="nt-titulo">
+        <div class="nt-contenedor">
+            <header class="nt-cabecera">
+                <h2 class="nt-titulo" id="nt-titulo">Últimas noticias</h2>
+                <p class="nt-intro">Mantente informado sobre los avances y actividades del programa PIRI.</p>
+            </header>
 
-            <div class="noticias-grid">
-                <!-- NOTICIA 1: Visita a UFRO -->
-                <article class="noticia-card">
-                    <div class="noticia-imagen">
-                        <img src="imagenes/fondo-hero-4.jpg" alt="Académicos de la U. de Nariño en UFRO">
-                        <div class="noticia-fecha-destacada">
-                            <span class="fecha-dia">23</span>
-                            <span class="fecha-mes">SEP</span>
-                            <span class="fecha-ano">2025</span>
-                        </div>
-                    </div>
-                    
-                    <div class="noticia-contenido">
-                        <div class="noticia-categoria">
-                            <i class="fas fa-globe-americas"></i>
-                            <span>COOPERACIÓN INTERNACIONAL</span>
-                        </div>
-                        
-                        <h3 class="noticia-titulo">PIRI UFRO fortalece lazos internacionales con universidad colombiana</h3>
-                        
-                        <div class="noticia-autor">
-                            <i class="fas fa-pencil-alt"></i>
-                            <span>Escrito el 23 Septiembre 2025</span>
-                        </div>
-                        
-                        <div class="noticia-resumen">
-                            <p>Entre el 8 y el 12 de septiembre se realizó la visita de académicos de la Universidad de Nariño, Colombia, a la UFRO, para reactivar el convenio vigente entre ambas casas de estudios.</p>
-                        </div>
-                        
-                        <details class="noticia-detalle">
-                            <summary class="noticia-ver-mas">
-                                <span>Ver noticia completa</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </summary>
-                            
-                            <div class="noticia-completa">
-                                <p>Los académicos <strong>Gerardo Bravo y Miriam Quitiaquez</strong> realizaron una fructífera visita a la U. de La Frontera con el objetivo de retomar el trabajo que se había desplegado hace más de diez años con el PIRI. En el marco de su apretada agenda sostuvieron una reunión protocolar con el decano de la Facultad de Medicina, <strong>Dr. Wilfried Diener</strong>, y se interiorizaron del trabajo de nuestra universidad.</p>
-                                
-                                <p>La Universidad de Nariño mantiene vigente un convenio de cooperación internacional con la UFRO y que es el marco para el trabajo específico que se dará nuevamente con el PIRI, cuyo coordinador y académico del departamento de Salud Pública, <strong>Marcelo Carrasco</strong>, explicó: <em>"El PIRI es la presencia permanente en el territorio, pero siendo parte de éste y eso es lo que los académicos de Nariño conocieron, con la idea de que en el 2026 puedan volver a implementarlo en Colombia y haya movilidad con reciprocidad entre nuestras universidades".</em></p>
-                                
-                                <p>Esta movilidad permitirá recibir estudiantes de Colombia en el PIRI que contarán con el apoyo de la UFRO y que estudiantes chilenos puedan ir a la sede de Ipiales de la U. de Nariño, casa de estudios que en la actualidad tiene 18 mil estudiantes y su sede principal está en la ciudad de Pasto.</p>
-                                
-                                <div class="noticia-testimonial">
-                                    <i class="fas fa-quote-left"></i>
-                                    <p>Esperamos retomar el proceso con el convenio marco entre ambas universidades y un convenio específico para la sede Ipiales. Ha sido una experiencia reconfortante ya que es muy interesante vernos como pares y hacer un intercambio. Estamos preparados para la reciprocidad en el proceso PIRI y en otras facultades.</p>
-                                    <cite>— Miriam Quitiaquez, docente del departamento de Comercio Internacional y Mercadeo</cite>
-                                </div>
-                                
-                                <div class="noticia-testimonial">
-                                    <i class="fas fa-quote-left"></i>
-                                    <p>Suscribimos un convenio marco entre las dos universidades que nos permite darle continuidad al proceso anterior. El PIRI se ha convertido en un embajador de la UFRO y es un ejercicio que pretendemos replicar ya que compartimos características entre las universidades, pero también problemáticas latinoamericanas que como universidades podríamos resolver o plantear alternativas.</p>
-                                    <cite>— Gerardo Bravo, coordinador de la sede Ipiales</cite>
-                                </div>
-                                
-                                <p>Para los académicos de Colombia y de la UFRO, en los <strong>34 años del PIRI</strong>, esta alianza significa un nuevo paso en su consolidación como embajador internacional, modelo de trabajo para el país y el extranjero, paradigma de universidad que prioriza la formación en términos de formación y valores, y un actor universitario de presencia real en diversos territorios.</p>
-                                
-                                <p><em>"Esperamos volver a implementar el PIRI en nuestra universidad desde el 2026, nuestra sede se ha preparado para retomar el trabajo y comenzar con la movilidad estudiantil"</em>, cerraron los académicos colombianos.</p>
+            <div class="nt-filtros" role="group" aria-label="Filtrar noticias por categoría" hidden>
+                <button type="button" class="nt-filtro" data-filtro="todas" aria-pressed="true">Todas</button>
+                <button type="button" class="nt-filtro" data-filtro="eventos" aria-pressed="false">Eventos</button>
+                <button type="button" class="nt-filtro" data-filtro="proyectos" aria-pressed="false">Proyectos</button>
+                <button type="button" class="nt-filtro" data-filtro="salud" aria-pressed="false">Salud</button>
+                <button type="button" class="nt-filtro" data-filtro="cooperacion" aria-pressed="false">Cooperación internacional</button>
+            </div>
+            <p class="nt-resultado" aria-live="polite"></p>
+
+            <div class="nt-lista">
+
+                <!-- 1. DESTACADA: La Minga de octubre. js/noticias.js muestra "Próximo evento" o "Realizado" según data-fin -->
+                <article class="nt-noticia nt-destacada" id="la-minga-octubre-2026" data-categoria="eventos"
+                         data-fin="2026-10-08T00:00:00-05:00" aria-labelledby="la-minga-octubre-2026-titulo">
+                    <div class="nt-tarjeta">
+                        <figure class="nt-foto nt-foto--natural">
+                            <img src="imagenes/laminga.jpeg" width="1131" height="1600" decoding="async"
+                                 alt="Afiche de La Minga, mercado campesino y agroecológico: cuatro productores con sus frutas, verduras y granos. 7 de octubre, de 8:30 a. m. a 2:00 p. m., en la Universidad de Nariño, Ipiales, Calle 1 N° 3-81, barrio La Floresta">
+                        </figure>
+                        <div class="nt-cuerpo">
+                            <p class="nt-estado" hidden></p>
+                            <div class="nt-meta">
+                                <span class="nt-categoria"><i class="fas fa-calendar-day" aria-hidden="true"></i> Eventos</span>
+                                <time datetime="2026-10-07">7 de octubre de 2026</time>
                             </div>
-                        </details>
-                        
-                        <div class="noticia-redes">
-                            <span>Compartir:</span>
-                            <a href="#" class="compartir-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="compartir-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="compartir-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="compartir-link"><i class="fab fa-whatsapp"></i></a>
+                            <h3 class="nt-noticia-titulo" id="la-minga-octubre-2026-titulo">La Minga <span>Mercado campesino y agroecológico</span></h3>
+                            <p class="nt-lema">«Apoyar el campo es apoyar el futuro»</p>
+                            <ul class="nt-datos">
+                                <li>
+                                    <i class="fas fa-clock" aria-hidden="true"></i>
+                                    <span><time datetime="2026-10-07T08:30-05:00">8:30 a. m.</time> a <time datetime="2026-10-07T14:00-05:00">2:00 p. m.</time></span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-location-dot" aria-hidden="true"></i>
+                                    <span>Universidad de Nariño – Ipiales<br>Calle 1 N° 3-81, barrio La Floresta</span>
+                                </li>
+                            </ul>
+                            <div class="nt-completa">
+                                <div class="nt-completa-interior">
+                                    <p>La Minga reúne productos del campo y de la economía campesina en la Universidad de Nariño, sede Ipiales, con el lema «Apoyar el campo es apoyar el futuro».</p>
+                                    <p class="nt-invitan"><strong>Invitan:</strong> Secretaría Diocesana de Pastoral Social Ipiales, Raíces de Vida, Aval de Confianza Negocios Verdes y Universidad de Nariño.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>
 
-                <!-- NOTICIA 2: Lanzamiento Oficial -->
-                <article class="noticia-card">
-                    <div class="noticia-imagen">
-                        <img src="imagenes/flyer.jpg" alt="Flyer Lanzamiento PIRI Capítulo Nariño">
-                        <div class="noticia-fecha-destacada">
-                            <span class="fecha-dia">19</span>
-                            <span class="fecha-mes">MAR</span>
-                            <span class="fecha-ano">2026</span>
-                        </div>
-                    </div>
-                    
-                    <div class="noticia-contenido">
-                        <div class="noticia-categoria">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>EVENTO DE LANZAMIENTO</span>
-                        </div>
-                        
-                        <h3 class="noticia-titulo">Lanzamiento oficial del Programa de Interacción Rural Interdisciplinario en Nariño</h3>
-                        
-                        <div class="noticia-autor">
-                            <i class="fas fa-pencil-alt"></i>
-                            <span>Conoce todos los detalles del evento</span>
-                        </div>
-                        
-                        <div class="noticia-resumen">
-                            <p>La Universidad de Nariño - Extensión Ipiales invita a docentes, estudiantes y administrativos al lanzamiento del capítulo Nariño del Programa PIRI.</p>
-                        </div>
-                        
-                        <details class="noticia-detalle">
-                            <summary class="noticia-ver-mas">
-                                <span>Ver detalles del evento</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </summary>
-                            
-                            <div class="noticia-completa">
-                                <div class="evento-info-grid">
-                                    <div class="evento-info-item">
-                                        <i class="fas fa-calendar-check"></i>
-                                        <div>
-                                            <strong>Fecha</strong>
-                                            <span>19 de marzo de 2026</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="evento-info-item">
-                                        <i class="fas fa-clock"></i>
-                                        <div>
-                                            <strong>Hora</strong>
-                                            <span>8:30 A.M.</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="evento-info-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <div>
-                                            <strong>Lugar</strong>
-                                            <span>Auditorio Gonzalo Bravo Pérez</span>
-                                            <small>Sede Regional Ipiales</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="evento-destacado" style="text-align:center;">
-    <p style="color:#ffffff; font-size:1.05rem; max-width:650px; margin:auto;">
-        Invitamos a docentes, estudiantes y administrativos a ser parte de este proceso 
-        que impulsa la interacción social y el compromiso con nuestro territorio.
-    </p>
-</div>
-
-<div class="evento-boton-agenda" style="text-align:center; margin-top:20px;">
-    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lanzamiento+PIRI+Capítulo+Nariño&dates=20260319T133000Z/20260319T163000Z&details=Evento+de+lanzamiento+del+Programa+de+Interacción+Rural+Interdisciplinario+en+la+Universidad+de+Nariño+-+Extensión+Ipiales&location=Auditorio+Gonzalo+Bravo+Pérez,+Ipiales&sf=true&output=xml" target="_blank" class="btn-evento-secundario">
-        <i class="fas fa-calendar-plus"></i> VER AGENDA DEL EVENTO
-    </a>
-</div>
-                                
-                                <div class="evento-convenio">
-                                    <span class="convenio-badge">Convenio REI-259422</span>
-                                    <span class="universidad-badge">Universidad de Nariño</span>
-                                    <span class="ufro-badge">Universidad de La Frontera</span>
-                                </div>
-                                
-                                <div class="evento-conexion">
-                                    <i class="fas fa-video"></i>
-                                    <div>
-                                        <strong>Conexión online disponible</strong>
-                                        <p>Para participantes remotos, se habilitará transmisión en vivo por Microsoft Teams</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="evento-botones">
-                                    <a href="https://forms.gle/SNobynyCRTwRFnmy7" target="_blank" class="btn-evento">
-                                        <i class="fas fa-check-circle"></i> CONFIRMAR ASISTENCIA
-                                    </a>
-                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lanzamiento+PIRI+Capítulo+Nariño&dates=20260319T133000Z/20260319T163000Z&details=Evento+de+lanzamiento+del+Programa+de+Interacción+Rural+Interdisciplinario+en+la+Universidad+de+Nariño+-+Extensión+Ipiales&location=Auditorio+Gonzalo+Bravo+Pérez,+Ipiales&sf=true&output=xml" target="_blank" class="btn-evento-secundario">
-    <i class="fas fa-calendar-plus"></i> AGENDAR
-</a>
+                <!-- 2. GUARDIANES DEL AGUA (proyecto propio, destacado) -->
+                <article class="nt-noticia nt-importante" id="guardianes-del-agua" data-categoria="proyectos"
+                         data-columnas="7" aria-labelledby="guardianes-del-agua-titulo">
+                    <div class="nt-tarjeta">
+                        <figure class="nt-foto">
+                            <img src="imagenes/proyec1.jpeg" width="900" height="1600" loading="lazy" decoding="async"
+                                 alt="Dos integrantes del equipo PIRI, con guantes, sostienen bolsas de residuos recogidos en la orilla pedregosa del río Blanco">
+                        </figure>
+                        <div class="nt-cuerpo">
+                            <span class="nt-sello"><i class="fas fa-droplet" aria-hidden="true"></i> Proyecto del equipo PIRI</span>
+                            <div class="nt-meta">
+                                <span class="nt-categoria"><i class="fas fa-seedling" aria-hidden="true"></i> Proyectos</span>
+                                <time datetime="2026-10-05">5 de octubre de 2026</time>
+                            </div>
+                            <h3 class="nt-noticia-titulo" id="guardianes-del-agua-titulo">Guardianes del Agua</h3>
+                            <p class="nt-resumen">El equipo PIRI limpió y recogió residuos en el río Blanco, fuente de agua de Ipiales. Es un proyecto propio que obtuvo recursos en una convocatoria de movilidad.</p>
+                            <div class="nt-completa">
+                                <div class="nt-completa-interior">
+                                    <p>El río Blanco abastece de agua a la zona urbana de Ipiales y enfrenta presiones como los residuos sólidos y los vertimientos.</p>
+                                    <ul class="nt-ejes">
+                                        <li><i class="fas fa-book-open" aria-hidden="true"></i> Educación ambiental sobre el cuidado del agua</li>
+                                        <li><i class="fas fa-hand-holding-droplet" aria-hidden="true"></i> Jornadas comunitarias de limpieza</li>
+                                    </ul>
+                                    <p>Guardianes del Agua combina estas dos líneas de trabajo. El 5 de octubre, el equipo recogió y clasificó residuos en un sector del río.</p>
                                 </div>
                             </div>
-                        </details>
-                        
-                        <div class="noticia-redes">
-                            <span>Compartir:</span>
-                            <a href="#" class="compartir-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="compartir-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="compartir-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="compartir-link"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </article>
+
+                <!-- 3. TALLER DE AUTOCUIDADO -->
+                <article class="nt-noticia" id="taller-autocuidado" data-categoria="salud"
+                         data-columnas="5" aria-labelledby="taller-autocuidado-titulo">
+                    <div class="nt-tarjeta">
+                        <figure class="nt-foto">
+                            <img src="imagenes/eventoori.jpeg" width="1280" height="960" loading="lazy" decoding="async"
+                                 alt="Una veintena de estudiantes y docentes posan en grupo en un salón de actos, frente al escenario con telón dorado y pantalla de proyección">
+                        </figure>
+                        <div class="nt-cuerpo">
+                            <div class="nt-meta">
+                                <span class="nt-categoria"><i class="fas fa-heart-pulse" aria-hidden="true"></i> Salud</span>
+                                <time datetime="2026-09-28">28 de septiembre de 2026</time>
+                            </div>
+                            <h3 class="nt-noticia-titulo" id="taller-autocuidado-titulo">Taller de autocuidado en la I.&nbsp;E. Pérez Pallares</h3>
+                            <p class="nt-resumen">Camila Oriette Morales Ormeño, estudiante de terapia ocupacional de Chile, compartió un taller de autocuidado con estudiantes y docentes de la institución.</p>
+                            <div class="nt-completa">
+                                <div class="nt-completa-interior">
+                                    <p>El taller se centró en una idea:</p>
+                                    <p class="nt-idea">Cuidar el cuerpo y la mente para poder cuidar a quienes nos rodean.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. LA MINGA DE SEPTIEMBRE -->
+                <article class="nt-noticia" id="la-minga-septiembre-2026" data-categoria="eventos"
+                         data-columnas="4" aria-labelledby="la-minga-septiembre-2026-titulo">
+                    <div class="nt-tarjeta">
+                        <figure class="nt-foto nt-foto--afiche">
+                            <img src="imagenes/laminga01.jpg" width="1018" height="1440" loading="lazy" decoding="async"
+                                 alt="Afiche de La Minga, mercado campesino y agroecológico: cuatro productores con frutas, verduras y productos de la región. 3 de septiembre, de 8:30 a. m. a 2:00 p. m., en la Universidad de Nariño, Ipiales, Calle 1 N° 3-81, barrio La Floresta">
+                        </figure>
+                        <div class="nt-cuerpo">
+                            <div class="nt-meta">
+                                <span class="nt-categoria"><i class="fas fa-calendar-day" aria-hidden="true"></i> Eventos</span>
+                                <time datetime="2026-09-03">3 de septiembre de 2026</time>
+                            </div>
+                            <h3 class="nt-noticia-titulo" id="la-minga-septiembre-2026-titulo">La Minga, mercado campesino y agroecológico</h3>
+                            <p class="nt-resumen">Productos del campo y de la economía campesina en la Universidad de Nariño, sede Ipiales.</p>
+                            <div class="nt-completa">
+                                <div class="nt-completa-interior">
+                                    <p class="nt-lema">«Apoyar el campo es apoyar el futuro»</p>
+                                    <ul class="nt-datos">
+                                        <li>
+                                            <i class="fas fa-clock" aria-hidden="true"></i>
+                                            <span><time datetime="2026-09-03T08:30-05:00">8:30 a. m.</time> a <time datetime="2026-09-03T14:00-05:00">2:00 p. m.</time></span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-location-dot" aria-hidden="true"></i>
+                                            <span>Universidad de Nariño – Ipiales<br>Calle 1 N° 3-81, barrio La Floresta</span>
+                                        </li>
+                                    </ul>
+                                    <p class="nt-invitan"><strong>Invitan:</strong> Secretaría Diocesana de Pastoral Social Ipiales, Raíces de Vida, Aval de Confianza Negocios Verdes y Universidad de Nariño.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. SOCIALIZACIÓN Y MOVILIDAD ACADÉMICA INTERNACIONAL -->
+                <article class="nt-noticia" id="socializacion-movilidad" data-categoria="cooperacion"
+                         data-columnas="8" aria-labelledby="socializacion-movilidad-titulo">
+                    <div class="nt-tarjeta">
+                        <figure class="nt-foto">
+                            <img src="imagenes/medicina.jpg" width="1440" height="960" loading="lazy" decoding="async"
+                                 alt="Diez estudiantes y docentes posan en grupo en un salón de la Universidad de Nariño, sede Ipiales, junto a la bandera de Nariño y el pendón verde de la universidad">
+                        </figure>
+                        <div class="nt-cuerpo">
+                            <div class="nt-meta">
+                                <span class="nt-categoria"><i class="fas fa-earth-americas" aria-hidden="true"></i> Cooperación internacional</span>
+                                <time datetime="2026-08-19">19 de agosto de 2026</time>
+                            </div>
+                            <h3 class="nt-noticia-titulo" id="socializacion-movilidad-titulo">«Experiencias del PIRI, práctica profesional e intercambio»</h3>
+                            <p class="nt-resumen">En la Sede Regional Ipiales se realizó la socialización de las experiencias del PIRI, la práctica profesional y el intercambio, junto con la movilidad académica internacional.</p>
+                            <div class="nt-completa">
+                                <div class="nt-completa-interior">
+                                    <ul class="nt-datos">
+                                        <li>
+                                            <i class="fas fa-calendar-day" aria-hidden="true"></i>
+                                            <span>Miércoles <time datetime="2026-08-19">19 de agosto de 2026</time></span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-clock" aria-hidden="true"></i>
+                                            <span><time datetime="2026-08-19T10:00-05:00">10:00 a. m.</time></span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-location-dot" aria-hidden="true"></i>
+                                            <span>Auditorio Gonzalo Bravo Pérez<br>Sede Regional Ipiales</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. LANZAMIENTO OFICIAL (19 de marzo de 2026) -->
+                <article class="nt-noticia" id="lanzamiento-piri-narino" data-categoria="eventos"
+                         data-columnas="5" aria-labelledby="lanzamiento-piri-narino-titulo">
+                    <div class="nt-tarjeta">
+                        <figure class="nt-foto">
+                            <img src="imagenes/lanza.jpeg" width="1600" height="963" loading="lazy" decoding="async"
+                                 alt="Once docentes, estudiantes e invitados posan en grupo en un salón de la Universidad de Nariño, frente a una pantalla que proyecta el sitio web del PIRI, junto a banderas y el pendón verde de la universidad">
+                        </figure>
+                        <div class="nt-cuerpo">
+                            <div class="nt-meta">
+                                <span class="nt-categoria"><i class="fas fa-calendar-day" aria-hidden="true"></i> Eventos</span>
+                                <time datetime="2026-03-19">19 de marzo de 2026</time>
+                            </div>
+                            <h3 class="nt-noticia-titulo" id="lanzamiento-piri-narino-titulo">Lanzamiento oficial del PIRI Capítulo Nariño</h3>
+                            <p class="nt-resumen">La Universidad de Nariño, Extensión Ipiales, realizó el lanzamiento oficial del capítulo Nariño del Programa de Interacción Rural Interdisciplinario.</p>
+                            <div class="nt-completa">
+                                <div class="nt-completa-interior">
+                                    <p>El lanzamiento se llevó a cabo el 19 de marzo de 2026, a las 8:30 a. m., en el Auditorio Gonzalo Bravo Pérez de la Sede Regional Ipiales.</p>
+                                    <p>La invitación estuvo dirigida a docentes, estudiantes y administrativos, para ser parte de este proceso que impulsa la interacción social y el compromiso con nuestro territorio.</p>
+                                    <ul class="nt-sellos">
+                                        <li>Convenio REI-259422</li>
+                                        <li>Universidad de Nariño</li>
+                                        <li>Universidad de La Frontera</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7. PIRI UFRO Y LA UNIVERSIDAD DE NARIÑO (23 de septiembre de 2025) -->
+                <article class="nt-noticia" id="piri-ufro-lazos-internacionales" data-categoria="cooperacion"
+                         data-columnas="7" aria-labelledby="piri-ufro-lazos-internacionales-titulo">
+                    <div class="nt-tarjeta">
+                        <figure class="nt-foto">
+                            <img src="imagenes/fondo-hero-4.jpg" width="900" height="599" loading="lazy" decoding="async"
+                                 alt="Cuatro académicos, tres hombres y una mujer, posan de pie en una sala de reuniones durante la visita de la Universidad de Nariño a la UFRO">
+                        </figure>
+                        <div class="nt-cuerpo">
+                            <div class="nt-meta">
+                                <span class="nt-categoria"><i class="fas fa-earth-americas" aria-hidden="true"></i> Cooperación internacional</span>
+                                <time datetime="2025-09-23">23 de septiembre de 2025</time>
+                            </div>
+                            <h3 class="nt-noticia-titulo" id="piri-ufro-lazos-internacionales-titulo">PIRI UFRO fortalece lazos internacionales con universidad colombiana</h3>
+                            <p class="nt-resumen">Entre el 8 y el 12 de septiembre se realizó la visita de académicos de la Universidad de Nariño, Colombia, a la UFRO, para reactivar el convenio vigente entre ambas casas de estudios.</p>
+                            <p class="nt-aviso-testimonios"><i class="fas fa-quote-left" aria-hidden="true"></i> Incluye los testimonios de Miriam Quitiaquez y Gerardo Bravo</p>
+                            <div class="nt-completa">
+                                <div class="nt-completa-interior">
+                                    <p>Los académicos <strong>Gerardo Bravo y Miriam Quitiaquez</strong> realizaron una fructífera visita a la U. de La Frontera con el objetivo de retomar el trabajo que se había desplegado hace más de diez años con el PIRI. En el marco de su apretada agenda sostuvieron una reunión protocolar con el decano de la Facultad de Medicina, <strong>Dr. Wilfried Diener</strong>, y se interiorizaron del trabajo de nuestra universidad.</p>
+
+                                    <p>La Universidad de Nariño mantiene vigente un convenio de cooperación internacional con la UFRO y que es el marco para el trabajo específico que se dará nuevamente con el PIRI, cuyo coordinador y académico del departamento de Salud Pública, <strong>Marcelo Carrasco</strong>, explicó: <em>"El PIRI es la presencia permanente en el territorio, pero siendo parte de éste y eso es lo que los académicos de Nariño conocieron, con la idea de que en el 2026 puedan volver a implementarlo en Colombia y haya movilidad con reciprocidad entre nuestras universidades".</em></p>
+
+                                    <p>Esta movilidad permitirá recibir estudiantes de Colombia en el PIRI que contarán con el apoyo de la UFRO y que estudiantes chilenos puedan ir a la sede de Ipiales de la U. de Nariño, casa de estudios que en la actualidad tiene 18 mil estudiantes y su sede principal está en la ciudad de Pasto.</p>
+
+                                    <blockquote class="nt-testimonio">
+                                        <p>Esperamos retomar el proceso con el convenio marco entre ambas universidades y un convenio específico para la sede Ipiales. Ha sido una experiencia reconfortante ya que es muy interesante vernos como pares y hacer un intercambio. Estamos preparados para la reciprocidad en el proceso PIRI y en otras facultades.</p>
+                                        <cite>— Miriam Quitiaquez, docente del departamento de Comercio Internacional y Mercadeo</cite>
+                                    </blockquote>
+
+                                    <blockquote class="nt-testimonio">
+                                        <p>Suscribimos un convenio marco entre las dos universidades que nos permite darle continuidad al proceso anterior. El PIRI se ha convertido en un embajador de la UFRO y es un ejercicio que pretendemos replicar ya que compartimos características entre las universidades, pero también problemáticas latinoamericanas que como universidades podríamos resolver o plantear alternativas.</p>
+                                        <cite>— Gerardo Bravo, coordinador de la sede Ipiales</cite>
+                                    </blockquote>
+
+                                    <p>Para los académicos de Colombia y de la UFRO, en los <strong>34 años del PIRI</strong>, esta alianza significa un nuevo paso en su consolidación como embajador internacional, modelo de trabajo para el país y el extranjero, paradigma de universidad que prioriza la formación en términos de formación y valores, y un actor universitario de presencia real en diversos territorios.</p>
+
+                                    <p><em>"Esperamos volver a implementar el PIRI en nuestra universidad desde el 2026, nuestra sede se ha preparado para retomar el trabajo y comenzar con la movilidad estudiantil"</em>, cerraron los académicos colombianos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
+
+        <!-- Visor de fotos ampliadas -->
+        <dialog class="nt-visor" aria-label="Foto ampliada">
+            <figure class="nt-visor-figura">
+                <img class="nt-visor-imagen" alt="">
+                <figcaption class="nt-visor-leyenda"></figcaption>
+            </figure>
+            <button type="button" class="nt-visor-cerrar" aria-label="Cerrar foto ampliada"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+        </dialog>
+
+        <!-- Aviso breve (por ejemplo, "Enlace copiado") -->
+        <p class="nt-aviso" role="status" aria-live="polite"></p>
     </section>
 
-    <!-- ===== PRÓXIMOS EVENTOS (mini sección) ===== -->
-    <section class="proximos-eventos">
-        <div class="contenedor">
-            <div class="eventos-preview">
-                <div class="evento-preview-card">
-                    <i class="fas fa-calendar-star"></i>
-                    <h4>Próximamente</h4>
-                    <p>Más noticias sobre movilidad estudiantil y actividades del programa</p>
-                </div>
-                
-                <div class="evento-preview-card">
-                    <i class="fas fa-newspaper"></i>
-                    <h4>Boletín informativo</h4>
-                    <p>Suscríbete para recibir actualizaciones del PIRI</p>
-                    <a href="#" class="btn-suscribir">SUSCRIBIRSE</a>
-                </div>
-            </div>
-        </div>
-    </section>
+</main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer-principal">
@@ -296,21 +370,7 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        // Slider del hero
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide-noticias');
-            let currentSlide = 0;
-            
-            if (slides.length > 0) {
-                setInterval(() => {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }, 5000);
-            }
-        });
-    </script>
+    <script src="js/noticias.js"></script>
     <!-- ===== BOTÓN DE MODO OSCURO/CLARO ===== -->
 <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
     <i class="fas fa-moon"></i>

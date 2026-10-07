@@ -964,6 +964,71 @@ body:has(.ini-visor[open]) {
     line-height: 1.6;
 }
 
+/* El título enlaza a la noticia completa en noticias.html; su ::after cubre toda la tarjeta */
+.ini-noticia {
+    position: relative;
+}
+
+.ini-noticia-enlace {
+    color: inherit;
+    text-decoration: none;
+}
+
+.ini-noticia-enlace::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 12px;
+}
+
+.ini-noticia:hover .ini-noticia-enlace {
+    text-decoration: underline;
+    text-decoration-color: var(--verde-brillante);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+/* En la principal el texto no debe ser el contenedor del enlace: la foto pasa al fondo de la tarjeta */
+.ini-noticia--principal {
+    isolation: isolate;
+}
+
+.ini-noticia--principal .ini-noticia-foto {
+    z-index: -1;
+}
+
+.ini-seccion .ini-noticia--principal .ini-noticia-texto {
+    position: static;
+}
+
+.ini-noticia .ini-noticia-foto img {
+    transition: transform 0.5s ease;
+}
+
+.ini-noticia:hover .ini-noticia-foto img {
+    transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ini-noticia .ini-noticia-foto img {
+        transition: none;
+    }
+
+    .ini-noticia:hover .ini-noticia-foto img {
+        transform: none;
+    }
+}
+
+.pagina-inicio .ini-noticia-enlace:focus-visible {
+    outline: none !important;
+}
+
+.pagina-inicio .ini-noticia-enlace:focus-visible::after {
+    outline: 3px solid var(--verde-brillante);
+    outline-offset: 3px;
+}
+
 /* Principal: foto completa con el texto encima */
 .ini-noticia--principal {
     grid-row: span 2;

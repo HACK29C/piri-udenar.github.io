@@ -1,0 +1,1275 @@
+/* =========================================================
+   PÁGINA DE NOTICIAS (noticias.html)
+   El hero con el carrusel sigue en estilos.css (.hero-noticias).
+   Aquí va todo lo de la sección de noticias. Usa las variables
+   de :root de estilos.css; en modo oscuro esas variables cambian
+   de valor (por ejemplo, --verde-piri pasa a ser casi negro), por
+   eso los colores pasan por las variables --nt-* de abajo, que
+   tienen su ajuste en body.dark-mode al final.
+   Todas las clases llevan el prefijo nt- para no chocar con
+   estilos.css.
+
+   Distribución:
+   - "Todas" sin noticias abiertas: mosaico de 12 columnas; cada
+     noticia ocupa las columnas de su data-columnas.
+   - Con un filtro activo o una noticia abierta: lista de ancho
+     completo (.nt-lista--lineal), cómoda para leer.
+   - Cada tarjeta decide sola si va con la foto arriba o al lado
+     según su propio ancho (container queries).
+   ========================================================= */
+
+.pagina-noticias {
+    --nt-fondo: var(--gris-claro);
+    --nt-tarjeta: #FFFFFF;
+    --nt-titulo: var(--verde-piri);
+    --nt-texto: var(--verde-oscuro);
+    --nt-suave: rgba(37, 86, 51, 0.78);
+    --nt-borde: rgba(50, 108, 84, 0.16);
+    --nt-acento: var(--verde-brillante);
+    --nt-acento-texto: var(--verde-piri);
+    --nt-boton: var(--verde-piri);
+    --nt-boton-texto: #FFFFFF;
+    --nt-sombra: 0 1px 2px rgba(22, 48, 31, 0.06), 0 14px 34px rgba(22, 48, 31, 0.08);
+    --nt-sombra-hover: 0 2px 4px rgba(22, 48, 31, 0.08), 0 22px 48px rgba(22, 48, 31, 0.14);
+    --nt-foto-fondo: #DDE5DF;
+    --nt-radio: 14px;
+    --nt-duracion: 0.55s;
+    --nt-curva: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --nt-ancho: 1200px;
+}
+
+/* Colores por categoría (texto pequeño: todos superan 4.5:1 sobre blanco) */
+.nt-noticia[data-categoria="eventos"] { --nt-cat: #9A5A08; }
+.nt-noticia[data-categoria="proyectos"] { --nt-cat: #1B6680; }
+.nt-noticia[data-categoria="salud"] { --nt-cat: #A1214F; }
+.nt-noticia[data-categoria="cooperacion"] { --nt-cat: #2B3FA8; }
+
+.pagina-noticias main {
+    display: block;
+}
+
+/* =========================================================
+   SECCIÓN Y CABECERA
+   ========================================================= */
+.nt-seccion {
+    position: relative;
+    padding-block: clamp(64px, 9vw, 112px);
+    background-color: var(--nt-fondo);
+    color: var(--nt-texto);
+}
+
+.nt-contenedor {
+    max-width: var(--nt-ancho);
+    margin: 0 auto;
+    padding-inline: clamp(20px, 5vw, 40px);
+}
+
+.nt-cabecera {
+    margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.nt-titulo {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--nt-titulo);
+    margin-bottom: 0.4em;
+}
+
+.nt-intro {
+    font-size: 1.1rem;
+    max-width: 38rem;
+    color: var(--nt-suave);
+}
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+.nt-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nt-filtros[hidden] {
+    display: none;
+}
+
+.nt-filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    min-height: 44px;
+    padding: 0.55rem 1.1rem;
+    border: 2px solid var(--nt-borde);
+    border-radius: 999px;
+    background: var(--nt-tarjeta);
+    color: var(--nt-texto);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.nt-filtro:hover {
+    border-color: var(--nt-acento);
+}
+
+.nt-filtro:active {
+    transform: scale(0.96);
+}
+
+.nt-filtro[aria-pressed="true"] {
+    background: var(--nt-boton);
+    border-color: var(--nt-boton);
+    color: var(--nt-boton-texto);
+}
+
+.nt-filtro-cuenta {
+    display: inline-grid;
+    place-items: center;
+    min-width: 1.6em;
+    height: 1.6em;
+    padding: 0 0.35em;
+    border-radius: 999px;
+    background: var(--nt-borde);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.nt-filtro[aria-pressed="true"] .nt-filtro-cuenta {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.nt-resultado {
+    min-height: 1.5em;
+    margin: 14px 0 clamp(20px, 3vw, 28px);
+    font-size: 0.9rem;
+    color: var(--nt-suave);
+}
+
+/* =========================================================
+   LISTA: MOSAICO Y LISTA LINEAL
+   ========================================================= */
+.nt-lista {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(20px, 2.5vw, 32px);
+    align-items: stretch;
+}
+
+.nt-noticia {
+    grid-column: span 6;
+    min-width: 0;
+    container: nt-noticia / inline-size;
+    scroll-margin-top: 110px; /* alto de la barra de navegación fija */
+}
+
+.nt-noticia[hidden] {
+    display: none;
+}
+
+.nt-noticia[data-columnas="4"] { grid-column: span 4; }
+.nt-noticia[data-columnas="5"] { grid-column: span 5; }
+.nt-noticia[data-columnas="7"] { grid-column: span 7; }
+.nt-noticia[data-columnas="8"] { grid-column: span 8; }
+
+.nt-destacada,
+.nt-lista--lineal .nt-noticia {
+    grid-column: 1 / -1;
+}
+
+.nt-noticia:focus {
+    outline: none;
+}
+
+/* Aparición suave al bajar (solo si js/noticias.js la activa) */
+.nt-lista--revelar .nt-noticia {
+    transition: opacity 0.7s ease, transform 0.7s var(--nt-curva);
+}
+
+.nt-lista--revelar .nt-noticia:not(.nt-visible) {
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+/* =========================================================
+   TARJETA (por defecto: foto arriba, texto abajo)
+   ========================================================= */
+.nt-tarjeta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: var(--nt-radio);
+    background: var(--nt-tarjeta);
+    box-shadow: var(--nt-sombra);
+    overflow: hidden;
+    overflow: clip; /* recorta las esquinas sin romper la foto fija (sticky) */
+    transition: box-shadow 0.35s ease, transform 0.35s var(--nt-curva);
+}
+
+@media (hover: hover) {
+    .nt-noticia:not(.nt-noticia--abierta) .nt-tarjeta:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--nt-sombra-hover);
+    }
+}
+
+.nt-cuerpo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: clamp(20px, 2.4vw, 30px);
+}
+
+.nt-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
+    margin-bottom: 0.75rem;
+}
+
+.nt-categoria {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0.3em 0.75em;
+    border-radius: 999px;
+    color: var(--nt-cat, var(--nt-acento-texto));
+    background: rgba(0, 0, 0, 0.04);
+    background: color-mix(in srgb, var(--nt-cat, var(--nt-acento-texto)) 11%, transparent);
+    font-family: var(--fuente-titulos);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.nt-meta time {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--nt-suave);
+}
+
+.nt-noticia-titulo {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.4rem);
+    line-height: 1.25;
+    color: var(--nt-titulo);
+    margin-bottom: 0.6rem;
+    text-wrap: balance;
+}
+
+.nt-resumen {
+    line-height: 1.65;
+}
+
+.nt-cuerpo p {
+    line-height: 1.7;
+}
+
+.nt-aviso-testimonios {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--nt-acento-texto);
+}
+
+.nt-aviso-testimonios i {
+    color: var(--nt-acento);
+}
+
+/* =========================================================
+   FOTOS: siempre completas, sobre la misma foto difuminada
+   ========================================================= */
+.nt-foto {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    background: var(--nt-foto-fondo);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Afiches verticales: marco más alto para que se lean */
+.nt-foto--afiche {
+    aspect-ratio: 4 / 5;
+}
+
+/* Copia difuminada que js/noticias.js pone detrás de la foto */
+.nt-foto-fondo {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.25);
+    filter: blur(22px) saturate(1.15) brightness(0.88);
+    pointer-events: none;
+}
+
+.nt-foto > img:not(.nt-foto-fondo),
+.nt-foto-boton > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.6s var(--nt-curva);
+}
+
+.nt-foto-boton {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+@media (hover: hover) {
+    .nt-foto-boton:hover > img {
+        transform: scale(1.03);
+    }
+}
+
+/* Lupa que aparece al pasar el ratón o con el foco del teclado */
+.nt-foto-lupa {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(14, 34, 21, 0.72);
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+}
+
+.nt-foto-boton:hover .nt-foto-lupa,
+.nt-foto-boton:focus-visible .nt-foto-lupa {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* En pantallas táctiles la lupa siempre se ve, para que se sepa que la foto se amplía */
+@media (hover: none) {
+    .nt-foto-lupa {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.nt-foto-boton:focus-visible {
+    outline: 3px solid var(--verde-brillante) !important;
+    outline-offset: -3px;
+}
+
+/* =========================================================
+   TARJETAS ANCHAS
+   - Desde 560 px: la foto de arriba pasa a formato panorámico.
+   - Desde 760 px (lista de ancho completo, tableta): foto al lado.
+   - Guardianes (foto vertical) va con la foto al lado desde 560 px.
+   ========================================================= */
+@container nt-noticia (min-width: 560px) {
+    /* :where() no suma especificidad: así la regla de 760 px puede quitar el formato panorámico */
+    .nt-noticia:not(.nt-importante) .nt-foto:where(:not(.nt-foto--afiche, .nt-foto--natural)) {
+        aspect-ratio: 16 / 10;
+    }
+
+    .nt-noticia:not(.nt-destacada) .nt-noticia-titulo {
+        font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.75rem);
+    }
+
+    .nt-importante .nt-tarjeta {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .nt-importante .nt-foto {
+        aspect-ratio: auto;
+        min-height: 320px;
+        height: 100%;
+    }
+}
+
+@container nt-noticia (min-width: 760px) {
+    .nt-noticia:not(.nt-destacada) .nt-tarjeta {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    }
+
+    .nt-noticia:not(.nt-destacada) .nt-tarjeta > .nt-foto {
+        aspect-ratio: auto;
+        min-height: 340px;
+        height: 100%;
+    }
+
+    .nt-importante .nt-tarjeta {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    /* Al leer, la foto acompaña al texto mientras se baja */
+    .nt-noticia--abierta:not(.nt-destacada) .nt-tarjeta > .nt-foto {
+        position: sticky;
+        top: 96px;
+        align-self: start;
+        height: min(78vh, 620px);
+    }
+}
+
+/* Guardianes abierta en una tarjeta de 560 a 760 px: también foto fija */
+@container nt-noticia (min-width: 560px) and (max-width: 759.98px) {
+    .nt-importante.nt-noticia--abierta .nt-foto {
+        position: sticky;
+        top: 96px;
+        align-self: start;
+        height: min(78vh, 620px);
+    }
+}
+
+/* =========================================================
+   LEER NOTICIA COMPLETA
+   Sin JS el texto completo se ve siempre. Con JS (.nt-js en
+   <html>) se recoge y se despliega animando el alto con
+   grid-template-rows de 0fr a 1fr.
+   ========================================================= */
+.nt-completa-interior > * + * {
+    margin-top: 1em;
+}
+
+/* Margen y no padding: al recogerse, el padding seguiría ocupando alto */
+.nt-completa-interior > :first-child {
+    margin-top: 1rem;
+}
+
+.nt-js .nt-completa {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--nt-duracion) var(--nt-curva);
+}
+
+.nt-js .nt-completa-interior {
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear var(--nt-duracion);
+}
+
+.nt-js .nt-noticia--expandida .nt-completa {
+    grid-template-rows: 1fr;
+}
+
+.nt-js .nt-noticia--expandida .nt-completa-interior {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.45s ease 0.12s, visibility 0s;
+}
+
+/* Contenido del texto completo */
+.nt-datos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    font-weight: 600;
+}
+
+.nt-datos li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    line-height: 1.5;
+}
+
+.nt-datos i {
+    width: 1.2em;
+    margin-top: 0.2em;
+    text-align: center;
+    color: var(--nt-cat, var(--nt-acento-texto));
+}
+
+.nt-lema {
+    padding-left: 1rem;
+    border-left: 4px solid #D98A1F;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+    line-height: 1.35 !important;
+}
+
+.nt-invitan {
+    padding-top: 1rem;
+    border-top: 1px solid var(--nt-borde);
+    font-size: 0.9rem;
+}
+
+.nt-idea {
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--nt-cat);
+    background: rgba(0, 0, 0, 0.03);
+    background: color-mix(in srgb, var(--nt-cat) 8%, transparent);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.4 !important;
+    color: var(--nt-titulo);
+}
+
+.nt-ejes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.nt-ejes li {
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.nt-ejes i {
+    color: var(--verde-brillante);
+    font-size: 1.1rem;
+}
+
+.nt-sellos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nt-sellos li {
+    padding: 0.35em 0.85em;
+    border-radius: 999px;
+    border: 1px solid var(--nt-borde);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--nt-acento-texto);
+}
+
+.nt-sellos li:first-child {
+    background: var(--nt-boton);
+    border-color: var(--nt-boton);
+    color: var(--nt-boton-texto);
+}
+
+.nt-testimonio {
+    position: relative;
+    margin: 1.5em 0 0;
+    padding: 1.25rem 1.25rem 1.25rem 3.25rem;
+    border-radius: 12px;
+    background: var(--nt-fondo);
+    border-left: 4px solid var(--nt-acento);
+}
+
+.nt-testimonio::before {
+    content: '\201C';
+    position: absolute;
+    left: 0.9rem;
+    top: 0.35rem;
+    font-family: Georgia, serif;
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--nt-acento);
+}
+
+.nt-testimonio p {
+    font-style: italic;
+}
+
+.nt-testimonio cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-style: normal;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--nt-acento-texto);
+}
+
+/* =========================================================
+   ACCIONES: LEER Y COMPARTIR (las crea js/noticias.js)
+   ========================================================= */
+.nt-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 18px;
+    margin-top: auto;
+    padding-top: 1.25rem;
+}
+
+.nt-leer {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    min-height: 44px;
+    padding: 0.55rem 1.2rem;
+    border: 2px solid var(--nt-boton);
+    border-radius: 999px;
+    background: var(--nt-boton);
+    color: var(--nt-boton-texto);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.nt-leer:hover {
+    background: transparent;
+    color: var(--nt-acento-texto);
+}
+
+.nt-leer i {
+    transition: transform var(--nt-duracion) var(--nt-curva);
+}
+
+.nt-leer[aria-expanded="true"] {
+    background: transparent;
+    color: var(--nt-acento-texto);
+}
+
+.nt-leer[aria-expanded="true"]:hover {
+    background: var(--nt-boton);
+    color: var(--nt-boton-texto);
+}
+
+.nt-leer[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.nt-compartir {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nt-compartir-etiqueta {
+    margin-right: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--nt-suave);
+}
+
+.nt-compartir-boton {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--nt-borde);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--nt-texto);
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.nt-compartir-boton:hover {
+    transform: translateY(-2px);
+    color: #FFFFFF;
+}
+
+.nt-compartir--whatsapp:hover {
+    background: #128C4B;
+    border-color: #128C4B;
+}
+
+.nt-compartir--facebook:hover {
+    background: #1877F2;
+    border-color: #1877F2;
+}
+
+.nt-compartir--copiar:hover,
+.nt-compartir--copiado {
+    background: var(--nt-boton);
+    border-color: var(--nt-boton);
+    color: var(--nt-boton-texto) !important;
+}
+
+/* Foco visible con teclado en toda la sección */
+.nt-seccion a:focus-visible,
+.nt-seccion button:focus-visible {
+    outline: 3px solid var(--verde-brillante) !important;
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   NOTICIA DESTACADA (La Minga, colores del afiche)
+   ========================================================= */
+.nt-destacada {
+    --nt-destacada-fondo: #F4E9D5;
+    --nt-destacada-texto: var(--cafe-territorio);
+    --nt-destacada-acento: var(--verde-piri);
+    --nt-destacada-linea: rgba(82, 48, 25, 0.2);
+    --nt-suave: rgba(82, 48, 25, 0.82);
+    --nt-borde: var(--nt-destacada-linea);
+    margin-bottom: clamp(8px, 2vw, 16px);
+}
+
+.nt-destacada .nt-tarjeta {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+    padding: clamp(20px, 4vw, 48px);
+    background: var(--nt-destacada-fondo);
+    color: var(--nt-destacada-texto);
+}
+
+.nt-destacada .nt-cuerpo {
+    padding: 0;
+}
+
+/* El afiche se muestra completo y a su tamaño natural */
+.nt-foto--natural {
+    aspect-ratio: auto;
+    width: 100%;
+    max-width: 440px;
+    justify-self: center;
+    background: none;
+    overflow: visible;
+}
+
+.nt-foto--natural .nt-foto-boton {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 18px 44px rgba(82, 48, 25, 0.28);
+}
+
+.nt-foto--natural > img,
+.nt-foto--natural .nt-foto-boton > img {
+    height: auto;
+    border-radius: 8px;
+}
+
+.nt-estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 1rem;
+    padding: 0.4em 0.95em;
+    border-radius: 999px;
+    background: var(--verde-piri);
+    color: #FFFFFF;
+    font-family: var(--fuente-titulos);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    align-self: flex-start;
+}
+
+.nt-estado[hidden] {
+    display: none;
+}
+
+.nt-estado::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--verde-brillante);
+    animation: nt-latido 1.8s ease-in-out infinite;
+}
+
+.nt-estado--realizado {
+    background: var(--nt-destacada-linea);
+    color: var(--nt-destacada-texto);
+}
+
+.nt-estado--realizado::before {
+    background: currentColor;
+    animation: none;
+}
+
+@keyframes nt-latido {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.nt-destacada .nt-noticia-titulo {
+    font-weight: 800;
+    font-size: clamp(2.6rem, 1.6rem + 3.6vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--nt-destacada-acento);
+    margin-bottom: 0;
+}
+
+.nt-destacada .nt-noticia-titulo span {
+    display: block;
+    margin-top: 0.45em;
+    font-size: clamp(1.1rem, 0.95rem + 0.6vw, 1.45rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0;
+    color: var(--nt-destacada-texto);
+}
+
+.nt-destacada .nt-lema {
+    margin: 1.5rem 0 1.5rem;
+}
+
+.nt-destacada .nt-datos i {
+    color: var(--nt-destacada-acento);
+}
+
+.nt-destacada .nt-leer {
+    --nt-boton: var(--verde-piri);
+}
+
+/* =========================================================
+   NOTICIA IMPORTANTE (Guardianes del Agua)
+   ========================================================= */
+.nt-importante,
+.nt-importante[data-categoria] {
+    --nt-titulo: #FFFFFF;
+    --nt-texto: rgba(255, 255, 255, 0.92);
+    --nt-suave: rgba(255, 255, 255, 0.8);
+    --nt-borde: rgba(255, 255, 255, 0.24);
+    --nt-acento-texto: #FFFFFF;
+    --nt-boton: var(--verde-brillante);
+    --nt-boton-texto: #16301F;
+    --nt-cat: #CFE59A;
+    --nt-foto-fondo: #0E2215;
+}
+
+.nt-importante .nt-tarjeta {
+    position: relative;
+    background:
+        radial-gradient(120% 90% at 100% 0%, rgba(159, 195, 60, 0.22) 0%, rgba(159, 195, 60, 0) 55%),
+        linear-gradient(150deg, #16301F 0%, #255633 100%);
+    color: var(--nt-texto);
+}
+
+.nt-importante .nt-noticia-titulo {
+    font-weight: 800;
+}
+
+.nt-importante .nt-categoria {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.nt-importante .nt-leer:hover,
+.nt-importante .nt-leer[aria-expanded="true"] {
+    color: #FFFFFF;
+}
+
+.nt-importante .nt-leer[aria-expanded="true"]:hover {
+    color: var(--nt-boton-texto);
+}
+
+.nt-importante .nt-compartir-boton {
+    color: #FFFFFF;
+}
+
+.nt-importante .nt-compartir--copiar:hover,
+.nt-importante .nt-compartir--copiado {
+    color: var(--nt-boton-texto) !important;
+}
+
+.nt-sello {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 0.45em;
+    margin-bottom: 1rem;
+    padding: 0.4em 0.9em;
+    border-radius: 999px;
+    background: var(--verde-brillante);
+    color: #16301F;
+    font-family: var(--fuente-titulos);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 0 0 0 rgba(159, 195, 60, 0.5);
+    animation: nt-pulso 2.6s ease-out infinite;
+}
+
+@keyframes nt-pulso {
+    0% { box-shadow: 0 0 0 0 rgba(159, 195, 60, 0.5); }
+    70%, 100% { box-shadow: 0 0 0 12px rgba(159, 195, 60, 0); }
+}
+
+/* =========================================================
+   VISOR DE FOTOS AMPLIADAS
+   ========================================================= */
+.nt-visor {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+body:has(.nt-visor[open]) {
+    overflow: hidden;
+}
+
+.nt-visor[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: nt-aparecer 0.3s ease;
+}
+
+.nt-visor::backdrop {
+    background: rgba(12, 24, 16, 0.94);
+}
+
+@keyframes nt-aparecer {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: none; }
+}
+
+.nt-visor-figura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 64px 16px 16px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.nt-visor-imagen {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(92vw, 1600px);
+    max-height: calc(100dvh - 140px);
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.nt-visor-leyenda {
+    max-width: 60ch;
+    color: rgba(255, 255, 255, 0.88);
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.nt-visor-cerrar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.nt-visor-cerrar:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.nt-visor-cerrar:focus-visible {
+    outline: 3px solid var(--verde-brillante);
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   AVISO BREVE ("Enlace copiado")
+   ========================================================= */
+.nt-aviso {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    z-index: 1100;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    background: #16301F;
+    color: #FFFFFF;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translate(-50%, 16px);
+    transition: opacity 0.3s ease, transform 0.3s var(--nt-curva);
+    pointer-events: none;
+}
+
+.nt-aviso:empty {
+    padding: 0;
+}
+
+.nt-aviso--visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* =========================================================
+   MODO OSCURO
+   ========================================================= */
+body.dark-mode.pagina-noticias {
+    --nt-fondo: #1a1a1a;
+    --nt-tarjeta: #262626;
+    --nt-titulo: #F0F0F0;
+    --nt-texto: #e0e0e0;
+    --nt-suave: rgba(224, 224, 224, 0.75);
+    --nt-borde: rgba(224, 224, 224, 0.16);
+    --nt-acento: #b5d36a;
+    --nt-acento-texto: #b5d36a;
+    --nt-boton: #b5d36a;
+    --nt-boton-texto: #1a1a1a;
+    --nt-sombra: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 34px rgba(0, 0, 0, 0.3);
+    --nt-sombra-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 22px 48px rgba(0, 0, 0, 0.45);
+    --nt-foto-fondo: #111111;
+}
+
+body.dark-mode .nt-noticia[data-categoria="eventos"] { --nt-cat: #F2B866; }
+body.dark-mode .nt-noticia[data-categoria="proyectos"] { --nt-cat: #7FCBE6; }
+body.dark-mode .nt-noticia[data-categoria="salud"] { --nt-cat: #F49BBE; }
+body.dark-mode .nt-noticia[data-categoria="cooperacion"] { --nt-cat: #A9B6FF; }
+
+body.dark-mode .nt-destacada {
+    --nt-destacada-fondo: #2d2d2d;
+    --nt-destacada-texto: #e0e0e0;
+    --nt-destacada-acento: #b5d36a;
+    --nt-destacada-linea: rgba(224, 224, 224, 0.18);
+    --nt-suave: rgba(224, 224, 224, 0.75);
+}
+
+body.dark-mode .nt-destacada .nt-leer {
+    --nt-boton: #b5d36a;
+}
+
+body.dark-mode .nt-estado {
+    background: #b5d36a;
+    color: #1a1a1a;
+}
+
+body.dark-mode .nt-estado::before {
+    background: #1a1a1a;
+}
+
+body.dark-mode .nt-estado--realizado {
+    background: rgba(224, 224, 224, 0.14);
+    color: #e0e0e0;
+}
+
+body.dark-mode .nt-estado--realizado::before {
+    background: currentColor;
+}
+
+body.dark-mode .nt-foto--natural .nt-foto-boton {
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+}
+
+/* La tarjeta verde se distingue del fondo oscuro con un borde suave */
+body.dark-mode .nt-importante,
+body.dark-mode .nt-importante[data-categoria] {
+    --nt-titulo: #FFFFFF;
+    --nt-texto: rgba(255, 255, 255, 0.92);
+    --nt-acento-texto: #FFFFFF;
+    --nt-boton: #b5d36a;
+    --nt-boton-texto: #16301F;
+    --nt-cat: #CFE59A;
+}
+
+body.dark-mode .nt-importante .nt-tarjeta {
+    box-shadow: inset 0 0 0 1px rgba(181, 211, 106, 0.28), var(--nt-sombra);
+}
+
+body.dark-mode .nt-sello {
+    background: #b5d36a;
+}
+
+body.dark-mode .nt-testimonio {
+    background: #1f1f1f;
+}
+
+body.dark-mode .nt-filtro[aria-pressed="true"] .nt-filtro-cuenta {
+    background: rgba(0, 0, 0, 0.18);
+}
+
+body.dark-mode .nt-aviso {
+    background: #b5d36a;
+    color: #1a1a1a;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* Tableta: dos columnas; las noticias anchas ocupan toda la fila */
+@media (max-width: 900px) {
+    .nt-noticia,
+    .nt-noticia[data-columnas="4"],
+    .nt-noticia[data-columnas="5"],
+    .nt-noticia[data-columnas="8"] {
+        grid-column: span 6;
+    }
+
+    .nt-noticia[data-columnas="7"],
+    .nt-destacada,
+    .nt-lista--lineal .nt-noticia {
+        grid-column: 1 / -1;
+    }
+
+    .nt-destacada .nt-tarjeta {
+        grid-template-columns: 1fr;
+    }
+
+    /* Primero la etiqueta y los datos, luego el afiche (como en la portada) */
+    .nt-destacada .nt-foto--natural {
+        order: 2;
+        max-width: 360px;
+    }
+}
+
+/* Celular: una sola columna */
+@media (max-width: 600px) {
+    .nt-lista {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nt-noticia,
+    .nt-noticia[data-columnas] {
+        grid-column: 1 / -1;
+    }
+
+    /* Los filtros se deslizan de lado en vez de ocupar varias filas */
+    .nt-filtros {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin-inline: -4px;
+        padding: 4px;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+    }
+
+    .nt-filtros::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nt-filtro {
+        flex: none;
+        scroll-snap-align: start;
+    }
+
+    .nt-acciones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nt-leer {
+        justify-content: center;
+    }
+
+    .nt-compartir {
+        justify-content: center;
+    }
+
+    .nt-aviso {
+        bottom: 88px; /* por encima del botón de modo oscuro */
+    }
+}
+
+/* estilos.css ya añade 12px de margen lateral a cada <section> en pantallas pequeñas */
+@media (max-width: 480px) {
+    .nt-contenedor {
+        padding-inline: 4px;
+    }
+
+    .nt-destacada .nt-tarjeta {
+        padding: 20px 18px 24px;
+    }
+
+    .nt-cuerpo {
+        padding: 18px;
+    }
+}
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO: sin animaciones
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    .pagina-noticias {
+        --nt-duracion: 0s;
+    }
+
+    .nt-tarjeta,
+    .nt-filtro,
+    .nt-leer,
+    .nt-leer i,
+    .nt-compartir-boton,
+    .nt-foto-lupa,
+    .nt-foto > img,
+    .nt-foto-boton > img,
+    .nt-aviso,
+    .nt-lista--revelar .nt-noticia,
+    .nt-js .nt-completa,
+    .nt-js .nt-completa-interior,
+    .nt-js .nt-noticia--expandida .nt-completa-interior {
+        transition: none;
+    }
+
+    .nt-estado::before,
+    .nt-sello,
+    .nt-visor[open] {
+        animation: none;
+    }
+
+    .nt-noticia .nt-tarjeta:hover,
+    .nt-foto-boton:hover > img,
+    .nt-compartir-boton:hover,
+    .nt-filtro:active {
+        transform: none !important;
+    }
+}
